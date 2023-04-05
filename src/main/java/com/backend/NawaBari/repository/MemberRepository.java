@@ -14,7 +14,7 @@ import java.util.List;
 public class MemberRepository {
 
     @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
 
     //회원저장
     @Transactional
@@ -34,10 +34,10 @@ public class MemberRepository {
                 .getSingleResult();
     }
 
-    //이름으로 회원찾기
-    public List<Member> findByName(String name) {
-        return em.createQuery("select m from Member m where m.name = :name", Member.class)
-                .setParameter("name", name)
+    //카카오 닉네임으로 회원찾기
+    public List<Member> findByName(String profile_nickname) {
+        return em.createQuery("select m from Member m where m.profile_nickname = :profile_nickname", Member.class)
+                .setParameter("name", profile_nickname)
                 .getResultList();
     }
 

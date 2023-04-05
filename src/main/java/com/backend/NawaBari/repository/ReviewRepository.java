@@ -44,4 +44,5 @@ public class ReviewRepository {
                 .getResultList();
     }
 
+    //리뷰의 한줄평만 조회(필요한지 모름)
 }

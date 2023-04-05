@@ -6,6 +6,8 @@ import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDateTime;
+
 import static jakarta.persistence.FetchType.*;
 
 @Entity
@@ -25,4 +27,12 @@ public class MemberZone {
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
+    private LocalDateTime expirationDate; //구간설정 만료기간
+
+    @Builder
+    public MemberZone(Member member, Zone zone, LocalDateTime expirationDate) {
+        this.member = member;
+        this.zone = zone;
+        this.expirationDate = expirationDate;
+    }
 }

@@ -29,7 +29,7 @@ public class Member extends Base{
 
     private String age;
 
-    @OneToMany(mappedBy = "member")
+    @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberZone> memberZones = new ArrayList<>();
 
     @OneToMany(mappedBy = "writer")

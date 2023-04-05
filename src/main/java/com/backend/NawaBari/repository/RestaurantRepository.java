@@ -15,8 +15,9 @@ import java.util.List;
 public class RestaurantRepository {
 
     @PersistenceContext
-    private EntityManager em;
+    private final EntityManager em;
 
+    //레스토랑 등록
     @Transactional
     public void save(Restaurant restaurant) {
         em.persist(restaurant);

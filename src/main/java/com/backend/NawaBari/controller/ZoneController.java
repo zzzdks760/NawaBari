@@ -12,11 +12,10 @@ import java.util.List;
 @RequestMapping("/zone")
 @RequiredArgsConstructor
 public class ZoneController {
-
-    private final ZoneService zoneService;
+/*    private final ZoneService zoneService;
 
     @GetMapping("/save")
     public void saveZone() throws IOException {
         zoneService.SaveData();
-    }
+    }*/
 }

@@ -19,11 +19,6 @@ public class ZoneRepository {
     @PersistenceContext
     private final EntityManager em;
 
-    //구역저장
-    @Transactional
-    public void save(Zone zone) {
-        em.persist(zone);
-    }
 
     //아이디로 행정구역조회
     public Zone findOne(Long zone_id) {
@@ -31,12 +26,20 @@ public class ZoneRepository {
     }
 
     //구이름으로 행정구역찾기
-    public List<Zone> findByName(String cig_name) {
-        return em.createQuery("select z From Zone z where z.cig_name = :cig_name", Zone.class)
-                .setParameter("cig_name", cig_name)
+    public List<Zone> findByGu(String gu) {
+        return em.createQuery("select z From Zone z where z.gu = :gu", Zone.class)
+                .setParameter("gu", gu)
                 .getResultList();
     }
 
+    //동이름으로 행정구역 찾기
+    public List<Zone> findByDong(String dong) {
+        return em.createQuery("select z from Zone z where z.dong = :dong", Zone.class)
+                .setParameter("dong", dong)
+                .getResultList();
+    }
+
+    //서울특별시 행정구역 코드, 구, 동, 위도, 경도 저장
     @Transactional
     public void saveAll(List<Zone> zoneList) {
         for (Zone zone : zoneList) {

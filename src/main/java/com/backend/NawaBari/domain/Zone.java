@@ -14,7 +14,7 @@ import java.util.List;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class Zone extends Base{
+public class Zone {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "zone_id")
     private Long id;

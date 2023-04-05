@@ -24,10 +24,10 @@ public class ZoneService {
     private final JsonFileLoader jsonFileLoader;
     private final ZoneRepository zoneRepository;
 
-    public void SaveData() throws IOException {
+/*    public void SaveData() throws IOException {
 
         List<Zone> zoneList = jsonFileLoader.loadJsonData();
         zoneRepository.saveAll(zoneList);
-    }
+    }*/
 
 }
