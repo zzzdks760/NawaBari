@@ -45,4 +45,5 @@ public class MemberZoneService {
 
         memberZoneRepository.save(memberZone);
     }
+
 }

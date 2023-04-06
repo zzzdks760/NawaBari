@@ -13,7 +13,7 @@ import static jakarta.persistence.FetchType.*;
 @Entity
 @Getter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
-public class MemberZone {
+public class MemberZone extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "member_zone_id")
@@ -27,12 +27,10 @@ public class MemberZone {
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
-    private LocalDateTime expirationDate; //구간설정 만료기간
 
     @Builder
-    public MemberZone(Member member, Zone zone, LocalDateTime expirationDate) {
+    public MemberZone(Member member, Zone zone) {
         this.member = member;
         this.zone = zone;
-        this.expirationDate = expirationDate;
     }
 }
