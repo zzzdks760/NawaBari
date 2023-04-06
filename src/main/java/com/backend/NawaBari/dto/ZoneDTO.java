@@ -14,6 +14,7 @@ import java.util.stream.Collectors;
 @AllArgsConstructor
 public class ZoneDTO {
 
+    private Long id;
     private Long cig_cd;
     private String gu;
     private String dong;
