@@ -19,6 +19,10 @@ public class ZoneRepository {
     @PersistenceContext
     private final EntityManager em;
 
+    public void save(Zone zone) {
+        em.persist(zone);
+    }
+
 
     //아이디로 행정구역조회
     public Zone findOne(Long zone_id) {
