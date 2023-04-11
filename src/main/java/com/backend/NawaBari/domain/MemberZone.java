@@ -16,7 +16,7 @@ import static jakarta.persistence.FetchType.*;
 public class MemberZone extends Base{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "member_zone_id")
+    @Column(name = "memberzone_id")
     private Long id;
 
     @ManyToOne(fetch = LAZY)
@@ -27,10 +27,10 @@ public class MemberZone extends Base{
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
-
     @Builder
-    public MemberZone(Member member, Zone zone) {
+    public MemberZone(Long id, Member member, Zone zone) {
         this.member = member;
         this.zone = zone;
     }
 }
+
