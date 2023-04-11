@@ -33,4 +33,16 @@ public class ZoneDTO {
                         .build())
                 .collect(Collectors.toList());
     }
+
+    public static ZoneDTO toZoneDTO(Zone findZone) {
+        ZoneDTO zoneDTO = new ZoneDTO();
+        zoneDTO.setId(findZone.getId());
+        zoneDTO.setCig_cd(findZone.getCig_cd());
+        zoneDTO.setGu(findZone.getGu());
+        zoneDTO.setDong(findZone.getDong());
+        zoneDTO.setLat(findZone.getLat());
+        zoneDTO.setLng(findZone.getLng());
+
+        return zoneDTO;
+    }
 }
