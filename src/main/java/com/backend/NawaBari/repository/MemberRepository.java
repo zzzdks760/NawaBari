@@ -23,10 +23,9 @@ public class MemberRepository {
     }
 
     //아이디로 회원찾기
-    public Member findOne(Long member_id) {
-        return em.find(Member.class, member_id);
+    public Member findOne(Long id) {
+        return em.find(Member.class, id);
     }
-
     //카카오 아이디로 회원 찾기
     public Member findByKakao_Id(String kakao_id) {
         return em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
