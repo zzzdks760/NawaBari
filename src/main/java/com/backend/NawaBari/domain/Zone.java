@@ -3,16 +3,13 @@ package com.backend.NawaBari.domain;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ZoneDTO;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
 
 @Entity
-@Getter
+@Getter@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Zone {
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -40,11 +37,24 @@ public class Zone {
     private List<Restaurant> restaurants = new ArrayList<>();
 
     @Builder
-    public Zone(Long cig_cd, String gu, String dong, Double lat, Double lng) {
+    public Zone(Long id, Long cig_cd, String gu, String dong, Double lat, Double lng) {
+        this.id = id;
         this.cig_cd = cig_cd;
         this.gu = gu;
         this.dong = dong;
         this.lat = lat;
         this.lng = lng;
+    }
+
+    public static Zone toZoneEntity(ZoneDTO zoneDTO) {
+        Zone zone = new Zone();
+        zone.setId(zoneDTO.getId());
+        zone.setCig_cd(zoneDTO.getCig_cd());
+        zone.setGu(zoneDTO.getGu());
+        zone.setDong(zoneDTO.getDong());
+        zone.setLat(zoneDTO.getLat());
+        zone.setLng(zoneDTO.getLng());
+
+        return zone;
     }
 }
