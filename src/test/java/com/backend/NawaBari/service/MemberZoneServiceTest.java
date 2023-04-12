@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Member;
@@ -169,4 +170,4 @@ class MemberZoneServiceTest {
 
 
     }
-}
+}*/

@@ -30,8 +30,6 @@ public class Zone {
     @OneToMany(mappedBy = "zone")
     private List<MemberZone> Zones = new ArrayList<>();
 
-    @OneToMany(mappedBy = "zone")
-    private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "zone")
     private List<Restaurant> restaurants = new ArrayList<>();

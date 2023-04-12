@@ -31,18 +31,19 @@ public class ReviewRepository {
     }
 
     //회원이 작성한 리뷰조회
-    public List<Review> getReviewsByMember(Member member) {
+/*    public List<Review> getReviewsByMember(Member member) {
         return em.createQuery("select r from Review where r.member = :member", Review.class)
                 .setParameter("member", member)
                 .getResultList();
-    }
+    }*/
 
     //식당에 대한 리뷰조회
+/*
     public List<Review> getReviewsByRestaurant(Restaurant restaurant) {
         return em.createQuery("select r from Review r where r.restaurant = :restaurant", Review.class)
                 .setParameter("restaurant", restaurant)
                 .getResultList();
     }
+*/
 
-    //리뷰의 한줄평만 조회(필요한지 모름)
 }

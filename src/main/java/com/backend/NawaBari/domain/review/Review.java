@@ -3,12 +3,9 @@ package com.backend.NawaBari.domain.review;
 import com.backend.NawaBari.domain.Base;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Restaurant;
-import com.backend.NawaBari.domain.Zone;
+import com.backend.NawaBari.dto.ReviewDTO;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -16,7 +13,7 @@ import java.util.List;
 import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Getter
+@Getter@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Review extends Base {
     @Id
@@ -38,23 +35,40 @@ public class Review extends Base {
     @JoinColumn(name = "member_id")
     private Member writer;
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "zone_id")
-    private Zone zone;
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
-    @Builder
-    public Review(String title, String content, Double rate, List<Photo> photos, Member writer, Zone zone, Restaurant restaurant) {
-        this.title = title;
-        this.content = content;
-        this.rate = rate;
-        this.photos = photos;
-        this.writer = writer;
-        this.zone = zone;
-        this.restaurant = restaurant;
+    //== 연관관계 메서드 ==//
+    public void setMember(Member member) {
+        this.writer = member;
+        member.getReviews().add(this);
     }
+
+    public void addPhoto(Photo photo) {
+        photos.add(photo);
+        photo.setReview(this);
+    }
+
+    public void setRestaurant(Restaurant restaurant) {
+        this.restaurant = restaurant;
+        restaurant.getReviews().add(this);
+    }
+
+
+
+
+    public static Review toReviewSaveEntity(ReviewDTO reviewDTO) {
+        Review review = new Review();
+        review.setTitle(reviewDTO.getTitle());
+        review.setContent(reviewDTO.getContent());
+        review.setRate(reviewDTO.getRate());
+        review.setPhotos(reviewDTO.getPhotos());
+        review.setRestaurant(reviewDTO.getRestaurant());
+
+        return review;
+    }
+
 }
 

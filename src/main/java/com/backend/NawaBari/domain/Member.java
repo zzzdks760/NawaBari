@@ -34,12 +34,10 @@ public class Member extends Base{
     private List<Review> reviews = new ArrayList<>();
 
 
-    //생성자 주입
-
-    @Builder
-    public Member(String kakao_id, String profile_nickname) {
-        this.kakao_id = kakao_id;
-        this.profile_nickname = profile_nickname;
+    //== 연관관계 메서드 ==//
+    public void addMemberZone(MemberZone memberZone) {
+        memberZones.add(memberZone);
+        memberZone.setMember(this);
     }
 
     public static Member toMemberEntity(MemberDTO memberDTO) {

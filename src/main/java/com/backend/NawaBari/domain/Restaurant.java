@@ -3,10 +3,7 @@ package com.backend.NawaBari.domain;
 import com.backend.NawaBari.domain.category.Category;
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalTime;
 import java.util.ArrayList;
@@ -15,7 +12,7 @@ import java.util.List;
 import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Getter
+@Getter@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class Restaurant extends Base{
     @Id @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -44,6 +41,19 @@ public class Restaurant extends Base{
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "zone_id")
     private Zone zone;
+
+
+    //== 연관관계 메서드 ==//
+    public void setZone(Zone zone) {
+        this.zone = zone;
+        zone.getRestaurants().add(this);
+    }
+
+    public void setCategory(Category category) {
+        this.category = category;
+        category.getRestaurants().add(this);
+    }
+
 
     @Builder
     public Restaurant(String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String location, String tel, List<Review> reviews, Category category, Zone zone) {

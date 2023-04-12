@@ -1,17 +1,16 @@
 package com.backend.NawaBari.domain;
 
+import com.backend.NawaBari.exception.MaximumZoneLimitException;
+import com.backend.NawaBari.exception.ZoneAlreadySetException;
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Builder;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
+import lombok.*;
 
 import java.time.LocalDateTime;
 
 import static jakarta.persistence.FetchType.*;
 
 @Entity
-@Getter
+@Getter@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
 public class MemberZone extends Base{
     @Id
@@ -32,5 +31,40 @@ public class MemberZone extends Base{
         this.member = member;
         this.zone = zone;
     }
+
+    //== 연관관계 메서드 ==//
+    public void setZone(Zone zone) {
+        this.zone = zone;
+        zone.getZones().add(this);
+    }
+
+    /**
+     * 구역 설정
+     */
+    //== 생성 메서드 ==//
+    public static MemberZone create(Member member, Zone zone) {
+
+        if (member.getMemberZones().size() >= 2) {
+            throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
+        }
+
+        boolean zoneAlreadySet = member.getMemberZones().stream()
+                .anyMatch(memberZone -> memberZone.getZone().equals(zone));
+
+        if (zoneAlreadySet) {
+            throw new ZoneAlreadySetException("중복된 구역이 존재합니다.");
+        }
+
+        MemberZone memberZone = new MemberZone();
+        memberZone.setMember(member);
+        memberZone.setZone(zone);
+        member.getMemberZones().add(memberZone);
+
+        return memberZone;
+    }
+
+
+
+
 }
 
