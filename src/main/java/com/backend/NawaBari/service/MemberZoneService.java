@@ -16,13 +16,30 @@ import org.springframework.transaction.annotation.Transactional;
 
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class MemberZoneService {
 
     private final MemberZoneRepository memberZoneRepository;
-    private final ZoneRepository zoneRepository;
     private final MemberRepository memberRepository;
+    private final ZoneRepository zoneRepository;
+
+    @Transactional
+    public Long setMemberZone(Long memberId, Long zoneId) {
+
+        //엔티티 조회
+        Member member = memberRepository.findOne(memberId);
+        Zone zone = zoneRepository.findOne(zoneId);
+
+        //회원 구역설정
+        MemberZone memberZone = MemberZone.create(member, zone);
+
+        //회원 구역저장
+        memberZoneRepository.save(memberZone);
+
+        //회원 구역 아이디 반환
+        return memberZone.getId();
+    }
 
 
 /*    *//**

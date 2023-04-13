@@ -44,15 +44,4 @@ public class Zone {
         this.lng = lng;
     }
 
-    public static Zone toZoneEntity(ZoneDTO zoneDTO) {
-        Zone zone = new Zone();
-        zone.setId(zoneDTO.getId());
-        zone.setCig_cd(zoneDTO.getCig_cd());
-        zone.setGu(zoneDTO.getGu());
-        zone.setDong(zoneDTO.getDong());
-        zone.setLat(zoneDTO.getLat());
-        zone.setLng(zoneDTO.getLng());
-
-        return zone;
-    }
 }

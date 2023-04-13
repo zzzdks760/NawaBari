@@ -23,6 +23,10 @@ public class RestaurantRepository {
         em.persist(restaurant);
     }
 
+    public Restaurant findOne(Long restaurant_id) {
+        return em.find(Restaurant.class, restaurant_id);
+    }
+
     //행정구검색시 평점순으로 식당을 조회
     public List<Restaurant> findByZoneOrderByRating(String cig_name) {
         return em.createQuery("select r from Restaurant r where r.cig_name = :cig_name order by r.rate desc", Restaurant.class)

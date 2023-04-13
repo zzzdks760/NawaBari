@@ -54,18 +54,11 @@ public class Restaurant extends Base{
         category.getRestaurants().add(this);
     }
 
-
     @Builder
-    public Restaurant(String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String location, String tel, List<Review> reviews, Category category, Zone zone) {
+    public Restaurant(Long id, String name) {
+        this.id = id;
         this.name = name;
-        this.restaurant_img = restaurant_img;
-        this.openingTime = openingTime;
-        this.closingTime = closingTime;
-        this.location = location;
-        this.tel = tel;
-        this.reviews = reviews;
-        this.category = category;
-        this.zone = zone;
+
     }
 /**
      * 리뷰 평점 계산 로직

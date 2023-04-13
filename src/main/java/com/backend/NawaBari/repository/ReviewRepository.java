@@ -30,6 +30,18 @@ public class ReviewRepository {
         return em.find(Review.class, id);
     }
 
+    //리뷰 삭제
+    public void delete(Long review_id) {
+        em.remove(review_id);
+    }
+
+    //리뷰 수 조회
+    public Long countByReview(Long restaurant_id) {
+        return em.createQuery("select count(r) from Review r where r.restaurant.id = :restaurant_id", Long.class)
+                .setParameter("restaurant_id", restaurant_id)
+                .getSingleResult();
+    }
+
     //회원이 작성한 리뷰조회
 /*    public List<Review> getReviewsByMember(Member member) {
         return em.createQuery("select r from Review where r.member = :member", Review.class)

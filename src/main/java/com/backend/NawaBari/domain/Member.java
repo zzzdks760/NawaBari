@@ -40,13 +40,10 @@ public class Member extends Base{
         memberZone.setMember(this);
     }
 
-    public static Member toMemberEntity(MemberDTO memberDTO) {
-        Member member = new Member();
-        member.setKakao_id(memberDTO.getKakao_id());
-        member.setProfile_nickname(memberDTO.getProfile_nickname());
-        member.setProfile_image(memberDTO.getProfile_image());
-        member.setGender(memberDTO.getGender());
-        member.setAge(memberDTO.getAge());
-        return member;
+    @Builder
+    public Member(Long id, String profile_nickname) {
+        this.id = id;
+        this.profile_nickname = profile_nickname;
     }
+
 }

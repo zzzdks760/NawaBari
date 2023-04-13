@@ -38,22 +38,14 @@ public class MemberZone extends Base{
         zone.getZones().add(this);
     }
 
+
+
     /**
      * 구역 설정
      */
-    //== 생성 메서드 ==//
     public static MemberZone create(Member member, Zone zone) {
-
-        if (member.getMemberZones().size() >= 2) {
-            throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
-        }
-
-        boolean zoneAlreadySet = member.getMemberZones().stream()
-                .anyMatch(memberZone -> memberZone.getZone().equals(zone));
-
-        if (zoneAlreadySet) {
-            throw new ZoneAlreadySetException("중복된 구역이 존재합니다.");
-        }
+        checkMaximumZoneLimit(member);
+        checkZoneAlreadySet(member, zone);
 
         MemberZone memberZone = new MemberZone();
         memberZone.setMember(member);
@@ -63,8 +55,26 @@ public class MemberZone extends Base{
         return memberZone;
     }
 
+    /**
+     * 초과체크
+     */
+    private static void checkMaximumZoneLimit(Member member) {
+        if (member.getMemberZones().size() >= 2) {
+            throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
+        }
+    }
 
+    /**
+     * 중복체크
+     */
+    private static void checkZoneAlreadySet(Member member, Zone zone) {
+        boolean zoneAlreadySet = member.getMemberZones().stream()
+                .anyMatch(memberZone -> memberZone.getZone().equals(zone));
 
+        if (zoneAlreadySet) {
+            throw new ZoneAlreadySetException("중복된 구역이 존재합니다.");
+        }
+    }
 
 }
 

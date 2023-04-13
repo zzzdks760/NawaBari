@@ -21,9 +21,7 @@ public class Photo {
     private Review review;
 
     @Builder
-
-    public Photo(String photo_url, Review review) {
+    public Photo(String photo_url) {
         this.photo_url = photo_url;
-        this.review = review;
     }
 }

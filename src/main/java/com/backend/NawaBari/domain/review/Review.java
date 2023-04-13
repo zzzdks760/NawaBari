@@ -51,24 +51,26 @@ public class Review extends Base {
         photo.setReview(this);
     }
 
-    public void setRestaurant(Restaurant restaurant) {
-        this.restaurant = restaurant;
-        restaurant.getReviews().add(this);
-    }
-
-
-
-
-    public static Review toReviewSaveEntity(ReviewDTO reviewDTO) {
+    /**
+     * 리뷰 생성
+     */
+    //== 생성 메서드 ==//
+    public static Review createReview(Member writer, Restaurant restaurant, List<Photo> photos, String title, String content, Double rate) {
         Review review = new Review();
-        review.setTitle(reviewDTO.getTitle());
-        review.setContent(reviewDTO.getContent());
-        review.setRate(reviewDTO.getRate());
-        review.setPhotos(reviewDTO.getPhotos());
-        review.setRestaurant(reviewDTO.getRestaurant());
+        review.setMember(writer);
+        review.setRestaurant(restaurant);
+        for (Photo photo : photos) {
+            review.addPhoto(photo);
+        }
+        review.setTitle(title);
+        review.setContent(content);
+        review.setRate(rate);
+
+
 
         return review;
     }
+
 
 }
 
