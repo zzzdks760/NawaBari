@@ -31,6 +31,8 @@ public class Restaurant extends Base{
 
     private String tel;
 
+    private int reviewCount = 0;
+
     @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
 
@@ -60,6 +62,21 @@ public class Restaurant extends Base{
         this.name = name;
 
     }
+
+    //리뷰가 추가될 때 리뷰수도 증가
+    public void addReview(Review review) {
+        this.reviews.add(review);
+        review.setRestaurant(this);
+        this.reviewCount++;
+    }
+
+    public void removeReview(Review review) {
+        this.reviews.remove(review);
+        review.setRestaurant(null);
+        this.reviewCount--;
+    }
+
+
 /**
      * 리뷰 평점 계산 로직
       */

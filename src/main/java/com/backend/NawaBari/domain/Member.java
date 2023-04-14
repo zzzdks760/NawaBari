@@ -41,9 +41,13 @@ public class Member extends Base{
     }
 
     @Builder
-    public Member(Long id, String profile_nickname) {
-        this.id = id;
+    public Member(String kakao_id, String profile_nickname, String profile_image, String gender, String age) {
+        this.kakao_id = kakao_id;
         this.profile_nickname = profile_nickname;
+        this.profile_image = profile_image;
+        this.gender = gender;
+        this.age = age;
     }
-
 }
+
+
