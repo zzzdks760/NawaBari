@@ -41,4 +41,10 @@ public class RestaurantRepository {
                 .getResultList();
     }
 
+    public void saveAll(List<Restaurant> restaurantList) {
+        for (Restaurant restaurant : restaurantList) {
+            em.persist(restaurant);
+        }
+    }
+
 }

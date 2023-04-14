@@ -1,5 +1,7 @@
 package com.backend.NawaBari.service;
 
+import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.repository.MemberRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
@@ -17,6 +19,8 @@ import java.util.HashMap;
 @Service
 @RequiredArgsConstructor
 public class MemberService {
+
+    private final MemberRepository memberRepository;
 
     public String getKakaoAccessToken (String code) {
         String access_Token = "";
@@ -145,6 +149,28 @@ public class MemberService {
             // TODO Auto-generated catch block
             e.printStackTrace();
         }
+    }
+
+    public Long saveMember(String access_Token) {
+        HashMap<String, Object> userInfo = getUserInfo(access_Token);
+
+        String kakao_id = userInfo.get("kakao_id").toString();
+        String profile_nickname = userInfo.get("profile_nickname").toString();
+        String profile_image = userInfo.get("profile_image").toString();
+        String gender = userInfo.get("gender").toString();
+        String age = userInfo.get("age").toString();
+
+        Member member = Member.builder()
+                .kakao_id(kakao_id)
+                .profile_nickname(profile_nickname)
+                .profile_image(profile_image)
+                .gender(gender)
+                .age(age)
+                .build();
+
+        memberRepository.save(member);
+
+        return member.getId();
     }
 
 
