@@ -33,6 +33,8 @@ public class Restaurant extends Base{
 
     private int reviewCount = 0;
 
+    private Double avgRating;
+
     @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
 
@@ -80,7 +82,6 @@ public class Restaurant extends Base{
 /**
      * 리뷰 평점 계산 로직
       */
-/*
     public Double getAverageRating() {
         if (reviews.isEmpty()) {
             return null;
@@ -89,9 +90,8 @@ public class Restaurant extends Base{
         for (Review review : reviews) {
             sum += review.getRate();
         }
-        return sum / reviews.size();
-
+        Double avgRating = sum / reviews.size();
+        return this.avgRating;
     }
-*/
 
 }
