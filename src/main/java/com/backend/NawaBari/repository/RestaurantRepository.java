@@ -47,4 +47,7 @@ public class RestaurantRepository {
         }
     }
 
+    public void delete(Long restaurantId) {
+        em.remove(restaurantId);
+    }
 }
