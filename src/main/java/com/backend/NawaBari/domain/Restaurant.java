@@ -27,7 +27,11 @@ public class Restaurant extends Base{
 
     private LocalTime closingTime;
 
-    private String location;
+    private String address;
+
+    private Double lat;
+
+    private Double lng;
 
     private String tel;
 
@@ -59,11 +63,13 @@ public class Restaurant extends Base{
     }
 
     @Builder
-    public Restaurant(Long id, String name) {
-        this.id = id;
+    public Restaurant(String name, String address, Double lat, Double lng) {
         this.name = name;
-
+        this.address = address;
+        this.lat = lat;
+        this.lng = lng;
     }
+
 
     //리뷰가 추가될 때 리뷰수도 증가
     public void addReview(Review review) {
