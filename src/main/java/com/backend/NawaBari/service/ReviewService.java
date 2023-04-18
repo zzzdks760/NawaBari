@@ -14,7 +14,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ReviewService {
 
@@ -25,6 +25,7 @@ public class ReviewService {
     /**
      * 리뷰 생성
      */
+    @Transactional
     public Long createReview(Long memberId, Long restaurantId, List<Photo> photos, String title, String content, Double rate) {
         Member member = memberRepository.findOne(memberId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
@@ -39,6 +40,7 @@ public class ReviewService {
     /**
      * 리뷰 수정
      */
+    @Transactional
     public void updateReview(Long reviewId, List<Photo> photos, String title, String content, Double rate) {
         Review review = reviewRepository.findOne(reviewId);
 
@@ -51,6 +53,7 @@ public class ReviewService {
     /**
      * 리뷰 삭제
      */
+    @Transactional
     public void deleteReview(Long reviewId) {
         reviewRepository.delete(reviewId);
     }
