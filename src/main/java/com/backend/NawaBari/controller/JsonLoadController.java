@@ -14,10 +14,10 @@ import java.util.List;
 public class JsonLoadController {
     private final ZoneService zoneService;
 
-    @GetMapping("/zone/save")
+/*    @GetMapping("/zone/save")
     public void saveZone() throws IOException {
         zoneService.SaveData();
-    }
+    }*/
 
 }
 
