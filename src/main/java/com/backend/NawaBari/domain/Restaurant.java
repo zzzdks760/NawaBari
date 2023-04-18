@@ -27,7 +27,7 @@ public class Restaurant extends Base{
 
     private LocalTime closingTime;
 
-    private String address;
+    private String address_name;
 
     private Double lat;
 
@@ -63,9 +63,9 @@ public class Restaurant extends Base{
     }
 
     @Builder
-    public Restaurant(String name, String address, Double lat, Double lng) {
+    public Restaurant(String name, String address_name, Double lat, Double lng) {
         this.name = name;
-        this.address = address;
+        this.address_name = address_name;
         this.lat = lat;
         this.lng = lng;
     }

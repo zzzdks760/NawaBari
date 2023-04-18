@@ -16,7 +16,7 @@ public class RestaurantDTO {
 
     private String name;
 
-    private String address;
+    private String address_name;
 
     private Double lat;
 
@@ -26,7 +26,7 @@ public class RestaurantDTO {
         return restaurantDTOList.stream()
                 .map(restaurantDTO -> Restaurant.builder()
                         .name(restaurantDTO.getName())
-                        .address(restaurantDTO.getAddress())
+                        .address_name(restaurantDTO.getAddress_name())
                         .lat(restaurantDTO.getLat())
                         .lng(restaurantDTO.getLng())
                         .build())

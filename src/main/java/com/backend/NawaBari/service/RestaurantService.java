@@ -27,14 +27,14 @@ public class RestaurantService {
     //행정구역 코드로 식당 조회
 
     //식당 수정
-    public void updateRestaurant(Long restaurantId, String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String location, String tel) {
+    public void updateRestaurant(Long restaurantId, String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String address_name, String tel) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
         restaurant.setName(name);
         restaurant.setRestaurant_img(restaurant_img);
         restaurant.setOpeningTime(openingTime);
         restaurant.setClosingTime(closingTime);
-        restaurant.setLocation(location);
+        restaurant.setAddress_name(address_name);
         restaurant.setTel(tel);
     }
 
