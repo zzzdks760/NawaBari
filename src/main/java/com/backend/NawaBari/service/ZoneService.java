@@ -17,13 +17,14 @@ import java.util.ArrayList;
 import java.util.List;
 
 @Service
-@Transactional
+@Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ZoneService {
 
     private final JsonFileLoader jsonFileLoader;
     private final ZoneRepository zoneRepository;
 
+    @Transactional
     public void SaveData() throws IOException {
 
         List<Zone> zoneList = jsonFileLoader.loadJsonData();
