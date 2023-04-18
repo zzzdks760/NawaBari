@@ -27,10 +27,10 @@ public class RestaurantRepository {
         return em.find(Restaurant.class, restaurant_id);
     }
 
-    //행정구검색시 평점순으로 식당을 조회
-    public List<Restaurant> findByZoneOrderByRating(String cig_name) {
-        return em.createQuery("select r from Restaurant r where r.cig_name = :cig_name order by r.rate desc", Restaurant.class)
-                .setParameter("cig_name", cig_name)
+    //행정구검색시 식당을 조회
+    public List<Restaurant> findRestaurantByAddress(String address_name) {
+        return em.createQuery("select r from Restaurant r where r.address_name like :address_name", Restaurant.class)
+                .setParameter("address_name", "%" + address_name + "%")
                 .getResultList();
     }
 
