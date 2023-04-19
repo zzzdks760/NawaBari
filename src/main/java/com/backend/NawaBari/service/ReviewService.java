@@ -63,7 +63,6 @@ public class ReviewService {
         restaurant.removeReview(review);
 
         reviewRepository.delete(review);
-        restaurantRepository.save(restaurant);
     }
 
 

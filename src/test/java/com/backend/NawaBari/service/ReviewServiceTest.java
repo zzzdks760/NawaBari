@@ -28,11 +28,12 @@ import static org.junit.jupiter.api.Assertions.*;
 class ReviewServiceTest {
 
     @Autowired ReviewRepository reviewRepository;
+    @Autowired RestaurantRepository restaurantRepository;
     @Autowired ReviewService reviewService;
     @Autowired EntityManager em;
 
 
-/*    @Test
+    @Test
     public void 리뷰생성() throws Exception {
         //given
         Member member = Member.builder()
@@ -64,10 +65,11 @@ class ReviewServiceTest {
 
 
         //when
-        Long reviewId = reviewService.createReview(member.getId(), restaurant.getId(), photos, title, content, rate, );
+        Long reviewId = reviewService.createReview(member.getId(), restaurant.getId(), photos, title, content, rate);
 
         Review review = reviewRepository.findOne(reviewId);
 
+        Restaurant restaurant1 = restaurantRepository.findOne(restaurant.getId());
         //then
         assertThat(review.getWriter()).isEqualTo(member);
         assertThat(review.getRestaurant()).isEqualTo(restaurant);
@@ -75,6 +77,7 @@ class ReviewServiceTest {
         assertThat(review.getTitle()).isEqualTo(title);
         assertThat(review.getContent()).isEqualTo(content);
         assertThat(review.getRate()).isEqualTo(rate);
+        assertThat(restaurant1.getReviewCount()).isEqualTo(1);
     }
 
     @Test
@@ -158,10 +161,16 @@ class ReviewServiceTest {
 
         //when
 
-        reviewService.deleteReview(reviewId);
-        Long reviewCount = reviewService.getReviewCount(restaurant.getId());
-        //then
-        assertThat(reviewCount).isEqualTo(initialReviewCount - 1 )
+        Review review = reviewRepository.findOne(reviewId);
 
-    }*/
+        Restaurant restaurant1 = restaurantRepository.findOne(restaurant.getId());
+
+        restaurant.removeReview(review);
+
+        //then
+
+        assertThat(restaurant1.getReviewCount()).isEqualTo(0);
+
+
+    }
 }

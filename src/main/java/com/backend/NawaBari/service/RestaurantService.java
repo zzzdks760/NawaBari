@@ -9,6 +9,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -25,34 +26,43 @@ public class RestaurantService {
         return restaurant.getId();
     }
 
-    //식당 이름 조회
+    //식당 이름으로 조회
     public List<Restaurant> findByRestaurantName(String name) {
         if (name.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 필요합니다.");
         }
         List<Restaurant> restaurants = restaurantRepository.findByName(name);
-        if (restaurants.size() == 0) { //일치하는 식당이 없는 경우
-            //입력된 이름에서 최소 두 글자 이상이 연속된 문자가 같은 경우를 찾습니다.
-            for (int i = 0; i < name.length() - 1; i++) {
-                String sub = name.substring(i, i + 2);
-                List<Restaurant> temp = restaurantRepository.findByName(sub);
-                if (temp.size() > 0) { //일치하는 식당이 있는 경우
-                    return temp;
-                }
-            }
+        if (restaurants.size() == 0) { // 일치하는 식당이 없는 경우
+            String regex = "(?i).*\\b" + name + "\\b.*"; // 대소문자 구분 없이 입력된 이름이 단어 경계 내에서 포함되는지 확인하는 정규식
+            restaurants = restaurantRepository.findByName(regex);
         }
+
         return restaurants;
     }
 
 
     //주소로 식당 조회
-    public List<Restaurant> findByAddressName(String address_name) {
-        if (address_name.length() < 2) {
+    public List<Restaurant> findByAddressName(String addressName) {
+        if (addressName.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 필요합니다.");
         }
-        return restaurantRepository.findRestaurantByAddress(address_name);
-
+        if (addressName.contains(" ")) { // 입력된 주소에 공백이 포함된 경우
+            String[] tokens = addressName.split(" ");
+            // 서초구와 같이 동이 아닌 시,군,구 단위로 입력된 경우
+            if (tokens.length == 1) {
+                return restaurantRepository.findRestaurantByAddress(tokens[0]);
+            } else { // 서초구 양재동과 같이 동까지 입력된 경우
+                String regex = "(?i).*\\b" + tokens[1] + "\\b.*"; // 대소문자 구분 없이 입력된 동이 단어 경계 내에서 포함되는지 확인하는 정규식
+                return restaurantRepository.findRestaurantByAddress(tokens[0])
+                        .stream()
+                        .filter(r -> r.getAddress_name().matches(regex))
+                        .collect(Collectors.toList());
+            }
+        } else { // 입력된 주소가 시,군,구 단위로 입력된 경우
+            return restaurantRepository.findRestaurantByAddress(addressName);
+        }
     }
+
 
     //식당 수정
     @Transactional
