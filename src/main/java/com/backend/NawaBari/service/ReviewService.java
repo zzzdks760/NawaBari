@@ -36,7 +36,7 @@ public class ReviewService {
         restaurantRepository.save(restaurant);
         reviewRepository.save(review);
 
-        return  review.getId();
+        return review.getId();
     }
 
     /**
@@ -60,8 +60,10 @@ public class ReviewService {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
         Review review = reviewRepository.findOne(reviewId);
         
-        reviewRepository.delete(review);
         restaurant.removeReview(review);
+
+        reviewRepository.delete(review);
+        restaurantRepository.save(restaurant);
     }
 
 
