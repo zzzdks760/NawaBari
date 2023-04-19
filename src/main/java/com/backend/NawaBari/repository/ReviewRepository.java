@@ -31,8 +31,8 @@ public class ReviewRepository {
     }
 
     //리뷰 삭제
-    public void delete(Long review_id) {
-        em.remove(review_id);
+    public void delete(Review review) {
+        em.remove(review);
     }
 
     //리뷰 수 조회

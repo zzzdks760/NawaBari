@@ -31,7 +31,9 @@ public class ReviewService {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
         Review review = Review.createReview(member, restaurant, photos, title, content, rate);
+        restaurant.addReview(review);
 
+        restaurantRepository.save(restaurant);
         reviewRepository.save(review);
 
         return  review.getId();
@@ -54,8 +56,12 @@ public class ReviewService {
      * 리뷰 삭제
      */
     @Transactional
-    public void deleteReview(Long reviewId) {
-        reviewRepository.delete(reviewId);
+    public void deleteReview(Long reviewId, Long restaurantId) {
+        Restaurant restaurant = restaurantRepository.findOne(restaurantId);
+        Review review = reviewRepository.findOne(reviewId);
+        
+        reviewRepository.delete(review);
+        restaurant.removeReview(review);
     }
 
 

@@ -96,7 +96,7 @@ public class Restaurant extends Base{
         for (Review review : reviews) {
             sum += review.getRate();
         }
-        Double avgRating = sum / reviews.size();
+        avgRating = sum / reviews.size();
         return this.avgRating;
     }
 
