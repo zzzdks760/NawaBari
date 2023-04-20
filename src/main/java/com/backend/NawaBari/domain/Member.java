@@ -33,11 +33,24 @@ public class Member extends Base{
     @OneToMany(mappedBy = "writer")
     private List<Review> reviews = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member")
+    private List<Like> likes = new ArrayList<>();
+
 
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {
         memberZones.add(memberZone);
         memberZone.setMember(this);
+    }
+
+    public void addLike(Like like) {
+        this.likes.add(like);
+        like.setMember(this);
+    }
+
+    public void removeLike(Like like) {
+        this.likes.remove(like);
+        like.setMember(null);
     }
 
     @Builder

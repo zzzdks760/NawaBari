@@ -1,6 +1,7 @@
 package com.backend.NawaBari.domain.review;
 
 import com.backend.NawaBari.domain.Base;
+import com.backend.NawaBari.domain.Like;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.dto.ReviewDTO;
@@ -40,6 +41,10 @@ public class Review extends Base {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
+    @OneToMany(mappedBy = "review")
+    private List<Like> likes = new ArrayList<>();
+
+
     //== 연관관계 메서드 ==//
     public void setMember(Member member) {
         this.writer = member;
@@ -49,6 +54,16 @@ public class Review extends Base {
     public void addPhoto(Photo photo) {
         photos.add(photo);
         photo.setReview(this);
+    }
+
+    public void addLike(Like like) {
+        this.likes.add(like);
+        like.setReview(this);
+    }
+
+    public void removeLike(Like like) {
+        this.likes.remove(like);
+        like.setReview(null);
     }
 
     /**
