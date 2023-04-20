@@ -23,7 +23,7 @@ public class RestaurantDTO {
     private Double lat;
     private Double lng;
     private String tel;
-    private int reviewCount = 0;
+    private int reviewCount;
     private Double avgRating;
 
     public static List<Restaurant> toEntityList(List<RestaurantDTO> restaurantDTOList) {

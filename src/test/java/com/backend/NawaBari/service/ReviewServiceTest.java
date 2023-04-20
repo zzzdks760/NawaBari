@@ -39,11 +39,17 @@ class ReviewServiceTest {
         Member member = Member.builder()
                 .profile_nickname("Kim")
                 .build();
+
+        Member member2 = Member.builder()
+                .profile_nickname("Nam")
+                .build();
         em.persist(member);
+        em.persist(member2);
 
         Restaurant restaurant = Restaurant.builder()
                 .name("Vips")
                 .build();
+
         em.persist(restaurant);
 
         List<Photo> photos = new ArrayList<>();
@@ -63,11 +69,18 @@ class ReviewServiceTest {
         String title = "GOOD";
         String content = "Good dish";
 
+        Double rate2 = 3.5;
+        String title2 = "SoSo";
+        String content2 = "SoSo dish";
+
+
 
         //when
-        Long reviewId = reviewService.createReview(member.getId(), restaurant.getId(), photos, title, content, rate);
 
-        Review review = reviewRepository.findOne(reviewId);
+        Long reviewId1 = reviewService.createReview(member.getId(), restaurant.getId(), photos, title, content, rate);
+        Long reviewId2 = reviewService.createReview(member2.getId(), restaurant.getId(), photos, title2, content2, rate2);
+
+        Review review = reviewRepository.findOne(reviewId1);
 
         Restaurant restaurant1 = restaurantRepository.findOne(restaurant.getId());
         //then
@@ -77,7 +90,7 @@ class ReviewServiceTest {
         assertThat(review.getTitle()).isEqualTo(title);
         assertThat(review.getContent()).isEqualTo(content);
         assertThat(review.getRate()).isEqualTo(rate);
-        assertThat(restaurant1.getReviewCount()).isEqualTo(1);
+        assertThat(restaurant1.getReviewCount()).isEqualTo(2);
     }
 
     @Test
@@ -161,16 +174,10 @@ class ReviewServiceTest {
 
         //when
 
-        Review review = reviewRepository.findOne(reviewId);
+        reviewService.deleteReview(reviewId, restaurant.getId());
 
-        Restaurant restaurant1 = restaurantRepository.findOne(restaurant.getId());
-
-        restaurant.removeReview(review);
-
-        //then
-
-        assertThat(restaurant1.getReviewCount()).isEqualTo(0);
-
+        assertThat(restaurant.getReviewCount()).isEqualTo(0);
+        assertThat(restaurant.getAvgRating()).isNull();
 
     }
 }

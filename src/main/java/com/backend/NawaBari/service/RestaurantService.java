@@ -32,14 +32,18 @@ public class RestaurantService {
             throw new IllegalArgumentException("최소 두 글자 이상 필요합니다.");
         }
         List<Restaurant> restaurants = restaurantRepository.findByName(name);
-        if (restaurants.size() == 0) { // 일치하는 식당이 없는 경우
-            String regex = "(?i).*\\b" + name + "\\b.*"; // 대소문자 구분 없이 입력된 이름이 단어 경계 내에서 포함되는지 확인하는 정규식
-            restaurants = restaurantRepository.findByName(regex);
+        if (restaurants.size() == 0) { //일치하는 식당이 없는 경우
+            //입력된 이름에서 최소 두 글자 이상이 연속된 문자가 같은 경우를 찾습니다.
+            for (int i = 0; i < name.length() - 1; i++) {
+                String sub = name.substring(i, i + 2);
+                List<Restaurant> temp = restaurantRepository.findByName(sub);
+                if (temp.size() > 0) { //일치하는 식당이 있는 경우
+                    return temp;
+                }
+            }
         }
-
         return restaurants;
     }
-
 
     //주소로 식당 조회
     public List<Restaurant> findByAddressName(String addressName) {
@@ -63,18 +67,18 @@ public class RestaurantService {
         }
     }
 
+    //식당 상세조회
+    public Restaurant findOne(Long restaurantId) {
+        return restaurantRepository.findOne(restaurantId);
+    }
+
 
     //식당 수정
     @Transactional
     public void updateRestaurant(Long restaurantId, String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String address_name, String tel) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
-        restaurant.setName(name);
-        restaurant.setRestaurant_img(restaurant_img);
-        restaurant.setOpeningTime(openingTime);
-        restaurant.setClosingTime(closingTime);
-        restaurant.setAddress_name(address_name);
-        restaurant.setTel(tel);
+        restaurant.update(name, restaurant_img, openingTime, closingTime, address_name, tel);
     }
 
 

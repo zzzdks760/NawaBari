@@ -32,7 +32,7 @@ public class ReviewService {
 
         Review review = Review.createReview(member, restaurant, photos, title, content, rate);
         restaurant.addReview(review);
-
+        restaurant.updateAverageRating();
         restaurantRepository.save(restaurant);
         reviewRepository.save(review);
 
@@ -61,7 +61,7 @@ public class ReviewService {
         Review review = reviewRepository.findOne(reviewId);
         
         restaurant.removeReview(review);
-
+        restaurant.updateAverageRating();
         reviewRepository.delete(review);
     }
 

@@ -65,15 +65,22 @@ class RestaurantServiceTest {
         em.persist(restaurant2);
 
         String inputName1 = "김밥천국";
-        String inputName2 = "천국";
+        String inputName2 = "김밥";
+        String inputName3 = "김";
 
 
         //when
 
-        List<Restaurant> restaurants = restaurantService.findByRestaurantName(inputName2);
+        List<Restaurant> restaurants1 = restaurantService.findByRestaurantName(inputName1);
+        List<Restaurant> restaurants2 = restaurantService.findByRestaurantName(inputName2);
 
         //then
-        assertThat(restaurants.size()).isEqualTo(2);
+        assertThat(restaurants1.size()).isEqualTo(2);
+        assertThat(restaurants2.size()).isEqualTo(2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            restaurantService.findByRestaurantName(inputName3);
+        });
+
     }
 
     @Test
@@ -103,16 +110,39 @@ class RestaurantServiceTest {
         em.persist(restaurant3);
 
         String inputName1 = "서초구";
-        String inputName2 = "서초";
+        String inputName2 = "서";
         String inputName3 = "반포동";
 
         //when
 
-        List<Restaurant> address = restaurantService.findByAddressName(inputName3);
+        List<Restaurant> address1 = restaurantService.findByAddressName(inputName1);
+        List<Restaurant> address3 = restaurantService.findByAddressName(inputName3);
+
 
         //then
-        assertThat(address.size()).isEqualTo(1);
+        assertThat(address1.size()).isEqualTo(3);
+        assertThrows(IllegalArgumentException.class, () -> {
+            restaurantService.findByAddressName(inputName2);
+        });
+        assertThat(address3.size()).isEqualTo(1);
+    }
 
+    @Test
+    public void 식당상세조회() throws Exception {
+        //given
+        Restaurant restaurant1 = Restaurant.builder()
+                .name("마루심")
+                .address_name("서초구 반포동 54-10")
+                .lat(123.123)
+                .lng(456.456)
+                .build();
+        em.persist(restaurant1);
+        //when
+        Restaurant restaurant = restaurantRepository.findOne(restaurant1.getId());
+        Restaurant findRestaurant = restaurantService.findOne(restaurant.getId());
+
+        //then
+        assertThat(findRestaurant.getId()).isEqualTo(restaurant1.getId());
     }
 
 

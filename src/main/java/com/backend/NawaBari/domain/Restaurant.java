@@ -37,7 +37,7 @@ public class Restaurant extends Base{
 
     private int reviewCount = 0;
 
-    private Double avgRating;
+    private Double avgRating = 0.0;
 
     @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
@@ -50,6 +50,15 @@ public class Restaurant extends Base{
     @JoinColumn(name = "zone_id")
     private Zone zone;
 
+    // 식당 수정 메서드
+    public void update(String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String address_name, String tel) {
+        this.setName(name);
+        this.setRestaurant_img(restaurant_img);
+        this.setOpeningTime(openingTime);
+        this.setClosingTime(closingTime);
+        this.setAddress_name(address_name);
+        this.setTel(tel);
+    }
 
     //== 연관관계 메서드 ==//
     public void setZone(Zone zone) {
@@ -85,18 +94,21 @@ public class Restaurant extends Base{
     }
 
 
+
+
 /**
      * 리뷰 평점 계산 로직
       */
-    public Double getAverageRating() {
+    public void updateAverageRating() {
         if (reviews.isEmpty()) {
-            return null;
+            avgRating = null;
+            return;
         }
         double sum = 0;
         for (Review review : reviews) {
             sum += review.getRate();
         }
-        return sum / reviews.size();
+        avgRating = sum / reviews.size();
     }
 
 }
