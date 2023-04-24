@@ -1,5 +1,6 @@
 package com.backend.NawaBari.dto;
 
+import com.backend.NawaBari.domain.Heart;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.domain.review.Review;
@@ -13,6 +14,7 @@ import java.util.stream.Collectors;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
+@Builder
 
 public class MemberDTO {
     private Long id;
@@ -23,17 +25,6 @@ public class MemberDTO {
     private String age;
     private List<MemberZone> memberZones = new ArrayList<>();
     private List<Review> reviews = new ArrayList<>();
+    private List<Heart> hearts = new ArrayList<>();
 
-
-    public static MemberDTO toMemberDTO(Member findMember) {
-        MemberDTO memberDTO = new MemberDTO();
-        memberDTO.setId(findMember.getId());
-        memberDTO.setKakao_id(findMember.getKakao_id());
-        memberDTO.setProfile_nickname(findMember.getProfile_nickname());
-        memberDTO.setProfile_image(findMember.getProfile_image());
-        memberDTO.setGender(findMember.getGender());
-        memberDTO.setAge(findMember.getAge());
-
-        return memberDTO;
-    }
 }

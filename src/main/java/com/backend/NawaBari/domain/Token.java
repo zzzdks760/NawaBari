@@ -1,10 +1,7 @@
 package com.backend.NawaBari.domain;
 
 import jakarta.persistence.*;
-import lombok.AccessLevel;
-import lombok.Getter;
-import lombok.NoArgsConstructor;
-import lombok.Setter;
+import lombok.*;
 
 import static jakarta.persistence.FetchType.*;
 
@@ -18,9 +15,15 @@ public class Token {
     @Column(name = "token_id")
     private Long id;
 
-    private String access_Token;
+    private String access_token;
 
     @OneToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
     private Member member;
+
+    @Builder
+    public Token(String access_token, Member member) {
+        this.access_token = access_token;
+        this.member = member;
+    }
 }
