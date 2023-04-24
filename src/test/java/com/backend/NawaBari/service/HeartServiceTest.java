@@ -40,6 +40,7 @@ class HeartServiceTest {
 
         Review review = Review.builder()
                 .title("맛있음")
+
                 .build();
         em.persist(review);
 

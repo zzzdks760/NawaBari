@@ -65,5 +65,13 @@ public class ReviewService {
         reviewRepository.delete(review);
     }
 
+    /**
+     * 리뷰 조회
+     */
+    public List<Review> findReviewList(Long restaurant_id) {
+        List<Review> reviewList = reviewRepository.findReview(restaurant_id);
+        return reviewList;
+    }
+
 
 }
