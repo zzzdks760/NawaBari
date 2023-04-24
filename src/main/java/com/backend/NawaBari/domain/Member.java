@@ -1,7 +1,6 @@
 package com.backend.NawaBari.domain;
 
 import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.dto.MemberDTO;
 import jakarta.persistence.*;
 
 import lombok.*;
@@ -34,23 +33,13 @@ public class Member extends Base{
     private List<Review> reviews = new ArrayList<>();
 
     @OneToMany(mappedBy = "member")
-    private List<Like> likes = new ArrayList<>();
+    private List<Heart> hearts = new ArrayList<>();
 
 
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {
         memberZones.add(memberZone);
         memberZone.setMember(this);
-    }
-
-    public void addLike(Like like) {
-        this.likes.add(like);
-        like.setMember(this);
-    }
-
-    public void removeLike(Like like) {
-        this.likes.remove(like);
-        like.setMember(null);
     }
 
     @Builder
