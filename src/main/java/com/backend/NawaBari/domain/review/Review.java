@@ -1,10 +1,9 @@
 package com.backend.NawaBari.domain.review;
 
 import com.backend.NawaBari.domain.Base;
-import com.backend.NawaBari.domain.Like;
+import com.backend.NawaBari.domain.Heart;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Restaurant;
-import com.backend.NawaBari.dto.ReviewDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -28,6 +27,8 @@ public class Review extends Base {
 
     private Double rate;
 
+    private int likeCount;
+
     @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<Photo> photos = new ArrayList<>();
 
@@ -42,7 +43,7 @@ public class Review extends Base {
     private Restaurant restaurant;
 
     @OneToMany(mappedBy = "review")
-    private List<Like> likes = new ArrayList<>();
+    private List<Heart> hearts = new ArrayList<>();
 
 
     //== 연관관계 메서드 ==//
@@ -56,15 +57,21 @@ public class Review extends Base {
         photo.setReview(this);
     }
 
-    public void addLike(Like like) {
-        this.likes.add(like);
-        like.setReview(this);
+    public void addHeart(Heart heart) {
+        this.hearts.add(heart);
+        heart.setReview(this);
+        this.likeCount++;
     }
 
-    public void removeLike(Like like) {
-        this.likes.remove(like);
-        like.setReview(null);
+    public void removeHeart(Heart heart) {
+        this.hearts.remove(heart);
+//        heart.setReview(null);
+        this.likeCount--;
+        if (this.likeCount < 0) {
+            this.likeCount = 0;
+        }
     }
+
 
     /**
      * 리뷰 생성
@@ -86,6 +93,9 @@ public class Review extends Base {
         return review;
     }
 
-
+    @Builder
+    public Review(String title) {
+        this.title = title;
+    }
 }
 
