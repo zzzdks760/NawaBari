@@ -8,6 +8,8 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
+import static jakarta.persistence.FetchType.*;
+
 @Entity
 @Getter@Setter
 @NoArgsConstructor(access = AccessLevel.PROTECTED)
@@ -34,6 +36,9 @@ public class Member extends Base{
 
     @OneToMany(mappedBy = "member")
     private List<Heart> hearts = new ArrayList<>();
+
+    @OneToOne(mappedBy = "member", fetch = LAZY, cascade = CascadeType.ALL)
+    private Token token;
 
 
     //== 연관관계 메서드 ==//
