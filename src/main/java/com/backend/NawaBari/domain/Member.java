@@ -41,6 +41,7 @@ public class Member extends Base{
     private Token token;
 
 
+
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {
         memberZones.add(memberZone);

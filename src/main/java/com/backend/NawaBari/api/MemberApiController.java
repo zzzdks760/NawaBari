@@ -1,30 +1,27 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.converter.TokenConverter;
+import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.dto.MemberDTO;
 import com.backend.NawaBari.dto.TokenDTO;
 import com.backend.NawaBari.service.MemberService;
 import jakarta.servlet.http.HttpSession;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.io.IOException;
 import java.util.HashMap;
 
 @RestController
 @RequiredArgsConstructor
-@RequestMapping("/api")
 public class MemberApiController {
 
     private final MemberService memberService;
     private final TokenConverter tokenConverter;
 
-    /**
-     * 사용자 토큰 받기
-     */
-    @PostMapping("/access_token")
-    public void getToken(@RequestParam TokenDTO tokenDTO) {
-        HashMap<String, Object> userInfo = memberService.getUserInfo(tokenDTO.getAccess_token());
-
-    }
 
     /**
      * 카카오 로그인
@@ -38,6 +35,15 @@ public class MemberApiController {
     }
 
     /**
+     * 토큰만료시 카카오 로그인
+     */
+    @PostMapping("/refreshLogin")
+    public void refreshLogin(@RequestParam String refresh_Token) {
+        String accessToken = memberService.getNewAccessToken(refresh_Token);
+        memberService.getUserInfo(accessToken);
+    }
+
+    /**
      * 카카오 로그아웃
      */
     @PostMapping("/logout")
@@ -46,4 +52,5 @@ public class MemberApiController {
         session.removeAttribute("access_Token");
         session.removeAttribute("userId");
     }
+
 }

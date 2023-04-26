@@ -23,7 +23,6 @@ public class JsonFileLoader {
 
         Gson gson = new Gson();
         List<ZoneDTO> zoneDTOList = gson.fromJson(reader, new TypeToken<List<ZoneDTO>>() {}.getType());
-        System.out.println("zoneDTOList: "+zoneDTOList);
 
         return ZoneDTO.toEntityList(zoneDTOList);
 

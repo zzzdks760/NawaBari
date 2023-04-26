@@ -2,10 +2,15 @@ package com.backend.NawaBari.converter;
 
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Token;
+import com.backend.NawaBari.dto.MemberDTO;
 import com.backend.NawaBari.dto.TokenDTO;
 import com.backend.NawaBari.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RequiredArgsConstructor
 @Component
 public class TokenConverter {
@@ -26,5 +31,11 @@ public class TokenConverter {
                 .access_token(token.getAccess_token())
                 .member_id(token.getMember().getId())
                 .build();
+    }
+
+    public List<TokenDTO> toDTOList(List<Token> tokenList) {
+        return tokenList.stream()
+                .map(this::toDTO)
+                .collect(Collectors.toList());
     }
 }

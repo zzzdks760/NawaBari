@@ -2,6 +2,7 @@ package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Member;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
@@ -28,9 +29,14 @@ public class MemberRepository {
     }
     //카카오 아이디로 회원 찾기
     public Member findByKakao_Id(String kakao_id) {
-        return em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
-                .setParameter("kakao_id", kakao_id)
-                .getSingleResult();
+        try {
+            return em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
+                    .setParameter("kakao_id", kakao_id)
+                    .getSingleResult();
+        } catch (NoResultException e){
+            return null;
+        }
+
     }
 
     //카카오 닉네임으로 회원찾기
