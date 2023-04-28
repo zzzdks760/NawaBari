@@ -23,3 +23,13 @@ logging:
     org.hibernate.type: trace
 
 
+jwt:
+  secretKey: E47G7VwD0Sx+7V0yWdZY8enVwdjz9xC4EadGZzid/2s=
+
+  access:
+    expiration: 3600000 # 1시간(60분) (1000L(ms -> s) * 60L(s -> m) * 60L(m -> h))
+    header: Authorization
+
+  refresh:
+    expiration: 1209600000 #  (1000L(ms -> s) * 60L(s -> m) * 60L(m -> h) * 24L(h -> 하루) * 14(2주))
+    header: Authorization-refresh
