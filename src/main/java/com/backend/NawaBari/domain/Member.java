@@ -28,6 +28,8 @@ public class Member extends Base{
 
     private String age;
 
+    private String refreshToken;
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberZone> memberZones = new ArrayList<>();
 
@@ -37,15 +39,16 @@ public class Member extends Base{
     @OneToMany(mappedBy = "member")
     private List<Heart> hearts = new ArrayList<>();
 
-    @OneToOne(mappedBy = "member", fetch = LAZY, cascade = CascadeType.ALL)
-    private Token token;
-
 
 
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {
         memberZones.add(memberZone);
         memberZone.setMember(this);
+    }
+
+    public void updateRefreshToken(String updateRefreshToken) {
+        this.refreshToken = updateRefreshToken;
     }
 
     @Builder

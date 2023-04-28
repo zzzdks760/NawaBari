@@ -1,9 +1,6 @@
 package com.backend.NawaBari.converter;
 
 import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Token;
-import com.backend.NawaBari.dto.MemberDTO;
-import com.backend.NawaBari.dto.TokenDTO;
 import com.backend.NawaBari.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Component;

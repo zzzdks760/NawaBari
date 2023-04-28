@@ -3,7 +3,6 @@ package com.backend.NawaBari.service;
 import com.backend.NawaBari.converter.MemberConverter;
 import com.backend.NawaBari.converter.TokenConverter;
 import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.dto.MemberDTO;
 import com.backend.NawaBari.repository.MemberRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -17,8 +16,7 @@ import java.io.*;
 import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.HashMap;
-import java.util.Map;
-import java.util.Optional;
+
 
 @Transactional
 @Service
@@ -188,7 +186,7 @@ public class MemberService {
             userInfo.put("age_range", age);
             userInfo.put("gender", gender);
 
-            Member member = memberRepository.findByKakao_Id(kakao_id);
+            /*Member member = memberRepository.findByKakao_Id(kakao_id);
 
             if (member == null) {
                 Member newMember = Member.builder()
@@ -206,7 +204,7 @@ public class MemberService {
                 member.setAge(age);
                 member.setGender(gender);
                 memberRepository.save(member);
-            }
+            }*/
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
