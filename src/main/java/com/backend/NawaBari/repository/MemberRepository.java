@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Repository
@@ -28,15 +30,15 @@ public class MemberRepository {
         return em.find(Member.class, id);
     }
     //카카오 아이디로 회원 찾기
-    public Member findByKakao_Id(String kakao_id) {
+    public Optional<Member> findByKakao_Id(String kakao_id) {
         try {
-            return em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
+            Member member = em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
                     .setParameter("kakao_id", kakao_id)
                     .getSingleResult();
-        } catch (NoResultException e){
-            return null;
+            return Optional.of(member);
+        } catch (NoResultException e) {
+            return Optional.empty();
         }
-
     }
 
     //카카오 닉네임으로 회원찾기
@@ -51,4 +53,5 @@ public class MemberRepository {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
+
 }
