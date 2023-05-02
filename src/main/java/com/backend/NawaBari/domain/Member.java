@@ -8,7 +8,6 @@ import lombok.*;
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Getter@Setter
@@ -39,7 +38,8 @@ public class Member extends Base{
     @OneToMany(mappedBy = "member")
     private List<Heart> hearts = new ArrayList<>();
 
-
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {
@@ -52,12 +52,13 @@ public class Member extends Base{
     }
 
     @Builder
-    public Member(String kakao_id, String profile_nickname, String profile_image, String gender, String age) {
+    public Member(String kakao_id, String profile_nickname, String profile_image, String gender, String age, Role role) {
         this.kakao_id = kakao_id;
         this.profile_nickname = profile_nickname;
         this.profile_image = profile_image;
         this.gender = gender;
         this.age = age;
+        this.role = role;
     }
 }
 
