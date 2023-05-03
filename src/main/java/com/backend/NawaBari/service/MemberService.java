@@ -23,7 +23,6 @@ public class MemberService {
 
     private final MemberRepository memberRepository;
     private final MemberConverter memberConverter;
-    private final TokenConverter tokenConverter;
 
     public String getKakaoAccessToken (String code) {
         String access_Token = "";
