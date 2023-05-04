@@ -1,6 +1,8 @@
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.converter.MemberConverter;
+import com.backend.NawaBari.converter.TokenConverter;
+import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.repository.MemberRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;

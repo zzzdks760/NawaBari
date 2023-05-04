@@ -54,20 +54,4 @@ public class MemberRepository {
                 .getResultList();
     }
 
-    public Optional<Member> findByRefreshToken(String refreshToken) {
-        Member member =  em.createQuery("select m from Member m where m.refreshToken = :refreshToken", Member.class)
-                .setParameter("refreshToken", refreshToken)
-                .getSingleResult();
-        return Optional.of(member);
-
-    }
-
-    public void saveAndFlush(Member member) {
-        em.flush();
-    }
-
-    public Member saveMember(Member createdMember) {
-        em.persist(createdMember);
-        return createdMember;
-    }
 }
