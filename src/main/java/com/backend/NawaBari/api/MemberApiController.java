@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.service.MemberService;
@@ -15,9 +16,11 @@ public class MemberApiController {
 
 
 
-    /**
+    */
+/**
      * 카카오 로그인
-     */
+     *//*
+
     @GetMapping("/login")
     public void login(@RequestParam String code) {
         String access_Token = memberService.getKakaoAccessToken(code);
@@ -26,18 +29,22 @@ public class MemberApiController {
         System.out.println("userInfo = " + userInfo);
     }
 
-    /**
+    */
+/**
      * 토큰만료시 카카오 로그인
-     */
+     *//*
+
     @PostMapping("/refreshLogin")
     public void refreshLogin(@RequestParam String refresh_Token) {
         String accessToken = memberService.getNewAccessToken(refresh_Token);
         memberService.getUserInfo(accessToken);
     }
 
-    /**
+    */
+/**
      * 카카오 로그아웃
-     */
+     *//*
+
     @PostMapping("/logout")
     public void logout(HttpSession session) {
         memberService.kakaoLogout((String)session.getAttribute("access_Token"));
@@ -45,4 +52,4 @@ public class MemberApiController {
         session.removeAttribute("userId");
     }
 
-}
+}*/

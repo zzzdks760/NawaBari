@@ -9,6 +9,8 @@ import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.Optional;
+
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 @Repository
@@ -50,5 +52,17 @@ public class MemberRepository {
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
+    }
+
+    public Optional<Member> findByEmail(String email) {
+        return em.createQuery("select m from Member m where m.email = :email", Member.class)
+                .setParameter("email", email)
+                .getResultList().stream().findFirst();
+    }
+
+    public Optional<Member> findByNickname(String profile_nickname) {
+        return em.createQuery("select m from Member m where m.profile_nickname = :profile_nickname", Member.class)
+                .setParameter("name", profile_nickname)
+                .getResultList().stream().findFirst();
     }
 }

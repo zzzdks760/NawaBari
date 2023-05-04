@@ -4,11 +4,11 @@ import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.*;
 
 import lombok.*;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
 
-import static jakarta.persistence.FetchType.*;
 
 @Entity
 @Getter@Setter
@@ -19,6 +19,10 @@ public class Member extends Base{
     private Long id;
 
     private String kakao_id;
+
+    private String email;
+
+    private String password;
 
     private String profile_nickname;
 
@@ -39,6 +43,16 @@ public class Member extends Base{
     @OneToMany(mappedBy = "member")
     private List<Heart> hearts = new ArrayList<>();
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
+
+    @Enumerated(EnumType.STRING)
+    private SocialType socialType; // KAKAO
+
+    // 유저 권한 설정 메소드
+    public void authorizeMember() {
+        this.role = Role.MEMBER;
+    }
 
 
     //== 연관관계 메서드 ==//
@@ -47,17 +61,24 @@ public class Member extends Base{
         memberZone.setMember(this);
     }
 
+    // 비밀번호 암호화 메소드
+    public void passwordEncode(PasswordEncoder passwordEncoder) {
+        this.password = passwordEncoder.encode(this.password);
+    }
+
     public void updateRefreshToken(String updateRefreshToken) {
         this.refreshToken = updateRefreshToken;
     }
 
     @Builder
-    public Member(String kakao_id, String profile_nickname, String profile_image, String gender, String age) {
-        this.kakao_id = kakao_id;
+    public Member(String email, String password, String profile_nickname, String profile_image, String gender, String age, Role role) {
+        this.email = email;
+        this.password = password;
         this.profile_nickname = profile_nickname;
         this.profile_image = profile_image;
         this.gender = gender;
         this.age = age;
+        this.role = role;
     }
 }
 
