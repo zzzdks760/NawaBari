@@ -1,27 +1,51 @@
+## .gitignore
+
+  /src/main/resources/application.yml
+
 server:
   port: 8080
 
 spring:
-  profiles:
-    include: oauth
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/NawaBari?serverTimezone=UTC&characterEncoding=UTF-8
     username: sungmin
     password: krsm59@@
+
   jpa:
     database: mysql
     database-platform: org.hibernate.dialect.MySQL8Dialect
     open-in-view: false
     show-sql: true
-    properties:
-      hibernate:
-        ddl-auto: create
-        format_sql: true
+    hibernate:
+      ddl-auto: create
+      format_sql: true
 
-  logging.level:
+logging:
+  level:
     org.hibernate.SQL: debug
     org.hibernate.type: trace
+
+    security:
+      oauth2:
+        client:
+          registration:
+
+            kakao:
+              client-id: 27eb3015ee913717948781cb023560f3
+              client-secret: lt1sYaxEldLtR5M5Fb6E6jwDDKuZpSa4
+              redirect-uri: http://localhost:8080/login
+              client-authentication-method: POST
+              authorization-grant-type: authorization_code
+              scope: id, profile_nickname, profile_image, gender, age_range
+              client-name: Kakao
+
+              provider:
+                kakao:
+                  authorization-uri: https://kauth.kakao.com/oauth/authorize
+                  token-uri: https://kauth.kakao.com/oauth/token
+                  user-info-uri: https://kapi.kakao.com/v2/user/me
+                  user-name-attribute: id
 
 
 jwt:
