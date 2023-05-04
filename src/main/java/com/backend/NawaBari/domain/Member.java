@@ -71,14 +71,17 @@ public class Member extends Base{
     }
 
     @Builder
-    public Member(String email, String password, String profile_nickname, String profile_image, String gender, String age, Role role) {
+    public Member(String kakao_id, String email, String password, String profile_nickname, String profile_image, String gender, String age, String refreshToken, Role role, SocialType socialType) {
+        this.kakao_id = kakao_id;
         this.email = email;
         this.password = password;
         this.profile_nickname = profile_nickname;
         this.profile_image = profile_image;
         this.gender = gender;
         this.age = age;
+        this.refreshToken = refreshToken;
         this.role = role;
+        this.socialType = socialType;
     }
 }
 

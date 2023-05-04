@@ -3,7 +3,7 @@ server:
 
 spring:
   config:
-    import: classpath:application-oauth.yml
+    import: classpath:application-oauth.yml, application-jwt.yml
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://localhost:3306/NawaBari?serverTimezone=UTC&characterEncoding=UTF-8

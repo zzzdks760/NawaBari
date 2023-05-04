@@ -1,6 +1,7 @@
 package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.SocialType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
@@ -64,5 +65,32 @@ public class MemberRepository {
         return em.createQuery("select m from Member m where m.profile_nickname = :profile_nickname", Member.class)
                 .setParameter("name", profile_nickname)
                 .getResultList().stream().findFirst();
+    }
+
+    public Optional<Member> findByRefreshToken(String refreshToken) {
+        return em.createQuery("select m from Member m where m.refreshToken = :refreshToken", Member.class)
+                .setParameter("refreshToken", refreshToken)
+                .getResultList().stream().findFirst();
+    }
+
+    public void saveAndFlush(Member member) {
+        em.flush();
+    }
+
+    public Member findBySocialTypeAndSocialId(SocialType socialType, String kakao_id) {
+        try {
+            return em.createQuery("select m from Member m where m.socialType = :socialType and m. kakao_id", Member.class)
+                    .setParameter("socialType", socialType)
+                    .setParameter("kakao_id", kakao_id)
+                    .getSingleResult();
+
+        } catch (NoResultException e) {
+            return null;
+        }
+    }
+
+    public Member memberSave(Member createdUser) {
+        em.persist(createdUser);
+        return createdUser;
     }
 }
