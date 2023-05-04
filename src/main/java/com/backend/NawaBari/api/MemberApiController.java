@@ -12,6 +12,7 @@ import java.util.HashMap;
 public class MemberApiController {
 
     private final MemberService memberService;
+    private final TokenConverter tokenConverter;
 
 
     /**

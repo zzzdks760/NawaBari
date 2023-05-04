@@ -15,7 +15,6 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public String getNickname() {
         Map<String, Object> account = (Map<String, Object>) attribute.get("kakao_account");
         Map<String, Object> profile = (Map<String, Object>) attribute.get("profile");
@@ -31,7 +30,6 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
     }
 
     @Override
-    @SuppressWarnings("unchecked")
     public String getProfile_image() {
         Map<String, Object> account = (Map<String, Object>) attribute.get("kakao_account");
         Map<String, Object> profile = (Map<String, Object>) account.get("profile");
@@ -43,7 +41,6 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
         return (String) profile.get("profile_image_url");
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public String getAgeRange() {
         Map<String, Object> account = (Map<String, Object>) attribute.get("kakao_account");
@@ -55,7 +52,6 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo{
         return (String) account.get("age_range");
     }
 
-    @SuppressWarnings("unchecked")
     @Override
     public String getGender() {
         Map<String, Object> account = (Map<String, Object>) attribute.get("kakao_account");
