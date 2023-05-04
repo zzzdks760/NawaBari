@@ -23,7 +23,7 @@ import java.util.Arrays;
 @Slf4j
 public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
 
-    private static final String[] NO_CHECK_URL = {"/logg", "/main", "/검증 필요없는 url 담으면 됨"};//NO_CHECK_URL로 들어오는 요청은 Filter 작동 X
+    private static final String[] NO_CHECK_URL = {"/login", "/main", "/검증 필요없는 url 담으면 됨"};//NO_CHECK_URL로 들어오는 요청은 Filter 작동 X
 
     private final JwtService jwtService;
     private final MemberRepository memberRepository;
