@@ -1,8 +1,6 @@
+/*
 package com.backend.NawaBari.service;
 
-import com.backend.NawaBari.converter.MemberConverter;
-import com.backend.NawaBari.converter.TokenConverter;
-import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.repository.MemberRepository;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -24,8 +22,6 @@ import java.util.HashMap;
 public class MemberService {
 
     private final MemberRepository memberRepository;
-    private final MemberConverter memberConverter;
-    private final TokenConverter tokenConverter;
 
     public String getKakaoAccessToken (String code) {
         String access_Token = "";
@@ -186,7 +182,8 @@ public class MemberService {
             userInfo.put("age_range", age);
             userInfo.put("gender", gender);
 
-            /*Member member = memberRepository.findByKakao_Id(kakao_id);
+            */
+/*Member member = memberRepository.findByKakao_Id(kakao_id);
 
             if (member == null) {
                 Member newMember = Member.builder()
@@ -204,7 +201,8 @@ public class MemberService {
                 member.setAge(age);
                 member.setGender(gender);
                 memberRepository.save(member);
-            }*/
+            }*//*
+
 
         } catch (IOException e) {
             // TODO Auto-generated catch block
@@ -240,6 +238,7 @@ public class MemberService {
         }
     }
 
+*/
 /*    public void registerMember(String kakao_id, String profile_nickname, String profile_image, String gender, String age) {
         MemberDTO memberDTO = MemberDTO.builder()
                 .kakao_id(kakao_id)
@@ -259,7 +258,9 @@ public class MemberService {
         } else {
             return null;
         }
-    }*/
+    }*//*
+
 
 }
 
+*/
