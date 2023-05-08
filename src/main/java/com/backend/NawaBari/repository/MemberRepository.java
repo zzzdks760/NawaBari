@@ -5,6 +5,10 @@ import com.backend.NawaBari.domain.SocialType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
+import jakarta.persistence.criteria.CriteriaBuilder;
+import jakarta.persistence.criteria.CriteriaQuery;
+import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -73,22 +77,19 @@ public class MemberRepository {
                 .getResultList().stream().findFirst();
     }
 
+    @Transactional
     public void saveAndFlush(Member member) {
         em.flush();
     }
 
-    public Member findBySocialTypeAndSocialId(SocialType socialType, String kakao_id) {
-        try {
-            return em.createQuery("select m from Member m where m.socialType = :socialType and m. kakao_id", Member.class)
-                    .setParameter("socialType", socialType)
-                    .setParameter("kakao_id", kakao_id)
-                    .getSingleResult();
+    public Optional<Member> findBySocialTypeAndSocialId(SocialType socialType, String kakao_id) {
+        return em.createQuery("select m from Member m where m.socialType = 'KAKAO' AND m.kakao_id = :kakao_id", Member.class)
+                .setParameter("kakao_id", kakao_id)
+                .getResultList().stream().findFirst();
 
-        } catch (NoResultException e) {
-            return null;
-        }
     }
 
+    @Transactional
     public Member memberSave(Member createdUser) {
         em.persist(createdUser);
         return createdUser;
