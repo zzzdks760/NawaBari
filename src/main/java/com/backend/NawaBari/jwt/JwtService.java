@@ -66,11 +66,11 @@ public class JwtService {
      * RefreshToken은 Claim에 email도 넣지 않으므로 withClaim() X
      */
     public String createRefreshToken() {
-        Date now = new Date();
-        return JWT.create()
-                .withSubject(REFRESH_TOKEN_SUBJECT)
-                .withExpiresAt(new Date(now.getTime() + refreshTokenExpirationPeriod))
-                .sign(Algorithm.HMAC512(secretKey));
+            Date now = new Date();
+            return JWT.create()
+                    .withSubject(REFRESH_TOKEN_SUBJECT)
+                    .withExpiresAt(new Date(now.getTime() + refreshTokenExpirationPeriod))
+                    .sign(Algorithm.HMAC512(secretKey));
     }
 
     /**
