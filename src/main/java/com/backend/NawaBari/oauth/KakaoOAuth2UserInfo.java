@@ -48,12 +48,8 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
         if (account == null) {
             return null;
         }
-        Map<String, Object> profile = (Map<String, Object>) account.get("profile");
-        if (profile == null) {
-            return null;
-        }
-
-        return (String) profile.get("age_range");
+        String ageRange = (String) account.get("age_range");
+        return ageRange;
     }
 
     @SuppressWarnings("unchecked")
@@ -63,11 +59,8 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
         if (account == null) {
             return null;
         }
-        Map<String, Object> profile = (Map<String, Object>) account.get("profile");
-        if (profile == null) {
-            return null;
-        }
-        return (String) profile.get("gender");
+        String gender = (String) account.get("gender");
+        return gender;
     }
 
 }
