@@ -11,6 +11,7 @@ spring:
             client-authentication-method: POST
             client-name: Kakao
             scope:
+              - account_email
               - profile_nickname
               - profile_image
               - gender

@@ -50,7 +50,7 @@ public class OAuthAttributes {
         return Member.builder()
                 .socialType(socialType)
                 .kakao_id(oauth2UserInfo.getKakao_id())
-                .email(UUID.randomUUID() + "@socialUser.com")
+                .email(oauth2UserInfo.getEmail())
                 .profile_nickname(oauth2UserInfo.getProfile_nickname())
                 .profile_image(oauth2UserInfo.getProfile_image())
                 .age(oauth2UserInfo.getAgeRange())

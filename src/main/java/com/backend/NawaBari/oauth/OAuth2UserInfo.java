@@ -20,5 +20,6 @@ public abstract class OAuth2UserInfo {
 
     public abstract String getGender();
 
+    public abstract String getEmail();
 
 }
