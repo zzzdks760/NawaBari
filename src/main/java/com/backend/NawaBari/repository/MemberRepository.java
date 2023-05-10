@@ -94,4 +94,13 @@ public class MemberRepository {
         em.persist(createdUser);
         return createdUser;
     }
+
+    @Transactional
+    public void saveRefreshToken(String email, String refreshToken) {
+        Member member = em.createQuery("select m from Member m where m.email = :email", Member.class)
+                .setParameter("email", email)
+                .getSingleResult();
+        member.setRefreshToken(refreshToken);
+        em.persist(member);
+    }
 }

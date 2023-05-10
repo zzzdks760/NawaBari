@@ -2,6 +2,7 @@ package com.backend.NawaBari.jwt;
 
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
