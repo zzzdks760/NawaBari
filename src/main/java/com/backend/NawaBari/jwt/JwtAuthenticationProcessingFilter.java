@@ -103,11 +103,21 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
                 .filter(jwtService::isTokenValid)
                 .ifPresent(accessToken -> jwtService.extractEmail(accessToken)
                         .ifPresent(email -> memberRepository.findByEmail(email)
-                                .ifPresent(this::saveAuthentication)));
+                                .ifPresent(member -> {
+                                    UserDetails userDetailsUser = org.springframework.security.core.userdetails.User.builder()
+                                            .username(member.getEmail())
+                                            .roles(member.getRole().name())
+                                            .build();
+
+                                    Authentication authentication =
+                                            new UsernamePasswordAuthenticationToken(userDetailsUser, null,
+                                                    authoritiesMapper.mapAuthorities(userDetailsUser.getAuthorities()));
+
+                                    SecurityContextHolder.getContext().setAuthentication(authentication);
+                                })));
 
         filterChain.doFilter(request, response);
     }
-
     /**
      * [인증 허가 메소드]
      * 파라미터의 유저 : 우리가 만든 회원 객체 / 빌더의 유저 : UserDetails의 User 객체
@@ -123,7 +133,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
      * SecurityContextHolder.getContext()로 SecurityContext를 꺼낸 후,
      * setAuthentication()을 이용하여 위에서 만든 Authentication 객체에 대한 인증 허가 처리
      */
-    public void saveAuthentication(Member member) {
+/*    public void saveAuthentication(Member member) {
         String password = member.getPassword();
         if (password == null) { // 소셜 로그인 유저의 비밀번호 임의로 설정 하여 소셜 로그인 유저도 인증 되도록 설정
             password = PasswordUtil.generateRandomPassword();
@@ -140,5 +150,5 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
                         authoritiesMapper.mapAuthorities(userDetailsUser.getAuthorities()));
 
         SecurityContextHolder.getContext().setAuthentication(authentication);
-    }
+    }*/
 }

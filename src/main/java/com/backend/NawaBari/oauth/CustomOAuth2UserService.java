@@ -65,8 +65,7 @@ public class CustomOAuth2UserService implements OAuth2UserService<OAuth2UserRequ
 
     private SocialType getSocialType(String registrationId) {
 
-        if(KAKAO.equals(registrationId)) {
-        }
+
         return SocialType.KAKAO;
     }
 

@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.fasterxml.jackson.databind.ObjectMapper;
@@ -32,7 +33,8 @@ public class CustomJsonUsernamePasswordAuthenticationFilter extends AbstractAuth
         this.objectMapper = objectMapper;
     }
 
-    /**
+    */
+/**
      * 인증 처리 메소드
      *
      * UsernamePasswordAuthenticationFilter와 동일하게 UsernamePasswordAuthenticationToken 사용
@@ -49,7 +51,8 @@ public class CustomJsonUsernamePasswordAuthenticationFilter extends AbstractAuth
      * AbstractAuthenticationProcessingFilter(부모)의 getAuthenticationManager()로 AuthenticationManager 객체를 반환 받은 후
      * authenticate()의 파라미터로 UsernamePasswordAuthenticationToken 객체를 넣고 인증 처리
      * (여기서 AuthenticationManager 객체는 ProviderManager -> SecurityConfig에서 설정)
-     */
+     *//*
+
     @Override
     public Authentication attemptAuthentication(HttpServletRequest request, HttpServletResponse response) throws AuthenticationException, IOException {
         if(request.getContentType() == null || !request.getContentType().equals(CONTENT_TYPE)  ) {
@@ -68,3 +71,4 @@ public class CustomJsonUsernamePasswordAuthenticationFilter extends AbstractAuth
         return this.getAuthenticationManager().authenticate(authRequest);
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.domain.Member;
@@ -38,3 +39,4 @@ public class MemberService {
         memberRepository.save(member);
     }
 }
+*/

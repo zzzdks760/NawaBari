@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.domain.Member;
@@ -25,3 +26,4 @@ public class LoginService implements UserDetailsService {
                 .build();
     }
 }
+*/

@@ -4,7 +4,6 @@ import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.*;
 
 import lombok.*;
-import org.springframework.security.crypto.password.PasswordEncoder;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,8 +20,6 @@ public class Member extends Base{
     private String kakao_id;
 
     private String email;
-
-    private String password;
 
     private String profile_nickname;
 
@@ -61,20 +58,14 @@ public class Member extends Base{
         memberZone.setMember(this);
     }
 
-    // 비밀번호 암호화 메소드
-    public void passwordEncode(PasswordEncoder passwordEncoder) {
-        this.password = passwordEncoder.encode(this.password);
-    }
-
     public void updateRefreshToken(String updateRefreshToken) {
         this.refreshToken = updateRefreshToken;
     }
 
     @Builder
-    public Member(String kakao_id, String email, String password, String profile_nickname, String profile_image, String gender, String age, String refreshToken, Role role, SocialType socialType) {
+    public Member(String kakao_id, String email, String profile_nickname, String profile_image, String gender, String age, String refreshToken, Role role, SocialType socialType) {
         this.kakao_id = kakao_id;
         this.email = email;
-        this.password = password;
         this.profile_nickname = profile_nickname;
         this.profile_image = profile_image;
         this.gender = gender;

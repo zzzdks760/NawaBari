@@ -28,23 +28,24 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         try {
             CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
 
-            // User의 Role이 GUEST일 경우 처음 요청한 회원이므로 회원가입 페이지로 리다이렉트
+            // User의 Role이 GUEST일 경우 구역설정 페이지로 이동
             if(oAuth2User.getRole() == Role.GUEST) {
                 String accessToken = jwtService.createAccessToken(oAuth2User.getEmail());
                 String refreshToken = jwtService.createRefreshToken();
 
                 response.addHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
                 response.addHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
-                response.sendRedirect("/login"); // 프론트의 회원가입 추가 정보 입력 폼으로 리다이렉트
 
                 memberRepository.saveRefreshToken(oAuth2User.getEmail(), refreshToken);
 
                 jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
-//                User findUser = userRepository.findByEmail(oAuth2User.getEmail())
-//                                .orElseThrow(() -> new IllegalArgumentException("이메일에 해당하는 유저가 없습니다."));
-//                findUser.authorizeUser();
+
+                response.sendRedirect("/login"); // 프론트의 구역 정보 입력 폼으로 리다이렉트하고 구역을 설정했다면 MEMBER로 변경
+
+                // Role이 MEMBER일 경우 메인페이지로 이동
             } else {
                 jwtService.updateRefreshToken(oAuth2User.getEmail(), jwtService.createRefreshToken());
+                response.sendRedirect("/main");
             }
         } catch (Exception e) {
             throw e;

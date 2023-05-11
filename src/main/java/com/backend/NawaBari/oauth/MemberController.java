@@ -9,13 +9,15 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequiredArgsConstructor
 public class MemberController {
-    private final MemberService memberService;
+//    private final MemberService memberService;
 
+/*
     @PostMapping("/sign-up")
     public String signUp(@RequestBody MemberSignUpDTO memberSignUpDTO) throws Exception {
         memberService.signUp(memberSignUpDTO);
         return "회원가입 성공";
     }
+*/
 
     @GetMapping("/jwt-test")
     public String jwtTest() {

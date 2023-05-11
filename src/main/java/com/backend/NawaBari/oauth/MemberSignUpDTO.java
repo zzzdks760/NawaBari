@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import lombok.Getter;
@@ -14,3 +15,4 @@ public class MemberSignUpDTO {
     private String age;
     private String gender;
 }
+*/

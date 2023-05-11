@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.jwt.JwtService;
@@ -44,3 +45,4 @@ public class LoginSuccessHandler extends SimpleUrlAuthenticationSuccessHandler {
         return userDetails.getUsername();
     }
 }
+*/
