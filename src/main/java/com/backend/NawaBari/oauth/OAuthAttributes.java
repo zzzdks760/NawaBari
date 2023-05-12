@@ -47,10 +47,16 @@ public class OAuthAttributes {
      * role은 GUEST로 설정
      */
     public Member toEntity(SocialType socialType, OAuth2UserInfo oauth2UserInfo) {
+
+        String email = oauth2UserInfo.getEmail();
+        if (email == null) {
+            email = UUID.randomUUID() + "@socialUser.com";
+        }
+
         return Member.builder()
                 .socialType(socialType)
                 .kakao_id(oauth2UserInfo.getKakao_id())
-                .email(oauth2UserInfo.getEmail())
+                .email(email)
                 .profile_nickname(oauth2UserInfo.getProfile_nickname())
                 .profile_image(oauth2UserInfo.getProfile_image())
                 .age(oauth2UserInfo.getAgeRange())

@@ -14,6 +14,7 @@ import org.springframework.security.web.authentication.AuthenticationSuccessHand
 import org.springframework.stereotype.Component;
 
 import java.io.IOException;
+import java.util.Optional;
 
 @Slf4j
 @Component
@@ -28,39 +29,29 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
         try {
             CustomOAuth2User oAuth2User = (CustomOAuth2User) authentication.getPrincipal();
 
+            String accessToken = jwtService.createAccessToken(oAuth2User.getEmail());
+            String refreshToken = jwtService.createRefreshToken();
+
+            response.addHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
+            response.addHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
+
+            memberRepository.saveRefreshToken(oAuth2User.getEmail(), refreshToken);
+
+            jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
+
             // User의 Role이 GUEST일 경우 구역설정 페이지로 이동
             if(oAuth2User.getRole() == Role.GUEST) {
-                String accessToken = jwtService.createAccessToken(oAuth2User.getEmail());
-                String refreshToken = jwtService.createRefreshToken();
 
-                response.addHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
-                response.addHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
 
-                memberRepository.saveRefreshToken(oAuth2User.getEmail(), refreshToken);
+                response.sendRedirect("/login"); // 프론트의 구역 정보 입력 폼으로 리다이렉트
 
-                jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
-
-                response.sendRedirect("/login"); // 프론트의 구역 정보 입력 폼으로 리다이렉트하고 구역을 설정했다면 MEMBER로 변경
-
-                // Role이 MEMBER일 경우 메인페이지로 이동
             } else {
-                jwtService.updateRefreshToken(oAuth2User.getEmail(), jwtService.createRefreshToken());
-                response.sendRedirect("/main");
-            }
+                    response.sendRedirect("/main");
+                }
+
         } catch (Exception e) {
-            throw e;
+            throw new RuntimeException(e);
         }
 
     }
-
-/*    // TODO : 소셜 로그인 시에도 무조건 토큰 생성하지 말고 JWT 인증 필터처럼 RefreshToken 유/무에 따라 다르게 처리해보기
-    private void loginSuccess(HttpServletResponse response, CustomOAuth2User oAuth2User) throws IOException {
-        String accessToken = jwtService.createAccessToken(oAuth2User.getEmail());
-        String refreshToken = jwtService.createRefreshToken();
-        response.addHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
-        response.addHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
-
-        jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
-        jwtService.updateRefreshToken(oAuth2User.getEmail(), refreshToken);
-    }*/
 }
