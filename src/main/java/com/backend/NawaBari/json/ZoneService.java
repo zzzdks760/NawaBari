@@ -1,4 +1,4 @@
-package com.backend.NawaBari.service;
+package com.backend.NawaBari.json;
 
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.dto.ZoneDTO;

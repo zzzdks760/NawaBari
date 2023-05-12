@@ -1,12 +1,9 @@
 package com.backend.NawaBari.controller;
 
 
-import com.backend.NawaBari.service.ZoneService;
+import com.backend.NawaBari.json.ZoneService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
-import java.util.List;
 
 @RestController
 @RequestMapping

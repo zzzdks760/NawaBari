@@ -1,4 +1,4 @@
-package com.backend.NawaBari.service;
+package com.backend.NawaBari.json;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
