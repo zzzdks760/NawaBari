@@ -31,6 +31,8 @@ public class Member extends Base{
 
     private String refreshToken;
 
+    private String password;
+
     @OneToMany(mappedBy = "member", cascade = CascadeType.ALL, orphanRemoval = true)
     private List<MemberZone> memberZones = new ArrayList<>();
 

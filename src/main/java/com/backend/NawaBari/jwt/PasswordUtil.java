@@ -1,4 +1,3 @@
-/*
 package com.backend.NawaBari.jwt;
 
 import java.security.SecureRandom;
@@ -17,4 +16,3 @@ public class PasswordUtil {
         return passwordBuilder.toString();
     }
 }
-*/
