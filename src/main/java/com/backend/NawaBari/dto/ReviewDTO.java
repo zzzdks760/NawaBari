@@ -1,5 +1,6 @@
 package com.backend.NawaBari.dto;
 
+import com.backend.NawaBari.domain.Heart;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
@@ -21,8 +22,10 @@ public class ReviewDTO {
     private String title;
     private String content;
     private Double rate;
+    private int likeCount;
     private List<Photo> photos;
     private Member writer;
     private Restaurant restaurant;
+    private List<Heart> hearts;
 
 }
