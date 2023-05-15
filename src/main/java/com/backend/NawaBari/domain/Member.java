@@ -65,7 +65,8 @@ public class Member extends Base{
     }
 
     @Builder
-    public Member(String kakao_id, String email, String profile_nickname, String profile_image, String gender, String age, String refreshToken, Role role, SocialType socialType) {
+    public Member(Long id, String kakao_id, String email, String profile_nickname, String profile_image, String gender, String age, String refreshToken, String password, List<MemberZone> memberZones, List<Review> reviews, List<Heart> hearts, Role role, SocialType socialType) {
+        this.id = id;
         this.kakao_id = kakao_id;
         this.email = email;
         this.profile_nickname = profile_nickname;
@@ -73,6 +74,10 @@ public class Member extends Base{
         this.gender = gender;
         this.age = age;
         this.refreshToken = refreshToken;
+        this.password = password;
+        this.memberZones = memberZones;
+        this.reviews = reviews;
+        this.hearts = hearts;
         this.role = role;
         this.socialType = socialType;
     }
