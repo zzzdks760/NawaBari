@@ -23,9 +23,9 @@ public class Restaurant extends Base{
 
     private String restaurant_img;
 
-    private LocalTime openingTime;
+    private String openingTime;
 
-    private LocalTime closingTime;
+    private String closingTime;
 
     private String address_name;
 
@@ -51,7 +51,7 @@ public class Restaurant extends Base{
     private Zone zone;
 
     // 식당 수정 메서드
-    public void update(String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String address_name, String tel) {
+    public void update(String name, String restaurant_img, String openingTime, String closingTime, String address_name, String tel) {
         this.setName(name);
         this.setRestaurant_img(restaurant_img);
         this.setOpeningTime(openingTime);
