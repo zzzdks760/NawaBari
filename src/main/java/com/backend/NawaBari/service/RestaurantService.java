@@ -75,7 +75,7 @@ public class RestaurantService {
 
     //식당 수정
     @Transactional
-    public void updateRestaurant(Long restaurantId, String name, String restaurant_img, LocalTime openingTime, LocalTime closingTime, String address_name, String tel) {
+    public void updateRestaurant(Long restaurantId, String name, String restaurant_img, String openingTime, String closingTime, String address_name, String tel) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
         restaurant.update(name, restaurant_img, openingTime, closingTime, address_name, tel);

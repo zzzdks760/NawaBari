@@ -73,5 +73,10 @@ public class ReviewService {
         return reviewList;
     }
 
-
+    /**
+     * 리뷰 단건 조회
+     */
+    public Review findOne(Long id) {
+        return reviewRepository.findOne(id);
+    }
 }
