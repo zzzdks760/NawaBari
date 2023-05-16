@@ -50,6 +50,7 @@ public class ReviewRepository {
                 .getResultList();
     }
 
+
     //회원이 작성한 리뷰조회
 /*    public List<Review> getReviewsByMember(Member member) {
         return em.createQuery("select r from Review where r.member = :member", Review.class)

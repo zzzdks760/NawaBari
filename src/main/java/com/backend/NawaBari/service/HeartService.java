@@ -41,4 +41,5 @@ public class HeartService {
         heartRepository.save(heart);
         return heart.isLiked();
     }
+
 }
