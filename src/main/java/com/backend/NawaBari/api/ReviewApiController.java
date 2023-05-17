@@ -2,7 +2,6 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.review.Photo;
 import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.repository.ReviewRepository;
 import com.backend.NawaBari.service.HeartService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
@@ -13,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -50,7 +48,7 @@ public class ReviewApiController {
     }
 
     //리뷰조회
-    @GetMapping("/api/{restaurantId}")
+    @GetMapping("/api/{restaurantId}/reviews")
     public List<ReviewDTO> RestaurantReviews(@PathVariable Long restaurantId) {
         List<Review> reviews = reviewService.findReviewList(restaurantId);
         List<ReviewDTO> reviewDTOS = new ArrayList<>();

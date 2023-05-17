@@ -1,14 +1,16 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.service.RestaurantService;
+import com.backend.NawaBari.service.ReviewService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
-import java.time.LocalTime;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -18,6 +20,7 @@ import java.util.stream.Collectors;
 public class RestaurantApiController {
 
     private final RestaurantService restaurantService;
+    private final ReviewService reviewService;
 
     //식당 검색
     @GetMapping("/api/main/search")
@@ -38,6 +41,37 @@ public class RestaurantApiController {
 
         return restaurantDTOs;
     }
+
+    //식당 상세조회
+    @GetMapping("/api/restaurants/{restaurantId}")
+    public RestaurantDetailDTO RestaurantDetail(@PathVariable Long restaurantId) {
+        Restaurant restaurantDetail = restaurantService.findOne(restaurantId);
+
+        if (restaurantDetail == null) {
+            throw new IllegalArgumentException("식당을 찾을수 없습니다." + restaurantId);
+        }
+
+        List<Review> reviews = reviewService.findReviewList(restaurantId);
+
+        RestaurantDetailDTO restaurantDetailDTO = new RestaurantDetailDTO(
+                restaurantDetail.getId(),
+                restaurantDetail.getName(),
+                restaurantDetail.getRestaurant_img(),
+                restaurantDetail.getOpeningTime(),
+                restaurantDetail.getClosingTime(),
+                restaurantDetail.getAddress_name(),
+                restaurantDetail.getLat(),
+                restaurantDetail.getLng(),
+                restaurantDetail.getTel(),
+                restaurantDetail.getReviewCount(),
+                restaurantDetail.getAvgRating(),
+                reviews
+        );
+
+        return restaurantDetailDTO;
+    }
+
+//===============================================================================================================//
 
 
     @Data
@@ -77,5 +111,34 @@ public class RestaurantApiController {
         return restaurantDTO;
     }
 
+    static class RestaurantDetailDTO {
+        private Long id;
+        private String name;
+        private String restaurant_img;
+        private String openingTime;
+        private String closingTime;
+        private String address_name;
+        private Double lat;
+        private Double lng;
+        private String tel;
+        private int reviewCount;
+        private Double avgRating;
+        private List<Review> reviews;
+
+        public RestaurantDetailDTO(Long id, String name, String restaurant_img, String openingTime, String closingTime, String address_name, Double lat, Double lng, String tel, int reviewCount, Double avgRating, List<Review> reviews) {
+            this.id = id;
+            this.name = name;
+            this.restaurant_img = restaurant_img;
+            this.openingTime = openingTime;
+            this.closingTime = closingTime;
+            this.address_name = address_name;
+            this.lat = lat;
+            this.lng = lng;
+            this.tel = tel;
+            this.reviewCount = reviewCount;
+            this.avgRating = avgRating;
+            this.reviews = reviews;
+        }
+    }
 }
 
