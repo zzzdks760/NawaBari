@@ -1,4 +1,4 @@
-package com.backend.NawaBari.oauth;
+package com.backend.NawaBari.controller;
 
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.GetMapping;

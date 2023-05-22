@@ -1,8 +1,5 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Zone;
-import com.backend.NawaBari.dto.MemberZoneDTO;
 import com.backend.NawaBari.service.MemberZoneService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -18,7 +15,7 @@ public class MemberZoneApiController {
     private final MemberZoneService memberZoneService;
 
     //구역설정
-    @PostMapping("/api/memberZone")
+    @PostMapping("/api/member/memberZone")
     public MemberZoneResponseDTO setMemberZone(@RequestBody @Validated MemberZoneRequestDTO request) {
         Long memberZoneId = memberZoneService.setMemberZone(request.getMemberId(), request.getZoneId());
 

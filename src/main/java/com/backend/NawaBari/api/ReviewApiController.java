@@ -2,7 +2,6 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.review.Photo;
 import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.service.HeartService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -18,10 +17,9 @@ import java.util.List;
 public class ReviewApiController {
 
     private final ReviewService reviewService;
-    private final HeartService heartService;
 
     //리뷰등록
-    @PostMapping("/api/createReview")
+    @PostMapping("/api/restaurant/createReview")
     public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(), request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
 
@@ -29,7 +27,7 @@ public class ReviewApiController {
     }
 
     //리뷰수정
-    @PutMapping("/api/review/{id}")
+    @PutMapping("/api/restaurant/review/{id}")
     public UpdateReviewResponse updateReview(
             @PathVariable("id") Long id,
             @RequestBody @Validated UpdateReviewRequest request) {

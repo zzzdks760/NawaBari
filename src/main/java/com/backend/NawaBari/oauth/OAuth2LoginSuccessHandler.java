@@ -43,10 +43,10 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
             if(oAuth2User.getRole() == Role.GUEST) {
 
 
-                response.sendRedirect("/login"); // 프론트의 구역 정보 입력 폼으로 리다이렉트
+                response.sendRedirect("/api/memberZone"); // 프론트의 구역 정보 입력 폼으로 리다이렉트
 
             } else {
-                    response.sendRedirect("/main");
+                    response.sendRedirect("/api/main");
                 }
 
         } catch (Exception e) {
