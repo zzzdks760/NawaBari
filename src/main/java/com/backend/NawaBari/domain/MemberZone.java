@@ -27,7 +27,7 @@ public class MemberZone extends Base{
     private Zone zone;
 
     @Builder
-    public MemberZone(Long id, Member member, Zone zone) {
+    public MemberZone(Member member, Zone zone) {
         this.member = member;
         this.zone = zone;
     }

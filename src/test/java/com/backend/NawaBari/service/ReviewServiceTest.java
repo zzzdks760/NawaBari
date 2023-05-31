@@ -2,7 +2,9 @@ package com.backend.NawaBari.service;
 
 
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Photo;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.repository.MemberRepository;
@@ -38,7 +40,18 @@ class ReviewServiceTest {
         //given
         Member member = Member.builder()
                 .profile_nickname("Kim")
+                .memberZones(new ArrayList<>())
+                .reviews(new ArrayList<>())
                 .build();
+        em.persist(member);
+        Zone zone = Zone.builder()
+                .gu("서초구")
+                .dong("양재동")
+                .build();
+        em.persist(zone);
+
+        MemberZone memberZone = new MemberZone(member, zone);
+        member.getMemberZones().add(memberZone);
 
         Member member2 = Member.builder()
                 .profile_nickname("Nam")
@@ -48,6 +61,7 @@ class ReviewServiceTest {
 
         Restaurant restaurant = Restaurant.builder()
                 .name("Vips")
+                .address_name("서울특별시 강남구 논현동")
                 .build();
 
         em.persist(restaurant);
@@ -76,7 +90,6 @@ class ReviewServiceTest {
 
 
         //when
-
         Long reviewId1 = reviewService.createReview(member.getId(), restaurant.getId(), photos, title, content, rate);
         Long reviewId2 = reviewService.createReview(member2.getId(), restaurant.getId(), photos, title2, content2, rate2);
 
