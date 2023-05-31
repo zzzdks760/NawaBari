@@ -32,6 +32,7 @@ public class MemberZone extends Base{
         this.zone = zone;
     }
 
+
     //== 연관관계 메서드 ==//
     public void setZone(Zone zone) {
         this.zone = zone;

@@ -19,7 +19,7 @@ public class ReviewApiController {
     private final ReviewService reviewService;
 
     //리뷰등록
-    @PostMapping("/api/restaurant/createReview")
+    @PostMapping("/api/v1/review")
     public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(), request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
 

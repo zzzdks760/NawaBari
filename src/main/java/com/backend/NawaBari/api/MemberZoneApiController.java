@@ -15,7 +15,7 @@ public class MemberZoneApiController {
     private final MemberZoneService memberZoneService;
 
     //구역설정
-    @PostMapping("/api/member/memberZone")
+    @PostMapping("/api/v1/memberZone")
     public MemberZoneResponseDTO setMemberZone(@RequestBody @Validated MemberZoneRequestDTO request) {
         Long memberZoneId = memberZoneService.setMemberZone(request.getMemberId(), request.getZoneId());
 
