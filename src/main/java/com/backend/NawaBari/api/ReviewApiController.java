@@ -19,34 +19,35 @@ public class ReviewApiController {
     private final ReviewService reviewService;
 
     //리뷰등록
-    @PostMapping("/api/v1/review")
-    public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
+    @PostMapping("/api/v1/restaurants/{restaurantId}/reviews")
+    public ReviewResponseDTO createReview(@PathVariable Long restaurantId, @RequestBody @Validated ReviewRequestDTO request) {
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(), request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
 
         return new ReviewResponseDTO(reviewId);
     }
 
     //리뷰수정
-    @PutMapping("/api/restaurant/review/{id}")
+    @PutMapping("/api/v1/restaurants/{restaurantId}/reviews/{reviewId}")
     public UpdateReviewResponse updateReview(
-            @PathVariable("id") Long id,
+            @PathVariable("restaurantId") Long restaurantId,
+            @PathVariable("reviewId") Long reviewId,
             @RequestBody @Validated UpdateReviewRequest request) {
 
-        reviewService.updateReview(id, request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
-        Review findReview = reviewService.findOne(id);
+        reviewService.updateReview(reviewId, request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
+        Review findReview = reviewService.findOne(reviewId);
         return new UpdateReviewResponse(findReview.getId(), findReview.getPhotos(), findReview.getTitle(), findReview.getContent(), findReview.getRate());
     }
 
     //리뷰삭제
-    @DeleteMapping("/api/{restaurantId}/restaurant/{reviewId}")
-    public void deleteReview(@PathVariable Long restaurantId,
-                             @PathVariable Long reviewId
+    @DeleteMapping("/api/v1/restaurants/{restaurantId}/reviews/{reviewId}")
+    public void deleteReview(@PathVariable("restaurantId") Long restaurantId,
+                             @PathVariable("reviewId") Long reviewId
     ) {
         reviewService.deleteReview(restaurantId, reviewId);
     }
 
     //리뷰조회
-    @GetMapping("/api/{restaurantId}/reviews")
+/*    @GetMapping("/api/v1/{restaurantId}/reviews")
     public List<ReviewDTO> RestaurantReviews(@PathVariable Long restaurantId) {
         List<Review> reviews = reviewService.findReviewList(restaurantId);
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
@@ -63,7 +64,7 @@ public class ReviewApiController {
             reviewDTOS.add(reviewDTO);
         }
         return reviewDTOS;
-    }
+    }*/
 
 
     //===============================================================================================================//
