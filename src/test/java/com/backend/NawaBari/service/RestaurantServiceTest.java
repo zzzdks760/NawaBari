@@ -46,6 +46,44 @@ class RestaurantServiceTest {
     }
 
     @Test
+    public void 통합검색() throws Exception {
+        //given
+        Restaurant restaurant1 = Restaurant.builder()
+                .name("미분당")
+                .address_name("서울특별시 강남구 역삼동 148-1")
+                .lat(123.123)
+                .lng(456.456)
+                .build();
+        Restaurant restaurant2 = Restaurant.builder()
+                .name("미소야(역삼점)")
+                .address_name("서울특별시 강남구 논현동 527-96")
+                .lat(123.456)
+                .lng(456.123)
+                .build();
+
+        em.persist(restaurant1);
+        em.persist(restaurant2);
+
+        String inputName1 = "미소야";
+        String inputName2 = "서울";
+        String inputName3 = "미";
+
+
+        //when
+
+        List<Restaurant> restaurants1 = restaurantService.searchByNameAndAddress(inputName1);
+        List<Restaurant> restaurants2 = restaurantService.searchByNameAndAddress(inputName2);
+
+        //then
+        assertThat(restaurants1.size()).isEqualTo(1);
+        assertThat(restaurants2.size()).isEqualTo(2);
+        assertThrows(IllegalArgumentException.class, () -> {
+            restaurantService.findByRestaurantName(inputName3);
+        });
+
+    }
+
+    @Test
     public void 식당이름으로조회() throws Exception {
         //given
         Restaurant restaurant1 = Restaurant.builder()
