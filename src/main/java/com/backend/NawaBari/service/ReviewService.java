@@ -40,7 +40,6 @@ public class ReviewService {
             }
         }
 
-
         if (isAddressMatching) { //구 주소가 일치하는 경우 리뷰생성
             Review review = Review.createReview(member, restaurant, photos, title, content, rate);
             restaurant.addReview(review);

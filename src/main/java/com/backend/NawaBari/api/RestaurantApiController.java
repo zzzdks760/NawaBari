@@ -23,7 +23,7 @@ public class RestaurantApiController {
     private final ReviewService reviewService;
 
     //식당 검색
-    @GetMapping("/api/main/search")
+    @GetMapping("/api/v1/main/keyword-search")
     public List<RestaurantDTO> RestaurantSearch(@RequestParam(required = false) String name, @RequestParam(required = false) String addressName) {
         List<Restaurant> restaurants;
         if (name != null) {
@@ -40,6 +40,17 @@ public class RestaurantApiController {
                 .collect(Collectors.toList());
 
         return restaurantDTOs;
+    }
+
+    //통합 검색
+    @GetMapping("api/v1/restaurants/search")
+    public List<RestaurantDTO> keywordSearch(@RequestParam String keyword) {
+        List<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword);
+
+        List<RestaurantDTO> restaurantDTOS = restaurants.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+        return restaurantDTOS;
     }
 
     //식당 상세조회
