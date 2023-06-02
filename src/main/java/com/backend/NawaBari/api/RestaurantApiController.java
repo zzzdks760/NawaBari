@@ -54,7 +54,7 @@ public class RestaurantApiController {
     }
 
     //식당 상세조회
-    @GetMapping("/api/main/{restaurantId}")
+    @GetMapping("/api/v1/restaurants/{restaurantId}")
     public RestaurantDetailDTO RestaurantDetail(@PathVariable Long restaurantId) {
         Restaurant restaurantDetail = restaurantService.findOne(restaurantId);
 
