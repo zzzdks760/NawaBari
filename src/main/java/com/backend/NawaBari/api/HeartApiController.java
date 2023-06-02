@@ -1,5 +1,9 @@
 package com.backend.NawaBari.api;
 
+import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.repository.MemberRepository;
+import com.backend.NawaBari.repository.ReviewRepository;
 import com.backend.NawaBari.service.HeartService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
@@ -14,11 +18,9 @@ public class HeartApiController {
 
     private final HeartService heartService;
 
-    @PostMapping("/api/v1/restaurants/{restaurantId}/reviews/{reviewId}/hearts")
-    public ResponseEntity<Boolean> addHeart(@PathVariable("restaurantId") Long restaurantId,
-                                            @PathVariable("reviewId") Long reviewId,
-                                            @RequestParam("memberId") Long memberId) {
-        Boolean isLiked = heartService.addHeart(memberId, reviewId);
-        return ResponseEntity.ok(isLiked);
+    @PostMapping("/api/v1/reviews/{reviewId}/hearts")
+    public int heartCount(@PathVariable("reviewId") Long reviewId, @RequestParam("memberId") Long memberId) {
+        int count = heartService.toggleHeart(memberId, reviewId);
+        return count;
     }
 }
