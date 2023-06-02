@@ -103,4 +103,5 @@ public class MemberRepository {
         member.setRefreshToken(refreshToken);
         em.persist(member);
     }
+
 }

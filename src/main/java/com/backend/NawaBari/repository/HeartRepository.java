@@ -38,10 +38,10 @@ public class HeartRepository {
                     .stream()
                     .findFirst()
                     .orElse(null);
-
         }
 
     public void delete(Heart heart) {
         em.remove(heart);
     }
+
 }
