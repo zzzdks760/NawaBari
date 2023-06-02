@@ -24,10 +24,7 @@ import static org.assertj.core.api.Assertions.*;
 @Transactional
 class HeartServiceTest {
 
-    @Autowired ReviewRepository reviewRepository;
     @Autowired HeartService heartService;
-    @Autowired MemberRepository memberRepository;
-    @Autowired HeartRepository heartRepository;
     @Autowired EntityManager em;
 
     @Test
@@ -39,23 +36,23 @@ class HeartServiceTest {
         em.persist(member);
 
         Review review = Review.builder()
+                .likeCount(2)
                 .title("맛있음")
-
                 .build();
         em.persist(review);
 
-//        Heart heart = Heart.builder()
-//                .member(member)
-//                .review(review)
-//                .liked(false)
-//                .build();
-//        em.persist(heart);
+
+        Heart heart = Heart.builder()
+                .member(member)
+                .review(review)
+                .liked(true)
+                .build();
+        em.persist(heart);
 
         //when
-        Boolean aBoolean = heartService.addHeart(member.getId(), review.getId());
-
+        int heartCount = heartService.toggleHeart(member.getId(), review.getId());
 
         //Then
-        assertThat(aBoolean).isTrue();
+        assertThat(heartCount).isEqualTo(1);
     }
 }
