@@ -94,8 +94,9 @@ public class Review extends Base {
     }
 
     @Builder
-    public Review(String title) {
+    public Review(String title, int likeCount) {
         this.title = title;
+        this.likeCount = likeCount;
     }
 }
 
