@@ -21,25 +21,22 @@ public class HeartService {
     private final MemberRepository memberRepository;
     private final ReviewRepository reviewRepository;
 
-    public Boolean addHeart(Long memberId, Long reviewId) {
-
+    @Transactional
+    public int toggleHeart(Long memberId, Long reviewId) {
+        //회원과 리뷰를 DB에서 찾아서 Heart객체가 존재하는지 체크(존재한다 == true)
         Member member = memberRepository.findOne(memberId);
         Review review = reviewRepository.findOne(reviewId);
-
         Heart heart = heartRepository.findLiked(member, review);
-        //좋아요 처음 누른경우
-        if (heart == null){
+
+        if (heart == null) {
             heart = Heart.createHeart(member, review, false);
             heart.like();
         }
-        //좋아요가 false인지 true인지
-        if (!heart.isLiked()) {
-            heart.like();
-        } else {
+        else {
             heart.unlike();
+            heartRepository.delete(heart);
         }
         heartRepository.save(heart);
-        return heart.isLiked();
+        return review.getLikeCount();
     }
-
 }
