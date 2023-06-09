@@ -3,6 +3,10 @@ package com.backend.NawaBari.service;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.PageRequest;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -72,7 +76,7 @@ public class RestaurantService {
         if (keyword.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
-        List<Restaurant> restaurants = restaurantRepository.SearchByNameAndAddress(keyword);
+        List<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword);
 
         if (restaurants.isEmpty()) {
             restaurants = restaurantRepository.searchByKeywordContaining(keyword);
@@ -80,6 +84,7 @@ public class RestaurantService {
 
         return restaurants;
     }
+
 
     //식당 상세조회
     public Restaurant findOne(Long restaurantId) {

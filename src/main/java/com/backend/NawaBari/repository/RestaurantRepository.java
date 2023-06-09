@@ -42,7 +42,7 @@ public class RestaurantRepository {
     }
 
     //통합검색
-    public List<Restaurant> SearchByNameAndAddress(String keyword) {
+    public List<Restaurant> searchByNameAndAddress(String keyword) {
         return em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword", Restaurant.class)
                 .setParameter("keyword", keyword)
                 .getResultList();
@@ -55,6 +55,8 @@ public class RestaurantRepository {
                 .setParameter("keyword", keyword)
                 .getResultList();
     }
+
+
 
     public void saveAll(List<Restaurant> restaurantList) {
         for (Restaurant restaurant : restaurantList) {
