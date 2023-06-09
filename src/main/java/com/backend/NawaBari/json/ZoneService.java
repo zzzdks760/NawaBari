@@ -27,7 +27,7 @@ public class ZoneService {
     @Transactional
     public void SaveData() throws IOException {
 
-        List<Zone> zoneList = jsonFileLoader.loadJsonData();
+        List<Zone> zoneList = jsonFileLoader.zoneLoadJsonData();
         zoneRepository.saveAll(zoneList);
     }
 
