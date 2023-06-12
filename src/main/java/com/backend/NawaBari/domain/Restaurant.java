@@ -69,17 +69,14 @@ public class Restaurant extends Base{
         this.category = category;
         category.getRestaurants().add(this);
     }
+
     @Builder
-    public Restaurant(Long id, String name, String address_name, Double lat, Double lng, String tel) {
-        this.id = id;
+    public Restaurant(String name, String address_name, Double lat, Double lng) {
         this.name = name;
         this.address_name = address_name;
         this.lat = lat;
         this.lng = lng;
-        this.tel = tel;
     }
-
-
 
 
     //리뷰가 추가될 때 리뷰수도 증가
