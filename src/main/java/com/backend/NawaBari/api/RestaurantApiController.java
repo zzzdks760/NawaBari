@@ -2,14 +2,14 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.service.RestaurantService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
 import java.util.List;
@@ -23,7 +23,7 @@ public class RestaurantApiController {
     private final ReviewService reviewService;
 
     //식당 검색
-    @GetMapping("/api/v1/main/keyword-search")
+/*    @GetMapping("/api/v1/main/keyword-search")
     public List<RestaurantDTO> RestaurantSearch(@RequestParam(required = false) String name, @RequestParam(required = false) String addressName) {
         List<Restaurant> restaurants;
         if (name != null) {
@@ -40,10 +40,10 @@ public class RestaurantApiController {
                 .collect(Collectors.toList());
 
         return restaurantDTOs;
-    }
+    }*/
 
     //통합 검색
-    @GetMapping("api/v1/restaurants/search")
+/*    @GetMapping("api/v1/restaurants/search")
     public List<RestaurantDTO> keywordSearch(@RequestParam String keyword) {
         List<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword);
 
@@ -51,10 +51,19 @@ public class RestaurantApiController {
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
         return restaurantDTOS;
-    }
+    }*/
+
+    @GetMapping("api/v1/restaurants/search")
+    public Slice<RestaurantDTO> keywordSearch(@RequestBody String keyword, Pageable pageable) {
+        Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
+
+        Slice<RestaurantDTO> restaurantDTOS = restaurants.stream()
+                .map(this::convertToDTO)
+                .collect(Collectors.toList());
+        return restaurantDTOS;
 
     //식당 상세조회
-    @GetMapping("/api/v1/restaurants/{restaurantId}")
+/*    @GetMapping("/api/v1/restaurants/{restaurantId}")
     public RestaurantDetailDTO RestaurantDetail(@PathVariable Long restaurantId) {
         Restaurant restaurantDetail = restaurantService.findOne(restaurantId);
 
@@ -80,7 +89,7 @@ public class RestaurantApiController {
         );
 
         return restaurantDetailDTO;
-    }
+    }*/
 
 //===============================================================================================================//
 
