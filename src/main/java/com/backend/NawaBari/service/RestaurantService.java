@@ -72,18 +72,19 @@ public class RestaurantService {
     }
 
     //통합 검색
-    public List<Restaurant> searchByNameAndAddress(String keyword) {
+    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
         if (keyword.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
-        List<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword);
+        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
 
         if (restaurants.isEmpty()) {
-            restaurants = restaurantRepository.searchByKeywordContaining(keyword);
+            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
         }
 
         return restaurants;
     }
+
 
 
     //식당 상세조회
