@@ -9,6 +9,8 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Collections;
@@ -42,25 +44,24 @@ public class RestaurantApiController {
         return restaurantDTOs;
     }*/
 
-    //통합 검색
-/*    @GetMapping("api/v1/restaurants/search")
-    public List<RestaurantDTO> keywordSearch(@RequestParam String keyword) {
-        List<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword);
-
-        List<RestaurantDTO> restaurantDTOS = restaurants.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-        return restaurantDTOS;
-    }*/
-
     @GetMapping("api/v1/restaurants/search")
-    public Slice<RestaurantDTO> keywordSearch(@RequestBody String keyword, Pageable pageable) {
+    public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword,@PageableDefault(size = 10, page = 0) Pageable pageable) {
+
         Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
 
-        Slice<RestaurantDTO> restaurantDTOS = restaurants.stream()
+        if (restaurants.isEmpty()) {
+            restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
+        }
+
+/*        List<Restaurant> restaurantList = restaurants.getContent();
+        System.out.println("restaurantList: "+ restaurantList);*/
+
+        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
                 .map(this::convertToDTO)
                 .collect(Collectors.toList());
-        return restaurantDTOS;
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+    }
+
 
     //식당 상세조회
 /*    @GetMapping("/api/v1/restaurants/{restaurantId}")
@@ -130,6 +131,7 @@ public class RestaurantApiController {
         );
         return restaurantDTO;
     }
+
 
     static class RestaurantDetailDTO {
         private Long id;
