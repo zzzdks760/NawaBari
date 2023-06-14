@@ -4,6 +4,9 @@ import com.backend.NawaBari.domain.Restaurant;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -42,18 +45,27 @@ public class RestaurantRepository {
     }
 
     //통합검색
-    public List<Restaurant> searchByNameAndAddress(String keyword) {
-        return em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword", Restaurant.class)
+    //통합검색
+    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword", Restaurant.class)
                 .setParameter("keyword", keyword)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
                 .getResultList();
+
+        return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
     }
 
     //키워드를 포함하는 주소나 가게이름 조회
-    public List<Restaurant> searchByKeywordContaining(String keyword) {
-        return em.createQuery("select r from Restaurant r where r.name like CONCAT('%', :keyword, '%') or " +
-                "r.address_name like CONCAT('%', :keyword, '%')")
+    public Slice<Restaurant> searchByKeywordContaining(String keyword, Pageable pageable) {
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like CONCAT('%', :keyword, '%') or " +
+                        "r.address_name like CONCAT('%', :keyword, '%') order by r.avgRating desc", Restaurant.class)
                 .setParameter("keyword", keyword)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
                 .getResultList();
+
+        return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
     }
 
 
