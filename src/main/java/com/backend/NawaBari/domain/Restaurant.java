@@ -70,13 +70,16 @@ public class Restaurant extends Base{
         category.getRestaurants().add(this);
     }
 
+
     @Builder
-    public Restaurant(String name, String address_name, Double lat, Double lng, String tel) {
+    public Restaurant(String name, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount) {
         this.name = name;
         this.address_name = address_name;
         this.lat = lat;
         this.lng = lng;
         this.tel = tel;
+        this.reviews = reviews;
+        this.reviewCount = reviewCount;
     }
 
 
