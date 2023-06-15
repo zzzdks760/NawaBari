@@ -1,6 +1,7 @@
 package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -44,7 +45,6 @@ public class RestaurantRepository {
                 .getResultList();
     }
 
-    //통합검색
     //통합검색
     public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
         List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword", Restaurant.class)
