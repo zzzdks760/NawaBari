@@ -31,6 +31,14 @@ public class RestaurantRepository {
         return em.find(Restaurant.class, restaurant_id);
     }
 
+    //식당 상세조회
+    public List<Review> findReviewTop3(Long restaurant_id) {
+        return em.createQuery("select r from Review r where r.restaurant.id = :restaurant_id ORDER BY likeCount DESC", Review.class)
+                .setParameter("restaurant_id", restaurant_id)
+                .setMaxResults(3)
+                .getResultList();
+    }
+
     //행정구역으로 식당 조회
     public List<Restaurant> findRestaurantByAddress(String address_name) {
         return em.createQuery("select r from Restaurant r where r.address_name like :address_name", Restaurant.class)
