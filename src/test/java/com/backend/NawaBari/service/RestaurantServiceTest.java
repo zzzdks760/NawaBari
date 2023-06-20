@@ -1,6 +1,7 @@
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import jakarta.persistence.EntityManager;
 import org.assertj.core.api.Assertions;
@@ -15,6 +16,7 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import static org.assertj.core.api.Assertions.*;
@@ -77,8 +79,7 @@ class RestaurantServiceTest {
 
 //        List<Restaurant> restaurants1 = restaurantService.searchByNameAndAddress(inputName1);
 //        List<Restaurant> restaurants2 = restaurantService.searchByNameAndAddress(inputName2);
-
-        //then
+//
 //        assertThat(restaurants1.size()).isEqualTo(1);
 //        assertThat(restaurants2.size()).isEqualTo(2);
         assertThrows(IllegalArgumentException.class, () -> {
@@ -172,19 +173,54 @@ class RestaurantServiceTest {
     @Test
     public void 식당상세조회() throws Exception {
         //given
-        Restaurant restaurant1 = Restaurant.builder()
+        Restaurant restaurant = Restaurant.builder()
                 .name("마루심")
                 .address_name("서초구 반포동 54-10")
                 .lat(123.123)
                 .lng(456.456)
+                .reviews(new ArrayList<>())
                 .build();
-        em.persist(restaurant1);
+        em.persist(restaurant);
+
+        Review review1 = Review.builder()
+                .title("Good")
+                .likeCount(18)
+                .build();
+
+        Review review2 = Review.builder()
+                .title("fuck")
+                .likeCount(3)
+                .build();
+
+        Review review3 = Review.builder()
+                .title("soso")
+                .likeCount(4)
+                .build();
+
+        Review review4 = Review.builder()
+                .title("bad")
+                .likeCount(1)
+                .build();
+
+        restaurant.addReview(review1);
+        restaurant.addReview(review2);
+        restaurant.addReview(review3);
+        restaurant.addReview(review4);
+
+        em.persist(restaurant);
+        em.persist(review1);
+        em.persist(review2);
+        em.persist(review3);
+        em.persist(review4);
+        em.flush();
+
         //when
-        Restaurant restaurant = restaurantRepository.findOne(restaurant1.getId());
-        Restaurant findRestaurant = restaurantService.findOne(restaurant.getId());
+        Restaurant detail = restaurantService.detailRestaurant(restaurant.getId());
 
         //then
-        assertThat(findRestaurant.getId()).isEqualTo(restaurant1.getId());
+        List<Review> top3Reviews = detail.getReviews();
+        assertThat(detail.getReviews().size()).isEqualTo(3);
+        assertThat(top3Reviews).containsExactly(review1, review3, review2);
     }
 
     @Test
