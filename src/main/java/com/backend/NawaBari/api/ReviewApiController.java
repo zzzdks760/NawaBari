@@ -6,6 +6,10 @@ import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -48,8 +52,9 @@ public class ReviewApiController {
 
     //리뷰 전체 조회
     @GetMapping("/api/v1/{restaurantId}/reviews")
-    public List<ReviewDTO> RestaurantReviews(@PathVariable Long restaurantId) {
-        List<Review> reviews = reviewService.findAllReview(restaurantId);
+    public Slice<ReviewDTO> RestaurantReviews(@RequestParam("restaurantId") Long restaurantId, @PageableDefault Pageable pageable) {
+        Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
+
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
 
         for (Review review : reviews) {
@@ -63,7 +68,7 @@ public class ReviewApiController {
             );
             reviewDTOS.add(reviewDTO);
         }
-        return reviewDTOS;
+        return new SliceImpl<>(reviewDTOS, reviews.getPageable(), reviews.hasNext());
     }
 
 

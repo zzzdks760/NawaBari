@@ -10,6 +10,8 @@ import com.backend.NawaBari.repository.MemberRepository;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import com.backend.NawaBari.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -94,8 +96,9 @@ public class ReviewService {
     /**
      * 리뷰 전체 조회
      */
-    public List<Review> findAllReview(Long restaurant_id) {
-        List<Review> reviewList = reviewRepository.findAllReview(restaurant_id);
+    public Slice<Review> findAllReview(Long restaurantId, Pageable pageable) {
+        Slice<Review> reviewList = reviewRepository.findAllReview(restaurantId, pageable);
+
         return reviewList;
     }
 

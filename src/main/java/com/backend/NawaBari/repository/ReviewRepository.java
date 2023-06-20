@@ -6,6 +6,9 @@ import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -44,10 +47,14 @@ public class ReviewRepository {
     }
 
     //리뷰 전체 조회
-    public List<Review> findAllReview(Long restaurant_id) {
-        return em.createQuery("select r from Review r where r.restaurant.id = :restaurant_id", Review.class)
+    public Slice<Review> findAllReview(Long restaurant_id, Pageable pageable) {
+        List<Review> reviewList = em.createQuery("select r from Review r where r.restaurant.id = :restaurant_id", Review.class)
                 .setParameter("restaurant_id", restaurant_id)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
                 .getResultList();
+
+        return new SliceImpl<>(reviewList, pageable, reviewList.size() >= pageable.getPageSize());
     }
 
 
