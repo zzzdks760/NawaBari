@@ -44,6 +44,7 @@ public class RestaurantApiController {
         return restaurantDTOs;
     }*/
 
+    //통합검색
     @GetMapping("api/v1/restaurants/search")
     public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword,@PageableDefault(size = 10, page = 0) Pageable pageable) {
 
@@ -64,15 +65,13 @@ public class RestaurantApiController {
 
 
     //식당 상세조회
-/*    @GetMapping("/api/v1/restaurants/{restaurantId}")
+    @GetMapping("/api/v1/restaurants/{restaurantId}")
     public RestaurantDetailDTO RestaurantDetail(@PathVariable Long restaurantId) {
-        Restaurant restaurantDetail = restaurantService.findOne(restaurantId);
+        Restaurant restaurantDetail = restaurantService.detailRestaurant(restaurantId);
 
         if (restaurantDetail == null) {
             throw new IllegalArgumentException("식당을 찾을수 없습니다." + restaurantId);
         }
-
-        List<Review> reviews = reviewService.findReviewList(restaurantId);
 
         RestaurantDetailDTO restaurantDetailDTO = new RestaurantDetailDTO(
                 restaurantDetail.getId(),
@@ -86,11 +85,13 @@ public class RestaurantApiController {
                 restaurantDetail.getTel(),
                 restaurantDetail.getReviewCount(),
                 restaurantDetail.getAvgRating(),
-                reviews
+                restaurantDetail.getReviews()
+
         );
 
         return restaurantDetailDTO;
-    }*/
+    }
+
 
 //===============================================================================================================//
 
