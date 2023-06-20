@@ -46,10 +46,10 @@ public class ReviewApiController {
         reviewService.deleteReview(restaurantId, reviewId);
     }
 
-    //리뷰조회
-/*    @GetMapping("/api/v1/{restaurantId}/reviews")
+    //리뷰 전체 조회
+    @GetMapping("/api/v1/{restaurantId}/reviews")
     public List<ReviewDTO> RestaurantReviews(@PathVariable Long restaurantId) {
-        List<Review> reviews = reviewService.findReviewList(restaurantId);
+        List<Review> reviews = reviewService.findAllReview(restaurantId);
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
 
         for (Review review : reviews) {
@@ -64,7 +64,7 @@ public class ReviewApiController {
             reviewDTOS.add(reviewDTO);
         }
         return reviewDTOS;
-    }*/
+    }
 
 
     //===============================================================================================================//

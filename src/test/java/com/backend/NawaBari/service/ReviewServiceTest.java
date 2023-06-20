@@ -193,4 +193,48 @@ class ReviewServiceTest {
         assertThat(restaurant.getAvgRating()).isNull();
 
     }
+
+    @Test
+    public void 리뷰전체조회() throws Exception {
+        //given
+        Restaurant restaurant = Restaurant.builder()
+                .name("Vips")
+                .reviews(new ArrayList<>())
+                .build();
+        em.persist(restaurant);
+
+        Review review1 = Review.builder()
+                .title("review1")
+                .likeCount(10)
+                .build();
+        Review review2 = Review.builder()
+                .title("review2")
+                .likeCount(11)
+                .build();
+        Review review3 = Review.builder()
+                .title("review3")
+                .likeCount(1)
+                .build();
+        Review review4 = Review.builder()
+                .title("review4")
+                .likeCount(5)
+                .build();
+
+        restaurant.addReview(review1);
+        restaurant.addReview(review2);
+        restaurant.addReview(review3);
+        restaurant.addReview(review4);
+        em.persist(restaurant);
+        em.persist(review1);
+        em.persist(review2);
+        em.persist(review3);
+        em.persist(review4);
+        em.flush();
+        //when
+
+        List<Review> allReview = reviewRepository.findAllReview(restaurant.getId());
+
+        //then
+        assertThat(allReview.size()).isEqualTo(4);
+    }
 }

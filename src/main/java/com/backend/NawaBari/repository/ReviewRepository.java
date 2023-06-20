@@ -43,9 +43,9 @@ public class ReviewRepository {
                 .getSingleResult();
     }
 
-    //리뷰 조회
-    public List<Review> findReview(Long restaurant_id) {
-        return em.createQuery("select r from Review r where r.restaurant_id = :restaurant_id", Review.class)
+    //리뷰 전체 조회
+    public List<Review> findAllReview(Long restaurant_id) {
+        return em.createQuery("select r from Review r where r.restaurant.id = :restaurant_id", Review.class)
                 .setParameter("restaurant_id", restaurant_id)
                 .getResultList();
     }
@@ -58,14 +58,6 @@ public class ReviewRepository {
                 .getResultList();
     }*/
 
-    //식당에 대한 리뷰조회
-/*
-    public List<Review> getReviewsByRestaurant(Restaurant restaurant) {
-        return em.createQuery("select r from Review r where r.restaurant = :restaurant", Review.class)
-                .setParameter("restaurant", restaurant)
-                .getResultList();
-    }
-*/
 
 }
 

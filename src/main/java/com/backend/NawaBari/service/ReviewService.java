@@ -92,10 +92,10 @@ public class ReviewService {
     }
 
     /**
-     * 리뷰 조회
+     * 리뷰 전체 조회
      */
-    public List<Review> findReviewList(Long restaurant_id) {
-        List<Review> reviewList = reviewRepository.findReview(restaurant_id);
+    public List<Review> findAllReview(Long restaurant_id) {
+        List<Review> reviewList = reviewRepository.findAllReview(restaurant_id);
         return reviewList;
     }
 
