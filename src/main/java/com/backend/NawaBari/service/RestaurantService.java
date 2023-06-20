@@ -1,6 +1,7 @@
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
@@ -88,8 +89,20 @@ public class RestaurantService {
 
 
     //식당 상세조회
-    public Restaurant findOne(Long restaurantId) {
-        return restaurantRepository.findOne(restaurantId);
+    public Restaurant detailRestaurant(Long restaurantId) {
+        Restaurant restaurant = restaurantRepository.findOne(restaurantId);
+        List<Review> reviewTop3 = restaurantRepository.findReviewTop3(restaurantId);
+
+        Restaurant restaurantDetail = Restaurant.builder()
+                .name(restaurant.getName())
+                .address_name(restaurant.getAddress_name())
+                .lat(restaurant.getLat())
+                .lng(restaurant.getLng())
+                .reviewCount(restaurant.getReviewCount())
+                .tel(restaurant.getTel())
+                .reviews((reviewTop3))
+                .build();
+        return restaurantDetail;
     }
 
 
