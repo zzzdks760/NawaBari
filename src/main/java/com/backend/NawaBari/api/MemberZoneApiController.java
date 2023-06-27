@@ -20,6 +20,7 @@ public class MemberZoneApiController {
     public MemberZoneResponseDTO setMemberZone(@PathVariable("memberId") Long memberId, @RequestBody @Validated MemberZoneRequestDTO request) {
         Long memberZoneId = memberZoneService.setMemberZone(request.getMemberId(), request.getZoneId());
 
+
         return new MemberZoneResponseDTO(memberZoneId);
     }
 
