@@ -1,4 +1,3 @@
-/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Restaurant;
@@ -89,7 +88,7 @@ class RestaurantServiceTest {
 
     }
 
-    @Test
+/*    @Test
     public void 식당이름으로조회() throws Exception {
         //given
         Restaurant restaurant1 = Restaurant.builder()
@@ -125,9 +124,9 @@ class RestaurantServiceTest {
             restaurantService.findByRestaurantName(inputName3);
         });
 
-    }
+    }*/
 
-    @Test
+/*    @Test
     public void 주소로식당조회() throws Exception {
         //given
         Restaurant restaurant1 = Restaurant.builder()
@@ -169,7 +168,7 @@ class RestaurantServiceTest {
             restaurantService.findByAddressName(inputName2);
         });
         assertThat(address3.size()).isEqualTo(1);
-    }
+    }*/
 
     @Test
     public void 식당상세조회() throws Exception {
@@ -242,4 +241,4 @@ class RestaurantServiceTest {
         assertNotNull(restaurants);
     }
 
-}*/
+}

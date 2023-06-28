@@ -1,4 +1,3 @@
-/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Member;
@@ -17,11 +16,8 @@ import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.test.context.junit.jupiter.SpringExtension;
 import org.springframework.transaction.annotation.Transactional;
 
-import java.util.ArrayList;
-import java.util.List;
 
 import static org.junit.jupiter.api.Assertions.*;
-import static org.mockito.Mockito.when;
 
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
@@ -40,7 +36,6 @@ class MemberZoneServiceTest {
     @Autowired
     private MemberZoneRepository memberZoneRepository;
 
-*/
 /*    @Test
     public void 구역초과체크() throws Exception {
         // Given
@@ -105,8 +100,8 @@ class MemberZoneServiceTest {
         assertThrows(MaximumZoneLimitException.class, () -> {
             memberZoneService.setMemberZone(memDTO, zonDTO3);
         });
-    }
-    @Test
+    }*/
+/*    @Test
     public void 구역중복체크() throws Exception {
         // Given
         MemberDTO memberDTO = new MemberDTO();
@@ -170,7 +165,6 @@ class MemberZoneServiceTest {
         });
 
 
-    }*//*
+    }*/
 
 }
-*/

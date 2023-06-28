@@ -1,16 +1,10 @@
-/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Heart;
 import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.repository.HeartRepository;
-import com.backend.NawaBari.repository.MemberRepository;
-import com.backend.NawaBari.repository.ReviewRepository;
 import jakarta.persistence.EntityManager;
 
-import org.assertj.core.api.Assertions;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -56,4 +50,4 @@ class HeartServiceTest {
         //Then
         assertThat(heartCount).isEqualTo(1);
     }
-}*/
+}
