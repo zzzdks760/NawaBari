@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Member;
@@ -39,6 +40,7 @@ class MemberZoneServiceTest {
     @Autowired
     private MemberZoneRepository memberZoneRepository;
 
+*/
 /*    @Test
     public void 구역초과체크() throws Exception {
         // Given
@@ -168,5 +170,7 @@ class MemberZoneServiceTest {
         });
 
 
-    }*/
+    }*//*
+
 }
+*/
