@@ -9,9 +9,9 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://nawabari-db.c5ixtmjnfhyv.ap-northeast-2.rds.amazonaws.com:3306/nawabari?serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://localhost:3306/nawabari?serverTimezone=UTC&characterEncoding=UTF-8
     username: sungmin
-    password: dta310ab
+    password: krsm59@@
 
   jpa:
     database: mysql
