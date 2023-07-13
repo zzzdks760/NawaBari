@@ -28,10 +28,6 @@ public class MyPageApiController {
     }
 
 
-
-
-
-
     @Data
     static class MyPageDTO {
         private Long id;
