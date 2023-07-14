@@ -1,5 +1,7 @@
 package com.backend.NawaBari.api;
 
+import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.service.MemberZoneService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
@@ -16,10 +18,9 @@ public class MemberZoneApiController {
     private final MemberZoneService memberZoneService;
 
     //구역설정
-    @PostMapping("/api/v1/members/{memberId}/zones")
-    public MemberZoneResponseDTO setMemberZone(@PathVariable("memberId") Long memberId, @RequestBody @Validated MemberZoneRequestDTO request) {
-        Long memberZoneId = memberZoneService.setMemberZone(request.getMemberId(), request.getZoneId());
-
+    @PostMapping("/api/v1/members/memberZone/{memberId}/{zoneId}")
+    public MemberZoneResponseDTO setMemberZone(@PathVariable("memberId") Long memberId, @PathVariable("zoneId") Long zoneId) {
+        Long memberZoneId = memberZoneService.setMemberZone(memberId, zoneId);
 
         return new MemberZoneResponseDTO(memberZoneId);
     }
@@ -30,15 +31,11 @@ public class MemberZoneApiController {
     @Data
     static class MemberZoneResponseDTO {
         private Long memberZoneId;
+        private Member member;
+        private Zone zone;
 
         public MemberZoneResponseDTO(Long memberZoneId) {
             this.memberZoneId = memberZoneId;
         }
-    }
-
-    @Data
-    static class MemberZoneRequestDTO {
-        private Long memberId;
-        private Long zoneId;
     }
 }
