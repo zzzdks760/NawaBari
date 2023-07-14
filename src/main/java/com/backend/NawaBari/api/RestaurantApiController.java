@@ -5,6 +5,7 @@ import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.service.RestaurantService;
 import com.backend.NawaBari.service.ReviewService;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -22,27 +23,6 @@ import java.util.stream.Collectors;
 public class RestaurantApiController {
 
     private final RestaurantService restaurantService;
-    private final ReviewService reviewService;
-
-    //식당 검색
-/*    @GetMapping("/api/v1/main/keyword-search")
-    public List<RestaurantDTO> RestaurantSearch(@RequestParam(required = false) String name, @RequestParam(required = false) String addressName) {
-        List<Restaurant> restaurants;
-        if (name != null) {
-            restaurants = restaurantService.findByRestaurantName(name);
-        } else if (addressName != null) {
-            restaurants = restaurantService.findByAddressName(addressName);
-        } else {
-            // Invalid request, name or address should be provided
-            return Collections.emptyList();
-        }
-
-        List<RestaurantDTO> restaurantDTOs = restaurants.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-
-        return restaurantDTOs;
-    }*/
 
     //통합검색
     @GetMapping("/api/v1/restaurants/search")
@@ -53,9 +33,6 @@ public class RestaurantApiController {
         if (restaurants.isEmpty()) {
             restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
         }
-
-/*        List<Restaurant> restaurantList = restaurants.getContent();
-        System.out.println("restaurantList: "+ restaurantList);*/
 
         List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
                 .map(this::convertToDTO)
@@ -73,22 +50,9 @@ public class RestaurantApiController {
             throw new IllegalArgumentException("식당을 찾을수 없습니다." + restaurantId);
         }
 
-        RestaurantDetailDTO restaurantDetailDTO = new RestaurantDetailDTO(
-                restaurantDetail.getName(),
-                restaurantDetail.getRestaurant_img(),
-                restaurantDetail.getOpeningTime(),
-                restaurantDetail.getClosingTime(),
-                restaurantDetail.getAddress_name(),
-                restaurantDetail.getLat(),
-                restaurantDetail.getLng(),
-                restaurantDetail.getTel(),
-                restaurantDetail.getReviewCount(),
-                restaurantDetail.getAvgRating(),
-                restaurantDetail.getReviews()
-
-        );
-
-        return restaurantDetailDTO;
+        return new RestaurantDetailDTO(restaurantDetail.getName(), restaurantDetail.getRestaurant_img(), restaurantDetail.getOpeningTime(), restaurantDetail.getClosingTime(),
+                restaurantDetail.getAddress_name(), restaurantDetail.getLat(), restaurantDetail.getLng(), restaurantDetail.getTel(), restaurantDetail.getReviewCount(),
+                restaurantDetail.getAvgRating(), restaurantDetail.getReviews());
     }
 
 
@@ -96,6 +60,7 @@ public class RestaurantApiController {
 
 
     @Data
+    @AllArgsConstructor
     static class RestaurantDTO {
         private Long restaurantId;
         private String name;
@@ -105,17 +70,6 @@ public class RestaurantApiController {
         private Double lng;
         private int reviewCount;
         private Double avgRating;
-
-        public RestaurantDTO(Long restaurantId, String name, String restaurant_img, String address_name, Double lat, Double lng, int reviewCount, Double avgRating) {
-            this.restaurantId = restaurantId;
-            this.name = name;
-            this.restaurant_img = restaurant_img;
-            this.address_name = address_name;
-            this.lat = lat;
-            this.lng = lng;
-            this.reviewCount = reviewCount;
-            this.avgRating = avgRating;
-        }
     }
     private RestaurantDTO convertToDTO(Restaurant restaurant) {
 
@@ -134,6 +88,7 @@ public class RestaurantApiController {
 
 
     @Data
+    @AllArgsConstructor
     static class RestaurantDetailDTO {
         private String name;
         private String restaurant_img;
@@ -146,20 +101,6 @@ public class RestaurantApiController {
         private int reviewCount;
         private Double avgRating;
         private List<Review> reviews;
-
-        public RestaurantDetailDTO(String name, String restaurant_img, String openingTime, String closingTime, String address_name, Double lat, Double lng, String tel, int reviewCount, Double avgRating, List<Review> reviews) {
-            this.name = name;
-            this.restaurant_img = restaurant_img;
-            this.openingTime = openingTime;
-            this.closingTime = closingTime;
-            this.address_name = address_name;
-            this.lat = lat;
-            this.lng = lng;
-            this.tel = tel;
-            this.reviewCount = reviewCount;
-            this.avgRating = avgRating;
-            this.reviews = reviews;
-        }
     }
 }
 
