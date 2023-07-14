@@ -71,13 +71,13 @@ public class ReviewService {
      * 리뷰 수정
      */
     @Transactional
-    public void updateReview(Long reviewId, List<Photo> photos, String title, String content, Double rate) {
+    public void updateReview(Long reviewId) {
         Review review = reviewRepository.findOne(reviewId);
 
-        review.setPhotos(photos);
-        review.setTitle(title);
-        review.setContent(content);
-        review.setRate(rate);
+        review.setPhotos(review.getPhotos());
+        review.setTitle(review.getTitle());
+        review.setContent(review.getContent());
+        review.setRate(review.getRate());
     }
 
     /**
