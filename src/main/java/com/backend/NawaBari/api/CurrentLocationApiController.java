@@ -23,9 +23,8 @@ public class CurrentLocationApiController {
     private final CurrentLocationService currentLocationService;
     private final RestaurantService restaurantService;
 
-    @PostMapping("/api/v1/restaurants/{location}")
-    public Slice<RestaurantApiController.RestaurantDTO> getCurrentLocation(@PathVariable("location") String location,
-                                                                           @RequestBody LocationDTO locationDTO,
+    @PostMapping("/api/v1/restaurants")
+    public Slice<RestaurantApiController.RestaurantDTO> getCurrentLocation(@RequestBody LocationDTO locationDTO,
                                                                            @PageableDefault(size = 10, page = 0) Pageable pageable) {
         float current_lat = locationDTO.getCurrent_lat();
         float current_lng = locationDTO.getCurrent_lng();
