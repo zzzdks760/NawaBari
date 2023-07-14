@@ -22,7 +22,22 @@ public class MemberService {
         return member;
     }
 
+
     /**
      * 회원정보 수정
      */
+    public void UpdateMypage(Long id) {
+        Member member = memberRepository.findOne(id);
+
+        member.setProfile_nickname(member.getProfile_nickname());
+        member.setProfile_image(member.getProfile_image());
+    }
+
+    /**
+     * 회원 단건 조회
+     */
+    public Member findOne(Long id) {
+        Member member = memberRepository.findOne(id);
+        return member;
+    }
 }
