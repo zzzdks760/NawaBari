@@ -45,7 +45,7 @@ public class RestaurantApiController {
     }*/
 
     //통합검색
-    @GetMapping("api/v1/restaurants/search")
+    @GetMapping("/api/v1/restaurants/search")
     public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword,@PageableDefault(size = 10, page = 0) Pageable pageable) {
 
         Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
@@ -74,7 +74,6 @@ public class RestaurantApiController {
         }
 
         RestaurantDetailDTO restaurantDetailDTO = new RestaurantDetailDTO(
-                restaurantDetail.getId(),
                 restaurantDetail.getName(),
                 restaurantDetail.getRestaurant_img(),
                 restaurantDetail.getOpeningTime(),
@@ -134,8 +133,8 @@ public class RestaurantApiController {
     }
 
 
+    @Data
     static class RestaurantDetailDTO {
-        private Long id;
         private String name;
         private String restaurant_img;
         private String openingTime;
@@ -148,8 +147,7 @@ public class RestaurantApiController {
         private Double avgRating;
         private List<Review> reviews;
 
-        public RestaurantDetailDTO(Long id, String name, String restaurant_img, String openingTime, String closingTime, String address_name, Double lat, Double lng, String tel, int reviewCount, Double avgRating, List<Review> reviews) {
-            this.id = id;
+        public RestaurantDetailDTO(String name, String restaurant_img, String openingTime, String closingTime, String address_name, Double lat, Double lng, String tel, int reviewCount, Double avgRating, List<Review> reviews) {
             this.name = name;
             this.restaurant_img = restaurant_img;
             this.openingTime = openingTime;
