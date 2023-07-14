@@ -31,13 +31,10 @@ public class ReviewApiController {
     }
 
     //리뷰수정
-    @PutMapping("/api/v1/restaurants/{restaurantId}/reviews/{reviewId}")
-    public UpdateReviewResponse updateReview(
-            @PathVariable("restaurantId") Long restaurantId,
-            @PathVariable("reviewId") Long reviewId,
-            @RequestBody @Validated UpdateReviewRequest request) {
+    @PutMapping("/api/v1/restaurants/reviews/{reviewId}")
+    public UpdateReviewResponse updateReview(@PathVariable("reviewId") Long reviewId) {
 
-        reviewService.updateReview(reviewId, request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
+        reviewService.updateReview(reviewId);
         Review findReview = reviewService.findOne(reviewId);
         return new UpdateReviewResponse(findReview.getId(), findReview.getPhotos(), findReview.getTitle(), findReview.getContent(), findReview.getRate());
     }
@@ -112,6 +109,7 @@ public class ReviewApiController {
     }
 
     @Data
+    @AllArgsConstructor
     static class ReviewDTO {
         private Long id;
         private List<Photo> photos;
@@ -119,14 +117,5 @@ public class ReviewApiController {
         private String content;
         private Double rate;
         private int likeCount;
-
-        public ReviewDTO(Long id, List<Photo> photos, String title, String content, Double rate, int likeCount) {
-            this.id = id;
-            this.photos = photos;
-            this.title = title;
-            this.content = content;
-            this.rate = rate;
-            this.likeCount = likeCount;
-        }
     }
 }
