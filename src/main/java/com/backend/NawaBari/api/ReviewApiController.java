@@ -52,7 +52,7 @@ public class ReviewApiController {
 
     //리뷰 전체 조회
     @GetMapping("/api/v1/{restaurantId}/reviews")
-    public Slice<ReviewDTO> RestaurantReviews(@RequestParam("restaurantId") Long restaurantId, @PageableDefault Pageable pageable) {
+    public Slice<ReviewDTO> RestaurantReviews(@PathVariable("restaurantId") Long restaurantId, @PageableDefault Pageable pageable) {
         Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
 
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
@@ -101,7 +101,6 @@ public class ReviewApiController {
         private String title;
         private String content;
         private Double rate;
-
     }
 
     @Data
