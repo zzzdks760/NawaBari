@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
@@ -14,8 +15,9 @@ import org.springframework.web.bind.annotation.RestController;
 public class MyPageApiController {
     private final MemberService memberService;
 
-    @PostMapping("/api/v1/MyPage/{memberId}")
-    public MyPageDTO MyPage(@PathVariable Long memberId) {
+    @PostMapping("/api/v1/MyPage")
+    public MyPageDTO MyPage(@RequestParam Long memberId) {
+
         Member profile = memberService.profile(memberId);
 
         MyPageDTO myPageDTO = new MyPageDTO();
