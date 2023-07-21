@@ -47,7 +47,7 @@ public class ReviewApiController {
         reviewService.deleteReview(restaurantId, reviewId);
     }
 
-    //리뷰 전체 조회
+    //특정 식당 리뷰 전체 조회
     @GetMapping("/api/v1/{restaurantId}/reviews")
     public Slice<ReviewDTO> RestaurantReviews(@PathVariable("restaurantId") Long restaurantId, @PageableDefault Pageable pageable) {
         Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
