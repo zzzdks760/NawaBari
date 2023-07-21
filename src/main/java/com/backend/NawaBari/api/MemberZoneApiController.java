@@ -18,8 +18,10 @@ public class MemberZoneApiController {
     private final MemberZoneService memberZoneService;
 
     //구역설정
-    @PostMapping("/api/v1/members/memberZone/{memberId}/{zoneId}")
-    public MemberZoneResponseDTO setMemberZone(@PathVariable("memberId") Long memberId, @PathVariable("zoneId") Long zoneId) {
+    @PostMapping("/api/v1/members/memberZone")
+    public MemberZoneResponseDTO setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
+        Long memberId = requestDTO.getMemberId();
+        Long zoneId = requestDTO.getZoneId();
         Long memberZoneId = memberZoneService.setMemberZone(memberId, zoneId);
 
         return new MemberZoneResponseDTO(memberZoneId);
@@ -38,4 +40,11 @@ public class MemberZoneApiController {
             this.memberZoneId = memberZoneId;
         }
     }
+
+    @Data
+    static class MemberZoneRequestDTO {
+        private Long memberId;
+        private Long zoneId;
+    }
+
 }
