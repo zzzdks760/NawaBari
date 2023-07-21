@@ -40,4 +40,14 @@ public class MemberService {
         Member member = memberRepository.findOne(id);
         return member;
     }
+
+    /**
+     * 로그아웃(리프레시 토큰제거)
+     */
+    @Transactional
+    public void Logout(Long id) {
+        Member member = memberRepository.findOne(id);
+        member.setRefreshToken(null);
+        memberRepository.save(member);
+    }
 }
