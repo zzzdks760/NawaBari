@@ -21,7 +21,7 @@ public class JsonFileLoader {
 
     public List<Zone> zoneLoadJsonData() throws IOException {
 
-        Reader reader = new FileReader("src/main/resources/seoul.json");
+        Reader reader = new FileReader("/home/ubuntu/dev/NawaBari/src/main/resources/seoul.json");
 
         Gson gson = new Gson();
         List<ZoneDTO> zoneDTOList = gson.fromJson(reader, new TypeToken<List<ZoneDTO>>() {}.getType());
@@ -31,7 +31,7 @@ public class JsonFileLoader {
     }
 
     public List<Restaurant> restaurantLoadJsonData() throws IOException {
-        Reader reader = new FileReader("src/main/resources/restaurants.json");
+        Reader reader = new FileReader("/home/ubuntu/dev/NawaBari/src/main/resources/restaurants.json");
 
         Gson gson = new Gson();
         List<RestaurantDTO> restaurantDTOList = gson.fromJson(reader, new TypeToken<List<RestaurantDTO>>() {}.getType());
