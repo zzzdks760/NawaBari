@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Member;
@@ -36,6 +37,7 @@ class MemberZoneServiceTest {
     @Autowired
     private MemberZoneRepository memberZoneRepository;
 
+*/
 /*    @Test
     public void 구역초과체크() throws Exception {
         // Given
@@ -100,7 +102,9 @@ class MemberZoneServiceTest {
         assertThrows(MaximumZoneLimitException.class, () -> {
             memberZoneService.setMemberZone(memDTO, zonDTO3);
         });
-    }*/
+    }*//*
+
+*/
 /*    @Test
     public void 구역중복체크() throws Exception {
         // Given
@@ -165,6 +169,8 @@ class MemberZoneServiceTest {
         });
 
 
-    }*/
+    }*//*
+
 
 }
+*/
