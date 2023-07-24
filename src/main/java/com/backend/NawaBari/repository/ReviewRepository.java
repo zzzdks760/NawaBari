@@ -59,11 +59,14 @@ public class ReviewRepository {
 
 
     //회원이 작성한 리뷰조회
-/*    public List<Review> getReviewsByMember(Member member) {
-        return em.createQuery("select r from Review where r.member = :member", Review.class)
-                .setParameter("member", member)
+    public Slice<Review> getReviewsByMember(Long id, Pageable pageable) {
+        List<Review> reviewList = em.createQuery("select r from Review r where r.id = :member_id", Review.class)
+                .setParameter("member_id", id)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
                 .getResultList();
-    }*/
+        return new SliceImpl<>(reviewList, pageable, reviewList.size() >= pageable.getPageSize());
+    }
 
 
 }
