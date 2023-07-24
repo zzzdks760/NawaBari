@@ -8,8 +8,14 @@ import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
+import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @RestController
 @RequiredArgsConstructor
@@ -43,11 +49,26 @@ public class MyPageApiController {
     /**
      * 내가 작성한 리뷰목록
      */
-/*    @PostMapping("/api/v1/MyPage/reviews")
-    public Slice<ReviewApiController.ReviewDTO> findReview(@RequestBody MyPageRequestDTO requestDTO) {
+    @GetMapping("/api/v1/MyPage/reviews")
+    public Slice<ReviewApiController.ReviewDTO> findReview(@RequestBody MyPageRequestDTO requestDTO, @PageableDefault Pageable pageable) {
         Long memberId = requestDTO.getMemberId();
-        reviewService.findMyReview(memberId);
-    }*/
+        Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
+        List<ReviewApiController.ReviewDTO> myReviewDTOs = new ArrayList<>();
+
+        for (Review review : myReview) {
+            ReviewApiController.ReviewDTO reviewDTO = new ReviewApiController.ReviewDTO(
+                    review.getId(),
+                    review.getPhotos(),
+                    review.getTitle(),
+                    review.getContent(),
+                    review.getRate(),
+                    review.getLikeCount()
+            );
+            myReviewDTOs.add(reviewDTO);
+        }
+
+        return new SliceImpl<>(myReviewDTOs, pageable, myReview.hasNext());
+    }
 
 
     @Data
