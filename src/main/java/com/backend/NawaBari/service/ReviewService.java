@@ -108,4 +108,13 @@ public class ReviewService {
     public Review findOne(Long id) {
         return reviewRepository.findOne(id);
     }
+
+    /**
+     * 특정 회원 리뷰 조회
+     */
+    public Slice<Review> findMyReview(Long id, Pageable pageable) {
+        Slice<Review> reviewsByMember = reviewRepository.getReviewsByMember(id, pageable);
+
+        return reviewsByMember;
+    }
 }
