@@ -58,7 +58,7 @@ public class MyPageApiController {
         for (Review review : myReview) {
             ReviewApiController.ReviewDTO reviewDTO = new ReviewApiController.ReviewDTO(
                     review.getId(),
-                    review.getPhotos(),
+//                    review.getPhotos(),
                     review.getTitle(),
                     review.getContent(),
                     review.getRate(),
