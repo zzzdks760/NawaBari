@@ -10,6 +10,7 @@ import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.web.PageableDefault;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,41 +24,56 @@ public class ReviewApiController {
     private final ReviewService reviewService;
 
     //리뷰등록
-    @PostMapping("/api/v1/restaurants/{restaurantId}/reviews")
-    public ReviewResponseDTO createReview(@PathVariable Long restaurantId, @RequestBody @Validated ReviewRequestDTO request) {
-        Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(), request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
+    @PostMapping("/api/v1/restaurants/reviews")
+    public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
 
+        Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
+                request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
         return new ReviewResponseDTO(reviewId);
+
     }
 
     //리뷰수정
-    @PutMapping("/api/v1/restaurants/reviews/{reviewId}")
-    public UpdateReviewResponse updateReview(@PathVariable("reviewId") Long reviewId) {
+    @PatchMapping("/api/v1/restaurants/reviews")
+    public UpdateReviewResponse updateReview(@RequestBody UpdateReviewRequestDTO updateRequest) {
 
-        reviewService.updateReview(reviewId);
-        Review findReview = reviewService.findOne(reviewId);
-        return new UpdateReviewResponse(findReview.getId(), findReview.getPhotos(), findReview.getTitle(), findReview.getContent(), findReview.getRate());
+        reviewService.updateReview(updateRequest.getReviewId(), updateRequest.getRestaurantId(), updateRequest.getPhotos(),
+                updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
+
+        return new UpdateReviewResponse(updateRequest.getReviewId(), updateRequest.getPhotos(),
+                updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
     }
 
     //리뷰삭제
-    @DeleteMapping("/api/v1/restaurants/{restaurantId}/reviews/{reviewId}")
-    public void deleteReview(@PathVariable("restaurantId") Long restaurantId,
-                             @PathVariable("reviewId") Long reviewId
-    ) {
-        reviewService.deleteReview(restaurantId, reviewId);
+    @DeleteMapping("/api/v1/restaurants/reviews")
+    public ResponseEntity<Boolean> deleteReview(@RequestBody DeleteReviewRequestDTO deleteRequest) {
+        Long reviewId = deleteRequest.getReviewId();
+        Long restaurantId = deleteRequest.getRestaurantId();
+        Boolean isDeleted = reviewService.deleteReview(reviewId, restaurantId);
+
+        if (isDeleted) {
+            return ResponseEntity.ok(true);
+        } else {
+            return ResponseEntity.notFound().build();
+        }
     }
 
     //특정 식당 리뷰 전체 조회
-    @GetMapping("/api/v1/{restaurantId}/reviews")
-    public Slice<ReviewDTO> RestaurantReviews(@PathVariable("restaurantId") Long restaurantId, @PageableDefault Pageable pageable) {
+    @GetMapping("/api/v1/restaurant/reviews")
+    public Slice<ReviewDTO> RestaurantReviews(@RequestBody AllReviewRequestDTO allReviewRequest, @PageableDefault Pageable pageable) {
+        Long restaurantId = allReviewRequest.getRestaurantId();
+
         Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
 
         List<ReviewDTO> reviewDTOS = new ArrayList<>();
 
+
+
         for (Review review : reviews) {
+
             ReviewDTO reviewDTO = new ReviewDTO(
                     review.getId(),
-                    review.getPhotos(),
+//                    review.getPhotos(),
                     review.getTitle(),
                     review.getContent(),
                     review.getRate(),
@@ -78,6 +94,7 @@ public class ReviewApiController {
         public ReviewResponseDTO(Long reviewId) {
             this.reviewId = reviewId;
         }
+
     }
 
     @Data
@@ -93,7 +110,7 @@ public class ReviewApiController {
     @Data
     @AllArgsConstructor
     static class UpdateReviewResponse {
-        private Long id;
+        private Long reviewId;
         private List<Photo> photos;
         private String title;
         private String content;
@@ -112,10 +129,31 @@ public class ReviewApiController {
     @AllArgsConstructor
     static class ReviewDTO {
         private Long id;
-        private List<Photo> photos;
+//        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;
         private int likeCount;
+    }
+
+    @Data
+    static class UpdateReviewRequestDTO {
+        private Long reviewId;
+        private Long restaurantId;
+        private List<Photo> photos;
+        private String title;
+        private String content;
+        private Double rate;
+    }
+
+    @Data
+    static class DeleteReviewRequestDTO {
+        private Long reviewId;
+        private Long restaurantId;
+    }
+
+    @Data
+    static class AllReviewRequestDTO {
+        private Long restaurantId;
     }
 }
