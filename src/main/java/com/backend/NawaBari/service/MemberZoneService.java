@@ -59,7 +59,7 @@ public class MemberZoneService {
     /**
      * 설정 구역 초과체크
      */
-    private void checkZoneLimit(Member member) {
+    public void checkZoneLimit(Member member) throws MaximumZoneLimitException {
         if (member.getMemberZones().size() >= 2) {
             throw new MaximumZoneLimitException("이미 두 개의 구역이 설정되어 있습니다");
         }
@@ -68,7 +68,7 @@ public class MemberZoneService {
     /**
      * 설정 구역 중복체크
      */
-    private void checkZoneAlreadySet(Member member, Zone zone) {
+    public void checkZoneAlreadySet(Member member, Zone zone) throws ZoneAlreadySetException {
         boolean zoneAlreadySet = member.getMemberZones().stream()
                 .anyMatch(memberZone -> memberZone.getZone().getId().equals(zone.getId()));
 
