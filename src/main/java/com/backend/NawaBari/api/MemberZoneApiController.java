@@ -2,14 +2,16 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Zone;
+import com.backend.NawaBari.exception.MaximumZoneLimitException;
+import com.backend.NawaBari.exception.ZoneAlreadySetException;
 import com.backend.NawaBari.service.MemberZoneService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.ErrorResponse;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,10 +24,12 @@ public class MemberZoneApiController {
     public MemberZoneResponseDTO setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
         Long memberId = requestDTO.getMemberId();
         Long zoneId = requestDTO.getZoneId();
-        Long memberZoneId = memberZoneService.setMemberZone(memberId, zoneId);
 
+        Long memberZoneId = memberZoneService.setMemberZone(memberId, zoneId);
         return new MemberZoneResponseDTO(memberZoneId);
     }
+
+
 
 
     //===============================================================================================================//
@@ -33,8 +37,7 @@ public class MemberZoneApiController {
     @Data
     static class MemberZoneResponseDTO {
         private Long memberZoneId;
-        private Member member;
-        private Zone zone;
+
 
         public MemberZoneResponseDTO(Long memberZoneId) {
             this.memberZoneId = memberZoneId;
