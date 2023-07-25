@@ -12,6 +12,7 @@ import com.backend.NawaBari.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -71,26 +72,41 @@ public class ReviewService {
      * 리뷰 수정
      */
     @Transactional
-    public void updateReview(Long reviewId) {
+    public void updateReview(Long reviewId, Long restaurantId, List<Photo> photos, String title, String content, Double rate) {
         Review review = reviewRepository.findOne(reviewId);
+        Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
-        review.setPhotos(review.getPhotos());
-        review.setTitle(review.getTitle());
-        review.setContent(review.getContent());
-        review.setRate(review.getRate());
+        review.getPhotos().clear();
+
+        for (Photo photo : photos) {
+            review.getPhotos().add(photo);
+        }
+
+        review.setTitle(title);
+        review.setContent(content);
+        review.setRate(rate);
+
+        restaurant.setAvgRating(restaurant.getAvgRating());
+        restaurant.updateAverageRating();
     }
 
     /**
      * 리뷰 삭제
      */
     @Transactional
-    public void deleteReview(Long reviewId, Long restaurantId) {
+    public Boolean deleteReview(Long reviewId, Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
         Review review = reviewRepository.findOne(reviewId);
-        
+
+        if (review == null) {
+            return false;
+        }
+
         restaurant.removeReview(review);
         restaurant.updateAverageRating();
         reviewRepository.delete(review);
+
+        return true;
     }
 
     /**
