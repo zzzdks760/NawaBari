@@ -37,21 +37,19 @@ public class MyPageApiController {
     /**
      * 마이페이지 수정
      */
-    @PutMapping("/api/vi/MyPage")
+    @PatchMapping("/api/v1/MyPage")
     public UpdateMyPageResponse UpdateMyPage(@RequestBody MyPageRequestDTO requestDTO) {
-        Long memberId = requestDTO.getMemberId();
-        memberService.UpdateMypage(memberId);
-        Member member = memberService.findOne(memberId);
+        memberService.UpdateMyPage(requestDTO.getMemberId(), requestDTO.getProfile_nickname(), requestDTO.getProfile_image());
 
-        return new UpdateMyPageResponse(member.getId(), member.getProfile_nickname(), member.getProfile_image());
+        return new UpdateMyPageResponse(requestDTO.getMemberId(), requestDTO.getProfile_nickname(), requestDTO.getProfile_image());
     }
 
     /**
      * 내가 작성한 리뷰목록
      */
     @GetMapping("/api/v1/MyPage/reviews")
-    public Slice<ReviewApiController.ReviewDTO> findReview(@RequestBody MyPageRequestDTO requestDTO, @PageableDefault Pageable pageable) {
-        Long memberId = requestDTO.getMemberId();
+    public Slice<ReviewApiController.ReviewDTO> findReview(@RequestBody MyPageReviewRequestDTO myPageReviewRequestDTO, @PageableDefault Pageable pageable) {
+        Long memberId = myPageReviewRequestDTO.getMemberId();
         Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
         List<ReviewApiController.ReviewDTO> myReviewDTOs = new ArrayList<>();
 
@@ -82,13 +80,20 @@ public class MyPageApiController {
     @Data
     @AllArgsConstructor
     static class UpdateMyPageResponse {
-        private Long id;
+        private Long memberId;
         private String profile_nickname;
         private String profile_image;
     }
 
     @Data
     static class MyPageRequestDTO {
+        private Long memberId;
+        private String profile_nickname;
+        private String profile_image;
+    }
+
+    @Data
+    static class MyPageReviewRequestDTO {
         private Long memberId;
     }
 }
