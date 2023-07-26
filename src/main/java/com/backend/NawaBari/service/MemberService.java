@@ -26,11 +26,12 @@ public class MemberService {
     /**
      * 회원정보 수정
      */
-    public void UpdateMypage(Long id) {
+    @Transactional
+    public void UpdateMyPage(Long id, String profile_nickname, String profile_image) {
         Member member = memberRepository.findOne(id);
 
-        member.setProfile_nickname(member.getProfile_nickname());
-        member.setProfile_image(member.getProfile_image());
+        member.setProfile_nickname(profile_nickname);
+        member.setProfile_image(profile_image);
     }
 
     /**
