@@ -24,4 +24,5 @@ public class Photo {
     public Photo(String photo_url) {
         this.photo_url = photo_url;
     }
+
 }
