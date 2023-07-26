@@ -23,9 +23,12 @@ public class CurrentLocationApiController {
     private final CurrentLocationService currentLocationService;
     private final RestaurantService restaurantService;
 
-    @PostMapping("/api/v1/restaurants")
+    /**
+     * 현위치를 받아와 동 이름이 일치하는 식당들 조회
+     */
+    @PostMapping("/api/v1/location/restaurants")
     public Slice<RestaurantApiController.RestaurantDTO> getCurrentLocation(@RequestBody LocationDTO locationDTO,
-                                                                           @PageableDefault(size = 10, page = 0) Pageable pageable) {
+                                                                           @PageableDefault Pageable pageable) {
         float current_lat = locationDTO.getCurrent_lat();
         float current_lng = locationDTO.getCurrent_lng();
         String dongName = currentLocationService.getCurrentLocation(current_lat, current_lng);
