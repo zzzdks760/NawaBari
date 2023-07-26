@@ -58,8 +58,8 @@ public class RestaurantApiController {
 
 
     //식당 상세조회
-    @GetMapping("/api/v1/restaurants/{restaurantId}")
-    public RestaurantDetailDTO RestaurantDetail(@PathVariable Long restaurantId) {
+    @GetMapping("/api/v1/restaurants/restaurant")
+    public RestaurantDetailDTO RestaurantDetail(@RequestParam("restaurantId") Long restaurantId) {
         Restaurant restaurantDetail = restaurantService.detailRestaurant(restaurantId);
 
         if (restaurantDetail == null) {
