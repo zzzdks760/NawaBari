@@ -14,15 +14,21 @@ public class JsonLoadController {
     private final ZoneService zoneService;
     private final RestaurantsLoadService restaurantsLoadService;
 
-    @GetMapping("/zone/save")
+    /**
+     * 구역 데이터 삽입
+     */
+/*    @GetMapping("/zone/save")
     public void saveZone() throws IOException {
         zoneService.SaveData();
-    }
+    }*/
 
-    @GetMapping("/restaurant/save")
+    /**
+     * 식당 데이터 삽입
+     */
+    /*@GetMapping("/restaurant/save")
     public void saveRestaurant() throws IOException {
         restaurantsLoadService.SaveData();
-    }
+    }*/
 
 }
 
