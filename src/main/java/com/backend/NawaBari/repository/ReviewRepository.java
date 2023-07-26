@@ -59,9 +59,9 @@ public class ReviewRepository {
 
 
     //회원이 작성한 리뷰조회
-    public Slice<Review> getReviewsByMember(Long id, Pageable pageable) {
-        List<Review> reviewList = em.createQuery("select r from Review r where r.id = :member_id", Review.class)
-                .setParameter("member_id", id)
+    public Slice<Review> getReviewsByMember(Long member_id, Pageable pageable) {
+        List<Review> reviewList = em.createQuery("select r from Review r where r.writer.id = :member_id", Review.class)
+                .setParameter("member_id", member_id)
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
                 .getResultList();
