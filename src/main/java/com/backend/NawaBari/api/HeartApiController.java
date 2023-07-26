@@ -16,9 +16,10 @@ public class HeartApiController {
 
     private final HeartService heartService;
 
-    @PostMapping("/api/v1/reviews/{reviewId}/hearts")
-    public int heartCount(@PathVariable("reviewId") Long reviewId, @RequestBody HeartRequestDTO requestDTO) {
+    @PostMapping("/api/v1/restaurant/review/heart")
+    public int heartCount(@RequestBody HeartRequestDTO requestDTO) {
         Long memberId = requestDTO.getMemberId();
+        Long reviewId = requestDTO.getReviewId();
         int count = heartService.toggleHeart(memberId, reviewId);
         return count;
     }
@@ -26,5 +27,6 @@ public class HeartApiController {
     @Data
     static class HeartRequestDTO {
         private Long memberId;
+        private Long reviewId;
     }
 }
