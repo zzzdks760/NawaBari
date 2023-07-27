@@ -41,41 +41,42 @@ public class MemberZone extends Base{
 
 
 
-    /**
-     * 구역 설정
-     */
-    public static MemberZone create(Member member, Zone zone) {
-        checkMaximumZoneLimit(member);
-        checkZoneAlreadySet(member, zone);
+    // /**
+    //  * 구역 설정
+    //  */
+    // public static MemberZone create(Member member, Zone zone) {
+    //     checkMaximumZoneLimit(member);
+    //     checkZoneAlreadySet(member, zone);
 
-        MemberZone memberZone = new MemberZone();
-        memberZone.setMember(member);
-        memberZone.setZone(zone);
-        member.getMemberZones().add(memberZone);
+    //     MemberZone memberZone = new MemberZone();
+    //     memberZone.setMember(member);
+    //     memberZone.setZone(zone);
+    //     member.getMemberZones().add(memberZone);
 
-        return memberZone;
-    }
+    //     return memberZone;
+    // }
 
-    /**
-     * 초과체크
-     */
-    private static void checkMaximumZoneLimit(Member member) {
-        if (member.getMemberZones().size() >= 2) {
-            throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
-        }
-    }
+    // /**
+    //  * 초과체크
+    //  */
+    // private static void checkMaximumZoneLimit(Member member) {
+    //     if (member.getMemberZones().size() >= 2) {
+    //         throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
+    //     }
+    // }
 
-    /**
-     * 중복체크
-     */
-    private static void checkZoneAlreadySet(Member member, Zone zone) {
-        boolean zoneAlreadySet = member.getMemberZones().stream()
-                .anyMatch(memberZone -> memberZone.getZone().equals(zone));
+    // /**
+    //  * 중복체크
+    //  */
+    // private static void checkZoneAlreadySet(Member member, Zone zone) {
+    //     boolean zoneAlreadySet = member.getMemberZones().stream()
+    //             .anyMatch(memberZone -> memberZone.getZone().equals(zone));
 
-        if (zoneAlreadySet) {
-            throw new ZoneAlreadySetException("중복된 구역이 존재합니다.");
-        }
-    }
+    //     if (zoneAlreadySet) {
+    //         throw new ZoneAlreadySetException("중복된 구역이 존재합니다.");
+    //     }
+    // }
+
 
 }
 
