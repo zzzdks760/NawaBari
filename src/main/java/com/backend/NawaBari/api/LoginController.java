@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.api;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClient;
 import org.springframework.security.oauth2.client.OAuth2AuthorizedClientService;
@@ -28,4 +29,4 @@ public class LoginController {
 
         return new RedirectView(finalRedirectUri);
     }
-}
+}*/

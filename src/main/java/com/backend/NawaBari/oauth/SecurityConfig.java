@@ -54,8 +54,8 @@ public class SecurityConfig {
                 .and()
                 //== 소셜 로그인 설정 ==//
                 .oauth2Login()
-                .defaultSuccessUrl("/loginSuccess") // 동의하고 계속하기를 눌렀을 때 Handler 설정
-                .failureUrl("/loginFailure"); // 소셜 로그인 실패 시 핸들러 설정
+                .successHandler(oAuth2LoginSuccessHandler) // 동의하고 계속하기를 눌렀을 때 Handler 설정
+                .failureHandler(oAuth2LoginFailureHandler); // 소셜 로그인 실패 시 핸들러 설정
 
 
         // 원래 스프링 시큐리티 필터 순서가 LogoutFilter 이후에 로그인 필터 동작
