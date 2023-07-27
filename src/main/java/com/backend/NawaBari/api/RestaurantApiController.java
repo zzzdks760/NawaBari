@@ -14,6 +14,7 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -60,15 +61,25 @@ public class RestaurantApiController {
     //식당 상세조회
     @GetMapping("/api/v1/restaurants/restaurant")
     public RestaurantDetailDTO RestaurantDetail(@RequestParam("restaurantId") Long restaurantId) {
-        Restaurant restaurantDetail = restaurantService.detailRestaurant(restaurantId);
 
-        if (restaurantDetail == null) {
-            throw new IllegalArgumentException("식당을 찾을수 없습니다." + restaurantId);
+        Restaurant restaurant = restaurantService.detailRestaurant(restaurantId);
+        List<Review> reviews = restaurant.getReviews();
+
+        List<ReviewTop3DTO> reviewTop3DTOS = new ArrayList<>();
+
+        for (Review review : reviews) {
+            ReviewTop3DTO reviewTop3DTO = new ReviewTop3DTO(
+                    review.getTitle(),
+                    review.getContent(),
+                    review.getRate(),
+                    review.getLikeCount()
+            );
+            reviewTop3DTOS.add(reviewTop3DTO);
         }
 
-        return new RestaurantDetailDTO(restaurantDetail.getName(), restaurantDetail.getRestaurant_img(), restaurantDetail.getOpeningTime(), restaurantDetail.getClosingTime(),
-                restaurantDetail.getAddress_name(), restaurantDetail.getLat(), restaurantDetail.getLng(), restaurantDetail.getTel(), restaurantDetail.getReviewCount(),
-                restaurantDetail.getAvgRating(), restaurantDetail.getReviews());
+        return new RestaurantDetailDTO(restaurant.getName(), restaurant.getRestaurant_img(), restaurant.getOpeningTime(), restaurant.getClosingTime(),
+        restaurant.getAddress_name(), restaurant.getLat(), restaurant.getLng(), restaurant.getTel(), restaurant.getReviewCount(),
+        restaurant.getAvgRating(), reviewTop3DTOS);
     }
 
 
@@ -116,7 +127,16 @@ public class RestaurantApiController {
         private String tel;
         private int reviewCount;
         private Double avgRating;
-        private List<Review> reviews;
+        private List<ReviewTop3DTO> reviewTop3DTOS;
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class ReviewTop3DTO {
+        private String title;
+        private String content;
+        private Double rate;
+        private int likeCount;
     }
 }
 

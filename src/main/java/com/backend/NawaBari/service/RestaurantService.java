@@ -100,7 +100,7 @@ public class RestaurantService {
                 .lng(restaurant.getLng())
                 .reviewCount(restaurant.getReviewCount())
                 .tel(restaurant.getTel())
-                .reviews((reviewTop3))
+                .reviews(reviewTop3)
                 .build();
         return restaurantDetail;
     }
