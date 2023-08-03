@@ -74,12 +74,12 @@ public class MemberRepository {
     public Optional<Member> findByRefreshToken(String refreshToken) {
         return em.createQuery("select m from Member m where m.refreshToken = :refreshToken", Member.class)
                 .setParameter("refreshToken", refreshToken)
-                .getResultList().stream().findFirst();
+                .getResultStream().findFirst();
     }
 
     @Transactional
     public void saveAndFlush(Member member) {
-        em.flush();
+        em.merge(member);
     }
 
     public Optional<Member> findBySocialTypeAndSocialId(SocialType socialType, String kakao_id) {
@@ -103,5 +103,4 @@ public class MemberRepository {
         member.setRefreshToken(refreshToken);
         em.persist(member);
     }
-
 }
