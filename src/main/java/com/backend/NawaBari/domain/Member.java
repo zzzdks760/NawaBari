@@ -60,8 +60,8 @@ public class Member extends Base{
         memberZone.setMember(this);
     }
 
-    public void updateRefreshToken(String updateRefreshToken) {
-        this.refreshToken = updateRefreshToken;
+    public void updateRefreshToken(String refreshToken) {
+        this.refreshToken = refreshToken;
     }
 
     @Builder
