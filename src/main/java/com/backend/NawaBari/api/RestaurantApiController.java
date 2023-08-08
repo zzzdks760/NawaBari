@@ -69,6 +69,7 @@ public class RestaurantApiController {
 
         for (Review review : reviews) {
             ReviewTop3DTO reviewTop3DTO = new ReviewTop3DTO(
+                    review.getId(),
                     review.getTitle(),
                     review.getContent(),
                     review.getRate(),
@@ -133,6 +134,7 @@ public class RestaurantApiController {
     @Data
     @AllArgsConstructor
     static class ReviewTop3DTO {
+        private Long id;
         private String title;
         private String content;
         private Double rate;
