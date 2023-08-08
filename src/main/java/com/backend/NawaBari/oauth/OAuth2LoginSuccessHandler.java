@@ -31,27 +31,21 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
 
             String accessToken = jwtService.createAccessToken(oAuth2User.getEmail());
             String refreshToken = jwtService.createRefreshToken();
+            Long id = oAuth2User.getId();
 
-            response.addHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
-            response.addHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
+            response.setHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
+            response.setHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
+            response.setHeader("member_id", id.toString());
 
             memberRepository.saveRefreshToken(oAuth2User.getEmail(), refreshToken);
 
-            jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
+            //jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
 
-            // User의 Role이 GUEST일 경우 구역설정 페이지로 이동
-            if(oAuth2User.getRole() == Role.GUEST) {
-
-
-                response.sendRedirect("/api/memberZone"); // 프론트의 구역 정보 입력 폼으로 리다이렉트
-
-            } else {
-                    response.sendRedirect("/api/main");
-                }
+            String redirectUrl = "/api/login/success";
+            response.sendRedirect(redirectUrl);
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-
     }
 }
