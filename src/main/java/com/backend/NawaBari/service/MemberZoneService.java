@@ -14,6 +14,8 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 
 @Service
 @Transactional(readOnly = true)
@@ -25,11 +27,12 @@ public class MemberZoneService {
     private final ZoneRepository zoneRepository;
 
     @Transactional
-    public Long setMemberZone(Long memberId, Long zoneId) {
+    public Long setMemberZone(Long memberId, String guName, String dongName) {
 
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
-        Zone zone = zoneRepository.findOne(zoneId);
+        Zone zone = zoneRepository.findByGuAndDong(guName, dongName);
+
 
         //회원 구역설정
         MemberZone memberZone = MemberZone.create(member, zone);

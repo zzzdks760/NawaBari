@@ -3,6 +3,7 @@ package com.backend.NawaBari.service;
 import com.google.gson.Gson;
 import com.google.gson.JsonArray;
 import com.google.gson.JsonObject;
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -50,5 +51,48 @@ public class CurrentLocationService {
         }
 
         return null;
+    }
+
+
+    public LocationInfo getGuAndDong(float current_lat, float current_lng) {
+        String url = kakaoMapApi + "?x=" + current_lng + "&y=" + current_lat;
+
+        HttpClient httpClient = HttpClient.newHttpClient();
+        HttpRequest httpRequest = HttpRequest.newBuilder()
+                .uri(URI.create(url))
+                .header("Authorization", "KakaoAK " + kakaoApiKey)
+                .build();
+
+        try {
+            HttpResponse<String> response = httpClient.send(httpRequest, HttpResponse.BodyHandlers.ofString());
+            String responseBody = response.body();
+
+            Gson gson = new Gson();
+            JsonObject responseJson = gson.fromJson(responseBody, JsonObject.class);
+
+            JsonArray documents = responseJson.getAsJsonArray("documents");
+
+            if (documents.size() > 0) {
+                String dongName = documents.get(0).getAsJsonObject().get("region_3depth_name").getAsString();
+                String guName = documents.get(0).getAsJsonObject().get("region_2depth_name").getAsString();
+
+                return new LocationInfo(dongName, guName);
+            }
+        } catch (IOException | InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
+    @Data
+    public class LocationInfo {
+        private String dongName;
+        private String GuName;
+
+        public LocationInfo(String dongName, String guName) {
+            this.dongName = dongName;
+            this.GuName = guName;
+        }
     }
 }

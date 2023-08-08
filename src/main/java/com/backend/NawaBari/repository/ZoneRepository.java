@@ -36,11 +36,12 @@ public class ZoneRepository {
                 .getResultList();
     }
 
-    //동이름으로 행정구역 찾기
-    public List<Zone> findByDong(String dong) {
-        return em.createQuery("select z from Zone z where z.dong = :dong", Zone.class)
+    //동이름으로 아이디 찾기
+    public Zone findByGuAndDong(String gu, String dong) {
+        return em.createQuery("select z from Zone z where z.gu = :gu and z.dong = :dong", Zone.class)
+                .setParameter("gu", gu)
                 .setParameter("dong", dong)
-                .getResultList();
+                .getSingleResult();
     }
 
     //서울특별시 행정구역 코드, 구, 동, 위도, 경도 저장
