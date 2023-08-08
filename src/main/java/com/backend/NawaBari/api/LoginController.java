@@ -64,7 +64,7 @@ public class LoginController {
      * 재 로그인
      */
     @PostMapping("/refreshToken")
-    public ResponseEntity<?> refreshToken(@RequestHeader("Authorization") String refreshTokenHeader, HttpServletResponse response) {
+    public ResponseEntity<?> reLogin(@RequestHeader("Authorization") String refreshTokenHeader, HttpServletResponse response) {
         // 클라이언트가 보낸 refreshTokenHeader 값은 "Bearer " 뒤에 실제 refreshToken이 붙어 있으므로,
         // "Bearer "를 제거하여 실제 refreshToken만 추출한다.
         String refreshToken = refreshTokenHeader.replace("Bearer ", "");
