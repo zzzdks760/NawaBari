@@ -1,6 +1,7 @@
 package com.backend.NawaBari.api;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.jwt.JwtAuthenticationProcessingFilter;
+import com.backend.NawaBari.jwt.JwtBlacklistService;
 import com.backend.NawaBari.jwt.JwtService;
 import com.backend.NawaBari.oauth.CustomOAuth2User;
 import com.backend.NawaBari.repository.MemberRepository;
@@ -20,6 +21,7 @@ public class LoginController {
     private final JwtAuthenticationProcessingFilter jwtAuthenticationProcessingFilter;
     private final JwtService jwtService;
     private final MemberRepository memberRepository;
+    private final JwtBlacklistService jwtBlacklistService;
 
 
 /*    *//**
@@ -70,9 +72,17 @@ public class LoginController {
         String refreshToken = refreshTokenHeader.replace("Bearer ", "");
         System.out.println("Received Refresh Token: " + refreshToken);
 
+        if (jwtBlacklistService.isTokenBlacklist(refreshToken)) {
+            String errorMessage = "만료된 토큰입니다.";
+            return ResponseEntity.status(HttpStatus.FORBIDDEN).body(errorMessage); //403응답
+        }
+
+        jwtBlacklistService.blacklistToken(refreshToken);
+
         // 추출한 refreshToken을 JwtAuthenticationProcessingFilter의 메서드로 전달하여 처리한다.
         // 이때, response 객체를 직접 넘겨줘서 필터 내부에서 sendAccessAndRefreshToken() 메서드를 사용할 수 있도록 한다.
         jwtAuthenticationProcessingFilter.checkRefreshTokenAndReIssueAccessToken(response, refreshToken);
+        System.out.println("새로운 리프레시토큰 = " + refreshToken);
 
         return ResponseEntity.ok().build();
     }
