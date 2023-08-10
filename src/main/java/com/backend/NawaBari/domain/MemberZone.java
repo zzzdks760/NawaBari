@@ -6,6 +6,8 @@ import jakarta.persistence.*;
 import lombok.*;
 
 import java.time.LocalDateTime;
+import java.util.ArrayList;
+import java.util.List;
 
 import static jakarta.persistence.FetchType.*;
 
@@ -44,7 +46,7 @@ public class MemberZone extends Base{
     /**
      * 구역 설정
      */
-    public static MemberZone create(Member member, Zone zone) {
+    public static List<MemberZone> create(Member member, Zone zone) {
         checkMaximumZoneLimit(member);
         checkZoneAlreadySet(member, zone);
 
@@ -53,7 +55,10 @@ public class MemberZone extends Base{
         memberZone.setZone(zone);
         member.getMemberZones().add(memberZone);
 
-        return memberZone;
+        List<MemberZone> memberZones = new ArrayList<>(member.getMemberZones());
+        System.out.println("memberZones = " + memberZones);
+
+        return memberZones;
     }
 
     /**

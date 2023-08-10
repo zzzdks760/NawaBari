@@ -15,6 +15,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Service
@@ -27,7 +28,7 @@ public class MemberZoneService {
     private final ZoneRepository zoneRepository;
 
     @Transactional
-    public Long setMemberZone(Long memberId, String guName, String dongName) {
+    public List<Long> setMemberZone(Long memberId, String guName, String dongName) {
 
         //엔티티 조회
         Member member = memberRepository.findOne(memberId);
@@ -35,19 +36,22 @@ public class MemberZoneService {
 
 
         //회원 구역설정
-        MemberZone memberZone = MemberZone.create(member, zone);
+        List<MemberZone> memberZones = MemberZone.create(member, zone);
 
         //회원 구역저장
-        memberZoneRepository.save(memberZone);
+        memberZoneRepository.save(memberZones);
 
         //회원 구역 아이디 반환
-        return memberZone.getId();
+        return memberZones.stream()
+                .map(MemberZone::getId)
+                .collect(Collectors.toList());
+
     }
 
 
-    /**
+/*    *//**
      * 구역설정
-     */
+     *//*
     public void setMemberZone(MemberDTO memberDTO, ZoneDTO zoneDTO) {
         Member member = memberRepository.findOne(memberDTO.getId());
         Zone zone = zoneRepository.findOne(zoneDTO.getId());
@@ -59,18 +63,18 @@ public class MemberZoneService {
     }
 
 
-    /**
+    *//**
      * 설정 구역 초과체크
-     */
+     *//*
     public void checkZoneLimit(Member member) throws MaximumZoneLimitException {
         if (member.getMemberZones().size() >= 2) {
             throw new MaximumZoneLimitException("이미 두 개의 구역이 설정되어 있습니다");
         }
     }
 
-    /**
+    *//**
      * 설정 구역 중복체크
-     */
+     *//*
     public void checkZoneAlreadySet(Member member, Zone zone) throws ZoneAlreadySetException {
         boolean zoneAlreadySet = member.getMemberZones().stream()
                 .anyMatch(memberZone -> memberZone.getZone().getId().equals(zone.getId()));
@@ -80,9 +84,9 @@ public class MemberZoneService {
         }
     }
 
-    /**
+    *//**
      * 새 구역 추가
-     */
+     *//*
     private void setNewZone(Member member, Zone zone) {
         MemberZone newMemberZone = MemberZone.builder()
                 .member(member)
@@ -91,6 +95,6 @@ public class MemberZoneService {
 
         member.getMemberZones().add(newMemberZone);
         memberZoneRepository.save(newMemberZone);
-    }
+    }*/
 
 }

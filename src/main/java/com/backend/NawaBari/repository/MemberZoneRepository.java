@@ -18,8 +18,10 @@ public class MemberZoneRepository {
 
     //제한된 구역저장
     @Transactional
-    public void save(MemberZone memberZone) {
-        em.persist(memberZone);
+    public void save(List<MemberZone> memberZones) {
+        for (MemberZone memberZone : memberZones) {
+            em.persist(memberZone);
+        }
     }
 
     //아이디로 제한된 구역조회

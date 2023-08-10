@@ -14,6 +14,9 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+import java.util.stream.Collectors;
+
 @RestController
 @RequiredArgsConstructor
 public class MemberZoneApiController {
@@ -23,7 +26,7 @@ public class MemberZoneApiController {
 
     //구역설정
     @PostMapping("/api/v1/members/memberZone")
-    public MemberZoneResponseDTO setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
+    public List<MemberZoneResponseDTO> setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
         Long memberId = requestDTO.getMemberId();
         float lat = requestDTO.getLat();
         float lng = requestDTO.getLng();
@@ -33,8 +36,11 @@ public class MemberZoneApiController {
         System.out.println("guName = " + guName);
         System.out.println("dongName = " + dongName);
 
-        Long memberZoneId = memberZoneService.setMemberZone(memberId, guName, dongName);
-        return new MemberZoneResponseDTO(memberZoneId);
+        List<Long> memberZones = memberZoneService.setMemberZone(memberId, guName, dongName);
+
+        return memberZones.stream()
+                .map(MemberZoneResponseDTO::new)
+                .collect(Collectors.toList());
     }
 
 
