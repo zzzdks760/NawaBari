@@ -72,7 +72,7 @@ public class Restaurant extends Base{
 
 
     @Builder
-    public Restaurant(String name, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount) {
+    public Restaurant(String name, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone) {
         this.name = name;
         this.address_name = address_name;
         this.lat = lat;
@@ -80,6 +80,7 @@ public class Restaurant extends Base{
         this.tel = tel;
         this.reviews = reviews;
         this.reviewCount = reviewCount;
+        this.zone = zone;
     }
 
 
@@ -92,6 +93,7 @@ public class Restaurant extends Base{
         this.reviewCount++;
     }
 
+    //리뷰가 삭제될 때 리뷰수 감소
     public void removeReview(Review review) {
         this.reviews.remove(review);
         review.setRestaurant(null);

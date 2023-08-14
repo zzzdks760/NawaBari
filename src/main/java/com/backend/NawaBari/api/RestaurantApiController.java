@@ -1,6 +1,7 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.service.RestaurantService;
@@ -80,7 +81,7 @@ public class RestaurantApiController {
 
         return new RestaurantDetailDTO(restaurant.getName(), restaurant.getRestaurant_img(), restaurant.getOpeningTime(), restaurant.getClosingTime(),
         restaurant.getAddress_name(), restaurant.getLat(), restaurant.getLng(), restaurant.getTel(), restaurant.getReviewCount(),
-        restaurant.getAvgRating(), reviewTop3DTOS);
+        restaurant.getAvgRating(), reviewTop3DTOS, restaurant.getZone().getId());
     }
 
 
@@ -98,6 +99,7 @@ public class RestaurantApiController {
         private Double lng;
         private int reviewCount;
         private Double avgRating;
+        private Long zoneId;
     }
     private RestaurantDTO convertToDTO(Restaurant restaurant) {
 
@@ -109,7 +111,8 @@ public class RestaurantApiController {
                 restaurant.getLat(),
                 restaurant.getLng(),
                 restaurant.getReviewCount(),
-                restaurant.getAvgRating()
+                restaurant.getAvgRating(),
+                restaurant.getZone().getId()
         );
         return restaurantDTO;
     }
@@ -129,6 +132,7 @@ public class RestaurantApiController {
         private int reviewCount;
         private Double avgRating;
         private List<ReviewTop3DTO> reviewTop3DTOS;
+        private Long zoneId;
     }
 
     @Data

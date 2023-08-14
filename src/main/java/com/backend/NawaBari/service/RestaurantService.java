@@ -110,6 +110,8 @@ public class RestaurantService {
     public Restaurant detailRestaurant(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
         List<Review> reviewTop3 = restaurantRepository.findReviewTop3(restaurantId);
+        Zone zone = restaurant.getZone();
+
 
         Restaurant restaurantDetail = Restaurant.builder()
                 .name(restaurant.getName())
@@ -119,6 +121,7 @@ public class RestaurantService {
                 .reviewCount(restaurant.getReviewCount())
                 .tel(restaurant.getTel())
                 .reviews(reviewTop3)
+                .zone(zone)
                 .build();
         return restaurantDetail;
     }
@@ -139,12 +142,4 @@ public class RestaurantService {
         restaurantRepository.delete(restaurantId);
     }
 
-
-    //식당주소와 일치하는 구역아이디 식당테이블에 삽입
-/*    @Transactional
-    public void updateRestaurantZoneId() {
-
-        List<Restaurant> restaurantList = restaurantRepository.findAll();
-
-    }*/
 }

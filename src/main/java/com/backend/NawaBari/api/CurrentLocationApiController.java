@@ -65,7 +65,8 @@ public class CurrentLocationApiController {
                 restaurant.getLat(),
                 restaurant.getLng(),
                 restaurant.getReviewCount(),
-                restaurant.getAvgRating()
+                restaurant.getAvgRating(),
+                restaurant.getZone().getId()
         );
         return restaurantDTO;
     }
