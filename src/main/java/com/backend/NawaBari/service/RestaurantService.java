@@ -1,8 +1,10 @@
 package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.repository.RestaurantRepository;
+import com.backend.NawaBari.repository.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.PageRequest;
@@ -11,6 +13,7 @@ import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.time.LocalTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -22,6 +25,7 @@ import java.util.stream.Collectors;
 public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
+    private final ZoneRepository zoneRepository;
 
 
     //식당 생성
@@ -86,6 +90,20 @@ public class RestaurantService {
         return restaurants;
     }
 
+    //현재 동 위치 식당리스트 조회
+    public Slice<Restaurant> searchByCurrentRestaurant(String dongName, Pageable pageable) {
+/*        if (dongName.length() < 2) {
+            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
+        }*/
+        Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
+        //구역아이디도 담기
+
+/*        if (restaurants.isEmpty()) {
+            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+        }*/
+
+        return restaurants;
+    }
 
 
     //식당 상세조회
@@ -120,4 +138,13 @@ public class RestaurantService {
     public void deleteRestaurant(Long restaurantId) {
         restaurantRepository.delete(restaurantId);
     }
+
+
+    //식당주소와 일치하는 구역아이디 식당테이블에 삽입
+/*    @Transactional
+    public void updateRestaurantZoneId() {
+
+        List<Restaurant> restaurantList = restaurantRepository.findAll();
+
+    }*/
 }

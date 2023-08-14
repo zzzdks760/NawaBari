@@ -43,7 +43,12 @@ public class CurrentLocationService {
             JsonArray documents = responseJson.getAsJsonArray("documents");
 
             if (documents.size() > 0) {
+                String siName = documents.get(0).getAsJsonObject().get("region_1depth_name").getAsString();
                 String dongName = documents.get(0).getAsJsonObject().get("region_3depth_name").getAsString();
+
+                if (!siName.equals("서울특별시")) {
+                    return null;
+                }
                 return dongName;
             }
         } catch (IOException | InterruptedException e) {
@@ -73,8 +78,13 @@ public class CurrentLocationService {
             JsonArray documents = responseJson.getAsJsonArray("documents");
 
             if (documents.size() > 0) {
+                String siName = documents.get(0).getAsJsonObject().get("region_1depth_name").getAsString();
                 String dongName = documents.get(0).getAsJsonObject().get("region_3depth_name").getAsString();
                 String guName = documents.get(0).getAsJsonObject().get("region_2depth_name").getAsString();
+
+                if (!siName.equals("서울특별시")) {
+                    return null;
+                }
 
                 return new LocationInfo(dongName, guName);
             }

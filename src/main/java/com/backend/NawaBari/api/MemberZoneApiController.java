@@ -26,11 +26,14 @@ public class MemberZoneApiController {
 
     //구역설정
     @PostMapping("/api/v1/members/memberZone")
-    public List<MemberZoneResponseDTO> setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
+    public ResponseEntity<List<MemberZoneResponseDTO>> setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
         Long memberId = requestDTO.getMemberId();
         float lat = requestDTO.getLat();
         float lng = requestDTO.getLng();
         CurrentLocationService.LocationInfo guAndDong = currentLocationService.getGuAndDong(lat, lng);
+        if (guAndDong == null) {
+            return ResponseEntity.notFound().build();
+        }
         String guName = guAndDong.getGuName();
         String dongName = guAndDong.getDongName();
         System.out.println("guName = " + guName);
@@ -38,9 +41,9 @@ public class MemberZoneApiController {
 
         List<Long> memberZones = memberZoneService.setMemberZone(memberId, guName, dongName);
 
-        return memberZones.stream()
+        return ResponseEntity.ok(memberZones.stream()
                 .map(MemberZoneResponseDTO::new)
-                .collect(Collectors.toList());
+                .collect(Collectors.toList()));
     }
 
 
