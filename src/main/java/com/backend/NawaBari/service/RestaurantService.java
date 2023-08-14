@@ -92,16 +92,7 @@ public class RestaurantService {
 
     //현재 동 위치 식당리스트 조회
     public Slice<Restaurant> searchByCurrentRestaurant(String dongName, Pageable pageable) {
-/*        if (dongName.length() < 2) {
-            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
-        }*/
         Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
-        //구역아이디도 담기
-
-/*        if (restaurants.isEmpty()) {
-            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
-        }*/
-
         return restaurants;
     }
 

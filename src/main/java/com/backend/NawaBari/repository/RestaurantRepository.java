@@ -1,6 +1,7 @@
 package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
@@ -64,6 +65,17 @@ public class RestaurantRepository {
         return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
     }
 
+    //동이름으로 식당찾기
+    public Slice<Restaurant> searchByDongName(String dongName, Pageable pageable) {
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.address_name like :dongName", Restaurant.class)
+                .setParameter("dongName", "%" + dongName + "%")
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
+                .getResultList();
+
+        return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
+    }
+
     //키워드를 포함하는 주소나 가게이름 조회
     public Slice<Restaurant> searchByKeywordContaining(String keyword, Pageable pageable) {
         List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like CONCAT('%', :keyword, '%') or " +
@@ -87,6 +99,4 @@ public class RestaurantRepository {
     public void delete(Long restaurantId) {
         em.remove(restaurantId);
     }
-
-
 }
