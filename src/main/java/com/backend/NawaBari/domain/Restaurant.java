@@ -108,7 +108,7 @@ public class Restaurant extends Base{
       */
     public void updateAverageRating() {
         if (reviews.isEmpty()) {
-            avgRating = null;
+            avgRating = 0.0;
             return;
         }
         double sum = 0;
