@@ -4,7 +4,6 @@ import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
-import com.backend.NawaBari.domain.review.Photo;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.repository.MemberRepository;
 import com.backend.NawaBari.repository.RestaurantRepository;
@@ -12,11 +11,8 @@ import com.backend.NawaBari.repository.ReviewRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service
 @Transactional(readOnly = true)
@@ -31,7 +27,7 @@ public class ReviewService {
      * 리뷰 생성
      */
     @Transactional
-    public Long createReview(Long memberId, Long restaurantId, List<Photo> photos, String title, String content, Double rate) {
+    public Long createReview(Long memberId, Long restaurantId, String title, String content, Double rate) {
         Member member = memberRepository.findOne(memberId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
@@ -44,7 +40,7 @@ public class ReviewService {
         }
 
         if (isAddressMatching) { //구 주소가 일치하는 경우 리뷰생성
-            Review review = Review.createReview(member, restaurant, photos, title, content, rate);
+            Review review = Review.createReview(member, restaurant, title, content, rate);
             restaurant.addReview(review);
             restaurant.updateAverageRating();
             restaurantRepository.save(restaurant);
@@ -72,15 +68,10 @@ public class ReviewService {
      * 리뷰 수정
      */
     @Transactional
-    public void updateReview(Long reviewId, Long restaurantId, List<Photo> photos, String title, String content, Double rate) {
+    public void updateReview(Long reviewId, Long restaurantId,String title, String content, Double rate) {
         Review review = reviewRepository.findOne(reviewId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
-        review.getPhotos().clear();
-
-        for (Photo photo : photos) {
-            review.getPhotos().add(photo);
-        }
 
         review.setTitle(title);
         review.setContent(content);
@@ -96,6 +87,7 @@ public class ReviewService {
     @Transactional
     public Boolean deleteReview(Long reviewId, Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
+
         Review review = reviewRepository.findOne(reviewId);
 
         if (review == null) {

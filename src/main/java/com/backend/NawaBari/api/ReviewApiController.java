@@ -1,6 +1,5 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.review.Photo;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
@@ -28,7 +27,7 @@ public class ReviewApiController {
     public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
 
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
-                request.getPhotos(), request.getTitle(), request.getContent(), request.getRate());
+                request.getTitle(), request.getContent(), request.getRate());
         return new ReviewResponseDTO(reviewId);
 
     }
@@ -37,10 +36,10 @@ public class ReviewApiController {
     @PatchMapping("/api/v1/restaurants/reviews")
     public UpdateReviewResponse updateReview(@RequestBody UpdateReviewRequestDTO updateRequest) {
 
-        reviewService.updateReview(updateRequest.getReviewId(), updateRequest.getRestaurantId(), updateRequest.getPhotos(),
+        reviewService.updateReview(updateRequest.getReviewId(), updateRequest.getRestaurantId(),
                 updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
 
-        return new UpdateReviewResponse(updateRequest.getReviewId(), updateRequest.getPhotos(),
+        return new UpdateReviewResponse(updateRequest.getReviewId(),
                 updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
     }
 
@@ -73,7 +72,6 @@ public class ReviewApiController {
 
             ReviewDTO reviewDTO = new ReviewDTO(
                     review.getId(),
-//                    review.getPhotos(),
                     review.getTitle(),
                     review.getContent(),
                     review.getRate(),
@@ -101,7 +99,6 @@ public class ReviewApiController {
     static class ReviewRequestDTO {
         private Long memberId;
         private Long restaurantId;
-        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;
@@ -111,7 +108,6 @@ public class ReviewApiController {
     @AllArgsConstructor
     static class UpdateReviewResponse {
         private Long reviewId;
-        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;
@@ -119,7 +115,6 @@ public class ReviewApiController {
 
     @Data
     static class UpdateReviewRequest {
-        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;
@@ -129,7 +124,6 @@ public class ReviewApiController {
     @AllArgsConstructor
     static class ReviewDTO {
         private Long id;
-//        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;
@@ -140,7 +134,6 @@ public class ReviewApiController {
     static class UpdateReviewRequestDTO {
         private Long reviewId;
         private Long restaurantId;
-        private List<Photo> photos;
         private String title;
         private String content;
         private Double rate;

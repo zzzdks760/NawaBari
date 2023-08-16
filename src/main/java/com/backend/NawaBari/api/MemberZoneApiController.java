@@ -14,6 +14,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -27,23 +28,27 @@ public class MemberZoneApiController {
     //구역설정
     @PostMapping("/api/v1/members/memberZone")
     public ResponseEntity<List<MemberZoneResponseDTO>> setMemberZone(@RequestBody MemberZoneRequestDTO requestDTO) {
-        Long memberId = requestDTO.getMemberId();
-        float lat = requestDTO.getLat();
-        float lng = requestDTO.getLng();
-        CurrentLocationService.LocationInfo guAndDong = currentLocationService.getGuAndDong(lat, lng);
-        if (guAndDong == null) {
-            return ResponseEntity.notFound().build();
+        try {
+            Long memberId = requestDTO.getMemberId();
+            float lat = requestDTO.getLat();
+            float lng = requestDTO.getLng();
+            CurrentLocationService.LocationInfo guAndDong = currentLocationService.getGuAndDong(lat, lng);
+            if (guAndDong == null) {
+                return ResponseEntity.notFound().build();
+            }
+            String guName = guAndDong.getGuName();
+            String dongName = guAndDong.getDongName();
+
+            List<Long> memberZones = memberZoneService.setMemberZone(memberId, guName, dongName);
+
+            return ResponseEntity.ok(memberZones.stream()
+                    .map(MemberZoneResponseDTO::new)
+                    .collect(Collectors.toList()));
+        } catch (MaximumZoneLimitException | ZoneAlreadySetException e) {
+            List<MemberZoneResponseDTO> errors = new ArrayList<>();
+            errors.add(new MemberZoneResponseDTO(e.getMessage()));
+            return ResponseEntity.badRequest().body(errors);
         }
-        String guName = guAndDong.getGuName();
-        String dongName = guAndDong.getDongName();
-        System.out.println("guName = " + guName);
-        System.out.println("dongName = " + dongName);
-
-        List<Long> memberZones = memberZoneService.setMemberZone(memberId, guName, dongName);
-
-        return ResponseEntity.ok(memberZones.stream()
-                .map(MemberZoneResponseDTO::new)
-                .collect(Collectors.toList()));
     }
 
 
@@ -54,10 +59,15 @@ public class MemberZoneApiController {
     @Data
     static class MemberZoneResponseDTO {
         private Long memberZoneId;
+        private String eMessage;
 
 
         public MemberZoneResponseDTO(Long memberZoneId) {
             this.memberZoneId = memberZoneId;
+        }
+
+        public MemberZoneResponseDTO(String eMessage) {
+            this.eMessage = eMessage;
         }
     }
 

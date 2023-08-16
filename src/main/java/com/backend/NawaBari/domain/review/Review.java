@@ -29,9 +29,6 @@ public class Review extends Base {
 
     private int likeCount;
 
-    @OneToMany(mappedBy = "review", cascade = CascadeType.ALL, orphanRemoval = true)
-    private List<Photo> photos = new ArrayList<>();
-
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "member_id")
@@ -52,10 +49,6 @@ public class Review extends Base {
         member.getReviews().add(this);
     }
 
-    public void addPhoto(Photo photo) {
-        photos.add(photo);
-        photo.setReview(this);
-    }
 
     public void addHeart(Heart heart) {
         this.hearts.add(heart);
@@ -77,18 +70,13 @@ public class Review extends Base {
      * 리뷰 생성
      */
     //== 생성 메서드 ==//
-    public static Review createReview(Member writer, Restaurant restaurant, List<Photo> photos, String title, String content, Double rate) {
+    public static Review createReview(Member writer, Restaurant restaurant, String title, String content, Double rate) {
         Review review = new Review();
         review.setMember(writer);
         review.setRestaurant(restaurant);
-        for (Photo photo : photos) {
-            review.addPhoto(photo);
-        }
         review.setTitle(title);
         review.setContent(content);
         review.setRate(rate);
-
-
 
         return review;
     }
