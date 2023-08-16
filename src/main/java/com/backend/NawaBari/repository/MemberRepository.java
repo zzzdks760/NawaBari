@@ -103,4 +103,12 @@ public class MemberRepository {
         member.setRefreshToken(refreshToken);
         em.persist(member);
     }
+
+    //회원아이디로 회원의 설정한 구역의 동이름 조회
+    public List<String> findMemberIdByDongName(Long id) {
+        return em.createQuery("select mz.zone.dong from MemberZone mz " +
+                "where mz.member.id = :id", String.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
 }

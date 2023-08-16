@@ -1,8 +1,10 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.domain.Role;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.MyPageDTO;
 import com.backend.NawaBari.service.MemberService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
@@ -27,11 +29,9 @@ public class MyPageApiController {
      * 마이페이지 조회
      */
     @GetMapping("/api/v1/MyPage")
-    public MyPageDTO MyPage(@RequestBody MyPageRequestDTO requestDTO) {
-        Long memberId = requestDTO.getMemberId();
-        Member profile = memberService.profile(memberId);
-
-        return new MyPageDTO(profile.getProfile_nickname(), profile.getProfile_image(), profile.getRole());
+    public MyPageDTO MyPage(@RequestParam("id") Long memberId) {
+        MyPageDTO myPageDTO = memberService.getProfile(memberId);
+        return myPageDTO;
     }
 
     /**
@@ -56,7 +56,6 @@ public class MyPageApiController {
         for (Review review : myReview) {
             ReviewApiController.ReviewDTO reviewDTO = new ReviewApiController.ReviewDTO(
                     review.getId(),
-//                    review.getPhotos(),
                     review.getTitle(),
                     review.getContent(),
                     review.getRate(),
@@ -66,15 +65,6 @@ public class MyPageApiController {
         }
 
         return new SliceImpl<>(myReviewDTOs, pageable, myReview.hasNext());
-    }
-
-
-    @Data
-    @AllArgsConstructor
-    static class MyPageDTO {
-        private String profile_nickname;
-        private String profile_image;
-        private Role role;
     }
 
     @Data

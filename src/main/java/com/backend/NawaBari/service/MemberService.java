@@ -1,10 +1,15 @@
 package com.backend.NawaBari.service;
 
+import com.backend.NawaBari.api.MyPageApiController;
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.dto.MemberDTO;
+import com.backend.NawaBari.dto.MyPageDTO;
 import com.backend.NawaBari.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.List;
 
 
 @Service
@@ -17,9 +22,11 @@ public class MemberService {
     /**
      * 회원정보 출력
      */
-    public Member profile(Long id) {
+    public MyPageDTO getProfile(Long id) {
         Member member = memberRepository.findOne(id);
-        return member;
+        List<String> dongNames = memberRepository.findMemberIdByDongName(id);
+
+        return new MyPageDTO(member.getProfile_nickname(), member.getProfile_image(), member.getRole(), dongNames);
     }
 
 
