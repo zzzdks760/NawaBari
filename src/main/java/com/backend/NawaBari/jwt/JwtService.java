@@ -3,6 +3,8 @@ package com.backend.NawaBari.jwt;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.MemberZone;
+import com.backend.NawaBari.repository.BlacklistTokenRepository;
 import com.backend.NawaBari.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
@@ -13,6 +15,7 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Optional;
 
 @Service
