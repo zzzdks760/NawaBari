@@ -64,7 +64,7 @@ public class MemberZone extends Base{
     /**
      * 초과체크
      */
-    private static void checkMaximumZoneLimit(Member member) {
+    private static void checkMaximumZoneLimit(Member member) throws MaximumZoneLimitException{
         if (member.getMemberZones().size() >= 2) {
             throw new MaximumZoneLimitException("설정할 수 있는 구역을 초과 하였습니다.");
         }
@@ -73,7 +73,7 @@ public class MemberZone extends Base{
     /**
      * 중복체크
      */
-    private static void checkZoneAlreadySet(Member member, Zone zone) {
+    private static void checkZoneAlreadySet(Member member, Zone zone) throws ZoneAlreadySetException{
         boolean zoneAlreadySet = member.getMemberZones().stream()
                 .anyMatch(memberZone -> memberZone.getZone().equals(zone));
 
