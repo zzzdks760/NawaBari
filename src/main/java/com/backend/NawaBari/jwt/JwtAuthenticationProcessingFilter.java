@@ -1,6 +1,7 @@
 package com.backend.NawaBari.jwt;
 
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.repository.MemberRepository;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -17,6 +18,9 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @RequiredArgsConstructor
@@ -60,6 +64,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
         }
     }
 
+
     /**
      *  [리프레시 토큰으로 유저 정보 찾기 & 액세스 토큰/리프레시 토큰 재발급 메소드]
      *  파라미터로 들어온 헤더에서 추출한 리프레시 토큰으로 DB에서 유저를 찾고, 해당 유저가 있다면
@@ -72,6 +77,7 @@ public class JwtAuthenticationProcessingFilter extends OncePerRequestFilter {
                 .ifPresent(member -> {
                     String reIssuedRefreshToken = reIssueRefreshToken(member);
                     Long id = member.getId();
+
                     jwtService.sendAccessAndRefreshToken(response, jwtService.createAccessToken(member.getEmail()),
                             reIssuedRefreshToken, id);
                 });
