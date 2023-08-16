@@ -9,9 +9,9 @@ import java.util.Collection;
 import java.util.Map;
 @Getter
 public class CustomOAuth2User extends DefaultOAuth2User {
-    private Long id;
-    private String email;
-    private Role role;
+    private final Long id;
+    private final String email;
+    private final Role role;
 
 
     public CustomOAuth2User(Collection<? extends GrantedAuthority> authorities,
