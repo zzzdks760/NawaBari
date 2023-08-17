@@ -16,6 +16,7 @@ import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -48,20 +49,19 @@ public class MyPageApiController {
      * 내가 작성한 리뷰목록
      */
     @GetMapping("/api/v1/MyPage/reviews")
-    public Slice<ReviewApiController.ReviewDTO> findReview(@RequestBody MyPageReviewRequestDTO myPageReviewRequestDTO, @PageableDefault Pageable pageable) {
-        Long memberId = myPageReviewRequestDTO.getMemberId();
+    public Slice<MyReviewDTO> findReview(@RequestParam("memberId")Long memberId, @PageableDefault Pageable pageable) {
         Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
-        List<ReviewApiController.ReviewDTO> myReviewDTOs = new ArrayList<>();
+        List<MyReviewDTO> myReviewDTOs = new ArrayList<>();
 
         for (Review review : myReview) {
-            ReviewApiController.ReviewDTO reviewDTO = new ReviewApiController.ReviewDTO(
+            MyReviewDTO myReviewDTO= new MyReviewDTO(
                     review.getId(),
                     review.getTitle(),
-                    review.getContent(),
-                    review.getRate(),
-                    review.getLikeCount()
+                    review.getRate()
+                    /*review.getCreateTime(),
+                    review.getUpdateTime()*/
             );
-            myReviewDTOs.add(reviewDTO);
+            myReviewDTOs.add(myReviewDTO);
         }
 
         return new SliceImpl<>(myReviewDTOs, pageable, myReview.hasNext());
@@ -83,7 +83,12 @@ public class MyPageApiController {
     }
 
     @Data
-    static class MyPageReviewRequestDTO {
-        private Long memberId;
+    @AllArgsConstructor
+    static class MyReviewDTO {
+        private Long reviewId;
+        private String title;
+        private Double rate;
+/*        private LocalDateTime createTime;
+        private LocalDateTime updateTime;*/
     }
 }
