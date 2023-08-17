@@ -40,8 +40,17 @@ public class HeartRepository {
                     .orElse(null);
         }
 
-    public void delete(Heart heart) {
-        em.remove(heart);
+    public void delete(Long heartId) {
+        em.createQuery("delete from Heart where id = :heartId")
+                .setParameter("heartId", heartId)
+                .executeUpdate();
     }
 
+    //회원아이디 리뷰아이디로 좋아요 아이디 조회
+    public Heart findIdByMemberIdAndReviewId(Long memberId, Long reviewId) {
+        return em.createQuery("select h from Heart h where h.member.id = :memberId and h.review.id = :reviewId", Heart.class)
+                .setParameter("memberId", memberId)
+                .setParameter("reviewId", reviewId)
+                .getSingleResult();
+    }
 }
