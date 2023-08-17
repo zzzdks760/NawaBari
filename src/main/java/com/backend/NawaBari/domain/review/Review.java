@@ -4,6 +4,7 @@ import com.backend.NawaBari.domain.Base;
 import com.backend.NawaBari.domain.Heart;
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.dto.ReviewDTO;
 import jakarta.persistence.*;
 import lombok.*;
 
@@ -86,5 +87,6 @@ public class Review extends Base {
         this.title = title;
         this.likeCount = likeCount;
     }
+
 }
 

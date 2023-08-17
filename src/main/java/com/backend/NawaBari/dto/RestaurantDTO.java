@@ -1,5 +1,6 @@
 package com.backend.NawaBari.dto;
 
+import com.backend.NawaBari.api.RestaurantApiController;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import lombok.*;
@@ -7,19 +8,23 @@ import lombok.*;
 import java.util.List;
 import java.util.stream.Collectors;
 
-@Builder
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 public class RestaurantDTO {
-    private Long id;
+    private Long restaurantId;
     private String name;
     private String address_name;
     private Double lat;
     private Double lng;
     private String tel;
+    private String restaurant_img;
+    private int reviewCount;
+    private Double avgRating;
+    private Long zoneId;
 
+    //식당데이터 삽입
     public static List<Restaurant> toEntityList(List<RestaurantDTO> restaurantDTOList) {
         return restaurantDTOList.stream()
                 .map(restaurantDTO -> Restaurant.builder()
@@ -30,5 +35,20 @@ public class RestaurantDTO {
                         .tel(restaurantDTO.getTel())
                         .build())
                 .collect(Collectors.toList());
+    }
+
+    public static RestaurantDTO convertToDTO(Restaurant restaurant) {
+
+        RestaurantDTO restaurantDTO = new RestaurantDTO();
+        restaurantDTO.setName(restaurant.getName());
+        restaurantDTO.setRestaurant_img(restaurant.getRestaurant_img());
+        restaurantDTO.setAddress_name(restaurant.getAddress_name());
+        restaurantDTO.setTel(restaurant.getTel());
+        restaurantDTO.setLat(restaurant.getLat());
+        restaurantDTO.setLng(restaurant.getLng());
+        restaurantDTO.setReviewCount(restaurant.getReviewCount());
+        restaurantDTO.setAvgRating(restaurant.getAvgRating());
+        restaurantDTO.setZoneId(restaurant.getZone().getId());
+        return restaurantDTO;
     }
 }

@@ -1,6 +1,7 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.service.CurrentLocationService;
 import com.backend.NawaBari.service.RestaurantService;
 import lombok.Data;
@@ -28,8 +29,8 @@ public class CurrentLocationApiController {
      * 현위치를 받아와 동 이름이 일치하는 식당들 조회
      */
     @PostMapping("/api/v1/location/restaurants")
-    public ResponseEntity<Slice<RestaurantApiController.RestaurantDTO>> getCurrentLocation(@RequestBody LocationDTO locationDTO,
-                                                                           @PageableDefault Pageable pageable) {
+    public ResponseEntity<Slice<RestaurantDTO>> getCurrentLocation(@RequestBody LocationDTO locationDTO,
+                                                                   @PageableDefault Pageable pageable) {
         float current_lat = locationDTO.getCurrent_lat();
         float current_lng = locationDTO.getCurrent_lng();
         String dongName = currentLocationService.getCurrentLocation(current_lat, current_lng);
@@ -41,8 +42,8 @@ public class CurrentLocationApiController {
 
         Slice<Restaurant> restaurants = restaurantService.searchByCurrentRestaurant(dongName, pageable);
 
-        List<RestaurantApiController.RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
-                .map(this::convertToDTO)
+        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
+                .map(RestaurantDTO::convertToDTO)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext()));
         //content가 null일 경우 동과 일치하는 주소가 없는것 = 서울 이외의 지역인 경우
@@ -53,22 +54,6 @@ public class CurrentLocationApiController {
     static class LocationDTO {
         private float current_lat;
         private float current_lng;
-    }
-
-    private RestaurantApiController.RestaurantDTO convertToDTO(Restaurant restaurant) {
-
-        RestaurantApiController.RestaurantDTO restaurantDTO = new RestaurantApiController.RestaurantDTO(
-                restaurant.getId(),
-                restaurant.getName(),
-                restaurant.getRestaurant_img(),
-                restaurant.getAddress_name(),
-                restaurant.getLat(),
-                restaurant.getLng(),
-                restaurant.getReviewCount(),
-                restaurant.getAvgRating(),
-                restaurant.getZone().getId()
-        );
-        return restaurantDTO;
     }
 
 }

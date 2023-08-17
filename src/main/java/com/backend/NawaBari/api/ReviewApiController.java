@@ -1,6 +1,7 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -13,8 +14,10 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -28,19 +31,19 @@ public class ReviewApiController {
 
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
                 request.getTitle(), request.getContent(), request.getRate());
-        return new ReviewResponseDTO(reviewId);
 
+        return new ReviewResponseDTO(reviewId);
     }
 
     //리뷰수정
     @PatchMapping("/api/v1/restaurants/reviews")
-    public UpdateReviewResponse updateReview(@RequestBody UpdateReviewRequestDTO updateRequest) {
+    public updateReviewResponseDTO updateReview(@RequestBody UpdateReviewRequestDTO updateRequest) {
 
         reviewService.updateReview(updateRequest.getReviewId(), updateRequest.getRestaurantId(),
                 updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
 
-        return new UpdateReviewResponse(updateRequest.getReviewId(),
-                updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
+        return new updateReviewResponseDTO(updateRequest.getReviewId(), updateRequest.getRestaurantId(), updateRequest.getTitle(),
+                updateRequest.getContent(), updateRequest.getRate());
     }
 
     //리뷰삭제
@@ -59,41 +62,25 @@ public class ReviewApiController {
 
     //특정 식당 리뷰 전체 조회
     @GetMapping("/api/v1/restaurant/reviews")
-    public Slice<ReviewDTO> RestaurantReviews(@RequestBody AllReviewRequestDTO allReviewRequest, @PageableDefault Pageable pageable) {
-        Long restaurantId = allReviewRequest.getRestaurantId();
+    public Slice<ReviewDTO> RestaurantReviews(@RequestParam("restaurantId")Long restaurantId, @PageableDefault Pageable pageable) {
 
         Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
 
-        List<ReviewDTO> reviewDTOS = new ArrayList<>();
-
-
-
-        for (Review review : reviews) {
-
-            ReviewDTO reviewDTO = new ReviewDTO(
-                    review.getId(),
-                    review.getTitle(),
-                    review.getContent(),
-                    review.getRate(),
-                    review.getLikeCount()
-            );
-            reviewDTOS.add(reviewDTO);
-        }
+        List<ReviewDTO> reviewDTOS = reviews.getContent().stream()
+                .map(ReviewDTO::convertToDTO)
+                .collect(Collectors.toList());
         return new SliceImpl<>(reviewDTOS, reviews.getPageable(), reviews.hasNext());
     }
+
+    //리뷰 상세조회
+/*    @GetMapping("/api/v1/reviews/review")
+    public ReviewDetailsDTO ReviewDetail(@RequestParam("reviewId") Long reviewId) {
+        reviewService.DetailReview(reviewId);
+    }*/
 
 
     //===============================================================================================================//
 
-    @Data
-    static class ReviewResponseDTO {
-        private Long reviewId;
-
-        public ReviewResponseDTO(Long reviewId) {
-            this.reviewId = reviewId;
-        }
-
-    }
 
     @Data
     static class ReviewRequestDTO {
@@ -104,30 +91,12 @@ public class ReviewApiController {
         private Double rate;
     }
 
-    @Data
-    @AllArgsConstructor
-    static class UpdateReviewResponse {
-        private Long reviewId;
-        private String title;
-        private String content;
-        private Double rate;
-    }
 
     @Data
     static class UpdateReviewRequest {
         private String title;
         private String content;
         private Double rate;
-    }
-
-    @Data
-    @AllArgsConstructor
-    static class ReviewDTO {
-        private Long id;
-        private String title;
-        private String content;
-        private Double rate;
-        private int likeCount;
     }
 
     @Data
@@ -148,5 +117,24 @@ public class ReviewApiController {
     @Data
     static class AllReviewRequestDTO {
         private Long restaurantId;
+    }
+
+    @Data
+    static class ReviewResponseDTO {
+        private Long reviewId;
+
+        public ReviewResponseDTO(Long reviewId) {
+            this.reviewId = reviewId;
+        }
+    }
+
+    @Data
+    @AllArgsConstructor
+    static class updateReviewResponseDTO {
+        private Long reviewId;
+        private Long restaurantId;
+        private String title;
+        private String content;
+        private Double rate;
     }
 }

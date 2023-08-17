@@ -53,7 +53,7 @@ public class RestaurantApiController {
         Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
 
         List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
-                .map(this::convertToDTO)
+                .map(RestaurantDTO::convertToDTO)
                 .collect(Collectors.toList());
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
@@ -88,7 +88,7 @@ public class RestaurantApiController {
 //===============================================================================================================//
 
 
-    @Data
+/*    @Data
     @AllArgsConstructor
     static class RestaurantDTO {
         private Long restaurantId;
@@ -100,8 +100,8 @@ public class RestaurantApiController {
         private int reviewCount;
         private Double avgRating;
         private Long zoneId;
-    }
-    private RestaurantDTO convertToDTO(Restaurant restaurant) {
+    }*/
+/*    private RestaurantDTO convertToDTO(Restaurant restaurant) {
 
         RestaurantDTO restaurantDTO = new RestaurantDTO(
                 restaurant.getId(),
@@ -115,7 +115,7 @@ public class RestaurantApiController {
                 restaurant.getZone().getId()
         );
         return restaurantDTO;
-    }
+    }*/
 
 
     @Data
