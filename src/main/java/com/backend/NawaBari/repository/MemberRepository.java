@@ -111,4 +111,12 @@ public class MemberRepository {
                 .setParameter("id", id)
                 .getResultList();
     }
+
+    //회원아이디로 회원이 설정한 구역아이디 반환
+    public List<Long> findZoneId(Long id) {
+        return em.createQuery("select mz.zone.id from MemberZone mz " +
+                "where mz.member.id = :id", Long.class)
+                .setParameter("id", id)
+                .getResultList();
+    }
 }

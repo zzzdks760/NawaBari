@@ -24,9 +24,10 @@ public class MemberService {
      */
     public MyPageDTO getProfile(Long id) {
         Member member = memberRepository.findOne(id);
+        List<Long> zoneIds = memberRepository.findZoneId(id);
         List<String> dongNames = memberRepository.findMemberIdByDongName(id);
 
-        return new MyPageDTO(member.getProfile_nickname(), member.getProfile_image(), member.getRole(), dongNames);
+        return new MyPageDTO(member.getProfile_nickname(), member.getProfile_image(), member.getRole(), zoneIds, dongNames);
     }
 
 
