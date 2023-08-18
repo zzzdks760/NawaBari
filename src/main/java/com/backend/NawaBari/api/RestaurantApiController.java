@@ -4,6 +4,7 @@ import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
+import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.service.RestaurantService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
@@ -55,6 +56,7 @@ public class RestaurantApiController {
         List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
                 .map(RestaurantDTO::convertToDTO)
                 .collect(Collectors.toList());
+
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
@@ -66,22 +68,13 @@ public class RestaurantApiController {
         Restaurant restaurant = restaurantService.detailRestaurant(restaurantId);
         List<Review> reviews = restaurant.getReviews();
 
-        List<ReviewTop3DTO> reviewTop3DTOS = new ArrayList<>();
-
-        for (Review review : reviews) {
-            ReviewTop3DTO reviewTop3DTO = new ReviewTop3DTO(
-                    review.getId(),
-                    review.getTitle(),
-                    review.getContent(),
-                    review.getRate(),
-                    review.getLikeCount()
-            );
-            reviewTop3DTOS.add(reviewTop3DTO);
-        }
+        List<ReviewDTO> reviewDTOS = reviews.stream()
+                .map(ReviewDTO::convertToDTO)
+                .collect(Collectors.toList());
 
         return new RestaurantDetailDTO(restaurant.getName(), restaurant.getRestaurant_img(), restaurant.getOpeningTime(), restaurant.getClosingTime(),
         restaurant.getAddress_name(), restaurant.getLat(), restaurant.getLng(), restaurant.getTel(), restaurant.getReviewCount(),
-        restaurant.getAvgRating(), reviewTop3DTOS, restaurant.getZone().getId());
+        restaurant.getAvgRating(), reviewDTOS, restaurant.getZone().getId());
     }
 
 
@@ -131,11 +124,11 @@ public class RestaurantApiController {
         private String tel;
         private int reviewCount;
         private Double avgRating;
-        private List<ReviewTop3DTO> reviewTop3DTOS;
+        private List<ReviewDTO> reviewTop3DTOS;
         private Long zoneId;
     }
 
-    @Data
+/*    @Data
     @AllArgsConstructor
     static class ReviewTop3DTO {
         private Long id;
@@ -143,6 +136,6 @@ public class RestaurantApiController {
         private String content;
         private Double rate;
         private int likeCount;
-    }
+    }*/
 }
 

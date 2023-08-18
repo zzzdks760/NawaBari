@@ -20,8 +20,7 @@ public class HeartApiController {
     public int heartCount(@RequestBody HeartRequestDTO requestDTO) {
         Long memberId = requestDTO.getMemberId();
         Long reviewId = requestDTO.getReviewId();
-        int count = heartService.toggleHeart(memberId, reviewId);
-        return count;
+        return heartService.toggleHeart(memberId, reviewId);
     }
 
     @Data

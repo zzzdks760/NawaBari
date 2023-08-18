@@ -16,6 +16,7 @@ public class ReviewDTO {
     private String content;
     private Double rate;
     private int likeCount;
+    private String time;
 
 
     public static ReviewDTO convertToDTO(Review review) {
@@ -25,6 +26,7 @@ public class ReviewDTO {
         reviewDTO.setContent(review.getContent());
         reviewDTO.setRate(review.getRate());
         reviewDTO.setLikeCount(review.getLikeCount());
+        reviewDTO.setTime(review.getFormattedTime());
         return reviewDTO;
     }
 

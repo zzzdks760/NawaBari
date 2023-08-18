@@ -40,6 +40,7 @@ public class RestaurantDTO {
     public static RestaurantDTO convertToDTO(Restaurant restaurant) {
 
         RestaurantDTO restaurantDTO = new RestaurantDTO();
+        restaurantDTO.setRestaurantId(restaurant.getId());
         restaurantDTO.setName(restaurant.getName());
         restaurantDTO.setRestaurant_img(restaurant.getRestaurant_img());
         restaurantDTO.setAddress_name(restaurant.getAddress_name());
