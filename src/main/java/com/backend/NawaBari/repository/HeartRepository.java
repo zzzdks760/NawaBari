@@ -53,4 +53,10 @@ public class HeartRepository {
                 .setParameter("reviewId", reviewId)
                 .getSingleResult();
     }
+
+    public List<Long> findOneReviewLikeMember(Long reviewId) {
+        return em.createQuery("select h.member.id from Heart h where h.review.id = :reviewId", Long.class)
+                .setParameter("reviewId", reviewId)
+                .getResultList();
+    }
 }

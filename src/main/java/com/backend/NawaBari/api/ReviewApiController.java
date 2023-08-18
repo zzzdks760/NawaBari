@@ -2,6 +2,7 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ReviewDTO;
+import com.backend.NawaBari.dto.ReviewDetailDTO;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -73,10 +74,10 @@ public class ReviewApiController {
     }
 
     //리뷰 상세조회
-/*    @GetMapping("/api/v1/reviews/review")
-    public ReviewDetailsDTO ReviewDetail(@RequestParam("reviewId") Long reviewId) {
-        reviewService.DetailReview(reviewId);
-    }*/
+    @GetMapping("/api/v1/reviews/review")
+    public ReviewDetailDTO ReviewDetail(@RequestParam("reviewId") Long reviewId) {
+        return reviewService.DetailReview(reviewId);
+    }
 
 
     //===============================================================================================================//

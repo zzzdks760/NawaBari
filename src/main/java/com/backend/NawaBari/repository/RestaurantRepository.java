@@ -99,4 +99,12 @@ public class RestaurantRepository {
     public void delete(Long restaurantId) {
         em.remove(restaurantId);
     }
+
+
+    //리뷰아이디로 식당조회
+    public Restaurant findRestaurantByReviewId(Long reviewId) {
+        return em.createQuery("select r from Restaurant r join fetch r.reviews rev where rev.id = :reviewId", Restaurant.class)
+                .setParameter("reviewId", reviewId)
+                .getSingleResult();
+    }
 }

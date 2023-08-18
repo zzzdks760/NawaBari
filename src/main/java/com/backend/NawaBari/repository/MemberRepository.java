@@ -119,4 +119,10 @@ public class MemberRepository {
                 .setParameter("id", id)
                 .getResultList();
     }
+
+    public Member findWriterByReviewId(Long reviewId) {
+        return em.createQuery("select m from Member m join fetch m.reviews rev where rev.id = :reviewId", Member.class)
+                .setParameter("reviewId", reviewId)
+                .getSingleResult();
+    }
 }

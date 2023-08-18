@@ -5,6 +5,8 @@ import com.backend.NawaBari.domain.MemberZone;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.ReviewDetailDTO;
+import com.backend.NawaBari.repository.HeartRepository;
 import com.backend.NawaBari.repository.MemberRepository;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import com.backend.NawaBari.repository.ReviewRepository;
@@ -14,6 +16,8 @@ import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
+
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
@@ -22,6 +26,7 @@ public class ReviewService {
     private final ReviewRepository reviewRepository;
     private final MemberRepository memberRepository;
     private final RestaurantRepository restaurantRepository;
+    private final HeartRepository heartRepository;
 
     /**
      * 리뷰 생성
@@ -118,11 +123,28 @@ public class ReviewService {
     }
 
     /**
-     * 특정 회원 리뷰 조회
+     * 특정 회원 리뷰목록 조회
      */
     public Slice<Review> findMyReview(Long memberId, Pageable pageable) {
         Slice<Review> reviewsByMember = reviewRepository.getReviewsByMember(memberId, pageable);
 
         return reviewsByMember;
+    }
+
+    /**
+     * 리뷰 상세조회
+     */
+    public ReviewDetailDTO DetailReview(Long reviewId) {
+        Review review = reviewRepository.findOne(reviewId);
+
+        Restaurant restaurant = restaurantRepository.findRestaurantByReviewId(reviewId);
+
+        Member writer = memberRepository.findWriterByReviewId(reviewId);
+
+        List<Long> LikeMember = heartRepository.findOneReviewLikeMember(reviewId);
+
+        return new ReviewDetailDTO(restaurant.getId(), restaurant.getAvgRating(),
+                writer.getId(), LikeMember,
+                review.getTitle(), review.getContent(), review.getRate(), review.getLikeCount(), review.getFormattedTime());
     }
 }
