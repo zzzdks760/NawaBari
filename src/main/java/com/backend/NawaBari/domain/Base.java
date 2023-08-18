@@ -9,6 +9,7 @@ import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.data.jpa.domain.support.AuditingEntityListener;
 
 import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
 
 @MappedSuperclass //매핑정보만 상속받을떄
 @EntityListeners(AuditingEntityListener.class) //시간에 대해서 자동으로 값을 넣어주는 기능
@@ -22,4 +23,13 @@ public class Base {
     @UpdateTimestamp //업데이트시 시간정보 줌
     @Column(insertable = false) //입력시 관여x
     private LocalDateTime updateTime;
+
+
+    public String getFormattedTime() {
+        if (updateTime != null) {
+            return updateTime.format(DateTimeFormatter.ofPattern("yyy-MM-dd"));
+        }
+        return createTime.format(DateTimeFormatter.ofPattern("yyyy-MM-dd"));
+    }
+
 }
