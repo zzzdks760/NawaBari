@@ -36,33 +36,37 @@ public class ReviewApiController {
     //리뷰등록
     @PostMapping("/api/v1/restaurants/reviews")
     public ReviewResponseDTO createReview(@ModelAttribute ReviewRequestDTO request,
-                                          @RequestParam("photos") List<MultipartFile> photoFiles) {
+                                          @RequestParam(value = "photos", required = false) List<MultipartFile> photoFiles) {
 
         List<Photo> photos = new ArrayList<>();
 
-        for (MultipartFile photoFile : photoFiles) {
-            try {
-                String originalFileName = photoFile.getOriginalFilename();
-                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-                String newFileName = UUID.randomUUID() + "." + fileExtension;
+        if (photoFiles != null) {
+            for (MultipartFile photoFile : photoFiles) {
+                try {
+                    String originalFileName = photoFile.getOriginalFilename();
+                    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                    String newFileName = UUID.randomUUID() + "." + fileExtension;
 
-                String filePath = "src/main/resources/static/images/" + newFileName;
+                    String filePath = "src/main/resources/static/images/" + newFileName;
 
-                try(OutputStream os = new FileOutputStream(new File(filePath))) {
-                    os.write(photoFile.getBytes());
+                    try(OutputStream os = new FileOutputStream(new File(filePath))) {
+                        os.write(photoFile.getBytes());
+                    }
+
+                    String webFilePath = "/images/" + newFileName;
+
+                    Photo photo = new Photo();
+                    photo.setFile_name(newFileName);
+                    photo.setFile_path(webFilePath);
+                    photos.add(photo);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-                String webFilePath = "/images/" + newFileName;
-
-                Photo photo = new Photo();
-                photo.setFile_name(newFileName);
-                photo.setFile_path(webFilePath);
-                photos.add(photo);
-
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
+
+
 
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
                 request.getTitle(), request.getContent(), request.getRate(), photos);
@@ -79,26 +83,29 @@ public class ReviewApiController {
 
         List<Photo> photos = new ArrayList<>();
 
-        for (MultipartFile photoFile :photoFiles) {
-            try {
-                String originalFileName = photoFile.getOriginalFilename();
-                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-                String newFileName = UUID.randomUUID() + "." + fileExtension;
+        if (photoFiles != null) {
+            for (MultipartFile photoFile : photoFiles) {
+                try {
+                    String originalFileName = photoFile.getOriginalFilename();
+                    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                    String newFileName = UUID.randomUUID() + "." + fileExtension;
 
-                String filePath = "src/main/resources/static/images/" + newFileName;
+                    String filePath = "src/main/resources/static/images/" + newFileName;
 
-                try(OutputStream os = new FileOutputStream(new File(filePath))) {
-                    os.write(photoFile.getBytes());
+                    try(OutputStream os = new FileOutputStream(new File(filePath))) {
+                        os.write(photoFile.getBytes());
+                    }
+
+                    String webFilePath = "/images/" + newFileName;
+
+                    Photo photo = new Photo();
+                    photo.setFile_name(newFileName);
+                    photo.setFile_path(webFilePath);
+                    photos.add(photo);
+
+                } catch (IOException e) {
+                    e.printStackTrace();
                 }
-
-                String webFilePath = "/images/" + newFileName;
-
-                Photo photo = new Photo();
-                photo.setFile_name(newFileName);
-                photo.setFile_path(webFilePath);
-                photos.add(photo);
-            } catch (IOException e) {
-                e.printStackTrace();
             }
         }
 

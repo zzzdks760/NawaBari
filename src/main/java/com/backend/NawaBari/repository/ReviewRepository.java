@@ -48,7 +48,7 @@ public class ReviewRepository {
 
     //리뷰 전체 조회
     public Slice<Review> findAllReview(Long restaurant_id, Pageable pageable) {
-        List<Review> reviewList = em.createQuery("select r from Review r join fetch r.photos where r.restaurant.id = :restaurant_id", Review.class)
+        List<Review> reviewList = em.createQuery("select r from Review r left join fetch r.photos where r.restaurant.id = :restaurant_id", Review.class)
                 .setParameter("restaurant_id", restaurant_id)
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
@@ -60,7 +60,7 @@ public class ReviewRepository {
 
     //회원이 작성한 리뷰조회
     public Slice<Review> getReviewsByMember(Long member_id, Pageable pageable) {
-        List<Review> reviewList = em.createQuery("select r from Review r join fetch r.photos where r.writer.id = :member_id", Review.class)
+        List<Review> reviewList = em.createQuery("select r from Review r left join fetch r.photos where r.writer.id = :member_id", Review.class)
                 .setParameter("member_id", member_id)
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())

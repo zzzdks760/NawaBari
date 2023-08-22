@@ -32,9 +32,12 @@ public class ReviewDTO {
         reviewDTO.setTime(review.getFormattedTime());
 
         List<String> photoUrls = new ArrayList<>();
-        for (Photo photo : review.getPhotos()) {
-            String photoUrl = "/images/" + photo.getFile_name();
-            photoUrls.add(photoUrl);
+
+        if (review.getPhotos() != null) {
+            for (Photo photo : review.getPhotos()) {
+                String photoUrl = "/images/" + photo.getFile_name();
+                photoUrls.add(photoUrl);
+            }
         }
         reviewDTO.setPhotoList(photoUrls);
 
