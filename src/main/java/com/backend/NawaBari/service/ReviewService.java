@@ -1,21 +1,19 @@
 package com.backend.NawaBari.service;
 
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.MemberZone;
-import com.backend.NawaBari.domain.Restaurant;
-import com.backend.NawaBari.domain.Zone;
+import com.backend.NawaBari.domain.*;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
-import com.backend.NawaBari.repository.HeartRepository;
-import com.backend.NawaBari.repository.MemberRepository;
-import com.backend.NawaBari.repository.RestaurantRepository;
-import com.backend.NawaBari.repository.ReviewRepository;
+import com.backend.NawaBari.dto.ReviewUpdateDTO;
+import com.backend.NawaBari.repository.*;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
+import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
 
 @Service
@@ -27,12 +25,13 @@ public class ReviewService {
     private final MemberRepository memberRepository;
     private final RestaurantRepository restaurantRepository;
     private final HeartRepository heartRepository;
+    private final PhotoRepository photoRepository;
 
     /**
      * 리뷰 생성
      */
     @Transactional
-    public Long createReview(Long memberId, Long restaurantId, String title, String content, Double rate) {
+    public Long createReview(Long memberId, Long restaurantId, String title, String content, Double rate, List<Photo> photos) {
         Member member = memberRepository.findOne(memberId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
@@ -45,11 +44,18 @@ public class ReviewService {
         }
 
         if (isAddressMatching) { //구 주소가 일치하는 경우 리뷰생성
-            Review review = Review.createReview(member, restaurant, title, content, rate);
+            Review review = Review.createReview(member, restaurant, title, content, rate, photos);
             restaurant.addReview(review);
             restaurant.updateAverageRating();
             restaurantRepository.save(restaurant);
             reviewRepository.save(review);
+            photoRepository.save(photos);
+
+            //식당 메인사진이 없을경우 사진등록
+            if (restaurant.getMain_photo_fileName() == null && !photos.isEmpty()) {
+                Photo mainPhoto = photos.get(0);
+                restaurant.setMain_photo_fileName(mainPhoto.getFile_name());
+            }
 
             return review.getId();
         } else {
@@ -60,30 +66,29 @@ public class ReviewService {
 
     //추출한 구 이름과 식당주소가 일치하는지 판별
     private boolean checkAddress(Zone zone, String address_name) {
-        String extractedDistrict = extractDistrictFromAddress(zone);
+        String extractedDistrict = zone.getGu();
         return address_name.contains(extractedDistrict);
     }
 
-    //구역의 구이름 추출
-    private String extractDistrictFromAddress(Zone zone) {
-       return zone.getGu();
-    }
 
     /**
      * 리뷰 수정
      */
     @Transactional
-    public void updateReview(Long reviewId, Long restaurantId,String title, String content, Double rate) {
+    public ReviewUpdateDTO updateReview(Long reviewId, Long restaurantId, String title, String content, Double rate, List<Photo> photos) {
         Review review = reviewRepository.findOne(reviewId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
-
 
         review.setTitle(title);
         review.setContent(content);
         review.setRate(rate);
+        review.setPhotos(photos);
 
         restaurant.setAvgRating(restaurant.getAvgRating());
         restaurant.updateAverageRating();
+
+
+        return ReviewUpdateDTO.convertToDTO(review);
     }
 
     /**
@@ -110,9 +115,7 @@ public class ReviewService {
      * 리뷰 전체 조회
      */
     public Slice<Review> findAllReview(Long restaurantId, Pageable pageable) {
-        Slice<Review> reviewList = reviewRepository.findAllReview(restaurantId, pageable);
-
-        return reviewList;
+        return reviewRepository.findAllReview(restaurantId, pageable);
     }
 
     /**
@@ -126,9 +129,7 @@ public class ReviewService {
      * 특정 회원 리뷰목록 조회
      */
     public Slice<Review> findMyReview(Long memberId, Pageable pageable) {
-        Slice<Review> reviewsByMember = reviewRepository.getReviewsByMember(memberId, pageable);
-
-        return reviewsByMember;
+        return reviewRepository.getReviewsByMember(memberId, pageable);
     }
 
     /**
@@ -143,8 +144,15 @@ public class ReviewService {
 
         List<Long> LikeMember = heartRepository.findOneReviewLikeMember(reviewId);
 
+        List<String> photoUrls = new ArrayList<>();
+        for (Photo photo : review.getPhotos()) {
+            String photoUrl = "/images/" + photo.getFile_name();
+            photoUrls.add(photoUrl);
+        }
+
         return new ReviewDetailDTO(restaurant.getId(), restaurant.getAvgRating(),
                 writer.getId(), LikeMember,
-                review.getTitle(), review.getContent(), review.getRate(), review.getLikeCount(), review.getFormattedTime());
+                review.getTitle(), review.getContent(), review.getRate(),
+                review.getLikeCount(), photoUrls, review.getFormattedTime());
     }
 }

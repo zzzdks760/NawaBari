@@ -5,7 +5,6 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDateTime;
 import java.util.List;
 
 @Getter
@@ -23,5 +22,7 @@ public class ReviewDetailDTO {
     private String content; //리뷰
     private Double rate; //리뷰
     private int likeCount; //리뷰
+    private List<String> photoList;
     private String time;
+
 }

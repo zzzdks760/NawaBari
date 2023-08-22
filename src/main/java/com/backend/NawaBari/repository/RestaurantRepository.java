@@ -34,7 +34,7 @@ public class RestaurantRepository {
 
     //식당 상세조회
     public List<Review> findReviewTop3(Long restaurant_id) {
-        return em.createQuery("select r from Review r left join fetch r.restaurant where r.restaurant.id = :restaurant_id order by r.likeCount", Review.class)
+        return em.createQuery("select r from Review r join fetch r.restaurant join fetch r.photos where r.restaurant.id = :restaurant_id order by r.likeCount", Review.class)
                 .setParameter("restaurant_id", restaurant_id)
                 .setMaxResults(3)
                 .getResultList();

@@ -2,7 +2,10 @@ package com.backend.NawaBari.dto;
 
 import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.review.Review;
-import lombok.*;
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.NoArgsConstructor;
+import lombok.Setter;
 
 import java.util.ArrayList;
 import java.util.Base64;
@@ -12,23 +15,22 @@ import java.util.List;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class ReviewDTO {
+public class ReviewUpdateDTO {
     private Long reviewId;
+    private Long restaurantId;
     private String title;
     private String content;
-    private Double rate;
-    private int likeCount;
     private List<String> photoList;
+    private Double rate;
     private String time;
 
-
-    public static ReviewDTO convertToDTO(Review review) {
-        ReviewDTO reviewDTO = new ReviewDTO();
+    public static ReviewUpdateDTO convertToDTO(Review review) {
+        ReviewUpdateDTO reviewDTO = new ReviewUpdateDTO();
         reviewDTO.setReviewId(review.getId());
+        reviewDTO.setRestaurantId(review.getRestaurant().getId());
         reviewDTO.setTitle(review.getTitle());
         reviewDTO.setContent(review.getContent());
         reviewDTO.setRate(review.getRate());
-        reviewDTO.setLikeCount(review.getLikeCount());
         reviewDTO.setTime(review.getFormattedTime());
 
         List<String> photoUrls = new ArrayList<>();
@@ -40,6 +42,4 @@ public class ReviewDTO {
 
         return reviewDTO;
     }
-
-
 }

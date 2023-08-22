@@ -1,5 +1,6 @@
 package com.backend.NawaBari.service;
 
+import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
@@ -92,8 +93,7 @@ public class RestaurantService {
 
     //현재 동 위치 식당리스트 조회
     public Slice<Restaurant> searchByCurrentRestaurant(String dongName, Pageable pageable) {
-        Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
-        return restaurants;
+        return restaurantRepository.searchByDongName(dongName, pageable);
     }
 
 
@@ -106,6 +106,7 @@ public class RestaurantService {
 
         Restaurant restaurantDetail = Restaurant.builder()
                 .name(restaurant.getName())
+                .main_photo_fileName(restaurant.getMain_photo_fileName())
                 .address_name(restaurant.getAddress_name())
                 .lat(restaurant.getLat())
                 .lng(restaurant.getLng())
@@ -120,10 +121,10 @@ public class RestaurantService {
 
     //식당 수정
     @Transactional
-    public void updateRestaurant(Long restaurantId, String name, String restaurant_img, String openingTime, String closingTime, String address_name, String tel) {
+    public void updateRestaurant(Long restaurantId, String name, String mainPhotoFileName, String openingTime, String closingTime, String address_name, String tel) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
-        restaurant.update(name, restaurant_img, openingTime, closingTime, address_name, tel);
+        restaurant.update(name, mainPhotoFileName, openingTime, closingTime, address_name, tel);
     }
 
 

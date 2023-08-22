@@ -1,10 +1,12 @@
 package com.backend.NawaBari.dto;
 
 import com.backend.NawaBari.api.RestaurantApiController;
+import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import lombok.*;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -19,7 +21,7 @@ public class RestaurantDTO {
     private Double lat;
     private Double lng;
     private String tel;
-    private String restaurant_img;
+    private String mainPhotoUrl;
     private int reviewCount;
     private Double avgRating;
     private Long zoneId;
@@ -42,7 +44,6 @@ public class RestaurantDTO {
         RestaurantDTO restaurantDTO = new RestaurantDTO();
         restaurantDTO.setRestaurantId(restaurant.getId());
         restaurantDTO.setName(restaurant.getName());
-        restaurantDTO.setRestaurant_img(restaurant.getRestaurant_img());
         restaurantDTO.setAddress_name(restaurant.getAddress_name());
         restaurantDTO.setTel(restaurant.getTel());
         restaurantDTO.setLat(restaurant.getLat());
@@ -50,6 +51,13 @@ public class RestaurantDTO {
         restaurantDTO.setReviewCount(restaurant.getReviewCount());
         restaurantDTO.setAvgRating(restaurant.getAvgRating());
         restaurantDTO.setZoneId(restaurant.getZone().getId());
+
+        if (restaurant.getMain_photo_fileName() != null) {
+            String mainPhotoFileName = restaurant.getMain_photo_fileName();
+
+            String mainPhotoPath = "/images/" + mainPhotoFileName;
+            restaurantDTO.setMainPhotoUrl(mainPhotoPath);
+        }
         return restaurantDTO;
     }
 }
