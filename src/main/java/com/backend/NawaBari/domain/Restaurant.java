@@ -20,8 +20,6 @@ public class Restaurant extends Base{
 
     private String name;
 
-    private String restaurant_img;
-
     private String openingTime;
 
     private String closingTime;
@@ -38,6 +36,8 @@ public class Restaurant extends Base{
 
     private Double avgRating = 0.0;
 
+    private String main_photo_fileName;
+
     @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
 
@@ -50,14 +50,15 @@ public class Restaurant extends Base{
     private Zone zone;
 
     // 식당 수정 메서드
-    public void update(String name, String restaurant_img, String openingTime, String closingTime, String address_name, String tel) {
+    public void update(String name, String main_photo_fileName, String openingTime, String closingTime, String address_name, String tel) {
         this.setName(name);
-        this.setRestaurant_img(restaurant_img);
+        this.setMain_photo_fileName(main_photo_fileName);
         this.setOpeningTime(openingTime);
         this.setClosingTime(closingTime);
         this.setAddress_name(address_name);
         this.setTel(tel);
     }
+
 
     //== 연관관계 메서드 ==//
     public void setZone(Zone zone) {
@@ -72,8 +73,9 @@ public class Restaurant extends Base{
 
 
     @Builder
-    public Restaurant(String name, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone) {
+    public Restaurant(String name, String main_photo_fileName, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone) {
         this.name = name;
+        this.main_photo_fileName = main_photo_fileName;
         this.address_name = address_name;
         this.lat = lat;
         this.lng = lng;

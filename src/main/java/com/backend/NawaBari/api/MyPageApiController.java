@@ -2,6 +2,7 @@ package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.domain.MemberZone;
+import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.Role;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.MyPageDTO;
@@ -18,7 +19,9 @@ import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDateTime;
 import java.util.ArrayList;
+import java.util.Base64;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
@@ -31,8 +34,7 @@ public class MyPageApiController {
      */
     @GetMapping("/api/v1/MyPage")
     public MyPageDTO MyPage(@RequestParam("id") Long memberId) {
-        MyPageDTO myPageDTO = memberService.getProfile(memberId);
-        return myPageDTO;
+        return memberService.getProfile(memberId);
     }
 
     /**
@@ -52,14 +54,19 @@ public class MyPageApiController {
     public Slice<MyReviewDTO> findReview(@RequestParam("memberId")Long memberId, @PageableDefault Pageable pageable) {
         Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
         List<MyReviewDTO> myReviewDTOs = new ArrayList<>();
+        String basePath = "/images/";
 
         for (Review review : myReview) {
-            MyReviewDTO myReviewDTO= new MyReviewDTO(
+            List<MyReviewPhotoDTO> photoDTOs = review.getPhotos().stream()
+                    .map(photo -> new MyReviewPhotoDTO(basePath, photo.getFile_name()))
+                    .collect(Collectors.toList());
+
+            MyReviewDTO myReviewDTO = new MyReviewDTO(
                     review.getId(),
                     review.getTitle(),
-                    review.getRate()
-                    /*review.getCreateTime(),
-                    review.getUpdateTime()*/
+                    review.getRate(),
+                    review.getFormattedTime(),
+                    photoDTOs
             );
             myReviewDTOs.add(myReviewDTO);
         }
@@ -88,7 +95,16 @@ public class MyPageApiController {
         private Long reviewId;
         private String title;
         private Double rate;
-/*        private LocalDateTime createTime;
-        private LocalDateTime updateTime;*/
+        private String time;
+        private List<MyReviewPhotoDTO> photoDTOS;
+    }
+
+    @Data
+    static class MyReviewPhotoDTO {
+        private String photoUrls;
+
+        public MyReviewPhotoDTO(String photoUrls, String basePath) {
+            this.photoUrls = photoUrls + basePath;
+        }
     }
 }

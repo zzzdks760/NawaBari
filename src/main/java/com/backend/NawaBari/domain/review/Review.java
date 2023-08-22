@@ -1,9 +1,6 @@
 package com.backend.NawaBari.domain.review;
 
-import com.backend.NawaBari.domain.Base;
-import com.backend.NawaBari.domain.Heart;
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Restaurant;
+import com.backend.NawaBari.domain.*;
 import com.backend.NawaBari.dto.ReviewDTO;
 import jakarta.persistence.*;
 import lombok.*;
@@ -40,8 +37,12 @@ public class Review extends Base {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
-    @OneToMany(mappedBy = "review")
+    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
     private List<Heart> hearts = new ArrayList<>();
+
+    @OneToMany(mappedBy = "review")
+    private List<Photo> photos = new ArrayList<>();
+
 
 
     //== 연관관계 메서드 ==//
@@ -71,13 +72,17 @@ public class Review extends Base {
      * 리뷰 생성
      */
     //== 생성 메서드 ==//
-    public static Review createReview(Member writer, Restaurant restaurant, String title, String content, Double rate) {
+    public static Review createReview(Member writer, Restaurant restaurant, String title, String content, Double rate, List<Photo> photos) {
         Review review = new Review();
         review.setMember(writer);
         review.setRestaurant(restaurant);
         review.setTitle(title);
         review.setContent(content);
         review.setRate(rate);
+
+        for (Photo photo : photos) {
+            photo.setReview(review);
+        }
 
         return review;
     }

@@ -1,8 +1,10 @@
 package com.backend.NawaBari.api;
 
+import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
+import com.backend.NawaBari.dto.ReviewUpdateDTO;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -14,10 +16,15 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.time.LocalDateTime;
+import java.io.File;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.OutputStream;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 import java.util.stream.Collectors;
 
 @RestController
@@ -28,23 +35,75 @@ public class ReviewApiController {
 
     //리뷰등록
     @PostMapping("/api/v1/restaurants/reviews")
-    public ReviewResponseDTO createReview(@RequestBody @Validated ReviewRequestDTO request) {
+    public ReviewResponseDTO createReview(@ModelAttribute ReviewRequestDTO request,
+                                          @RequestParam("photos") List<MultipartFile> photoFiles) {
+
+        List<Photo> photos = new ArrayList<>();
+
+        for (MultipartFile photoFile : photoFiles) {
+            try {
+                String originalFileName = photoFile.getOriginalFilename();
+                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                String newFileName = UUID.randomUUID() + "." + fileExtension;
+
+                String filePath = "src/main/resources/static/images/" + newFileName;
+
+                try(OutputStream os = new FileOutputStream(new File(filePath))) {
+                    os.write(photoFile.getBytes());
+                }
+
+                String webFilePath = "/images/" + newFileName;
+
+                Photo photo = new Photo();
+                photo.setFile_name(newFileName);
+                photo.setFile_path(webFilePath);
+                photos.add(photo);
+
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
 
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
-                request.getTitle(), request.getContent(), request.getRate());
+                request.getTitle(), request.getContent(), request.getRate(), photos);
+
 
         return new ReviewResponseDTO(reviewId);
     }
 
+
     //리뷰수정
     @PatchMapping("/api/v1/restaurants/reviews")
-    public updateReviewResponseDTO updateReview(@RequestBody UpdateReviewRequestDTO updateRequest) {
+    public ReviewUpdateDTO updateReview(@ModelAttribute UpdateReviewRequestDTO request,
+                                        @RequestParam(value = "photos", required = false) List<MultipartFile> photoFiles) {
 
-        reviewService.updateReview(updateRequest.getReviewId(), updateRequest.getRestaurantId(),
-                updateRequest.getTitle(), updateRequest.getContent(), updateRequest.getRate());
+        List<Photo> photos = new ArrayList<>();
 
-        return new updateReviewResponseDTO(updateRequest.getReviewId(), updateRequest.getRestaurantId(), updateRequest.getTitle(),
-                updateRequest.getContent(), updateRequest.getRate());
+        for (MultipartFile photoFile :photoFiles) {
+            try {
+                String originalFileName = photoFile.getOriginalFilename();
+                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                String newFileName = UUID.randomUUID() + "." + fileExtension;
+
+                String filePath = "src/main/resources/static/images/" + newFileName;
+
+                try(OutputStream os = new FileOutputStream(new File(filePath))) {
+                    os.write(photoFile.getBytes());
+                }
+
+                String webFilePath = "/images/" + newFileName;
+
+                Photo photo = new Photo();
+                photo.setFile_name(newFileName);
+                photo.setFile_path(webFilePath);
+                photos.add(photo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+
+        return reviewService.updateReview(request.getReviewId(), request.getRestaurantId(),
+                request.getTitle(), request.getContent(), request.getRate(), photos);
     }
 
     //리뷰삭제
@@ -129,13 +188,4 @@ public class ReviewApiController {
         }
     }
 
-    @Data
-    @AllArgsConstructor
-    static class updateReviewResponseDTO {
-        private Long reviewId;
-        private Long restaurantId;
-        private String title;
-        private String content;
-        private Double rate;
-    }
 }
