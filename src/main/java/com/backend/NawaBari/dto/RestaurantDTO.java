@@ -55,7 +55,7 @@ public class RestaurantDTO {
         if (restaurant.getMain_photo_fileName() != null) {
             String mainPhotoFileName = restaurant.getMain_photo_fileName();
 
-            String mainPhotoPath = "/images/" + mainPhotoFileName;
+            String mainPhotoPath = "/main_images/" + mainPhotoFileName;
             restaurantDTO.setMainPhotoUrl(mainPhotoPath);
         }
         return restaurantDTO;

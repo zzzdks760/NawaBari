@@ -71,7 +71,7 @@ public class RestaurantApiController {
 
         String mainPhotoPath = null;
         if (restaurant.getMain_photo_fileName() != null) {
-            mainPhotoPath = "/images/" + restaurant.getMain_photo_fileName();
+            mainPhotoPath = "/main_images/" + restaurant.getMain_photo_fileName();
         }
 
         return new RestaurantDetailDTO(restaurant.getName(), mainPhotoPath, restaurant.getOpeningTime(), restaurant.getClosingTime(),
