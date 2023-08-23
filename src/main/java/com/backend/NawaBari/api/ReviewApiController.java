@@ -40,7 +40,7 @@ public class ReviewApiController {
 
         List<Photo> photos = new ArrayList<>();
 
-        if (photoFiles != null) {
+        if (photoFiles != null && !photoFiles.isEmpty()) {
             for (MultipartFile photoFile : photoFiles) {
                 try {
                     String originalFileName = photoFile.getOriginalFilename();
@@ -65,8 +65,6 @@ public class ReviewApiController {
                 }
             }
         }
-
-
 
         Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
                 request.getTitle(), request.getContent(), request.getRate(), photos);

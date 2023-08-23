@@ -40,13 +40,13 @@ public class Review extends Base {
     @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
     private List<Heart> hearts = new ArrayList<>();
 
-    @OneToMany(mappedBy = "review")
+    @OneToMany(mappedBy = "review", cascade = CascadeType.REMOVE)
     private List<Photo> photos = new ArrayList<>();
 
 
 
     //== 연관관계 메서드 ==//
-    public void setMember(Member member) {
+        public void setMember(Member member) {
         this.writer = member;
         member.getReviews().add(this);
     }

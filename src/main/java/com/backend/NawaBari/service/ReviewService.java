@@ -12,6 +12,11 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
+import java.io.File;
+import java.io.IOException;
+import java.nio.file.Files;
+import java.nio.file.Paths;
+import java.nio.file.StandardCopyOption;
 import java.util.ArrayList;
 import java.util.Base64;
 import java.util.List;
@@ -55,6 +60,17 @@ public class ReviewService {
             if (restaurant.getMain_photo_fileName() == null && !photos.isEmpty()) {
                 Photo mainPhoto = photos.get(0);
                 restaurant.setMain_photo_fileName(mainPhoto.getFile_name());
+
+                String main_image_path = "src/main/resources/static/main_images/";
+                String original_image_path = "src/main/resources/static/images/" + mainPhoto.getFile_name();
+                String targetPath = main_image_path + mainPhoto.getFile_name();
+
+                try {
+                    Files.copy(Paths.get(original_image_path), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
+                } catch (IOException e) {
+                    e.printStackTrace();
+                }
+
             }
 
             return review.getId();
@@ -102,6 +118,14 @@ public class ReviewService {
 
         if (review == null) {
             return false;
+        }
+
+        for (Photo photo : review.getPhotos()) {
+            String filePath = "src/main/resources/static/images/" + photo.getFile_name();
+            File file = new File(filePath);
+            if (file.exists()) {
+                file.delete();
+            }
         }
 
         restaurant.removeReview(review);
