@@ -7,7 +7,7 @@ spring:
             logout-uri: /api/logout
             client-id: 09b48658d094b40532cc396778f00012
             client-secret: P7QQhZCdEL1SHunR4YgzX43fyO1s7dTk
-            redirect-uri: http://43.202.82.108:8080/oauth2/callback/authorization
+            redirect-uri: http://43.202.82.108:8080/login/oauth2/code/kakao
             authorization-grant-type: authorization_code
             client-authentication-method: POST
             client-name: Kakao
