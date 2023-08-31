@@ -96,8 +96,8 @@ public class JwtService {
         log.info("Access Token {}", accessToken);
         log.info("Refresh Token {}", refreshToken);
 
-        setAccessTokenHeader(response, accessToken);
-        setRefreshTokenHeader(response, refreshToken);
+        setAccessTokenHeader(response, "Bearer " + accessToken);
+        setRefreshTokenHeader(response, "Bearer " + refreshToken);
 
         response.addHeader("id", String.valueOf(id));
 
