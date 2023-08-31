@@ -3,6 +3,7 @@ package com.backend.NawaBari.oauth2;
 import com.backend.NawaBari.jwt.JwtAuthenticationProcessingFilter;
 import com.backend.NawaBari.jwt.JwtBlacklistService;
 import com.backend.NawaBari.jwt.JwtService;
+import com.backend.NawaBari.service.KakaoLogoutService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -10,10 +11,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestHeader;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 @RestController
 @RequiredArgsConstructor
@@ -22,6 +20,7 @@ public class AuthController {
     private final JwtService jwtService;
     private final JwtBlacklistService jwtBlacklistService;
     private final JwtAuthenticationProcessingFilter jwtAuthenticationProcessingFilter;
+    private final KakaoLogoutService kakaoLogoutService;
 
     /**
      * 인가코드 받아 로그인처리후
@@ -64,6 +63,15 @@ public class AuthController {
 
             return ResponseEntity.ok().body(new AddInfoResponse("Bearer", jwtService.getAccessTokenExpirationPeriod()));
         }
+    }
+
+    /**
+     * 로그아웃 (리프레시토큰 블랙리스트에 추가)
+     */
+    @PostMapping("/api/logout")
+    public ResponseEntity<?> logout (@RequestHeader("member_id") Long memberId) {
+        kakaoLogoutService.logout(memberId);
+        return ResponseEntity.ok().build();
     }
 
     @Data
