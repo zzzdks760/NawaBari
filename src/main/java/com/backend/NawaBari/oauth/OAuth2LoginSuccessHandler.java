@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.domain.Member;
@@ -42,10 +43,13 @@ public class OAuth2LoginSuccessHandler implements AuthenticationSuccessHandler {
             //jwtService.sendAccessAndRefreshToken(response, accessToken, refreshToken);
 
             String redirectUrl = "/api/login/success";
+            redirectUrl += "?accessToken=" + accessToken + "&refreshToken=" + refreshToken + "&memberId=" + id;
             response.sendRedirect(redirectUrl);
+
 
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
     }
 }
+*/

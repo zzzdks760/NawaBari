@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import java.util.Map;
@@ -74,3 +75,4 @@ public class KakaoOAuth2UserInfo extends OAuth2UserInfo {
         return email;
     }
 }
+*/

@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import java.util.Map;
@@ -23,3 +24,4 @@ public abstract class OAuth2UserInfo {
     public abstract String getEmail();
 
 }
+*/

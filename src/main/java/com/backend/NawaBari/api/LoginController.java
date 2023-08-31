@@ -1,72 +1,71 @@
 package com.backend.NawaBari.api;
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.jwt.JwtAuthenticationProcessingFilter;
-import com.backend.NawaBari.jwt.JwtBlacklistService;
-import com.backend.NawaBari.jwt.JwtService;
-import com.backend.NawaBari.oauth.CustomOAuth2User;
-import com.backend.NawaBari.repository.MemberRepository;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
+import lombok.extern.slf4j.Slf4j;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
-import java.util.Optional;
+import java.io.IOException;
+
 
 @RequiredArgsConstructor
+@Slf4j
 @RestController
 public class LoginController {
 
-    private final JwtAuthenticationProcessingFilter jwtAuthenticationProcessingFilter;
-    private final JwtService jwtService;
-    private final MemberRepository memberRepository;
-    private final JwtBlacklistService jwtBlacklistService;
+/*    private final KakaoOAuth2 kakaoOAuth;
+    private final OAuthService oAuthService;
+
+    @Value("${spring.security.oauth2.client.registration.kakao.client-id}")
+    private String client_id;
 
 
-/*    *//**
-     * 인가코드가져오기
+    *//**
+     * 카카오 로그인페이지 반환
      *//*
-    @GetMapping("/Inga")
-    public void login(@RequestParam String code) {
-        System.out.println("code = " + code);
+    @GetMapping("/kakao")
+    public void getKakaoAuthUrl(HttpServletResponse response) throws IOException {
+        response.sendRedirect(kakaoOAuth.responseUrl());
     }
 
 
     *//**
-     * 인가코드 받아서 토큰, 아이디 반환
+     * 인가코드 받아오기
      *//*
-    @GetMapping("/api/login")
-    public ResponseEntity<TokenInfoResponse> getTokenInfo(@RequestParam("code") String authorizationCode) {
-
-        //액세스토큰 생성
-        String accessToken = jwtService.createAccessToken();
-        System.out.println("액세스토큰 생성 = " + accessToken);
-        //액세스토큰으로부터 이메일추출
-        Optional<String> extractEmail = jwtService.extractEmail(accessToken);
-        System.out.println("추출된 email = " + extractEmail);
-
-        if (extractEmail.isPresent()) {
-            String email = extractEmail.get();
-            //리프레시토큰 생성
-            String refreshToken = jwtService.createRefreshToken();
-            //memberRepository.saveRefreshToken(email, refreshToken);
-
-            Optional<Member> optionalMember = memberRepository.findByEmail(email);
-            Long id = optionalMember.map(Member::getId).orElse(null);
-
-            //액세스토큰, 리프레시토큰, 회원아이디를 TokenInfoResponse에 담아 반환
-            TokenInfoResponse response = new TokenInfoResponse(accessToken, refreshToken, id);
-            return ResponseEntity.ok(response);
-        }
-        return ResponseEntity.status(HttpStatus.UNAUTHORIZED).build();
+    @GetMapping("/login/kakao")
+    public TokenUserDTO kakaoLogin (@RequestParam(name = "code") String code) throws IOException {
+        log.info("카카오 API 서버 code : " + code);
+        return oAuthService.kakaoLogin(code);
     }*/
+
+
+
+
+    /**
+     * 로그인버튼 클릭시
+     */
+/*    @GetMapping("/auth/kakao/login")
+    public ResponseEntity<Void> startKakaoLogin(HttpServletRequest request, HttpServletResponse response) {
+        OAuth2AuthorizationRequest authorizationRequest = this.authorizationRequestResolver.resolve(request);
+        if (authorizationRequest != null) {
+            String authorizationUri = authorizationRequest.getAuthorizationRequestUri();
+            response.setHeader("Location", authorizationUri);
+            response.setStatus(HttpServletResponse.SC_FOUND);
+            System.out.println("Location = " + response.getHeader("Location"));
+
+            return ResponseEntity.status(HttpStatus.FOUND).build();
+        }
+        return ResponseEntity.badRequest().build();
+    }*/
+
 
     /**
      * 재 로그인
      */
-    @PostMapping("/refreshToken")
-    public ResponseEntity<?> reLogin(@RequestHeader("Authorization") String refreshTokenHeader, HttpServletResponse response) {
+/*    @PostMapping("/refreshToken")
+    public ResponseEntity<?> reLogin(@RequestHeader("Authorization-refresh") String refreshTokenHeader, HttpServletResponse response) {
         // 클라이언트가 보낸 refreshTokenHeader 값은 "Bearer " 뒤에 실제 refreshToken이 붙어 있으므로,
         // "Bearer "를 제거하여 실제 refreshToken만 추출한다.
         String refreshToken = refreshTokenHeader.replace("Bearer ", "");
@@ -85,7 +84,7 @@ public class LoginController {
         System.out.println("새로운 리프레시토큰 = " + refreshToken);
 
         return ResponseEntity.ok().build();
-    }
+    }*/
 
     @Data
     static class TokenInfoResponse {

@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.domain.Role;
@@ -23,3 +24,4 @@ public class CustomOAuth2User extends DefaultOAuth2User {
         this.role = role;
     }
 }
+*/

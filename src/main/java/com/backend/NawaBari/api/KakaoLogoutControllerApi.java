@@ -1,8 +1,7 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.service.MemberService;
-import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
@@ -10,18 +9,11 @@ import org.springframework.web.bind.annotation.*;
 @RequiredArgsConstructor
 public class KakaoLogoutControllerApi {
 
-    private final MemberService memberService;
 
-    @PostMapping("/api/v1/logout")
-    public ResponseEntity<String> Logout(@RequestBody LogoutRequestDTO requestDTO) {
-        Long memberId = requestDTO.getMemberId();
-        memberService.Logout(memberId);
+/*    @PostMapping("/kakao/logout")
+    public ResponseEntity<String> Logout(@RequestHeader("Authorization")String accessTokenHeader) {
+        String accessToken = accessTokenHeader.replace("Bearer ", "");
 
-        return ResponseEntity.ok("Logout");
-    }
 
-    @Data
-    static class LogoutRequestDTO {
-        private Long memberId;
-    }
+    }*/
 }

@@ -1,3 +1,4 @@
+/*
 package com.backend.NawaBari.oauth;
 
 import com.backend.NawaBari.jwt.JwtAuthenticationProcessingFilter;
@@ -57,15 +58,19 @@ public class SecurityConfig {
 
                 //== 소셜 로그인 설정 ==//
                 .oauth2Login()
-                    /*.authorizationEndpoint()
+                    */
+/*.authorizationEndpoint()
                         .baseUri("/login/oauth2/code/kakao") //GET 요청이 들어오면 카카로로그인 페이지 리다이렉트
-                        .and()*/
-                    /*.redirectionEndpoint()
+                        .and()*//*
+
+                    */
+/*.redirectionEndpoint()
                         .baseUri("/oauth2/callback/authorization") //Get 요청
                         .and()
                     .userInfoEndpoint()
                         .userService(customOAuth2UserService)
-                        .and()*/
+                        .and()*//*
+
                 .successHandler(oAuth2LoginSuccessHandler) // 동의하고 계속하기를 눌렀을 때 Handler 설정
                 .failureHandler(oAuth2LoginFailureHandler); // 소셜 로그인 실패 시 핸들러 설정
 
@@ -83,3 +88,4 @@ public class SecurityConfig {
         return new JwtAuthenticationProcessingFilter(jwtService, memberRepository);
     }
 }
+*/
