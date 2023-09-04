@@ -56,7 +56,7 @@ public class AuthController {
                 + "    <script>"
                 + "        function redirectToApp() {"
                 + "            // 아래의 URL은 예시이므로, 실제 앱의 URL 스킴에 맞게 변경하세요."
-                + "            window.location.href = 'callback-scheme://?access-token="+accessToken+"&refresh-token="+refreshToken+"&memberId="+memberId+"'"
+                + "            window.location.href = 'callback-scheme://?access-token="+accessToken+"&refresh-token="+refreshToken+"&member-id="+memberId+"'"
                 + "        }"
                 + "    </script>"
                 + "</body>"
