@@ -1,17 +1,23 @@
-package com.backend.NawaBari.oauth2;
+package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.jwt.JwtAuthenticationProcessingFilter;
 import com.backend.NawaBari.jwt.JwtBlacklistService;
 import com.backend.NawaBari.jwt.JwtService;
+import com.backend.NawaBari.oauth2.AuthTokens;
+import com.backend.NawaBari.oauth2.KakaoLoginParams;
+import com.backend.NawaBari.oauth2.OAuthLoginService;
 import com.backend.NawaBari.service.KakaoLogoutService;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
+
+import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -27,19 +33,20 @@ public class AuthController {
      * 헤더: 액세스토큰, 리프레시토큰, 회원아이디 반환
      * 바디: 액세스토큰 유효기간(초), grantType 반환
      */
-    @PostMapping("/api/auth/kakao")
-    public ResponseEntity<AddInfoResponse> loginKakao(@RequestBody KakaoLoginParams params, HttpServletResponse response) {
+    @GetMapping("/login/oauth2/code/kakao")
+    public String loginKakao(@RequestParam("code") String code) {
+        KakaoLoginParams params = new KakaoLoginParams(code);
+
         AuthTokens authTokens = oAuthLoginService.login(params);
 
         String accessToken = authTokens.getAccessToken();
         String refreshToken = authTokens.getRefreshToken();
-        Long member_id = authTokens.getMember_id();
+        Long memberId = authTokens.getMember_id();
 
-        response.setHeader(jwtService.getAccessHeader(), "Bearer " + accessToken);
-        response.setHeader(jwtService.getRefreshHeader(), "Bearer " + refreshToken);
-        response.setHeader("member_id", member_id.toString());
-
-        return ResponseEntity.ok(new AddInfoResponse("Bearer", jwtService.getAccessTokenExpirationPeriod()));
+       return  "redirect:webauthcallback://success?" +
+                "accessToken=" + accessToken +
+                "&refreshToken=" + refreshToken +
+                "&memberId=" + memberId;
     }
 
     /**
@@ -61,7 +68,7 @@ public class AuthController {
         } else {
             jwtAuthenticationProcessingFilter.checkRefreshTokenAndReIssueAccessToken(response, refreshToken);
 
-            return ResponseEntity.ok().body(new AddInfoResponse("Bearer", jwtService.getAccessTokenExpirationPeriod()));
+            return ResponseEntity.ok().body(new AddReInfoResponse("Bearer", jwtService.getAccessTokenExpirationPeriod()));
         }
     }
 
@@ -78,8 +85,21 @@ public class AuthController {
     static class AddInfoResponse {
         private String grantType;
         private Long expiresIn;
+        private String redirectUrl;
 
-        public AddInfoResponse(String grantType, Long expiresIn) {
+        public AddInfoResponse(String grantType, Long expiresIn, String redirectUrl) {
+            this.grantType = grantType;
+            this.expiresIn = expiresIn;
+            this.redirectUrl = redirectUrl;
+        }
+    }
+
+    @Data
+    static class AddReInfoResponse {
+        private String grantType;
+        private Long expiresIn;
+
+        public AddReInfoResponse(String grantType, Long expiresIn) {
             this.grantType = grantType;
             this.expiresIn = expiresIn;
         }

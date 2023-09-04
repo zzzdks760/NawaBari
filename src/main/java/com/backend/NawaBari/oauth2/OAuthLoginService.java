@@ -28,7 +28,7 @@ public class OAuthLoginService {
 
         memberRepository.saveRefreshToken(member.getEmail(), refreshToken);
 
-        return AuthTokens.of(memberId, accessToken, refreshToken/*, "Bearer", jwtService.getAccessTokenExpirationPeriod()*/);
+        return AuthTokens.of(memberId, accessToken, refreshToken);
     }
 
     private Long findOrCreateMember(OAuthInfoResponse oAuthInfoResponse) {
