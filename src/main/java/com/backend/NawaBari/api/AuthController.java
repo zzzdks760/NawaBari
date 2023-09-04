@@ -46,7 +46,23 @@ public class AuthController {
        return  "redirect:webauthcallback://success?" +
                 "accessToken=" + accessToken +
                 "&refreshToken=" + refreshToken +
-                "&memberId=" + memberId;
+                "&memberId=" + memberId + "<!DOCTYPE html>" +
+                "<html lang='en'>" +
+                "<head>" +
+                "<meta charset='UTF-8'>" +
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
+                "<title>Redirect to App Test</title>" +
+                "</head>" +
+                "<body>" +
+                "<button onclick='redirectToApp()'>앱으로 돌아가기</button>" +
+                "<script>" +
+                "function redirectToApp() {" +
+
+                "window.location.href = 'kakao18f952f0f1dbe4d4761234378f3bbf8d://oauth';" +
+                "}" +
+                "</script>" +
+                "</body>" +
+                "</html>";
     }
 
     /**
