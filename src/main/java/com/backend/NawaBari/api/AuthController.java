@@ -43,10 +43,7 @@ public class AuthController {
         String refreshToken = authTokens.getRefreshToken();
         Long memberId = authTokens.getMember_id();
 
-       return  "redirect:callback-scheme://?" +
-                "access-token=" + accessToken +
-                "&refresh-token=" + refreshToken +
-                "&member-id=" + memberId;
+       return  "redirect:callback-scheme://?" + "access-token=" + accessToken + "&refresh-token=" + refreshToken + "&member-id=" + memberId;
     }
 
     /**
