@@ -43,7 +43,23 @@ public class AuthController {
         String refreshToken = authTokens.getRefreshToken();
         Long memberId = authTokens.getMember_id();
 
-       return  "redirect:callback-scheme://?" + "access-token=" + accessToken + "&refresh-token=" + refreshToken + "&member-id=" + memberId;
+       return  "redirect:callback-scheme://?" + "access-token=" + accessToken + "&refresh-token=" + refreshToken + "&member-id=" + memberId
+                + "<!DOCTYPE html>" +
+                "<html lang='en'>"+
+                "<head>" +
+                "<meta charset='UTF-8'>" +
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
+                "<title>Redirect to App Test</title>" +
+                "</head>" +
+                "<body>" +
+                "<button onclick='redirectToApp()'>앱으로 돌아가기</button>" +
+                "<script>" +
+                "function redirectToApp() {" +
+                "window.location.href = 'callback-scheme://?access-token=....';" +
+                "}" +
+                "</script>" +
+                "</body>" +
+                "</html>";
     }
 
     /**
