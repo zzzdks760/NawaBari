@@ -43,24 +43,22 @@ public class AuthController {
         String refreshToken = authTokens.getRefreshToken();
         Long memberId = authTokens.getMember_id();
 
-        return "<!DOCTYPE html>"
-                + "<html lang='en'>"
-                + "<head>"
-                + "    <meta charset='UTF-8'>"
-                + "    <meta name='viewport' content='width=device-width, initial-scale=1.0'>"
-                + "    <title>Redirect to App Test</title>"
-                + "</head>"
-                + "<body>"
-                + "    <button onclick='redirectToApp()'>앱으로 돌아가기</button>"
-                + ""
-                + "    <script>"
-                + "        function redirectToApp() {"
-                + "            // 아래의 URL은 예시이므로, 실제 앱의 URL 스킴에 맞게 변경하세요."
-                + "            window.location.href = 'callback-scheme://?access-token="+accessToken+"&refresh-token="+refreshToken+"&member-id="+memberId+"'"
-                + "        }"
-                + "    </script>"
-                + "</body>"
-                + "</html>";
+        return  "<!DOCTYPE html>" +
+                "<html lang='en'>" +
+                "<head>" +
+                "<meta charset='UTF-8'>" +
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
+                "<title>Redirect to App Test</title>" +
+                "</head>" +
+                "<body>" +
+                "<button onclick='redirectToApp()'>앱으로 돌아가기</button>" +
+                "<script>" +
+                "function redirectToApp() {" +
+                "window.location.href = 'callback-scheme://?access-token="+accessToken+"&refresh-token="+refreshToken+"&member-id="+memberId + "';" +
+                "}" +
+                "</script>" +
+                "</body>" +
+                "</html>";
     }
 
     /**
