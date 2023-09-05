@@ -5,10 +5,6 @@ import com.backend.NawaBari.domain.SocialType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
-import jakarta.persistence.TypedQuery;
-import jakarta.persistence.criteria.CriteriaBuilder;
-import jakarta.persistence.criteria.CriteriaQuery;
-import jakarta.persistence.criteria.Root;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
@@ -46,31 +42,20 @@ public class MemberRepository {
 
     }
 
-    //카카오 닉네임으로 회원찾기
-    public List<Member> findByName(String profile_nickname) {
-        return em.createQuery("select m from Member m where m.profile_nickname = :profile_nickname", Member.class)
-                .setParameter("name", profile_nickname)
-                .getResultList();
-    }
-
     //회원 전체조회
     public List<Member> findAll() {
         return em.createQuery("select m from Member m", Member.class)
                 .getResultList();
     }
 
+    //이메일로 회원찾기
     public Optional<Member> findByEmail(String email) {
         return em.createQuery("select m from Member m where m.email = :email", Member.class)
                 .setParameter("email", email)
                 .getResultList().stream().findFirst();
     }
 
-    public Optional<Member> findByNickname(String profile_nickname) {
-        return em.createQuery("select m from Member m where m.profile_nickname = :profile_nickname", Member.class)
-                .setParameter("name", profile_nickname)
-                .getResultList().stream().findFirst();
-    }
-
+    //리프레시토큰으로 회원찾기
     public Optional<Member> findByRefreshToken(String refreshToken) {
         return em.createQuery("select m from Member m where m.refreshToken = :refreshToken", Member.class)
                 .setParameter("refreshToken", refreshToken)
@@ -80,13 +65,6 @@ public class MemberRepository {
     @Transactional
     public void saveAndFlush(Member member) {
         em.merge(member);
-    }
-
-    public Optional<Member> findBySocialTypeAndSocialId(SocialType socialType, String kakao_id) {
-        return em.createQuery("select m from Member m where m.socialType = 'KAKAO' AND m.kakao_id = :kakao_id", Member.class)
-                .setParameter("kakao_id", kakao_id)
-                .getResultList().stream().findFirst();
-
     }
 
     @Transactional

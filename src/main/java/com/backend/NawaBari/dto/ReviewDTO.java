@@ -5,7 +5,6 @@ import com.backend.NawaBari.domain.review.Review;
 import lombok.*;
 
 import java.util.ArrayList;
-import java.util.Base64;
 import java.util.List;
 
 @Getter

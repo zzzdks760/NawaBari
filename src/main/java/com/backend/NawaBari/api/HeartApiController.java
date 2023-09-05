@@ -1,13 +1,9 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.repository.MemberRepository;
-import com.backend.NawaBari.repository.ReviewRepository;
+
 import com.backend.NawaBari.service.HeartService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 @RestController

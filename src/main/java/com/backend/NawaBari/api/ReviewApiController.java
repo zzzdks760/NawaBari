@@ -6,7 +6,6 @@ import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
 import com.backend.NawaBari.dto.ReviewUpdateDTO;
 import com.backend.NawaBari.service.ReviewService;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
@@ -14,7 +13,6 @@ import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.SliceImpl;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 

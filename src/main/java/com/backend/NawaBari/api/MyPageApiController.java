@@ -32,7 +32,7 @@ public class MyPageApiController {
     /**
      * 마이페이지 조회
      */
-    @GetMapping("/api/v1/MyPage")
+    @GetMapping("/api/v1/my-page")
     public MyPageDTO MyPage(@RequestParam("id") Long memberId) {
         return memberService.getProfile(memberId);
     }
@@ -40,7 +40,7 @@ public class MyPageApiController {
     /**
      * 마이페이지 수정
      */
-    @PatchMapping("/api/v1/MyPage")
+    @PatchMapping("/api/v1/my-page")
     public UpdateMyPageResponse UpdateMyPage(@RequestBody MyPageRequestDTO requestDTO) {
         memberService.UpdateMyPage(requestDTO.getMemberId(), requestDTO.getProfile_nickname(), requestDTO.getProfile_image());
 
@@ -50,7 +50,7 @@ public class MyPageApiController {
     /**
      * 내가 작성한 리뷰목록
      */
-    @GetMapping("/api/v1/MyPage/reviews")
+    @GetMapping("/api/v1/my-page/reviews")
     public Slice<MyReviewDTO> findReview(@RequestParam("memberId")Long memberId, @PageableDefault Pageable pageable) {
         Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
         List<MyReviewDTO> myReviewDTOs = new ArrayList<>();

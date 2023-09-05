@@ -1,6 +1,5 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
@@ -24,25 +23,6 @@ public class RestaurantApiController {
 
     private final RestaurantService restaurantService;
 
-    //식당 검색
-/*    @GetMapping("/api/v1/main/keyword-search")
-    public List<RestaurantDTO> RestaurantSearch(@RequestParam(required = false) String name, @RequestParam(required = false) String addressName) {
-        List<Restaurant> restaurants;
-        if (name != null) {
-            restaurants = restaurantService.findByRestaurantName(name);
-        } else if (addressName != null) {
-            restaurants = restaurantService.findByAddressName(addressName);
-        } else {
-            // Invalid request, name or address should be provided
-            return Collections.emptyList();
-        }
-
-        List<RestaurantDTO> restaurantDTOs = restaurants.stream()
-                .map(this::convertToDTO)
-                .collect(Collectors.toList());
-
-        return restaurantDTOs;
-    }*/
 
     //통합검색
     @GetMapping("/api/v1/restaurants/search")

@@ -1,12 +1,8 @@
 package com.backend.NawaBari.dto;
 
-import com.backend.NawaBari.api.RestaurantApiController;
-import com.backend.NawaBari.domain.Photo;
-import com.backend.NawaBari.domain.Restaurant;
-import com.backend.NawaBari.domain.Zone;
-import lombok.*;
 
-import java.util.ArrayList;
+import com.backend.NawaBari.domain.Restaurant;
+import lombok.*;
 import java.util.List;
 import java.util.stream.Collectors;
 

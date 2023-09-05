@@ -1,8 +1,6 @@
 package com.backend.NawaBari.service;
 
-import com.backend.NawaBari.api.MyPageApiController;
 import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.dto.MemberDTO;
 import com.backend.NawaBari.dto.MyPageDTO;
 import com.backend.NawaBari.repository.MemberRepository;
 import lombok.RequiredArgsConstructor;

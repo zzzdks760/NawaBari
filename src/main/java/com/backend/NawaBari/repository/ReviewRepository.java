@@ -1,7 +1,5 @@
 package com.backend.NawaBari.repository;
 
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;

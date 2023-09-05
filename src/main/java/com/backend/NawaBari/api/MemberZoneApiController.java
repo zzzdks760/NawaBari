@@ -1,17 +1,13 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.Zone;
+
 import com.backend.NawaBari.exception.MaximumZoneLimitException;
 import com.backend.NawaBari.exception.ZoneAlreadySetException;
 import com.backend.NawaBari.service.CurrentLocationService;
 import com.backend.NawaBari.service.MemberZoneService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.validation.annotation.Validated;
-import org.springframework.web.ErrorResponse;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;

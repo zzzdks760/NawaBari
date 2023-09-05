@@ -1,7 +1,5 @@
 package com.backend.NawaBari.domain;
 
-import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.dto.ZoneDTO;
 import jakarta.persistence.*;
 import lombok.*;
 

@@ -1,7 +1,6 @@
 package com.backend.NawaBari.dto;
 
 import com.backend.NawaBari.domain.Zone;
-import com.google.gson.Gson;
 import lombok.*;
 
 import java.util.List;

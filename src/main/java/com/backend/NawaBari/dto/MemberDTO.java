@@ -1,15 +1,7 @@
 package com.backend.NawaBari.dto;
 
-import com.backend.NawaBari.domain.Heart;
-import com.backend.NawaBari.domain.Member;
-import com.backend.NawaBari.domain.MemberZone;
-import com.backend.NawaBari.domain.review.Review;
 import lombok.*;
-
-import java.util.ArrayList;
-import java.util.List;
 import java.util.Map;
-import java.util.stream.Collectors;
 
 @Getter
 @Setter

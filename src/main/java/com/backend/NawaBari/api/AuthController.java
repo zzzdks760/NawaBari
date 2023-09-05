@@ -8,16 +8,11 @@ import com.backend.NawaBari.oauth2.KakaoLoginParams;
 import com.backend.NawaBari.oauth2.OAuthLoginService;
 import com.backend.NawaBari.service.KakaoLogoutService;
 import jakarta.servlet.http.HttpServletResponse;
-import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
-import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.security.core.parameters.P;
 import org.springframework.web.bind.annotation.*;
-
-import java.io.IOException;
 
 @RestController
 @RequiredArgsConstructor
@@ -64,7 +59,7 @@ public class AuthController {
     /**
      * 리프레시토큰을 받아 재로그인
      */
-    @PostMapping("/api/reLogin")
+    @PostMapping("/api/re-login")
     public ResponseEntity<?> reLogin(@RequestHeader("Authorization-refresh") String refreshTokenHeader, HttpServletResponse response) {
         // 클라이언트가 보낸 refreshTokenHeader 값은 "Bearer " 뒤에 실제 refreshToken이 붙어 있으므로,
         // "Bearer "를 제거하여 실제 refreshToken만 추출한다.
