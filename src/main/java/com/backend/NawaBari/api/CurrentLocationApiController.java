@@ -25,7 +25,7 @@ public class CurrentLocationApiController {
     private final RestaurantService restaurantService;
 
     /**
-     * 현위치를 받아와 동 이름이 일치하는 식당들 조회
+     * 현위치를 받아와 동 이름이 일치하는 식당들 조회 (메인페이지)
      */
     @PostMapping("/api/v1/location/restaurants")
     public ResponseEntity<Slice<RestaurantDTO>> getCurrentLocation(@RequestBody LocationDTO locationDTO,
@@ -34,9 +34,9 @@ public class CurrentLocationApiController {
         float current_lng = locationDTO.getCurrent_lng();
         String dongName = currentLocationService.getCurrentLocation(current_lat, current_lng);
 
-        //동 이름이 없을경우 404 Not Found 반환
+        //동 이름이 없을경우 default 값으로 강남을 설정
         if (dongName == null) {
-            return ResponseEntity.notFound().build();
+            dongName = "논현동";
         }
 
         Slice<Restaurant> restaurants = restaurantService.searchByCurrentRestaurant(dongName, pageable);
@@ -45,7 +45,6 @@ public class CurrentLocationApiController {
                 .map(RestaurantDTO::convertToDTO)
                 .collect(Collectors.toList());
         return ResponseEntity.ok(new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext()));
-        //content가 null일 경우 동과 일치하는 주소가 없는것 = 서울 이외의 지역인 경우
     }
 
 
