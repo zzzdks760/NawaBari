@@ -102,7 +102,10 @@ public class Restaurant extends Base{
         this.reviewCount--;
     }
 
-
+    //메인사진 삭제
+    public void removeMainPhoto() {
+        this.main_photo_fileName = null;
+    }
 
 
 /**

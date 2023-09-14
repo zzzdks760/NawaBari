@@ -16,6 +16,8 @@ public class Photo {
     @Column(name = "photo_id")
     private Long id;
 
+    private Boolean isMainPhoto = false;
+
     @Column(nullable = false)
     private String file_name;
 
@@ -29,6 +31,10 @@ public class Photo {
     //==연관관계 설정==//
     public void setReview(Review review) {
         this.review = review;
-        review.getPhotos().add(this);
     }
+
+    public void addMainPhoto() {
+        this.isMainPhoto = true;
+    }
+
 }

@@ -24,4 +24,13 @@ public class PhotoRepository {
             em.persist(photo);
         }
     }
+
+    public Photo findOne(Long id) {
+        return em.find(Photo.class, id);
+    }
+
+    @Transactional
+    public void delete(Photo photo) {
+        em.remove(photo);
+    }
 }

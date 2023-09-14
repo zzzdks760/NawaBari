@@ -1,13 +1,16 @@
 package com.backend.NawaBari.api;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
-import com.backend.NawaBari.dto.ReviewUpdateDTO;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.Data;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.domain.SliceImpl;
@@ -16,13 +19,9 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
-import java.io.FileOutputStream;
+
 import java.io.IOException;
-import java.io.OutputStream;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.UUID;
+import java.util.*;
 import java.util.stream.Collectors;
 
 @RestController
@@ -31,79 +30,62 @@ public class ReviewApiController {
 
     private final ReviewService reviewService;
 
+    private final AmazonS3 amazonS3;
+
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucketName;
+
     //리뷰등록
     @PostMapping("/api/v1/restaurants/reviews")
     public ReviewResponseDTO createReview(@ModelAttribute ReviewRequestDTO request,
                                           @RequestParam(value = "photos", required = false) List<MultipartFile> photoFiles) {
 
-        List<Photo> photos = new ArrayList<>();
+        if (reviewService.checkAddress(request.getMemberId(), request.getRestaurantId())) {
+            List<Photo> photos = new ArrayList<>();
 
-        if (photoFiles != null && !photoFiles.isEmpty()) {
-            for (MultipartFile photoFile : photoFiles) {
-                try {
-                    String originalFileName = photoFile.getOriginalFilename();
-                    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-                    String newFileName = UUID.randomUUID() + "." + fileExtension;
+            if (photoFiles != null && !photoFiles.isEmpty()) {
+                for (MultipartFile photoFile : photoFiles) {
+                    try {
+                        String originalFileName = photoFile.getOriginalFilename();
+                        String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                        String newFileName = UUID.randomUUID() + "." + fileExtension;
 
-                    String filePath = "src/main/resources/static/images/" + newFileName;
+                        ObjectMetadata metadata = new ObjectMetadata();
+                        metadata.setContentLength(photoFile.getSize());
 
-                    try(OutputStream os = new FileOutputStream(new File(filePath))) {
-                        os.write(photoFile.getBytes());
+                        String webFilePath = "images/" + newFileName;
+
+                        amazonS3.putObject(new PutObjectRequest(bucketName, webFilePath, photoFile.getInputStream(), metadata));
+                        String fileUrl = amazonS3.getUrl(bucketName, webFilePath).toString();
+
+                        Photo photo = new Photo();
+                        photo.setFile_name(newFileName);
+                        photo.setFile_path(fileUrl);
+                        photos.add(photo);
+
+                    } catch (IOException e) {
+                        e.printStackTrace();
                     }
-
-                    String webFilePath = "/images/" + newFileName;
-
-                    Photo photo = new Photo();
-                    photo.setFile_name(newFileName);
-                    photo.setFile_path(webFilePath);
-                    photos.add(photo);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
                 }
             }
+
+            Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
+                    request.getTitle(), request.getContent(), request.getRate(), photos);
+
+            return new ReviewResponseDTO(reviewId);
+        } else {
+            throw new IllegalArgumentException("등록할 수 없는 구역입니다.");
         }
-
-        Long reviewId = reviewService.createReview(request.getMemberId(), request.getRestaurantId(),
-                request.getTitle(), request.getContent(), request.getRate(), photos);
-
-
-        return new ReviewResponseDTO(reviewId);
     }
 
 
     //리뷰수정
     @PatchMapping("/api/v1/restaurants/reviews")
-    public ReviewUpdateDTO updateReview(@ModelAttribute UpdateReviewRequestDTO request,
+    public Long updateReview(@ModelAttribute UpdateReviewRequestDTO request,
                                         @RequestParam(value = "photos", required = false) List<MultipartFile> photoFiles) {
 
-        List<Photo> photos = new ArrayList<>();
 
-        if (photoFiles != null) {
-            for (MultipartFile photoFile : photoFiles) {
-                try {
-                    String originalFileName = photoFile.getOriginalFilename();
-                    String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
-                    String newFileName = UUID.randomUUID() + "." + fileExtension;
-
-                    String filePath = "src/main/resources/static/images/" + newFileName;
-
-                    try(OutputStream os = new FileOutputStream(new File(filePath))) {
-                        os.write(photoFile.getBytes());
-                    }
-
-                    String webFilePath = "/images/" + newFileName;
-
-                    Photo photo = new Photo();
-                    photo.setFile_name(newFileName);
-                    photo.setFile_path(webFilePath);
-                    photos.add(photo);
-
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-            }
-        }
+        List<Photo> photos = reviewService.updatePhoto(request.getReviewId(), request.getRestaurantId(), photoFiles, request.getDeletePhoto());
 
         return reviewService.updateReview(request.getReviewId(), request.getRestaurantId(),
                 request.getTitle(), request.getContent(), request.getRate(), photos);
@@ -115,6 +97,7 @@ public class ReviewApiController {
         Long reviewId = deleteRequest.getReviewId();
         Long restaurantId = deleteRequest.getRestaurantId();
         Boolean isDeleted = reviewService.deleteReview(reviewId, restaurantId);
+
 
         if (isDeleted) {
             return ResponseEntity.ok(true);
@@ -169,6 +152,7 @@ public class ReviewApiController {
         private String title;
         private String content;
         private Double rate;
+        private List<Long> deletePhoto;
     }
 
     @Data

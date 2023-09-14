@@ -45,7 +45,7 @@ public class Review extends Base {
 
 
     //== 연관관계 메서드 ==//
-        public void setMember(Member member) {
+    public void setMember(Member member) {
         this.writer = member;
         member.getReviews().add(this);
     }
@@ -65,7 +65,6 @@ public class Review extends Base {
             this.likeCount = 0;
         }
     }
-
 
     /**
      * 리뷰 생성
@@ -92,5 +91,11 @@ public class Review extends Base {
         this.likeCount = likeCount;
     }
 
+    public void removePhoto(Photo photo) {
+        if (photo != null) {
+            photos.remove(photo);
+            photo.setReview(null);
+        }
+    }
 }
 

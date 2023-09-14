@@ -1,28 +1,30 @@
 package com.backend.NawaBari.service;
 
+import com.amazonaws.services.s3.AmazonS3;
+import com.amazonaws.services.s3.model.ObjectMetadata;
+import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.backend.NawaBari.domain.*;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
-import com.backend.NawaBari.dto.ReviewUpdateDTO;
 import com.backend.NawaBari.repository.*;
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.web.multipart.MultipartFile;
 
-import java.io.File;
 import java.io.IOException;
-import java.nio.file.Files;
-import java.nio.file.Paths;
-import java.nio.file.StandardCopyOption;
-import java.util.ArrayList;
-import java.util.List;
+import java.util.*;
 
 @Service
 @Transactional(readOnly = true)
 @RequiredArgsConstructor
 public class ReviewService {
+
+    @Value("${cloud.aws.s3.bucket}")
+    private String bucketName;
 
     private final ReviewRepository reviewRepository;
     private final MemberRepository memberRepository;
@@ -30,6 +32,7 @@ public class ReviewService {
     private final HeartRepository heartRepository;
     private final PhotoRepository photoRepository;
 
+    private final AmazonS3 amazonS3;
     /**
      * 리뷰 생성
      */
@@ -38,71 +41,146 @@ public class ReviewService {
         Member member = memberRepository.findOne(memberId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
-        boolean isAddressMatching = false;
-        for (MemberZone memberZone : member.getMemberZones()) {
-            if (checkAddress(memberZone.getZone(), restaurant.getAddress_name())) {
-                isAddressMatching = true;
-                break;
-            }
+
+        Review review = Review.createReview(member, restaurant, title, content, rate, photos);
+        restaurant.addReview(review);
+        restaurant.updateAverageRating();
+
+
+        //식당 메인사진이 없을경우 사진등록
+        if (restaurant.getMain_photo_fileName() == null && !photos.isEmpty()) {
+            Photo mainPhoto = photos.get(0);
+            restaurant.setMain_photo_fileName(mainPhoto.getFile_path());
+            mainPhoto.addMainPhoto();
         }
 
-        if (isAddressMatching) { //구 주소가 일치하는 경우 리뷰생성
-            Review review = Review.createReview(member, restaurant, title, content, rate, photos);
-            restaurant.addReview(review);
-            restaurant.updateAverageRating();
-            restaurantRepository.save(restaurant);
-            reviewRepository.save(review);
-            photoRepository.save(photos);
+        restaurantRepository.save(restaurant);
+        reviewRepository.save(review);
+        photoRepository.save(photos);
 
-            //식당 메인사진이 없을경우 사진등록
-            if (restaurant.getMain_photo_fileName() == null && !photos.isEmpty()) {
-                Photo mainPhoto = photos.get(0);
-                restaurant.setMain_photo_fileName(mainPhoto.getFile_name());
-
-                String main_image_path = "src/main/resources/static/main_images/";
-                String original_image_path = "src/main/resources/static/images/" + mainPhoto.getFile_name();
-                String targetPath = main_image_path + mainPhoto.getFile_name();
-
-                try {
-                    Files.copy(Paths.get(original_image_path), Paths.get(targetPath), StandardCopyOption.REPLACE_EXISTING);
-                } catch (IOException e) {
-                    e.printStackTrace();
-                }
-
-            }
-
-            return review.getId();
-        } else {
-            throw new IllegalArgumentException("리뷰를 작성할 수 있는 구역이 아닙니다.");
-        }
-
+        return review.getId();
     }
 
     //추출한 구 이름과 식당주소가 일치하는지 판별
-    private boolean checkAddress(Zone zone, String address_name) {
-        String extractedDistrict = zone.getGu();
-        return address_name.contains(extractedDistrict);
-    }
+    public boolean checkAddress(Long member_id, Long restaurant_id) {
+        Member member = memberRepository.findOne(member_id);
+        Restaurant restaurant = restaurantRepository.findOne(restaurant_id);
 
+        boolean isAddressMatching = false;
+
+        for (MemberZone memberZone : member.getMemberZones()) {
+            String extractedDistrict = memberZone.getZone().getGu();
+
+            if (restaurant.getAddress_name().contains(extractedDistrict)) {
+                isAddressMatching = true;
+                break; // 일치하는 구역이 하나라도 있으면 반복문 종료
+            }
+        }
+
+        if (!isAddressMatching) {
+            throw new IllegalArgumentException("등록할 수 없는 구역입니다.");
+        }
+
+        return true;
+    }
 
     /**
      * 리뷰 수정
      */
     @Transactional
-    public ReviewUpdateDTO updateReview(Long reviewId, Long restaurantId, String title, String content, Double rate, List<Photo> photos) {
+    public Long updateReview(Long reviewId, Long restaurantId, String title, String content, Double rate, List<Photo> photos) {
         Review review = reviewRepository.findOne(reviewId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
 
         review.setTitle(title);
         review.setContent(content);
         review.setRate(rate);
-        review.setPhotos(photos);
+
+        for (Photo photo : photos) {
+            photo.setReview(review);
+        }
 
         restaurant.setAvgRating(restaurant.getAvgRating());
         restaurant.updateAverageRating();
 
+        photoRepository.save(photos);
+        restaurantRepository.save(restaurant);
+        reviewRepository.save(review);
 
-        return ReviewUpdateDTO.convertToDTO(review);
+
+
+        return review.getId();
+    }
+
+    @Transactional
+    public List<Photo> updatePhoto(Long reviewId, Long restaurantId, List<MultipartFile> photoFiles, List<Long> deletePhoto) {
+        Review review = reviewRepository.findOne(reviewId);
+        Restaurant restaurant = restaurantRepository.findOne(restaurantId);
+
+
+        //삭제된 사진 아이디가 담겨온 경우
+        if (deletePhoto != null) {
+            for (Long id : deletePhoto) {
+                //DB와 S3에서 사진 삭제
+                Photo photo = photoRepository.findOne(id);
+                if (photo != null) {
+                    deletePhoto(photo, review, restaurant);
+                    photoRepository.delete(photo);
+                }
+            }
+        }
+
+        List<Photo> uploadedPhotos = new ArrayList<>();
+
+        //사진이 추가 되었을 경우
+        if (photoFiles != null) {
+            uploadedPhotos = addPhoto(photoFiles);
+        }
+
+        return uploadedPhotos;
+    }
+
+    @Transactional
+    private void deletePhoto(Photo photo, Review review, Restaurant restaurant) {
+        if (photo.getIsMainPhoto()) {
+            restaurant.removeMainPhoto();
+        }
+        amazonS3.deleteObject(bucketName, "images/" + photo.getFile_name());
+    }
+
+    @Transactional
+    private List<Photo> addPhoto(List<MultipartFile> photoFiles) {
+        List<Photo> uploadedPhotos = new ArrayList<>();
+
+        for (MultipartFile photoFile : photoFiles) {
+            try {
+                String originalFileName = photoFile.getOriginalFilename();
+                String fileExtension = originalFileName.substring(originalFileName.lastIndexOf(".") + 1);
+                String newFileName = UUID.randomUUID() + "." + fileExtension;
+
+                ObjectMetadata metadata = new ObjectMetadata();
+                metadata.setContentLength(photoFile.getSize());
+
+                String webFilePath = "images/" + newFileName;
+
+                // S3에 파일 업로드
+                amazonS3.putObject(new PutObjectRequest(bucketName, webFilePath, photoFile.getInputStream(), metadata));
+
+                // 업로드된 파일의 URL 얻기
+                String fileUrl = amazonS3.getUrl(bucketName, webFilePath).toString();
+
+                // Photo 객체 생성 및 정보 설정
+                Photo photo = new Photo();
+                photo.setFile_name(newFileName);
+                photo.setFile_path(fileUrl);
+
+                // 업로드된 사진 리스트에 추가
+                uploadedPhotos.add(photo);
+            } catch (IOException e) {
+                e.printStackTrace();
+            }
+        }
+        return uploadedPhotos;
     }
 
     /**
@@ -111,19 +189,19 @@ public class ReviewService {
     @Transactional
     public Boolean deleteReview(Long reviewId, Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
-
         Review review = reviewRepository.findOne(reviewId);
 
         if (review == null) {
             return false;
         }
 
+        //s3에서 삭제
         for (Photo photo : review.getPhotos()) {
-            String filePath = "src/main/resources/static/images/" + photo.getFile_name();
-            File file = new File(filePath);
-            if (file.exists()) {
-                file.delete();
+
+            if (photo.getIsMainPhoto()){
+                restaurant.removeMainPhoto();
             }
+            amazonS3.deleteObject(bucketName, "images/" + photo.getFile_name());
         }
 
         restaurant.removeReview(review);
@@ -132,6 +210,7 @@ public class ReviewService {
 
         return true;
     }
+
 
     /**
      * 리뷰 전체 조회
