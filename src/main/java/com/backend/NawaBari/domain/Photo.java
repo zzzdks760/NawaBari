@@ -29,9 +29,9 @@ public class Photo {
     private Review review;
 
     //==연관관계 설정==//
-    public void setReview(Review review) {
-        this.review = review;
-    }
+//    public void setReview(Review review) {
+//        this.review = review;
+//    }
 
     public void addMainPhoto() {
         this.isMainPhoto = true;

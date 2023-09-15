@@ -49,12 +49,8 @@ public class RestaurantApiController {
                 .map(ReviewDTO::convertToDTO)
                 .collect(Collectors.toList());
 
-        String mainPhotoPath = null;
-        if (restaurant.getMain_photo_fileName() != null) {
-            mainPhotoPath = "/main_images/" + restaurant.getMain_photo_fileName();
-        }
 
-        return new RestaurantDetailDTO(restaurant.getName(), mainPhotoPath, restaurant.getOpeningTime(), restaurant.getClosingTime(),
+        return new RestaurantDetailDTO(restaurant.getName(), restaurant.getOpeningTime(), restaurant.getClosingTime(),
         restaurant.getAddress_name(), restaurant.getLat(), restaurant.getLng(), restaurant.getTel(), restaurant.getReviewCount(),
         restaurant.getAvgRating(), reviewDTOS, restaurant.getZone().getId());
     }
@@ -68,7 +64,6 @@ public class RestaurantApiController {
     @AllArgsConstructor
     static class RestaurantDetailDTO {
         private String name;
-        private String mainPhotoUrl;
         private String openingTime;
         private String closingTime;
         private String address_name;

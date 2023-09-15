@@ -5,6 +5,7 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.backend.NawaBari.domain.*;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.PhotoInfo;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
 import com.backend.NawaBari.repository.*;
 import lombok.RequiredArgsConstructor;
@@ -245,15 +246,25 @@ public class ReviewService {
 
         List<Long> LikeMember = heartRepository.findOneReviewLikeMember(reviewId);
 
-        List<String> photoUrls = new ArrayList<>();
-        for (Photo photo : review.getPhotos()) {
-            String photoUrl = "/images/" + photo.getFile_name();
-            photoUrls.add(photoUrl);
+        List<PhotoInfo> photoInfos = new ArrayList<>();
+        if (review.getPhotos() != null) {
+            for (Photo photo : review.getPhotos()) {
+                PhotoInfo photoInfo = new PhotoInfo(photo.getId(), photo.getFile_path());
+                photoInfos.add(photoInfo);
+            }
         }
 
-        return new ReviewDetailDTO(restaurant.getId(), restaurant.getAvgRating(),
-                writer.getId(), LikeMember,
-                review.getTitle(), review.getContent(), review.getRate(),
-                review.getLikeCount(), photoUrls, review.getFormattedTime());
+        return new ReviewDetailDTO(
+                restaurant.getId(),
+                restaurant.getAvgRating(),
+                writer.getId(),
+                LikeMember,
+                review.getTitle(),
+                review.getContent(),
+                review.getRate(),
+                review.getLikeCount(),
+                photoInfos,
+                review.getFormattedTime()
+        );
     }
 }

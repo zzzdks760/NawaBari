@@ -17,7 +17,7 @@ public class ReviewDTO {
     private String content;
     private Double rate;
     private int likeCount;
-    private List<String> photoList;
+    private List<PhotoInfo> photos;
     private String time;
 
 
@@ -30,15 +30,17 @@ public class ReviewDTO {
         reviewDTO.setLikeCount(review.getLikeCount());
         reviewDTO.setTime(review.getFormattedTime());
 
-        List<String> photoUrls = new ArrayList<>();
+        List<PhotoInfo> photoInfoList = new ArrayList<>();
 
         if (review.getPhotos() != null) {
             for (Photo photo : review.getPhotos()) {
-                String photoUrl = "/images/" + photo.getFile_name();
-                photoUrls.add(photoUrl);
+                String photoUrl = photo.getFile_path();
+                Long photoId = photo.getId();
+                PhotoInfo photoInfo = new PhotoInfo(photoId, photoUrl);
+                photoInfoList.add(photoInfo);
             }
         }
-        reviewDTO.setPhotoList(photoUrls);
+        reviewDTO.setPhotos(photoInfoList);
 
         return reviewDTO;
     }

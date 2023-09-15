@@ -54,11 +54,10 @@ public class MyPageApiController {
     public Slice<MyReviewDTO> findReview(@RequestParam("memberId")Long memberId, @PageableDefault Pageable pageable) {
         Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
         List<MyReviewDTO> myReviewDTOs = new ArrayList<>();
-        String basePath = "/images/";
 
         for (Review review : myReview) {
             List<MyReviewPhotoDTO> photoDTOs = review.getPhotos().stream()
-                    .map(photo -> new MyReviewPhotoDTO(basePath, photo.getFile_name()))
+                    .map(photo -> new MyReviewPhotoDTO(photo.getId(), photo.getFile_name()))
                     .collect(Collectors.toList());
 
             MyReviewDTO myReviewDTO = new MyReviewDTO(
@@ -101,10 +100,12 @@ public class MyPageApiController {
 
     @Data
     static class MyReviewPhotoDTO {
-        private String photoUrls;
+        private Long photoId;
+        private String photoUrl;
 
-        public MyReviewPhotoDTO(String photoUrls, String basePath) {
-            this.photoUrls = photoUrls + basePath;
+        public MyReviewPhotoDTO(Long photoId, String photoUrl) {
+            this.photoId = photoId;
+            this.photoUrl = photoUrl;
         }
     }
 }
