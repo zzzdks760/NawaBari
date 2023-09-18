@@ -68,6 +68,7 @@ public class RestaurantService {
                 .tel(restaurant.getTel())
                 .reviews(reviewTop3)
                 .zone(zone)
+                .avgRating(restaurant.getAvgRating())
                 .build();
         return restaurantDetail;
     }

@@ -73,7 +73,7 @@ public class Restaurant extends Base{
 
 
     @Builder
-    public Restaurant(String name, String main_photo_fileName, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone) {
+    public Restaurant(String name, String main_photo_fileName, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone, Double avgRating) {
         this.name = name;
         this.main_photo_fileName = main_photo_fileName;
         this.address_name = address_name;
@@ -83,6 +83,7 @@ public class Restaurant extends Base{
         this.reviews = reviews;
         this.reviewCount = reviewCount;
         this.zone = zone;
+        this.avgRating = avgRating;
     }
 
 
