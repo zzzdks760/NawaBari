@@ -38,8 +38,12 @@ public class RestaurantService {
         }
         Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
 
-        if (restaurants.isEmpty()) {
+        if (restaurants.getContent().isEmpty()) {
             restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+        }
+
+        if(restaurants.getContent().isEmpty()) {
+            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
         }
 
         return restaurants;
