@@ -77,9 +77,8 @@ public class RestaurantRepository {
 
     //키워드를 포함하는 주소나 가게이름 조회
     public Slice<Restaurant> searchByKeywordContaining(String keyword, Pageable pageable) {
-        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like CONCAT('%', :keyword, '%') or " +
-                        "r.address_name like CONCAT('%', :keyword, '%') order by r.avgRating desc", Restaurant.class)
-                .setParameter("keyword", keyword)
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where CONCAT(r.name, ' ', r.address_name) like :keyword order by r.avgRating desc", Restaurant.class)
+                .setParameter("keyword", "%" + keyword + "%")
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
                 .getResultList();
