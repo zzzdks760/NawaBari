@@ -55,7 +55,7 @@ public class RestaurantRepository {
 
     //통합검색
     public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
-        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword", Restaurant.class)
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword order by r.avgRating desc", Restaurant.class)
                 .setParameter("keyword", keyword)
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
@@ -66,7 +66,7 @@ public class RestaurantRepository {
 
     //동이름으로 식당찾기
     public Slice<Restaurant> searchByDongName(String dongName, Pageable pageable) {
-        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.address_name like :dongName", Restaurant.class)
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.address_name like :dongName order by r.avgRating desc", Restaurant.class)
                 .setParameter("dongName", "%" + dongName + "%")
                 .setFirstResult((int) pageable.getOffset())
                 .setMaxResults(pageable.getPageSize())
