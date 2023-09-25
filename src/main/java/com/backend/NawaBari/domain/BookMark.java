@@ -16,10 +16,11 @@ public class BookMark {
     @Column(name = "book_mark_id")
     private Long id;
 
-    @Column(name = "member_id")
+
+    @Column(name = "member_id", nullable = false)
     private Long memberId;
 
-    @Column(name = "restaurant_id")
+    @Column(name = "restaurant_id", nullable = false)
     private Long restaurantId;
 
     //==생성 메서드==//
