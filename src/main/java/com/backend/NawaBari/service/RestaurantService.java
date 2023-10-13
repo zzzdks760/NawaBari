@@ -32,14 +32,50 @@ public class RestaurantService {
 
 
     //통합 검색
-    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
-        if (keyword.length() < 2) {
+//    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
+//        if (keyword.length() < 2) {
+//            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
+//        }
+//        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
+//
+//        if (restaurants.getContent().isEmpty()) {
+//            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+//        }
+//
+//        if(restaurants.getContent().isEmpty()) {
+//            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
+//        }
+//
+//        return restaurants;
+//    }
+
+    //상호명 검색
+        public Slice<Restaurant> searchByName(String name, Pageable pageable) {
+        if (name.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
-        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
+        Slice<Restaurant> restaurants = restaurantRepository.searchByName(name, pageable);
 
         if (restaurants.getContent().isEmpty()) {
-            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+            restaurants = restaurantRepository.searchByNameContaining(name, pageable);
+        }
+
+        if(restaurants.getContent().isEmpty()) {
+            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
+        }
+
+        return restaurants;
+    }
+
+    //주소 검색
+    public Slice<Restaurant> searchByAddress(String address, Pageable pageable) {
+        if (address.length() < 2) {
+            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
+        }
+        Slice<Restaurant> restaurants = restaurantRepository.searchByAddress(address, pageable);
+
+        if (restaurants.getContent().isEmpty()) {
+            restaurants = restaurantRepository.searchByAddressContaining(address, pageable);
         }
 
         if(restaurants.getContent().isEmpty()) {

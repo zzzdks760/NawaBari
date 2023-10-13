@@ -25,10 +25,37 @@ public class RestaurantApiController {
 
 
     //통합검색
-    @GetMapping("/api/v1/restaurants/search")
-    public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword, @PageableDefault(size = 10, page = 0) Pageable pageable) {
+//    @GetMapping("/api/v1/restaurants/search")
+//    public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword, @PageableDefault(size = 10, page = 0) Pageable pageable) {
+//
+//        Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
+//
+//        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
+//                .map(RestaurantDTO::convertToDTO)
+//                .collect(Collectors.toList());
+//
+//        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+//    }
 
-        Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
+
+    //주소 검색
+    @GetMapping("/api/v1/restaurants/search/address")
+    public Slice<RestaurantDTO> addressSearch(@RequestParam("address") String address, @PageableDefault(size = 10, page = 0) Pageable pageable) {
+
+        Slice<Restaurant> restaurants = restaurantService.searchByAddress(address, pageable);
+
+        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
+                .map(RestaurantDTO::convertToDTO)
+                .collect(Collectors.toList());
+
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+    }
+
+    //상호명 검색
+    @GetMapping("/api/v1/restaurants/search/name")
+    public Slice<RestaurantDTO> nameSearch(@RequestParam("name") String name, @PageableDefault(size = 10, page = 0) Pageable pageable) {
+
+        Slice<Restaurant> restaurants = restaurantService.searchByName(name, pageable);
 
         List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
                 .map(RestaurantDTO::convertToDTO)
