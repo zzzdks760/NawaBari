@@ -42,26 +42,20 @@ public class RestaurantApiController {
     @GetMapping("/api/v1/restaurants/search/address")
     public Slice<RestaurantDTO> addressSearch(@RequestParam("address") String address, @PageableDefault(size = 10, page = 0) Pageable pageable) {
 
-        Slice<Restaurant> restaurants = restaurantService.searchByAddress(address, pageable);
+        return restaurantService.searchByAddress(address, pageable);
 
-        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
-                .map(RestaurantDTO::convertToDTO)
-                .collect(Collectors.toList());
-
-        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+//        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
+//                .map(RestaurantDTO::convertToDTO)
+//                .collect(Collectors.toList());
+//
+//        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
     //상호명 검색
     @GetMapping("/api/v1/restaurants/search/name")
     public Slice<RestaurantDTO> nameSearch(@RequestParam("name") String name, @PageableDefault(size = 10, page = 0) Pageable pageable) {
 
-        Slice<Restaurant> restaurants = restaurantService.searchByName(name, pageable);
-
-        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
-                .map(RestaurantDTO::convertToDTO)
-                .collect(Collectors.toList());
-
-        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+        return restaurantService.searchByName(name, pageable);
     }
 
 
@@ -77,8 +71,8 @@ public class RestaurantApiController {
                 .collect(Collectors.toList());
 
 
-        return new RestaurantDetailDTO(restaurant.getName(), restaurant.getOpeningTime(), restaurant.getClosingTime(),
-        restaurant.getAddress_name(), restaurant.getLat(), restaurant.getLng(), restaurant.getTel(), restaurant.getReviewCount(),
+        return new RestaurantDetailDTO(restaurant.getName(), restaurant.getOpening_hours(), restaurant.getHolidays(),
+        restaurant.getAddress_name(), restaurant.getTel(), restaurant.getReviewCount(),
         restaurant.getAvgRating(), reviewDTOS, restaurant.getZone().getId());
     }
 
@@ -91,11 +85,9 @@ public class RestaurantApiController {
     @AllArgsConstructor
     static class RestaurantDetailDTO {
         private String name;
-        private String openingTime;
-        private String closingTime;
+        private String opening_hours;
+        private String holidays;
         private String address_name;
-        private Double lat;
-        private Double lng;
         private String tel;
         private int reviewCount;
         private Double avgRating;

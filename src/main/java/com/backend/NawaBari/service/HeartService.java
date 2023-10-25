@@ -34,8 +34,7 @@ public class HeartService {
         }
         else {
             heart.unlike();
-            Heart findHeart = heartRepository.findIdByMemberIdAndReviewId(memberId, reviewId);
-            heartRepository.delete(findHeart.getId());
+            heartRepository.delete(heart);
         }
         heartRepository.save(heart);
         return review.getLikeCount();

@@ -1,6 +1,5 @@
 package com.backend.NawaBari.domain;
 
-import com.backend.NawaBari.domain.category.Category;
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.*;
 import lombok.*;
@@ -20,44 +19,34 @@ public class Restaurant extends Base{
 
     private String name;
 
-    private String openingTime;
-
-    private String closingTime;
-
     private String address_name;
 
-    private Double lat;
-
-    private Double lng;
-
     private String tel;
+
+    private String opening_hours;
+
+    private String holidays;
 
     private int reviewCount = 0;
 
     private Double avgRating = 0.0;
 
-    private String main_photo_fileName;
+    private String main_photo_url;
+
+    private int bookMarkCount = 0;
+
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.REMOVE)
+    private List<BookMark> bookMarks = new ArrayList<>();
 
     @OneToMany(mappedBy = "restaurant")
     private List<Review> reviews = new ArrayList<>();
 
-    @ManyToOne(fetch = LAZY)
-    @JoinColumn(name = "category_id")
-    private Category category;
+    @OneToMany(mappedBy = "restaurant", cascade = CascadeType.ALL)
+    private List<Menu> menus = new ArrayList<>();
 
     @ManyToOne(fetch = LAZY)
     @JoinColumn(name = "zone_id")
     private Zone zone;
-
-    // 식당 수정 메서드
-    public void update(String name, String main_photo_fileName, String openingTime, String closingTime, String address_name, String tel) {
-        this.setName(name);
-        this.setMain_photo_fileName(main_photo_fileName);
-        this.setOpeningTime(openingTime);
-        this.setClosingTime(closingTime);
-        this.setAddress_name(address_name);
-        this.setTel(tel);
-    }
 
 
     //== 연관관계 메서드 ==//
@@ -66,28 +55,37 @@ public class Restaurant extends Base{
         zone.getRestaurants().add(this);
     }
 
-    public void setCategory(Category category) {
-        this.category = category;
-        category.getRestaurants().add(this);
-    }
-
 
     @Builder
-    public Restaurant(String name, String main_photo_fileName, String address_name, Double lat, Double lng, String tel, List<Review> reviews, int reviewCount, Zone zone, Double avgRating) {
+    public Restaurant(String name, String address_name, String tel, String opening_hours, String holidays, int reviewCount, Double avgRating, String main_photo_url, List<Review> reviews, List<Menu> menus, int bookMarkCount, Zone zone) {
         this.name = name;
-        this.main_photo_fileName = main_photo_fileName;
         this.address_name = address_name;
-        this.lat = lat;
-        this.lng = lng;
         this.tel = tel;
-        this.reviews = reviews;
+        this.opening_hours = opening_hours;
+        this.holidays = holidays;
         this.reviewCount = reviewCount;
-        this.zone = zone;
         this.avgRating = avgRating;
+        this.main_photo_url = main_photo_url;
+        this.reviews = reviews;
+        this.menus = menus;
+        this.bookMarkCount = bookMarkCount;
+        this.zone = zone;
     }
 
 
+    //북마크 추가될 때 전체 북마크 수 증가
+    public void addBookMark(BookMark bookMark) {
+        this.bookMarks.add(bookMark);
+        bookMark.setRestaurant(this);
+        this.bookMarkCount++;
+    }
 
+    //북마크 삭제될 때 전체 북마크 수 감소
+    public void removeBookMark(BookMark bookMark) {
+        this.bookMarks.remove(bookMark);
+        bookMark.setRestaurant(null);
+        this.bookMarkCount--;
+    }
 
     //리뷰가 추가될 때 리뷰수도 증가
     public void addReview(Review review) {
@@ -101,11 +99,6 @@ public class Restaurant extends Base{
         this.reviews.remove(review);
         review.setRestaurant(null);
         this.reviewCount--;
-    }
-
-    //메인사진 삭제
-    public void removeMainPhoto() {
-        this.main_photo_fileName = null;
     }
 
 

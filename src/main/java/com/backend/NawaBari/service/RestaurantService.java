@@ -3,14 +3,18 @@ package com.backend.NawaBari.service;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.repository.RestaurantRepository;
+import com.backend.NawaBari.repository.ReviewRepository;
 import com.backend.NawaBari.repository.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -20,7 +24,7 @@ import java.util.stream.Collectors;
 public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
-    private final ZoneRepository zoneRepository;
+    private final ReviewRepository reviewRepository;
 
 
     //식당 생성
@@ -50,7 +54,7 @@ public class RestaurantService {
 //    }
 
     //상호명 검색
-        public Slice<Restaurant> searchByName(String name, Pageable pageable) {
+    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
         if (name.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -60,15 +64,34 @@ public class RestaurantService {
             restaurants = restaurantRepository.searchByNameContaining(name, pageable);
         }
 
-        if(restaurants.getContent().isEmpty()) {
+        if (restaurants.getContent().isEmpty()) {
             throw new IllegalArgumentException("일치하는 식당이 없습니다.");
         }
 
-        return restaurants;
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        // 한줄평 포함한 RestaurantDTO 생성
+        for (Restaurant restaurant : restaurants.getContent()) {
+
+            Review topReview = reviewRepository.findTopReviewTitle(restaurant.getId());
+
+            String topReviewTitle = null;
+            if (topReview != null) {
+                topReviewTitle = topReview.getTitle();
+            }
+
+            RestaurantDTO restaurantDTO = RestaurantDTO.convertToDTO(restaurant);
+            restaurantDTO.setTopReviewTitle(topReviewTitle);
+            restaurantDTOS.add(restaurantDTO);
+
+        }
+
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
+
+
     //주소 검색
-    public Slice<Restaurant> searchByAddress(String address, Pageable pageable) {
+    public Slice<RestaurantDTO> searchByAddress(String address, Pageable pageable) {
         if (address.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -78,12 +101,30 @@ public class RestaurantService {
             restaurants = restaurantRepository.searchByAddressContaining(address, pageable);
         }
 
-        if(restaurants.getContent().isEmpty()) {
+        if (restaurants.getContent().isEmpty()) {
             throw new IllegalArgumentException("일치하는 식당이 없습니다.");
         }
 
-        return restaurants;
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        // 한줄평 포함한 RestaurantDTO 생성
+        for (Restaurant restaurant : restaurants.getContent()) {
+
+            Review topReview = reviewRepository.findTopReviewTitle(restaurant.getId());
+
+            String topReviewTitle = null;
+            if (topReview != null) {
+                topReviewTitle = topReview.getTitle();
+            }
+
+            RestaurantDTO restaurantDTO = RestaurantDTO.convertToDTO(restaurant);
+            restaurantDTO.setTopReviewTitle(topReviewTitle);
+            restaurantDTOS.add(restaurantDTO);
+
+        }
+
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
+
 
     //현재 동 위치 식당리스트 조회
     public Slice<Restaurant> searchByCurrentRestaurant(String dongName, Pageable pageable) {
@@ -97,36 +138,18 @@ public class RestaurantService {
         List<Review> reviewTop3 = restaurantRepository.findReviewTop3(restaurantId);
         Zone zone = restaurant.getZone();
 
-
         Restaurant restaurantDetail = Restaurant.builder()
                 .name(restaurant.getName())
-                .main_photo_fileName(restaurant.getMain_photo_fileName())
+                .main_photo_url(restaurant.getMain_photo_url())
                 .address_name(restaurant.getAddress_name())
-                .lat(restaurant.getLat())
-                .lng(restaurant.getLng())
                 .reviewCount(restaurant.getReviewCount())
                 .tel(restaurant.getTel())
                 .reviews(reviewTop3)
                 .zone(zone)
                 .avgRating(restaurant.getAvgRating())
+                .bookMarkCount(restaurant.getBookMarkCount())
                 .build();
         return restaurantDetail;
-    }
-
-
-    //식당 수정
-    @Transactional
-    public void updateRestaurant(Long restaurantId, String name, String mainPhotoFileName, String openingTime, String closingTime, String address_name, String tel) {
-        Restaurant restaurant = restaurantRepository.findOne(restaurantId);
-
-        restaurant.update(name, mainPhotoFileName, openingTime, closingTime, address_name, tel);
-    }
-
-
-    //식당 삭제
-    @Transactional
-    public void deleteRestaurant(Long restaurantId) {
-        restaurantRepository.delete(restaurantId);
     }
 
 }

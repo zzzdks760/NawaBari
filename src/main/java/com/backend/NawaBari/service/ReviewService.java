@@ -47,14 +47,6 @@ public class ReviewService {
         restaurant.addReview(review);
         restaurant.updateAverageRating();
 
-
-        //식당 메인사진이 없을경우 사진등록
-        if (restaurant.getMain_photo_fileName() == null && !photos.isEmpty()) {
-            Photo mainPhoto = photos.get(0);
-            restaurant.setMain_photo_fileName(mainPhoto.getFile_path());
-            mainPhoto.addMainPhoto();
-        }
-
         restaurantRepository.save(restaurant);
         reviewRepository.save(review);
         photoRepository.save(photos);
@@ -125,7 +117,7 @@ public class ReviewService {
                 //DB와 S3에서 사진 삭제
                 Photo photo = photoRepository.findOne(id);
                 if (photo != null) {
-                    deletePhoto(photo, review, restaurant);
+                    deletePhoto(photo);
                     photoRepository.delete(photo);
                 }
             }
@@ -142,10 +134,8 @@ public class ReviewService {
     }
 
     @Transactional
-    private void deletePhoto(Photo photo, Review review, Restaurant restaurant) {
-        if (photo.getIsMainPhoto()) {
-            restaurant.removeMainPhoto();
-        }
+    private void deletePhoto(Photo photo) {
+
         amazonS3.deleteObject(bucketName, "images/" + photo.getFile_name());
     }
 
@@ -199,9 +189,6 @@ public class ReviewService {
         //s3에서 삭제
         for (Photo photo : review.getPhotos()) {
 
-            if (photo.getIsMainPhoto()){
-                restaurant.removeMainPhoto();
-            }
             amazonS3.deleteObject(bucketName, "images/" + photo.getFile_name());
         }
 

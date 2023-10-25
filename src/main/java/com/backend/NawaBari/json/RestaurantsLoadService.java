@@ -24,10 +24,10 @@ public class RestaurantsLoadService {
     private final JsonFileLoader jsonFileLoader;
     private final RestaurantRepository restaurantRepository;
 
-    @Transactional
+/*    @Transactional
     public void SaveData() throws IOException {
 
         List<Restaurant> restaurants = jsonFileLoader.restaurantLoadJsonData();
         restaurantRepository.saveAll(restaurants);
-    }
+    }*/
 }

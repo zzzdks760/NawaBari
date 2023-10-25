@@ -132,13 +132,14 @@ public class RestaurantRepository {
     }
 
 
-
+    @Transactional
     public void saveAll(List<Restaurant> restaurantList) {
         for (Restaurant restaurant : restaurantList) {
             em.persist(restaurant);
         }
     }
 
+    @Transactional
     public void delete(Long restaurantId) {
         em.remove(restaurantId);
     }

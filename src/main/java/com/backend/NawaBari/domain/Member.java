@@ -42,6 +42,9 @@ public class Member extends Base{
     @OneToMany(mappedBy = "member")
     private List<Heart> hearts = new ArrayList<>();
 
+    @OneToMany(mappedBy = "member")
+    private List<BookMark> bookMarks = new ArrayList<>();
+
     @Enumerated(EnumType.STRING)
     private Role role;
 
@@ -52,7 +55,6 @@ public class Member extends Base{
     public void authorizeMember() {
         this.role = Role.MEMBER;
     }
-
 
     //== 연관관계 메서드 ==//
     public void addMemberZone(MemberZone memberZone) {

@@ -15,6 +15,7 @@ import org.springframework.stereotype.Component;
 import java.io.*;
 import java.lang.reflect.Type;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Component
 public class JsonFileLoader {
@@ -30,12 +31,14 @@ public class JsonFileLoader {
 
     }
 
-    public List<Restaurant> restaurantLoadJsonData() throws IOException {
-        Reader reader = new FileReader("/home/ubuntu/dev/NawaBari/src/main/resources/restaurants.json");
+/*    public List<Restaurant> restaurantLoadJsonData() throws IOException {
+        Reader reader = new FileReader("src/main/resources/seoul_restaurant.json");
 
         Gson gson = new Gson();
         List<RestaurantDTO> restaurantDTOList = gson.fromJson(reader, new TypeToken<List<RestaurantDTO>>() {}.getType());
 
-        return RestaurantDTO.toEntityList(restaurantDTOList);
-    }
+        return restaurantDTOList.stream()
+                .map(RestaurantDTO::toEntity)
+                .collect(Collectors.toList());
+    }*/
 }

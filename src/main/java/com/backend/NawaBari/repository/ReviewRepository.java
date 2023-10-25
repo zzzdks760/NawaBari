@@ -2,7 +2,9 @@ package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
+import jakarta.persistence.NoResultException;
 import jakarta.persistence.PersistenceContext;
+import jakarta.persistence.TypedQuery;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -67,6 +69,17 @@ public class ReviewRepository {
     }
 
 
-}
+    //가장 좋아요를 많이받은 리뷰 조회
+    public Review findTopReviewTitle(Long restaurant_id) {
+        try {
+            return em.createQuery("select r from Review r left join fetch r.restaurant res where res.id = :restaurant_id ORDER BY r.likeCount DESC", Review.class)
+                    .setParameter("restaurant_id", restaurant_id)
+                    .setMaxResults(1)
+                    .getSingleResult();
+        } catch (NoResultException e) {
+            return null; // 또는 적절한 기본값을 반환하거나 예외를 처리하는 방법을 선택할 수 있습니다.
+        }
+    }
 
+}
 
