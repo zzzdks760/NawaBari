@@ -16,8 +16,6 @@ public class Photo {
     @Column(name = "photo_id")
     private Long id;
 
-    private Boolean isMainPhoto = false;
-
     @Column(nullable = false)
     private String file_name;
 
@@ -32,9 +30,5 @@ public class Photo {
 //    public void setReview(Review review) {
 //        this.review = review;
 //    }
-
-    public void addMainPhoto() {
-        this.isMainPhoto = true;
-    }
 
 }
