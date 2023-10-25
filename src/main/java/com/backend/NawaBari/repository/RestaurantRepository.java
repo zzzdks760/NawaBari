@@ -54,18 +54,18 @@ public class RestaurantRepository {
     }
 
     //통합검색
-//    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
-//        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword order by r.avgRating desc", Restaurant.class)
-//                .setParameter("keyword", keyword)
-//                .setFirstResult((int) pageable.getOffset())
-//                .setMaxResults(pageable.getPageSize())
-//                .getResultList();
-//
-//        return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
-//    }
+    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
+        List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.name like :keyword or r.address_name like :keyword order by r.avgRating desc", Restaurant.class)
+                .setParameter("keyword", keyword)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
+                .getResultList();
+
+        return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
+    }
 
     //주소 검색
-    public Slice<Restaurant> searchByAddress(String address, Pageable pageable) {
+/*    public Slice<Restaurant> searchByAddress(String address, Pageable pageable) {
     List<Restaurant> restaurantList = em.createQuery("select r from Restaurant r where r.address_name like :address order by r.avgRating desc", Restaurant.class)
             .setParameter("address", address)
             .setFirstResult((int) pageable.getOffset())
@@ -105,7 +105,7 @@ public class RestaurantRepository {
                 .getResultList();
 
         return new SliceImpl<>(restaurantList, pageable, restaurantList.size() >= pageable.getPageSize());
-    }
+    }*/
 
 
     //동이름으로 식당찾기

@@ -36,25 +36,25 @@ public class RestaurantService {
 
 
     //통합 검색
-//    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
-//        if (keyword.length() < 2) {
-//            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
-//        }
-//        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
-//
-//        if (restaurants.getContent().isEmpty()) {
-//            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
-//        }
-//
-//        if(restaurants.getContent().isEmpty()) {
-//            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
-//        }
-//
-//        return restaurants;
-//    }
+    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
+        if (keyword.length() < 2) {
+            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
+        }
+        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
+
+        if (restaurants.getContent().isEmpty()) {
+            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+        }
+
+        if(restaurants.getContent().isEmpty()) {
+            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
+        }
+
+        return restaurants;
+    }
 
     //상호명 검색
-    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
+/*    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
         if (name.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -123,7 +123,7 @@ public class RestaurantService {
         }
 
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
-    }
+    }*/
 
 
     //현재 동 위치 식당리스트 조회
