@@ -6,6 +6,8 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import static jakarta.persistence.FetchType.*;
+
 @Entity
 @Getter
 @Setter
@@ -16,18 +18,39 @@ public class BookMark {
     @Column(name = "book_mark_id")
     private Long id;
 
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "member_id")
+    private Member member;
 
-    @Column(name = "member_id", nullable = false)
-    private Long memberId;
+    @ManyToOne(fetch = LAZY)
+    @JoinColumn(name = "restaurant_id")
+    private Restaurant restaurant;
 
-    @Column(name = "restaurant_id", nullable = false)
-    private Long restaurantId;
+    private Boolean marked;
 
     //==생성 메서드==//
-    public static BookMark createBookMark(Long memberId, Long restaurantId) {
+    public static BookMark createBookMark(Member member, Restaurant restaurant, Boolean marked) {
         BookMark bookMark = new BookMark();
-        bookMark.setMemberId(memberId);
-        bookMark.setRestaurantId(restaurantId);
+        bookMark.setMember(member);
+        bookMark.setRestaurant(restaurant);
+        bookMark.setMarked(false);
         return bookMark;
     }
+
+    public void marked() {
+        if (!this.marked){
+            this.marked = true;
+            this.restaurant.addBookMark(this);
+        } else {
+            this.unMarked();
+        }
+    }
+
+    public void unMarked() {
+        if (this.marked) {
+            this.marked = false;
+            this.restaurant.removeBookMark(this);
+        }
+    }
+
 }

@@ -39,4 +39,10 @@ public class BookMarkRepository {
     public void remove(BookMark bookMark) {
         em.remove(bookMark);
     }
+
+    //북마크 삭제
+    @Transactional
+    public void delete(BookMark bookMark) {
+        em.remove(bookMark);
+    }
 }
