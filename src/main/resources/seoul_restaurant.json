@@ -1,17 +1,17 @@
 [
     {
         "name": "큐리오",
-        "address": "서울특별시 서초구 서운로 226 119호\n지번 서울시 서초구 서초동 1302-1 119호",
-        "phone": "",
+        "address_name": "서울시 서초구 서초동 1302-1 119호",
+        "tel": "",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/492296/2650602_1694335922382_1000001172?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/492296/2650602_1694335922382_1000001172?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "키오스크",
-        "address": "서울특별시 마포구 월드컵로19길 74 2F\n지번 서울시 마포구 망원동 57-194 2F",
-        "phone": "",
+        "address_name": "서울시 마포구 망원동 57-194 2F",
+        "tel": "",
         "opening_hours": "12:00 - 21:00",
         "holidays": "일",
         "menu": {
@@ -19,12 +19,12 @@
             "플레인 프렌치 토스트": "3,000원",
             "오븐에 구운 토스트": "5,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/260591/569295_1466420850640_35698?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/260591/569295_1466420850640_35698?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "서관면옥",
-        "address": "서울특별시 서초구 서초대로56길 11\n지번 서울시 서초구 서초동 1675-5",
-        "phone": "02-521-9945",
+        "address_name": "서울시 서초구 서초동 1675-5",
+        "tel": "02-521-9945",
         "opening_hours": "11:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -34,12 +34,12 @@
             "맛박이냉면": "17,000원",
             "돝제육": "19,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/354683/244033_1615121598738_8404?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/354683/244033_1615121598738_8404?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "패스트리부티크",
-        "address": "서울특별시 중구 동호로 249 서울신라호텔 1F\n지번 서울시 중구 장충동2가 202 서울신라호텔 1F",
-        "phone": "02-2230-3377",
+        "address_name": "서울시 중구 장충동2가 202 서울신라호텔 1F",
+        "tel": "02-2230-3377",
         "opening_hours": "07:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -49,12 +49,12 @@
             "프리미엄 카스텔라 (오리지널)": "30,000원",
             "마카롱 (8구)": "31,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167/1692257708688145.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167/1692257708688145.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "조앤도슨",
-        "address": "서울특별시 마포구 동교로41길 31 B1\n지번 서울시 마포구 연남동 254-8 B1",
-        "phone": "0507-1314-1043",
+        "address_name": "서울시 마포구 연남동 254-8 B1",
+        "tel": "0507-1314-1043",
         "opening_hours": "12:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -64,21 +64,21 @@
             "프렌치토스트": "9,000원",
             "치즈케이크": "6,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1981833_1648380690171626.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1981833_1648380690171626.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "용산양다리",
-        "address": "서울특별시 용산구 원효로41길 15 1F\n지번 서울시 용산구 원효로3가 37-2 1F",
-        "phone": "010-2374-7899",
+        "address_name": "서울시 용산구 원효로3가 37-2 1F",
+        "tel": "010-2374-7899",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2252175_1677584616637834.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2252175_1677584616637834.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "미라이",
-        "address": "서울특별시 강남구 논현로153길 24 끌레르빌 1F\n지번 서울시 강남구 신사동 557-25 끌레르빌 1F",
-        "phone": "02-540-0934",
+        "address_name": "서울시 강남구 신사동 557-25 끌레르빌 1F",
+        "tel": "02-540-0934",
         "opening_hours": "18:00 - 01:00",
         "holidays": "일",
         "menu": {
@@ -88,21 +88,21 @@
             "노도구로 시오 야끼": "35,000원",
             "규 스테이크": "41,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/281547/753280_1550146766591_11966?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/281547/753280_1550146766591_11966?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "밀림",
-        "address": "서울특별시 종로구 창신6나길 17-6\n지번 서울시 종로구 창신동 23-663",
-        "phone": "070-4120-2005",
+        "address_name": "서울시 종로구 창신동 23-663",
+        "tel": "070-4120-2005",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1892233_1684951616334069.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1892233_1684951616334069.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "Sogak",
-        "address": "서울특별시 강남구 강남대로160길 17 1F\n지번 서울시 강남구 신사동 507-7 1F",
-        "phone": "02-512-9929",
+        "address_name": "서울시 강남구 신사동 507-7 1F",
+        "tel": "02-512-9929",
         "opening_hours": "11:30 - 21:50",
         "holidays": "첫째 월",
         "menu": {
@@ -112,12 +112,12 @@
             "꿔빠로우 (소)": "24,000원",
             "지삼선": "24,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/610330_1616246561075140.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/610330_1616246561075140.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "우육면관",
-        "address": "서울특별시 종로구 종로7길 29-14\n지번 서울시 종로구 청진동 39",
-        "phone": "070-7543-4830",
+        "address_name": "서울시 종로구 청진동 39",
+        "tel": "070-7543-4830",
         "opening_hours": "11:00 - 21:00",
         "holidays": "일",
         "menu": {
@@ -126,12 +126,12 @@
             "우육면": "10,000원",
             "수교": "8,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/787041_1615533569508222.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/787041_1615533569508222.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "모던샤브하우스",
-        "address": "서울특별시 종로구 종로3길 17 D타워 리플레이스 광화문 5F\n지번 서울시 종로구 청진동 246 D타워 리플레이스 광화문 5F",
-        "phone": "02-2251-8501",
+        "address_name": "서울시 종로구 청진동 246 D타워 리플레이스 광화문 5F",
+        "tel": "02-2251-8501",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -139,24 +139,24 @@
             "스페셜 (성인)": "78,000원",
             "프리미엄 (성인)": "140,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/444358/116586_1622771617201_62100?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/444358/116586_1622771617201_62100?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "스시다정",
-        "address": "서울특별시 영등포구 국제금융로 70 B1 19호\n지번 서울시 영등포구 여의도동 43 B1 19호",
-        "phone": "010-4582-8293",
+        "address_name": "서울시 영등포구 여의도동 43 B1 19호",
+        "tel": "010-4582-8293",
         "opening_hours": "11:30 - 21:30",
         "holidays": "",
         "menu": {
             "런치 오마카세": "35,000원",
             "디너 오마카세": "59,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1655744_1644470772201605.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1655744_1644470772201605.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "판코네",
-        "address": "서울특별시 용산구 한강대로40가길 7 풍양빌딩 1F\n지번 서울시 용산구 한강로2가 80-2 풍양빌딩 1F",
-        "phone": "0507-1473-0730",
+        "address_name": "서울시 용산구 한강로2가 80-2 풍양빌딩 1F",
+        "tel": "0507-1473-0730",
         "opening_hours": "",
         "holidays": "",
         "menu": {
@@ -166,12 +166,12 @@
             "문어라구": "28,000원",
             "타야린": "37,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/59110_1694594100408554.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/59110_1694594100408554.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "길목",
-        "address": "서울특별시 강남구 영동대로129길 10\n지번 서울시 강남구 삼성동 58-6",
-        "phone": "02-518-9710",
+        "address_name": "서울시 강남구 삼성동 58-6",
+        "tel": "02-518-9710",
         "opening_hours": "16:00 - 23:00",
         "holidays": "일",
         "menu": {
@@ -180,24 +180,24 @@
             "껍살 (250g)": "20,000원",
             "된장술밥": "8,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/567494_1480569707297549.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/567494_1480569707297549.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "해방촌 노아",
-        "address": "서울특별시 용산구 신흥로 98\n지번 서울시 용산구 용산동2가 1-524",
-        "phone": "02-796-0804",
+        "address_name": "서울시 용산구 용산동2가 1-524",
+        "tel": "02-796-0804",
         "opening_hours": "11:00 - 21:00",
         "holidays": "",
         "menu": {
             "진정한 버섯 피자": "22,000원",
             "꽃게파스타": "20,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1991439_1628114550803632.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1991439_1628114550803632.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "밀곳간",
-        "address": "서울특별시 성북구 성북로18길 19\n지번 서울시 성북구 성북동 63-1",
-        "phone": "02-742-0525",
+        "address_name": "서울시 성북구 성북동 63-1",
+        "tel": "02-742-0525",
         "opening_hours": "08:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -207,30 +207,30 @@
             "브레첼하드롤": "2,000원",
             "치즈치아바타": "3,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/653082_1647932660851262.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/653082_1647932660851262.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "데시데",
-        "address": "서울특별시 종로구 삼청로 22-31 1F\n지번 서울시 종로구 사간동 41 1F",
-        "phone": "02-733-9092",
+        "address_name": "서울시 종로구 사간동 41 1F",
+        "tel": "02-733-9092",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/872186_1692515781545027.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/872186_1692515781545027.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "자르뎅페르뒤",
-        "address": "서울특별시 강남구 언주로 541 에프엔에프사옥\n지번 서울시 강남구 역삼동 662-9 에프엔에프사옥",
-        "phone": "02-520-0900",
+        "address_name": "서울시 강남구 역삼동 662-9 에프엔에프사옥",
+        "tel": "02-520-0900",
         "opening_hours": "월-금: 11:30 - 24:00\n토: 18:00 - 24:00",
         "holidays": "일",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1624/reviews/a87aa6fa622e.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1624/reviews/a87aa6fa622e.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "파이리퍼블릭",
-        "address": "서울특별시 마포구 양화로23길 10-10 B1\n지번 서울시 마포구 동교동 147-48 B1",
-        "phone": "02-6083-1967",
+        "address_name": "서울시 마포구 동교동 147-48 B1",
+        "tel": "02-6083-1967",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -240,12 +240,12 @@
             "램촙&파이": "22,000원",
             "램촙 두개 (사이드2개)": "23,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/707184_1613622336201662.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/707184_1613622336201662.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "샐러드셀러",
-        "address": "서울특별시 용산구 대사관로5길 28\n지번 서울시 용산구 한남동 684-24",
-        "phone": "02-794-0282",
+        "address_name": "서울시 용산구 한남동 684-24",
+        "tel": "02-794-0282",
         "opening_hours": "11:00 - 21:00",
         "holidays": "일, 월",
         "menu": {
@@ -255,12 +255,12 @@
             "애플 루꼴라 샌드위치": "10,000원",
             "베이컨 칠리카도 샌드위치": "11,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/217746/510187_1482762821218_31923?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/217746/510187_1482762821218_31923?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "메종조",
-        "address": "서울특별시 서초구 반포대로7길 35 공아트빌딩 1F\n지번 서울시 서초구 서초동 1476-10 공아트빌딩 1F",
-        "phone": "010-3926-4443",
+        "address_name": "서울시 서초구 서초동 1476-10 공아트빌딩 1F",
+        "tel": "010-3926-4443",
         "opening_hours": "12:00 - 20:00",
         "holidays": "월, 화",
         "menu": {
@@ -270,12 +270,12 @@
             "야채볶음": "16,000원",
             "뇨끼": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/415676/923979_1597451518946_42091?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/415676/923979_1597451518946_42091?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "꾸잉",
-        "address": "서울특별시 용산구 이태원로 189 1F\n지번 서울시 용산구 이태원동 123-33 1F",
-        "phone": "02-796-1244",
+        "address_name": "서울시 용산구 이태원동 123-33 1F",
+        "tel": "02-796-1244",
         "opening_hours": "10:00 - 21:30",
         "holidays": "",
         "menu": {
@@ -285,12 +285,12 @@
             "넴": "7,000원",
             "분버싸오(비빔국수)": "13,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1353667_1606831558169278.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1353667_1606831558169278.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "와라야키 쿠이신보",
-        "address": "서울특별시 강남구 도산대로15길 6 대화빌딩\n지번 서울시 강남구 신사동 539 대화빌딩",
-        "phone": "010-8811-9215",
+        "address_name": "서울시 강남구 신사동 539 대화빌딩",
+        "tel": "010-8811-9215",
         "opening_hours": "월-목: 17:30 - 01:00\n금-토: 17:30 - 02:00",
         "holidays": "일",
         "menu": {
@@ -300,21 +300,21 @@
             "한우우설 숯불구이": "15,500원",
             "야채모듬": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/832260_1538990876392786.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/832260_1538990876392786.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "야키토리혼바",
-        "address": "서울특별시 용산구 후암로 79 3-4F\n지번 서울시 용산구 동자동 2-5 3-4F",
-        "phone": "0507-1315-6820",
+        "address_name": "서울시 용산구 동자동 2-5 3-4F",
+        "tel": "0507-1315-6820",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1789241_1683645251708776.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1789241_1683645251708776.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "진미평양냉면",
-        "address": "서울특별시 강남구 학동로 305-3\n지번 서울시 강남구 논현동 115-10",
-        "phone": "02-515-3469",
+        "address_name": "서울시 강남구 논현동 115-10",
+        "tel": "02-515-3469",
         "opening_hours": "11:00 - 21:30",
         "holidays": "",
         "menu": {
@@ -324,12 +324,12 @@
             "편육": "28,000원",
             "불고기 (2인 이상)": "28,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/259480/621990_1625572311365_43437?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/259480/621990_1625572311365_43437?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "부촌육회",
-        "address": "서울특별시 종로구 종로 200-12\n지번 서울시 종로구 종로4가 165-11",
-        "phone": "02-2267-1831",
+        "address_name": "서울시 종로구 종로4가 165-11",
+        "tel": "02-2267-1831",
         "opening_hours": "09:00 - 23:00",
         "holidays": "화",
         "menu": {
@@ -339,12 +339,12 @@
             "육사시미": "28,000원",
             "육회낙지탕탕이": "28,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/872186_1635684425132608.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/872186_1635684425132608.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "북천",
-        "address": "서울특별시 용산구 한강대로10길 17\n지번 서울시 용산구 한강로3가 65-195",
-        "phone": "02-796-2461",
+        "address_name": "서울시 용산구 한강로3가 65-195",
+        "tel": "02-796-2461",
         "opening_hours": "월-금: 11:00 - 21:00\n토: 11:00 - 14:30",
         "holidays": "일",
         "menu": {
@@ -353,33 +353,33 @@
             "화이트돈가스": "15,000원",
             "크림우동": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/192543/1042666_1631854671316_29936?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/192543/1042666_1631854671316_29936?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "양인환대 정인",
-        "address": "서울특별시 용산구 한강대로40길 14 2F 104호\n지번 서울시 용산구 한강로2가 143-1 2F 104호",
-        "phone": "010-9756-3592",
+        "address_name": "서울시 용산구 한강로2가 143-1 2F 104호",
+        "tel": "010-9756-3592",
         "opening_hours": "18:00 - 21:00",
         "holidays": "일",
         "menu": {
             "한상맡김요리": "170,000원",
             "궁합주": "80,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/26472_1648283311777959.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/26472_1648283311777959.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "숙성육관",
-        "address": "서울특별시 마포구 토정로37길 41 2F\n지번 서울시 마포구 염리동 173-29 2F",
-        "phone": "0507-1360-9929",
+        "address_name": "서울시 마포구 염리동 173-29 2F",
+        "tel": "0507-1360-9929",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/528080_1692025224840886.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/528080_1692025224840886.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "연희미식",
-        "address": "서울특별시 서대문구 연희맛로 22 삼원빌딩\n지번 서울시 서대문구 연희동 188-69 삼원빌딩",
-        "phone": "02-333-2119",
+        "address_name": "서울시 서대문구 연희동 188-69 삼원빌딩",
+        "tel": "02-333-2119",
         "opening_hours": "17:00 - 22:00",
         "holidays": "일",
         "menu": {
@@ -389,12 +389,12 @@
             "교자": "6,000원",
             "오향장육": "20,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/352594/999105_1611477179925_2887?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/352594/999105_1611477179925_2887?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "치즈플로",
-        "address": "서울특별시 용산구 이태원로49길 19\n지번 서울시 용산구 한남동 744-2",
-        "phone": "0507-1357-7015",
+        "address_name": "서울시 용산구 한남동 744-2",
+        "tel": "0507-1357-7015",
         "opening_hours": "화-금: 12:00 - 22:00\n토-일: 12:00 - 21:00",
         "holidays": "월",
         "menu": {
@@ -404,12 +404,12 @@
             "할루미 치즈와 구운야채": "25,000원",
             "살루미 플레이트": "38,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/280481/651548_1488006727915_2029?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/280481/651548_1488006727915_2029?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "시칠리",
-        "address": "서울특별시 용산구 이태원로55가길 13\n지번 서울시 용산구 한남동 739-20",
-        "phone": "02-6951-4250",
+        "address_name": "서울시 용산구 한남동 739-20",
+        "tel": "02-6951-4250",
         "opening_hours": "12:00 - 22:00",
         "holidays": "월",
         "menu": {
@@ -419,12 +419,12 @@
             "오늘의 파스타20": "19,500원",
             "시칠리코스 (디너)": "135,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2925_1633951412777021.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2925_1633951412777021.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "피에트라",
-        "address": "서울특별시 마포구 성미산로23길 62 1F\n지번 서울시 마포구 연남동 375-116 1F",
-        "phone": "070-7722-5863",
+        "address_name": "서울시 마포구 연남동 375-116 1F",
+        "tel": "070-7722-5863",
         "opening_hours": "일-목: 12:00 - 20:00\n금-토: 12:00 - 21:00",
         "holidays": "월",
         "menu": {
@@ -434,12 +434,12 @@
             "티라미수": "9,000원",
             "아볼라아몬드 캐러멜": "8,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/449446/1100616_1634546311048_28021?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/449446/1100616_1634546311048_28021?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "우동가조쿠",
-        "address": "서울특별시 성동구 왕십리로 215-1\n지번 서울시 성동구 행당동 32-22",
-        "phone": "02-762-2177",
+        "address_name": "서울시 성동구 행당동 32-22",
+        "tel": "02-762-2177",
         "opening_hours": "11:00 - 20:00",
         "holidays": "",
         "menu": {
@@ -449,12 +449,12 @@
             "육육우동": "8,000원",
             "치즈육육우동": "9,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/192401/730575_1628167093923_23053?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/192401/730575_1628167093923_23053?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "프롤라",
-        "address": "서울특별시 성동구 연무장17길 5 1F\n지번 서울시 성동구 성수동2가 272-35 1F",
-        "phone": "0507-1354-9616",
+        "address_name": "서울시 성동구 성수동2가 272-35 1F",
+        "tel": "0507-1354-9616",
         "opening_hours": "11:00 - 19:00",
         "holidays": "월",
         "menu": {
@@ -463,21 +463,21 @@
             "Nutellatte ( 누텔라 크림 아이스커피)": "8,000원",
             "Shakerato (샤케라또)": "8,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/457540/9239_1633409173661_73196?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/457540/9239_1633409173661_73196?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "빈호",
-        "address": "서울특별시 강남구 학동로43길 38 논현웰스톤 162호\n지번 서울시 강남구 논현동 108 논현웰스톤 162호",
-        "phone": "02-548-9397",
+        "address_name": "서울시 강남구 논현동 108 논현웰스톤 162호",
+        "tel": "02-548-9397",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1692232979446488.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1692232979446488.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "라무라",
-        "address": "서울특별시 마포구 포은로 21 1F\n지번 서울시 마포구 합정동 395-16 1F",
-        "phone": "070-8836-8490",
+        "address_name": "서울시 마포구 합정동 395-16 1F",
+        "tel": "070-8836-8490",
         "opening_hours": "11:30 - 20:30",
         "holidays": "",
         "menu": {
@@ -487,12 +487,12 @@
             "백색(닭)라멘": "14,000원",
             "백색(병아리)라멘": "9,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/405191/1374121_1575966819297_28523?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/405191/1374121_1575966819297_28523?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "센트그릴 BBQ",
-        "address": "서울특별시 서대문구 연희로 89-3 B1\n지번 서울시 서대문구 연희동 188-87 B1",
-        "phone": "02-336-0757",
+        "address_name": "서울시 서대문구 연희동 188-87 B1",
+        "tel": "02-336-0757",
         "opening_hours": "화-목: 17:00 - 24:00\n금-토: 17:00 - 01:00\n일: 17:00 - 22:00",
         "holidays": "월",
         "menu": {
@@ -502,12 +502,12 @@
             "센트그릴 플래터": "36,000원",
             "새터데이 플래터": "58,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/404947/1407036_1613917228012_28401?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/404947/1407036_1613917228012_28401?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "카카오봄",
-        "address": "서울특별시 용산구 한강대로62길 45-11\n지번 서울시 용산구 한강로1가 216-3",
-        "phone": "010-7103-4662",
+        "address_name": "서울시 용산구 한강로1가 216-3",
+        "tel": "010-7103-4662",
         "opening_hours": "11:00 - 20:00\n설-추석당일 14: 00 - 20: 00\n발렌타인데이-화이트데이 11: 00 - 20: 00",
         "holidays": "월",
         "menu": {
@@ -517,12 +517,12 @@
             "젤라또 2가지맛(맛 or 컵)": "5,800원",
             "아메리카노": "5,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1600236996000090.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1600236996000090.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "쿠나",
-        "address": "서울특별시 성동구 연무장5길 9-16 105호\n지번 서울시 성동구 성수동2가 302-8 105호",
-        "phone": "0507-1448-1040",
+        "address_name": "서울시 성동구 성수동2가 302-8 105호",
+        "tel": "0507-1448-1040",
         "opening_hours": "화-토: 12:00 - 22:00\n일: 12:00 - 20:00",
         "holidays": "월",
         "menu": {
@@ -532,12 +532,12 @@
             "포르치니버섯베이컨크림뇨끼": "19,000원",
             "오리가슴살스테이크": "30,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/422825/594101_1611478284223_30365?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/422825/594101_1611478284223_30365?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "BAR CHAM",
-        "address": "서울특별시 종로구 자하문로7길 34\n지번 서울시 종로구 통인동 135-5",
-        "phone": "02-6402-4750",
+        "address_name": "서울시 종로구 통인동 135-5",
+        "tel": "02-6402-4750",
         "opening_hours": "16:00 - 22:00",
         "holidays": "화",
         "menu": {
@@ -545,21 +545,21 @@
             "제주 두번쨰": "18,000원",
             "안동 두번쨰": "19,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/360523/449685_1600723642809_14753?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/360523/449685_1600723642809_14753?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "미타스",
-        "address": "서울특별시 용산구 이촌로75길 16-9\n지번 서울시 용산구 이촌동 301-154",
-        "phone": "02-792-1208",
+        "address_name": "서울시 용산구 이촌동 301-154",
+        "tel": "02-792-1208",
         "opening_hours": "18:00 - 24:00",
         "holidays": "일",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/564519_1528611358005596.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/564519_1528611358005596.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "오죽이네",
-        "address": "서울특별시 종로구 돈화문로11가길 25\n지번 서울시 종로구 익선동 156",
-        "phone": "02-741-8874",
+        "address_name": "서울시 종로구 익선동 156",
+        "tel": "02-741-8874",
         "opening_hours": "11:30 - 22:00",
         "holidays": "일",
         "menu": {
@@ -569,39 +569,39 @@
             "옻매운탕 (중)": "40,000원",
             "쭈꾸미쭈삼겹 (대)": "40,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/40542/689765_1635635393296_39822?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/40542/689765_1635635393296_39822?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "볼레티",
-        "address": "서울특별시 서초구 방배로23길 32-6\n지번 서울시 서초구 방배동 938-23",
-        "phone": "0507-1386-7542",
+        "address_name": "서울시 서초구 방배동 938-23",
+        "tel": "0507-1386-7542",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1692074508340790.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1692074508340790.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "이안정",
-        "address": "서울특별시 마포구 독막로15길 3-3 2F 101호\n지번 서울시 마포구 상수동 315-3 2F 101호",
-        "phone": "070-8615-5521",
+        "address_name": "서울시 마포구 상수동 315-3 2F 101호",
+        "tel": "070-8615-5521",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/473750/24897_1693545964551_1000011974?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/473750/24897_1693545964551_1000011974?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "동화고옥",
-        "address": "서울특별시 강남구 테헤란로 129 강남N타워 B2\n지번 서울시 강남구 역삼동 648-9 강남N타워 B2",
-        "phone": "02-6095-0329",
+        "address_name": "서울시 강남구 역삼동 648-9 강남N타워 B2",
+        "tel": "02-6095-0329",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/483120/gog2oebg8pe8bd.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/483120/gog2oebg8pe8bd.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "서울케밥",
-        "address": "서울특별시 용산구 새창로 181 선인상가 1F 11호\n지번 서울시 용산구 한강로2가 15-14 선인상가 1F 11호",
-        "phone": "02-702-0606",
+        "address_name": "서울시 용산구 한강로2가 15-14 선인상가 1F 11호",
+        "tel": "02-702-0606",
         "opening_hours": "11:00 - 19:00",
         "holidays": "토, 일, 월",
         "menu": {
@@ -611,33 +611,33 @@
             "치킨도너": "6,900원",
             "양고기도너": "7,900원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/409190/1042666_1599554512263?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/409190/1042666_1599554512263?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "임프레션",
-        "address": "서울특별시 강남구 언주로164길 24 5F\n지번 서울시 강남구 신사동 649-7 5F",
-        "phone": "02-6925-5522",
+        "address_name": "서울시 강남구 신사동 649-7 5F",
+        "tel": "02-6925-5522",
         "opening_hours": "12:00 - 22:00",
         "holidays": "일, 월",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/364775/1662645_1627102497386_11918?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/364775/1662645_1627102497386_11918?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "알라프리마",
-        "address": "서울특별시 강남구 학동로17길 13 1F\n지번 서울시 강남구 논현동 42-6 1F",
-        "phone": "02-511-2555",
+        "address_name": "서울시 강남구 논현동 42-6 1F",
+        "tel": "02-511-2555",
         "opening_hours": "12:00 - 21:00",
         "holidays": "화",
         "menu": {
             "런치": "110,000원",
             "디너": "240,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/63176_1468144532794478.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/63176_1468144532794478.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "미성옥",
-        "address": "서울특별시 중구 명동길 25-11 1F\n지번 서울시 중구 명동1가 54-6 1F",
-        "phone": "02-776-8929",
+        "address_name": "서울시 중구 명동1가 54-6 1F",
+        "tel": "02-776-8929",
         "opening_hours": "06:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -646,12 +646,12 @@
             "수육 (소)": "35,000원",
             "수육 (대)": "45,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/226643/230933_1466818707854_19903?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/226643/230933_1466818707854_19903?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "엘리스리틀이태리",
-        "address": "서울특별시 송파구 백제고분로41길 43-21 SANDONG빌딩\n지번 서울시 송파구 송파동 8 SANDONG빌딩",
-        "phone": "010-6545-1410",
+        "address_name": "서울시 송파구 송파동 8 SANDONG빌딩",
+        "tel": "010-6545-1410",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -661,12 +661,12 @@
             "새우버섯과루꼴라피자": "20,000원",
             "안심스테이크": "38,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/277947_1460717124430735.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/277947_1460717124430735.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "따빠디또 디저트 따빠스바",
-        "address": "서울특별시 관악구 행운1길 79 상가 104호\n지번 서울시 관악구 봉천동 1668-21 상가 104호",
-        "phone": "02-6014-8617",
+        "address_name": "서울시 관악구 봉천동 1668-21 상가 104호",
+        "tel": "02-6014-8617",
         "opening_hours": "15:00 - 21:00",
         "holidays": "월, 화, 수, 목",
         "menu": {
@@ -674,12 +674,12 @@
             "세가지맛": "19,000원",
             "여섯가지맛": "35,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/495395_1614255254121795.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/495395_1614255254121795.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "갓포아키",
-        "address": "서울특별시 강남구 테헤란로 610 글래드코엑스센터 B2\n지번 서울시 강남구 대치동 995-16 글래드코엑스센터 B2",
-        "phone": "02-6203-8660",
+        "address_name": "서울시 강남구 대치동 995-16 글래드코엑스센터 B2",
+        "tel": "02-6203-8660",
         "opening_hours": "18:00 - 01:00",
         "holidays": "일",
         "menu": {
@@ -688,12 +688,12 @@
             "마구로마끼 (8pcs)": "19,000원",
             "봉두릅과도다리튀김": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/187381/1080804_1581074428648_11073?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/187381/1080804_1581074428648_11073?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "내추럴하이",
-        "address": "서울특별시 용산구 녹사평대로 248 1F\n지번 서울시 용산구 이태원동 717 1F",
-        "phone": "02-3785-3373",
+        "address_name": "서울시 용산구 이태원동 717 1F",
+        "tel": "02-3785-3373",
         "opening_hours": "월-금: 12:00 - 21:00\n토-일: 11:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -703,30 +703,30 @@
             "한우1++카르파치오": "25,000원",
             "생양갈비구이": "33,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/27066_1610199543924513.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/27066_1610199543924513.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "스몰톡",
-        "address": "서울특별시 영등포구 당산로 161-7 1F\n지번 서울시 영등포구 당산동4가 73-9 1F",
-        "phone": "0507-1323-3056",
+        "address_name": "서울시 영등포구 당산동4가 73-9 1F",
+        "tel": "0507-1323-3056",
         "opening_hours": "",
         "holidays": "월",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1694684851717246.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1694684851717246.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "바위파스타바",
-        "address": "서울특별시 용산구 이태원로 254 B2\n지번 서울시 용산구 한남동 683-130 B2",
-        "phone": "",
+        "address_name": "서울시 용산구 한남동 683-130 B2",
+        "tel": "",
         "opening_hours": "17:00 - 24:00",
         "holidays": "일, 월",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/411159/1013171_1600765976860_19391?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/411159/1013171_1600765976860_19391?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "일리조",
-        "address": "서울특별시 강남구 압구정로42길 23 1F\n지번 서울시 강남구 신사동 643-1 1F",
-        "phone": "02-544-1980",
+        "address_name": "서울시 강남구 신사동 643-1 1F",
+        "tel": "02-544-1980",
         "opening_hours": "11:30 - 22:00",
         "holidays": "일",
         "menu": {
@@ -736,12 +736,12 @@
             "라구파스타": "24,000원",
             "꼬토파스타": "26,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/495395_1625359471496806.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/495395_1625359471496806.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "오제제",
-        "address": "서울특별시 중구 세종대로 136 B3\n지번 서울시 중구 태평로1가 84 B3",
-        "phone": "070-4616-4653",
+        "address_name": "서울시 중구 태평로1가 84 B3",
+        "tel": "070-4616-4653",
         "opening_hours": "11:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -750,12 +750,12 @@
             "특등심가츠": "16,000원",
             "자루우동": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/473437/26737_1648735283542_48135?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/473437/26737_1648735283542_48135?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "디핀옥수",
-        "address": "서울특별시 성동구 독서당로 194 B1\n지번 서울시 성동구 옥수동 244-10 B1",
-        "phone": "02-2292-4410",
+        "address_name": "서울시 성동구 옥수동 244-10 B1",
+        "tel": "02-2292-4410",
         "opening_hours": "12:00 - 22:00",
         "holidays": "월, 화",
         "menu": {
@@ -765,12 +765,12 @@
             "머쉬룸수고파스타": "25,000원",
             "살치살스테이크": "35,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/33537_1632651023881675.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/33537_1632651023881675.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "원디그리노스",
-        "address": "서울특별시 강남구 학동로43길 8\n지번 서울시 강남구 논현동 116",
-        "phone": "070-4333-8884",
+        "address_name": "서울시 강남구 논현동 116",
+        "tel": "070-4333-8884",
         "opening_hours": "월-금: 11:30 - 22:30\n토: 12:00 - 22:30",
         "holidays": "일",
         "menu": {
@@ -780,12 +780,12 @@
             "로스트포크": "12,800원",
             "광둥오리": "15,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/626008_1693056083759019.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/626008_1693056083759019.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "크레미엘",
-        "address": "서울특별시 서초구 양재천로21길 3 디와이빌딩 1F\n지번 서울시 서초구 양재동 80-14 디와이빌딩 1F",
-        "phone": "070-8260-3855",
+        "address_name": "서울시 서초구 양재동 80-14 디와이빌딩 1F",
+        "tel": "070-8260-3855",
         "opening_hours": "11:00 - 18:00",
         "holidays": "화, 수",
         "menu": {
@@ -795,12 +795,12 @@
             "쿠인아망": "4,500원",
             "까눌레": "4,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/479674_1648651234460959.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/479674_1648651234460959.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "일월카츠",
-        "address": "서울특별시 종로구 계동길 17 1F\n지번 서울시 종로구 계동 144-1 1F",
-        "phone": "02-743-7638",
+        "address_name": "서울시 종로구 계동 144-1 1F",
+        "tel": "02-743-7638",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -810,33 +810,33 @@
             "특 히레카츠": "15,000원",
             "상 로스카츠 (한정수량)": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/974524_1644548067390063.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/974524_1644548067390063.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "타쿠미곤",
-        "address": "서울특별시 서초구 사평대로18길 10 한국회관 2F\n지번 서울시 서초구 반포동 107-45 한국회관 2F",
-        "phone": "02-595-1935",
+        "address_name": "서울시 서초구 반포동 107-45 한국회관 2F",
+        "tel": "02-595-1935",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
             "런치": "150,000원",
             "디너": "300,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/511836_1521968840293474.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/511836_1521968840293474.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "용산주가",
-        "address": "서울특별시 용산구 한강대로84길 11-11 1F\n지번 서울시 용산구 남영동 33-1 1F",
-        "phone": "02-790-0233",
+        "address_name": "서울시 용산구 남영동 33-1 1F",
+        "tel": "02-790-0233",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/514314/2434258_1688382057667_1000018825?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/514314/2434258_1688382057667_1000018825?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "세이류",
-        "address": "서울특별시 송파구 올림픽로35가길 9 B1 B35호\n지번 서울시 송파구 신천동 11-4 B1 B35호",
-        "phone": "02-418-2288",
+        "address_name": "서울시 송파구 신천동 11-4 B1 B35호",
+        "tel": "02-418-2288",
         "opening_hours": "12:00 - 21:30",
         "holidays": "일",
         "menu": {
@@ -846,12 +846,12 @@
             "카와나카지마 토쿠베츠쥰마이": "55,000원",
             "일품진로": "30,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/401711/2187128_1648634639721_73152?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/401711/2187128_1648634639721_73152?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "리틀빅토리",
-        "address": "서울특별시 마포구 연희로1길 41\n지번 서울시 마포구 연남동 381-6",
-        "phone": "0507-1408-1429",
+        "address_name": "서울시 마포구 연남동 381-6",
+        "tel": "0507-1408-1429",
         "opening_hours": "13:00 - 20:00",
         "holidays": "수, 일",
         "menu": {
@@ -861,21 +861,21 @@
             "초코 까눌레": "2,800원",
             "사브레 브루통": "3,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/339003/1199904_1605755418701_38996?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/339003/1199904_1605755418701_38996?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "스시하쿠초",
-        "address": "서울특별시 강남구 논현로 508 GS강남타워 B1\n지번 서울시 강남구 역삼동 679 GS강남타워 B1",
-        "phone": "010-7546-5621",
+        "address_name": "서울시 강남구 역삼동 679 GS강남타워 B1",
+        "tel": "010-7546-5621",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/842474_1673930315230532.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/842474_1673930315230532.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "도이칠란드 박",
-        "address": "서울특별시 성북구 솔샘로6길 30-15 1F\n지번 서울시 성북구 정릉동 372-37 1F",
-        "phone": "0507-1335-4532",
+        "address_name": "서울시 성북구 정릉동 372-37 1F",
+        "tel": "0507-1335-4532",
         "opening_hours": "11:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -885,12 +885,12 @@
             "수제 킬바사소세지": "10,900원",
             "부어스트 스페셜": "24,900원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/455450/2434258_1694773843641_1000021487?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/455450/2434258_1694773843641_1000021487?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "슬로우치즈",
-        "address": "서울특별시 강남구 삼성로145길 13 101호\n지번 서울시 강남구 청담동 11-1 101호",
-        "phone": "02-517-7172",
+        "address_name": "서울시 강남구 청담동 11-1 101호",
+        "tel": "02-517-7172",
         "opening_hours": "11:30 - 20:00",
         "holidays": "일, 월",
         "menu": {
@@ -898,12 +898,12 @@
             "부라타": "23,000원",
             "아메리카노": "4,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/355430/810572_1561943926719_106693?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/355430/810572_1561943926719_106693?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "유즈라멘",
-        "address": "서울특별시 중구 만리재로 217\n지번 서울시 중구 만리동1가 53-8",
-        "phone": "070-4177-0365",
+        "address_name": "서울시 중구 만리동1가 53-8",
+        "tel": "070-4177-0365",
         "opening_hours": "11:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -913,12 +913,12 @@
             "유즈츠케멘": "13,000원",
             "튀김김치만두 (3ea)": "4,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/729747_1550330485319368.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/729747_1550330485319368.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "뉴욕택시디저트",
-        "address": "서울특별시 관악구 남부순환로 1870 1F\n지번 서울시 관악구 봉천동 1664-16 1F",
-        "phone": "070-8711-1013",
+        "address_name": "서울시 관악구 봉천동 1664-16 1F",
+        "tel": "070-8711-1013",
         "opening_hours": "11:00 - 21:00",
         "holidays": "일",
         "menu": {
@@ -928,12 +928,12 @@
             "마롱케이크": "5,500원",
             "딸기생크림케이크": "5,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2252480_1673490010435231.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2252480_1673490010435231.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "코슌",
-        "address": "서울특별시 강남구 언주로153길 14 2F\n지번 서울시 강남구 신사동 626-71 2F",
-        "phone": "0507-1315-8729",
+        "address_name": "서울시 강남구 신사동 626-71 2F",
+        "tel": "0507-1315-8729",
         "opening_hours": "17:00 - 24:00",
         "holidays": "",
         "menu": {
@@ -941,12 +941,12 @@
             "풀 (카운터)": "58,000원",
             "풀 (룸)": "78,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/416836/259007_1606464889110_7215?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/416836/259007_1606464889110_7215?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "팔마",
-        "address": "서울특별시 종로구 자하문로5길 39 1F\n지번 서울시 종로구 필운동 170 1F",
-        "phone": "0507-1381-0189",
+        "address_name": "서울시 종로구 필운동 170 1F",
+        "tel": "0507-1381-0189",
         "opening_hours": "17:00 - 24:00",
         "holidays": "월",
         "menu": {
@@ -956,12 +956,12 @@
             "무화과 그뤼에르치즈 퀘사디아": "10,000원",
             "방아잎 양갈비구이": "34,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/456865/1042666_1630062897266_28535?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/456865/1042666_1630062897266_28535?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "메노",
-        "address": "서울특별시 서대문구 연희로26가길 15\n지번 서울시 서대문구 연희동 76-19",
-        "phone": "02-323-0895",
+        "address_name": "서울시 서대문구 연희동 76-19",
+        "tel": "02-323-0895",
         "opening_hours": "12:00 - 21:00",
         "holidays": "월",
         "menu": {
@@ -971,12 +971,12 @@
             "뽈뻬떼 (S)": "23,000원",
             "뽈뻬떼 (R)": "28,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/26472_1648019743394462.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/26472_1648019743394462.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "지우관",
-        "address": "서울특별시 성동구 뚝섬로9길 16\n지번 서울시 성동구 성수동2가 328-13",
-        "phone": "0507-1338-6743",
+        "address_name": "서울시 성동구 성수동2가 328-13",
+        "tel": "0507-1338-6743",
         "opening_hours": "11:30 - 21:00",
         "holidays": "월, 일",
         "menu": {
@@ -986,12 +986,12 @@
             "지우관하이볼": "8,000원",
             "지우관교자": "5,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/476450/90579_1647416549676_51849?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/476450/90579_1647416549676_51849?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "위트앤미트",
-        "address": "서울특별시 강남구 강남대로110길 32 1F\n지번 서울시 강남구 역삼동 616-4 1F",
-        "phone": "02-508-2396",
+        "address_name": "서울시 강남구 역삼동 616-4 1F",
+        "tel": "02-508-2396",
         "opening_hours": "11:30 - 20:30",
         "holidays": "",
         "menu": {
@@ -1001,21 +1001,21 @@
             "NASHVILLE HOT SHRIMP": "11,800원",
             "CLAM CHOWDER SOUP": "7,300원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2158174_1650269465946104.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2158174_1650269465946104.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "바코",
-        "address": "서울특별시 강서구 양천로 344 제107-2호\n지번 서울시 강서구 마곡동 776-2 제107-2호",
-        "phone": "02-3662-8959",
+        "address_name": "서울시 강서구 마곡동 776-2 제107-2호",
+        "tel": "02-3662-8959",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/741426_1687045267888001.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/741426_1687045267888001.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "남영돈",
-        "address": "서울특별시 용산구 한강대로80길 17\n지번 서울시 용산구 남영동 52-2",
-        "phone": "02-793-3598",
+        "address_name": "서울시 용산구 남영동 52-2",
+        "tel": "02-793-3598",
         "opening_hours": "월-금: 16:00 - 22:00\n토-일: 12:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -1024,12 +1024,12 @@
             "가브리살": "18,000원",
             "항정살": "20,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1161853_1626444515535177.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1161853_1626444515535177.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "돈까스전원",
-        "address": "서울특별시 성동구 왕십리로24길 13\n지번 서울시 성동구 도선동 201-3",
-        "phone": "0507-1346-7104",
+        "address_name": "서울시 성동구 도선동 201-3",
+        "tel": "0507-1346-7104",
         "opening_hours": "월-금: 11:30 - 20:00\n토: 12:00 - 15:00",
         "holidays": "일",
         "menu": {
@@ -1039,12 +1039,12 @@
             "치킨까스(닭다리살) 정식": "12,000원",
             "전갱이까스정식": "12,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/428178/1727908_1610466129234_7890?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/428178/1727908_1610466129234_7890?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "키겐",
-        "address": "서울특별시 강남구 언주로150길 51 B1\n지번 서울시 강남구 논현동 93-15 B1",
-        "phone": "02-542-5565",
+        "address_name": "서울시 강남구 논현동 93-15 B1",
+        "tel": "02-542-5565",
         "opening_hours": "18:00 - 01:00",
         "holidays": "일",
         "menu": {
@@ -1054,12 +1054,12 @@
             "자연산 도미솥밥": "33,000원",
             "갑오징어 먹물솥밥": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/414599/694014_1607141957400_52281?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/414599/694014_1607141957400_52281?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "양인환대극진",
-        "address": "서울특별시 용산구 한강대로40길 14 1F 104호\n지번 서울시 용산구 한강로2가 143-1 1F 104호",
-        "phone": "010-2757-3592",
+        "address_name": "서울시 용산구 한강로2가 143-1 1F 104호",
+        "tel": "010-2757-3592",
         "opening_hours": "17:00 - 23:00",
         "holidays": "",
         "menu": {
@@ -1069,12 +1069,12 @@
             "양설": "20,000원",
             "램t본": "100,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1601255_1614516973198441.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1601255_1614516973198441.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },  
     {
         "name": "쿳사",
-        "address": "서울특별시 서대문구 증가로 48 상가 1F 103호\n지번 서울시 서대문구 연희동 100-2 상가 1F 103호",
-        "phone": "0507-1310-1977",
+        "address_name": "서울시 서대문구 연희동 100-2 상가 1F 103호",
+        "tel": "0507-1310-1977",
         "opening_hours": "10:00 - 16:00",
         "holidays": "",
         "menu": {
@@ -1083,21 +1083,21 @@
             "치킨&톰 카 카이": "23,500원",
             "뇨끼 스킬렛 머쉬룸": "21,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1182605_1628767705413889.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1182605_1628767705413889.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "야망",
-        "address": "서울특별시 마포구 동교로27길 21-8\n지번 서울시 마포구 동교동 204-55",
-        "phone": "",
+        "address_name": "서울시 마포구 동교동 204-55",
+        "tel": "",
         "opening_hours": "화-금: 18:00 - 24:00\n토-일: 18:00 - 01:00",
         "holidays": "월",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/479896/743008_1678951101943_95923?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/479896/743008_1678951101943_95923?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "명랑회관",
-        "address": "서울특별시 강남구 삼성로85길 39\n지번 서울시 강남구 대치동 895-1",
-        "phone": "02-565-2662",
+        "address_name": "서울시 강남구 대치동 895-1",
+        "tel": "02-565-2662",
         "opening_hours": "월-금: 11:30 - 21:30\n토-일: 12:00- 21:30",
         "holidays": "",
         "menu": {
@@ -1107,12 +1107,12 @@
             "숙성 통항정살": "20,000원",
             "진꽃갈비살": "35,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/528686_1478617166485007.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/528686_1478617166485007.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "최강금돈까스",
-        "address": "서울특별시 마포구 월드컵로3길 31-30\n지번 서울시 마포구 합정동 388-15",
-        "phone": "02-332-3646",
+        "address_name": "서울시 마포구 합정동 388-15",
+        "tel": "02-332-3646",
         "opening_hours": "11:30 - 21:00",
         "holidays": "월",
         "menu": {
@@ -1120,12 +1120,12 @@
             "안심돈까스": "15,000원",
             "상듬심돈까스": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/655460_1612179294434643.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/655460_1612179294434643.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "애성회관 한우곰탕",
-        "address": "서울특별시 중구 남대문로5길 23 세창빌딩 1F\n지번 서울시 중구 북창동 93-36 세창빌딩 1F",
-        "phone": "02-352-0303",
+        "address_name": "서울시 중구 북창동 93-36 세창빌딩 1F",
+        "tel": "02-352-0303",
         "opening_hours": "월-금: 10:00 - 22:00\n토: 10:00 - 21:00",
         "holidays": "일",
         "menu": {
@@ -1135,12 +1135,12 @@
             "곰탕 (특)": "12,000원",
             "곰탕": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/14749/1715652_1612439589185_18824?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/14749/1715652_1612439589185_18824?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "매덕스피자",
-        "address": "서울특별시 강남구 도산대로15길 11 1F\n지번 서울시 강남구 신사동 541-11 1F",
-        "phone": "02-542-2420",
+        "address_name": "서울시 강남구 신사동 541-11 1F",
+        "tel": "02-542-2420",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1149,12 +1149,12 @@
             "페퍼로니피자": "40,000원",
             "하와이안피자": "49,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167_1587364617868110.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167_1587364617868110.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "엘리스리틀이태리",
-        "address": "서울특별시 마포구 백범로 152 201동 1F\n지번 서울시 마포구 공덕동 476 201동 1F",
-        "phone": "010-2668-3033",
+        "address_name": "서울시 마포구 공덕동 476 201동 1F",
+        "tel": "010-2668-3033",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -1164,12 +1164,12 @@
             "라자냐": "19,000원",
             "성게알 파스타": "24,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/467077_1587660803317727.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/467077_1587660803317727.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "오레노라멘",
-        "address": "서울특별시 마포구 독막로6길 14\n지번 서울시 마포구 합정동 361-1",
-        "phone": "02-322-3539",
+        "address_name": "서울시 마포구 합정동 361-1",
+        "tel": "02-322-3539",
         "opening_hours": "11:30 - 21:00",
         "holidays": "",
         "menu": {
@@ -1178,21 +1178,21 @@
             "시오라멘": "11,000원",
             "카라빠이탄라멘": "11,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/460278_1491386783474508.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/460278_1491386783474508.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "물랑",
-        "address": "서울특별시 종로구 자하문로16길 8 1F\n지번 서울시 종로구 창성동 87-1 1F",
-        "phone": "070-4404-7978",
+        "address_name": "서울시 종로구 창성동 87-1 1F",
+        "tel": "070-4404-7978",
         "opening_hours": "12:00 - 22:00",
         "holidays": "수",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/43178_1629558903712820.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/43178_1629558903712820.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "페리지",
-        "address": "서울특별시 강남구 봉은사로68길 6-5 1F\n지번 서울시 강남구 삼성동 114-40 1F",
-        "phone": "",
+        "address_name": "서울시 강남구 삼성동 114-40 1F",
+        "tel": "",
         "opening_hours": "17:00 - 22:00",
         "holidays": "일, 월",
         "menu": {
@@ -1202,12 +1202,12 @@
             "안다리노 윗 랍스타": "36,000원",
             "텐더로인": "55,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/502465_1693779101750605.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/502465_1693779101750605.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "해목",
-        "address": "서울특별시 강남구 선릉로145길 14\n지번 서울시 강남구 논현동 95-21",
-        "phone": "02-6203-0021",
+        "address_name": "서울시 강남구 논현동 95-21",
+        "tel": "02-6203-0021",
         "opening_hours": "11:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1217,12 +1217,12 @@
             "특카이센동": "51,000원",
             "연어+참치+네기도로": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/454968/1042666_1630477664803_28467?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/454968/1042666_1630477664803_28467?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "광장시장 찹쌀꽈배기",
-        "address": "서울특별시 종로구 종로32길 2 105호\n지번 서울시 종로구 종로4가 188 105호",
-        "phone": "010-8917-4547",
+        "address_name": "서울시 종로구 종로4가 188 105호",
+        "tel": "010-8917-4547",
         "opening_hours": "11:00 - 21:00",
         "holidays": "첫째 일",
         "menu": {
@@ -1230,12 +1230,12 @@
             "팥도너츠": "1,500원",
             "흑미찹쌀도너츠": "1,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1290130_1590479052656448.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1290130_1590479052656448.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "BISTROT de YOUNTVILLE",
-        "address": "서울특별시 강남구 선릉로158길 13-7 이안빌딩 1F\n지번 서울시 강남구 청담동 83-6 이안빌딩 1F",
-        "phone": "02-541-1550",
+        "address_name": "서울시 강남구 청담동 83-6 이안빌딩 1F",
+        "tel": "02-541-1550",
         "opening_hours": "11:30 - 22:00",
         "holidays": "월, 화",
         "menu": {
@@ -1244,12 +1244,12 @@
             "디너 트래디션 3코스": "110,000원",
             "디너 트래디션 4코스": "130,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/747755_1490231237192802.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/747755_1490231237192802.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "패티앤베지스",
-        "address": "서울특별시 강남구 압구정로4길 11 1F\n지번 서울시 강남구 신사동 525-2 1F",
-        "phone": "02-541-3443",
+        "address_name": "서울시 강남구 신사동 525-2 1F",
+        "tel": "02-541-3443",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -1259,21 +1259,21 @@
             "치폴레 핫 치킨과 블루치즈 딥": "17,900원",
             "크리미 머쉬룸 맥앤치즈": "15,900원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/598583_1614401187003639.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/598583_1614401187003639.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
     },
     {
         "name": "카츠8",
-        "address": "서울특별시 강남구 테헤란로 521 파르나스몰 B1\n지번 서울시 강남구 삼성동 159-8 파르나스몰 B1",
-        "phone": "02-3453-8878",
+        "address_name": "서울시 강남구 삼성동 159-8 파르나스몰 B1",
+        "tel": "02-3453-8878",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/30173_1691929317607886.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/30173_1691929317607886.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "토파",
-        "address": "서울특별시 마포구 토정로3길 5 1F\n지번 서울시 마포구 합정동 369-3 1F",
-        "phone": "02-332-3693",
+        "address_name": "서울시 마포구 합정동 369-3 1F",
+        "tel": "02-332-3693",
         "opening_hours": "12:00 - 22:30",
         "holidays": "화",
         "menu": {
@@ -1283,12 +1283,12 @@
             "T-born": "210,000원",
             "Lunch Course": "35,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/397492/14650_1600744023603_38327?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/397492/14650_1600744023603_38327?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "우육면관",
-        "address": "서울특별시 종로구 청계천로 75-2\n지번 서울시 종로구 관철동 11-11",
-        "phone": "070-4213-5678",
+        "address_name": "서울시 종로구 관철동 11-11",
+        "tel": "070-4213-5678",
         "opening_hours": "11:00 - 20:00",
         "holidays": "",
         "menu": {
@@ -1296,21 +1296,21 @@
             "우육면 (특)": "13,000원",
             "수교": "8,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/396519/128148_1591901107619_16075?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/396519/128148_1591901107619_16075?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "더티스낵",
-        "address": "서울특별시 용산구 이태원로 169-1\n지번 서울시 용산구 이태원동 119-13",
-        "phone": "",
+        "address_name": "서울시 용산구 이태원동 119-13",
+        "tel": "",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/489595/26737_1692828644962_1000022939?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/489595/26737_1692828644962_1000022939?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "가디록",
-        "address": "서울특별시 강남구 도산대로45길 18-4 2F\n지번 서울시 강남구 신사동 650-5 2F",
-        "phone": "02-6404-6815",
+        "address_name": "서울시 강남구 신사동 650-5 2F",
+        "tel": "02-6404-6815",
         "opening_hours": "12:00 - 22:00",
         "holidays": "일",
         "menu": {
@@ -1320,12 +1320,12 @@
             "볼로네제 페투치네": "23,000원",
             "한우 채끝 스테이크": "54,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/1427_1487514113650603.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/1427_1487514113650603.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "농민백암왕순대",
-        "address": "서울특별시 강남구 역삼로3길 20-4\n지번 서울시 강남구 역삼동 830-9",
-        "phone": "02-501-2772",
+        "address_name": "서울시 강남구 역삼동 830-9",
+        "tel": "02-501-2772",
         "opening_hours": "월-금: 11:10 - 21:00\n토: 11:10 - 15:30",
         "holidays": "일",
         "menu": {
@@ -1334,12 +1334,12 @@
             "술국": "17,000원",
             "토종순대": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/87430/59_1491141169295_9384?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/87430/59_1491141169295_9384?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "소금집델리 망원",
-        "address": "서울특별시 마포구 월드컵로19길 14 2F\n지번 서울시 마포구 망원동 57-38 2F",
-        "phone": "02-336-2617",
+        "address_name": "서울시 마포구 망원동 57-38 2F",
+        "tel": "02-336-2617",
         "opening_hours": "11:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -1349,12 +1349,12 @@
             "살라미 샌드위치": "13,800원",
             "모르티 샌드위치": "14,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/462661_1614092294343929.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/462661_1614092294343929.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "허머스키친",
-        "address": "서울특별시 강남구 테헤란로 521 파르나스몰 B1 F-26호\n지번 서울시 강남구 삼성동 159-8 파르나스몰 B1 F-26호",
-        "phone": "02-3453-6811",
+        "address_name": "서울시 강남구 삼성동 159-8 파르나스몰 B1 F-26호",
+        "tel": "02-3453-6811",
         "opening_hours": "11:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1364,12 +1364,12 @@
             "치킨삭수카": "14,800원",
             "치즈삭수카": "14,300원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/268356/513834_1475590237324_1000?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/268356/513834_1475590237324_1000?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "로바탄요",
-        "address": "서울특별시 강남구 압구정로28길 49 109호\n지번 서울시 강남구 신사동 584-1 109호",
-        "phone": "02-6339-9667",
+        "address_name": "서울시 강남구 신사동 584-1 109호",
+        "tel": "02-6339-9667",
         "opening_hours": "17:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1379,12 +1379,12 @@
             "시사모": "15,000원",
             "요세나베": "27,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/342832/47875_1548135384309?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/342832/47875_1548135384309?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "마하차이",
-        "address": "서울특별시 성동구 뚝섬로 399 2F\n지번 서울시 성동구 성수동2가 339-22 2F",
-        "phone": "02-468-5678",
+        "address_name": "서울시 성동구 성수동2가 339-22 2F",
+        "tel": "02-468-5678",
         "opening_hours": "월-금: 11:00 - 21:00\n토-일: 11:30 - 21:00",
         "holidays": "",
         "menu": {
@@ -1394,12 +1394,12 @@
             "푸팟퐁커리덮밥": "12,500원",
             "나시고랭": "9,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/699309_1591925712484404.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/699309_1591925712484404.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "포카치아델라스트라다",
-        "address": "서울특별시 용산구 한강대로46길 11\n지번 서울시 용산구 한강로2가 105-3",
-        "phone": "070-4271-3377",
+        "address_name": "서울시 용산구 한강로2가 105-3",
+        "tel": "070-4271-3377",
         "opening_hours": "월-토: 11:30 - 21:00\n일: 11:30 - 20:00",
         "holidays": "화",
         "menu": {
@@ -1409,21 +1409,21 @@
             "프로슈토 크루도 파르마와 루꼴라": "5,800원",
             "카르쵸피와 꼬또": "13,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/450877/511608_1630325900030_77594?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/450877/511608_1630325900030_77594?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "은하루",
-        "address": "서울특별시 마포구 월드컵로3길 56\n지번 서울시 마포구 합정동 391-19",
-        "phone": "02-322-4508",
+        "address_name": "서울시 마포구 합정동 391-19",
+        "tel": "02-322-4508",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1991439_1672067228166323.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1991439_1672067228166323.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "오스테리아 오르조",
-        "address": "서울특별시 용산구 한남대로20길 47 2F\n지번 서울시 용산구 한남동 31-13 2F",
-        "phone": "010-6361-0801",
+        "address_name": "서울시 용산구 한남동 31-13 2F",
+        "tel": "010-6361-0801",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1433,12 +1433,12 @@
             "우니 파스타": "29,000원",
             "채끝등심 스테이크 (100g)": "72,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/334312/458314_1532956247820_6950?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/334312/458314_1532956247820_6950?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "라바즈",
-        "address": "서울특별시 마포구 월드컵로13길 19-23 2F\n지번 서울시 마포구 망원동 379-32 2F",
-        "phone": "070-7537-0006",
+        "address_name": "서울시 마포구 망원동 379-32 2F",
+        "tel": "070-7537-0006",
         "opening_hours": "12:00 - 19:00",
         "holidays": "월, 화, 수, 목",
         "menu": {
@@ -1448,21 +1448,21 @@
             "레몬라임타르트": "8,500원",
             "피칸캐러멜타르트": "8,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/817437_1610944024756964.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/817437_1610944024756964.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "아트와떵",
-        "address": "서울특별시 마포구 동교로50길 25\n지번 서울시 마포구 연남동 226-26",
-        "phone": "010-3249-5325",
+        "address_name": "서울시 마포구 연남동 226-26",
+        "tel": "010-3249-5325",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/602257_1693924279899295.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/602257_1693924279899295.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "화양연가",
-        "address": "서울특별시 용산구 한강대로76길 5\n지번 서울시 용산구 남영동 89-5",
-        "phone": "070-8950-8059",
+        "address_name": "서울시 용산구 남영동 89-5",
+        "tel": "070-8950-8059",
         "opening_hours": "월-금: 11:40 - 23:00\n토-일: 12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1472,12 +1472,12 @@
             "열무국수": "3,000원",
             "누룽지": "2,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/664762_1618718545966223.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/664762_1618718545966223.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "야상해",
-        "address": "서울특별시 용산구 이태원로23길 6\n지번 서울시 용산구 이태원동 119-16",
-        "phone": "02-749-8666",
+        "address_name": "서울시 용산구 이태원동 119-16",
+        "tel": "02-749-8666",
         "opening_hours": "12:00 - 22:00",
         "holidays": "월",
         "menu": {
@@ -1487,21 +1487,21 @@
             "사천소면": "6,000원",
             "상해식동파육": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/333417_1636591058507896.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/333417_1636591058507896.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "쿠시파파",
-        "address": "서울특별시 마포구 동교로 256-4 B1\n지번 서울시 마포구 연남동 228-39 B1",
-        "phone": "02-332-3889",
+        "address_name": "서울시 마포구 연남동 228-39 B1",
+        "tel": "02-332-3889",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/387104/397785_1684813972756_1000007362?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/387104/397785_1684813972756_1000007362?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "꿉당",
-        "address": "서울특별시 서초구 강남대로 615 1F\n지번 서울시 서초구 잠원동 12-21 1F",
-        "phone": "02-545-9600",
+        "address_name": "서울시 서초구 잠원동 12-21 1F",
+        "tel": "02-545-9600",
         "opening_hours": "월-토: 16:30 - 23:30\n일: 15:00 - 23:30",
         "holidays": "",
         "menu": {
@@ -1511,21 +1511,21 @@
             "갈매기살 (180g)": "16,000원",
             "팔도비빔면": "4,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/390092/434101_1563790618006_9074?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/390092/434101_1563790618006_9074?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "익스퀴진",
-        "address": "서울특별시 강남구 삼성로140길 6 라파빌딩\n지번 서울시 강남구 청담동 63-11 라파빌딩",
-        "phone": "02-542-6921",
+        "address_name": "서울시 강남구 청담동 63-11 라파빌딩",
+        "tel": "02-542-6921",
         "opening_hours": "12:00 - 20:00",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/1427_1485092024330092.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/1427_1485092024330092.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "시라카와",
-        "address": "서울특별시 강남구 선릉로161길 7 1F\n지번 서울시 강남구 신사동 664-24 1F",
-        "phone": "070-4115-4769",
+        "address_name": "서울시 강남구 신사동 664-24 1F",
+        "tel": "070-4115-4769",
         "opening_hours": "17:00 - 23:00",
         "holidays": "일",
         "menu": {
@@ -1535,12 +1535,12 @@
             "우엉튀김 고기우동": "13,000원",
             "카스타드푸딩": "3,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/513273_1598598343472200.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/513273_1598598343472200.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "하나라멘",
-        "address": "서울특별시 마포구 동교로38길 27-4 1F\n지번 서울시 마포구 연남동 390-44 1F",
-        "phone": "02-336-2704",
+        "address_name": "서울시 마포구 연남동 390-44 1F",
+        "tel": "02-336-2704",
         "opening_hours": "11:30 - 21:00",
         "holidays": "",
         "menu": {
@@ -1549,12 +1549,12 @@
             "마라파이탄": "10,000원",
             "니보시시오라멘": "11,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1632027290913154.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1632027290913154.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "야키토리묵",
-        "address": "서울특별시 강남구 강남대로152길 23 B1\n지번 서울시 강남구 신사동 512-11 B1",
-        "phone": "070-4134-3433",
+        "address_name": "서울시 강남구 신사동 512-11 B1",
+        "tel": "070-4134-3433",
         "opening_hours": "17:00 - 01:00",
         "holidays": "일",
         "menu": {
@@ -1564,12 +1564,12 @@
             "넓적다리통구이": "10,000원",
             "츠쿠네산도": "5,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/457812/1656652_1624490011732_31218?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/457812/1656652_1624490011732_31218?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "회현식당",
-        "address": "서울특별시 중구 퇴계로2길 9-8\n지번 서울시 중구 남창동 205-72",
-        "phone": "02-318-8011",
+        "address_name": "서울시 중구 남창동 205-72",
+        "tel": "02-318-8011",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -1579,24 +1579,24 @@
             "부리 (저녁)": "30,000원",
             "아나고노시라야키 (저녁)": "30,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/447614/1656652_1617238835091_24559?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/447614/1656652_1617238835091_24559?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "로랑",
-        "address": "서울특별시 마포구 월드컵북로48길 28-11 1F\n지번 서울시 마포구 상암동 15-17 1F",
-        "phone": "0507-1335-6140",
+        "address_name": "서울시 마포구 상암동 15-17 1F",
+        "tel": "0507-1335-6140",
         "opening_hours": "12:00 - 21:00",
         "holidays": "",
         "menu": {
             "스시오마카세 (런치)": "58,000원",
             "스시오마카세 (디너)": "98,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/459839/570339_1644877582406_33932?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/459839/570339_1644877582406_33932?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "윤밀원",
-        "address": "경기 성남시 분당구 백현로 154\n지번 경기도 성남시 분당구 정자동 46-5",
-        "phone": "031-714-8388",
+        "address_name": "경기도 성남시 분당구 정자동 46-5",
+        "tel": "031-714-8388",
         "opening_hours": "11:30 - 21:30",
         "holidays": "",
         "menu": {
@@ -1605,12 +1605,12 @@
             "양곰탕": "13,000원",
             "막국수(비빔)": "12,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/644531_1476919350188637.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/644531_1476919350188637.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "흐비지떼",
-        "address": "서울특별시 강남구 삼성로107길 34 1F\n지번 서울시 강남구 삼성동 115-45 1F",
-        "phone": "070-8899-0607",
+        "address_name": "서울시 강남구 삼성동 115-45 1F",
+        "tel": "070-8899-0607",
         "opening_hours": "12:00 - 19:00",
         "holidays": "일, 월",
         "menu": {
@@ -1620,12 +1620,12 @@
             "몽블랑": "8,700원",
             "바니퉁카": "9,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/705256_1639738373411869.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/705256_1639738373411869.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "담택",
-        "address": "서울특별시 마포구 월드컵로8길 34 1F\n지번 서울시 마포구 서교동 381-22 1F",
-        "phone": "02-336-0974",
+        "address_name": "서울시 마포구 서교동 381-22 1F",
+        "tel": "02-336-0974",
         "opening_hours": "11:30 - 20:00",
         "holidays": "일",
         "menu": {
@@ -1635,12 +1635,12 @@
             "와사비라멘": "11,000원",
             "에비시오라멘": "11,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/925209_1579766648666581.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/925209_1579766648666581.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "사브서울",
-        "address": "서울특별시 강남구 논현로175길 6 B1\n지번 서울시 강남구 신사동 580-5 B1",
-        "phone": "02-512-4939",
+        "address_name": "서울시 강남구 신사동 580-5 B1",
+        "tel": "02-512-4939",
         "opening_hours": "18:00 - 24:00",
         "holidays": "일",
         "menu": {
@@ -1650,24 +1650,24 @@
             "한우채끝스테이크": "59,000원",
             "생선스튜": "30,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2196417_1649124497884742.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2196417_1649124497884742.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "올레무스",
-        "address": "서울특별시 서대문구 연희로5길 58\n지번 서울시 서대문구 연희동 220-40",
-        "phone": "",
+        "address_name": "서울시 서대문구 연희동 220-40",
+        "tel": "",
         "opening_hours": "12:00 - 19:00",
         "holidays": "화, 수, 목",
         "menu": {
             "말차": "8,000원",
             "옥로": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/i6z83-9jfcmugf.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/supporters_admin/i6z83-9jfcmugf.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "키마라야",
-        "address": "서울특별시 서초구 방배중앙로 204 108호\n지번 서울시 서초구 방배동 755-14 108호",
-        "phone": "02-2088-5597",
+        "address_name": "서울시 서초구 방배동 755-14 108호",
+        "tel": "02-2088-5597",
         "opening_hours": "11:00 - 21:30",
         "holidays": "일",
         "menu": {
@@ -1675,12 +1675,12 @@
             "니쿠키마": "12,000원",
             "오늘의카레": "12,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/494061/1042666_1682218997750_1000009609?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/494061/1042666_1682218997750_1000009609?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "반티엔야오카오위",
-        "address": "서울특별시 서초구 서초대로73길 12 세계빌딩 1F\n지번 서울시 서초구 서초동 1317-31 세계빌딩 1F",
-        "phone": "02-6953-6668",
+        "address_name": "서울시 서초구 서초동 1317-31 세계빌딩 1F",
+        "tel": "02-6953-6668",
         "opening_hours": "월-토: 11:00 - 22:00\n일: 11:00 - 21:30",
         "holidays": "",
         "menu": {
@@ -1690,21 +1690,21 @@
             "쏸차이 카오위": "43,800원",
             "마늘향 카오위": "38,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/452637/1168063_1639733462425_13128?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/452637/1168063_1639733462425_13128?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "호라파",
-        "address": "서울특별시 종로구 자하문로 37-1 2F\n지번 서울시 종로구 통인동 137-15 2F",
-        "phone": "0507-1414-0216",
+        "address_name": "서울시 종로구 통인동 137-15 2F",
+        "tel": "0507-1414-0216",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/571842_1692172422180683.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/571842_1692172422180683.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "가담",
-        "address": "서울특별시 강남구 언주로167길 35 옥산빌딩\n지번 서울시 강남구 신사동 608-8 옥산빌딩",
-        "phone": "02-545-5163",
+        "address_name": "서울시 강남구 신사동 608-8 옥산빌딩",
+        "tel": "02-545-5163",
         "opening_hours": "월-금: 11:00 - 22:00\n토-일: 10:30 - 21:30",
         "holidays": "",
         "menu": {
@@ -1714,12 +1714,12 @@
             "깐풍기": "33,000원",
             "유린기": "33,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1563335477650385.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1563335477650385.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "진만두",
-        "address": "서울특별시 마포구 와우산로29길 4-42\n지번 서울시 마포구 서교동 327-22",
-        "phone": "02-338-1117",
+        "address_name": "서울시 마포구 서교동 327-22",
+        "tel": "02-338-1117",
         "opening_hours": "12:00 - 22:00",
         "holidays": "일",
         "menu": {
@@ -1729,12 +1729,12 @@
             "동파육 (한정소량)": "31,000원",
             "오향진장육": "22,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/879773_1630250401905023.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/879773_1630250401905023.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "부촌육회",
-        "address": "서울특별시 종로구 종로 200 1F\n지번 서울시 종로구 종로4가 176-1 1F",
-        "phone": "02-2272-1831",
+        "address_name": "서울시 종로구 종로4가 176-1 1F",
+        "tel": "02-2272-1831",
         "opening_hours": "10:00 - 22:00",
         "holidays": "월",
         "menu": {
@@ -1744,12 +1744,12 @@
             "육회물회": "25,000원",
             "육사시미": "28,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/388592/783110_1601339147152_33270?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/388592/783110_1601339147152_33270?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "이치류",
-        "address": "서울특별시 마포구 잔다리로3안길 44\n지번 서울시 마포구 서교동 395-124",
-        "phone": "02-3144-1312",
+        "address_name": "서울시 마포구 서교동 395-124",
+        "tel": "02-3144-1312",
         "opening_hours": "월-토: 17:00 - 23:00\n일: 17:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -1759,12 +1759,12 @@
             "이치류오뎅탕": "20,000원",
             "공기밥": "2,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/18020/26737_1488812745055_26737_1488688244470_43523?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/18020/26737_1488812745055_26737_1488688244470_43523?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "인딕 슬로우",
-        "address": "서울특별시 강남구 압구정로4길 13 1F\n지번 서울시 강남구 신사동 525-4 1F",
-        "phone": "02-511-0139",
+        "address_name": "서울시 강남구 신사동 525-4 1F",
+        "tel": "02-511-0139",
         "opening_hours": "11:30 - 21:30",
         "holidays": "",
         "menu": {
@@ -1774,12 +1774,12 @@
             "포도&블루치즈": "16,500원",
             "오늘의 요거트": "6,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/364458_1513405622602061.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/364458_1513405622602061.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "팔레드 신",
-        "address": "서울특별시 중구 퇴계로 67 레스케이프호텔 6F\n지번 서울시 중구 회현동1가 210 레스케이프호텔 6F",
-        "phone": "02-317-4001",
+        "address_name": "서울시 중구 회현동1가 210 레스케이프호텔 6F",
+        "tel": "02-317-4001",
         "opening_hours": "07:00 - 23:00",
         "holidays": "",
         "menu": {
@@ -1789,12 +1789,12 @@
             "소흥주 칠리 새우": "39,000원",
             "메추리알 트러플 샤오마이 (3pcs)": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1578475854877182.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/52544_1578475854877182.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "멜드 바이 기치조지",
-        "address": "서울특별시 마포구 성지길 55 2F\n지번 서울시 마포구 합정동 369-15 2F",
-        "phone": "02-332-6552",
+        "address_name": "서울시 마포구 합정동 369-15 2F",
+        "tel": "02-332-6552",
         "opening_hours": "18:00 - 24:00",
         "holidays": "일",
         "menu": {
@@ -1804,12 +1804,12 @@
             "스지": "12,000원",
             "명란치즈오믈렛": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/333716/90579_1507892049345_90579_1507890659162_180366?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/333716/90579_1507892049345_90579_1507890659162_180366?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "차만다",
-        "address": "서울특별시 송파구 오금로16길 4-15 반도빌딩 1F\n지번 서울시 송파구 송파동 57-9 반도빌딩 1F",
-        "phone": "02-422-0812",
+        "address_name": "서울시 송파구 송파동 57-9 반도빌딩 1F",
+        "tel": "02-422-0812",
         "opening_hours": "월-금: 11:30 - 21:30\n토-일: 12:00 - 21:30",
         "holidays": "",
         "menu": {
@@ -1819,12 +1819,12 @@
             "영국식 치킨커리": "18,500원",
             "느와르 포크밸리 크림 파스타": "19,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/358742/1042666_1598425629198?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/358742/1042666_1598425629198?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "옥돌현옥",
-        "address": "서울특별시 송파구 오금로36길 26-1\n지번 서울시 송파구 가락동 19-7",
-        "phone": "02-404-4824",
+        "address_name": "서울시 송파구 가락동 19-7",
+        "tel": "02-404-4824",
         "opening_hours": "11:30 - 22:00",
         "holidays": "수",
         "menu": {
@@ -1834,12 +1834,12 @@
             "가자미식해": "18,000원",
             "어복쟁반": "48,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1520701_1607589439911804.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1520701_1607589439911804.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "상진식감",
-        "address": "서울특별시 강남구 도산대로11길 31-10 B1\n지번 서울시 강남구 신사동 518-15 B1",
-        "phone": "02-6439-2735",
+        "address_name": "서울시 강남구 신사동 518-15 B1",
+        "tel": "02-6439-2735",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -1848,12 +1848,12 @@
             "안심카츠": "15,000원",
             "다리살카츠": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/479607/894765_1670830877419?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/479607/894765_1670830877419?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "리사르커피로스터스",
-        "address": "서울특별시 중구 다산로8길 16-7\n지번 서울시 중구 신당동 366-32",
-        "phone": "070-7677-5538",
+        "address_name": "서울시 중구 신당동 366-32",
+        "tel": "070-7677-5538",
         "opening_hours": "월-금: 07:00 - 15:00\n토: 12:00 - 15:00",
         "holidays": "일",
         "menu": {
@@ -1863,12 +1863,12 @@
             "카페 카푸치노": "2,000원",
             "카페 피에노": "2,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/422920_1454986935255.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/422920_1454986935255.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "미오도쿄다이닝",
-        "address": "서울특별시 성동구 연무장5가길 7 현대테라스타워 117호\n지번 서울시 성동구 성수동2가 314-13 현대테라스타워 117호",
-        "phone": "02-2223-2120",
+        "address_name": "서울시 성동구 성수동2가 314-13 현대테라스타워 117호",
+        "tel": "02-2223-2120",
         "opening_hours": "11:30 - 22:00",
         "holidays": "일, 첫째/셋째 월",
         "menu": {
@@ -1878,24 +1878,24 @@
             "치킨스테이크고젠": "11,000원",
             "포크 갈릭에 빠지다": "9,900원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/450168/1042666_1619236241074_1042666_1619198000359?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/450168/1042666_1619236241074_1042666_1619198000359?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "당도",
-        "address": "서울특별시 마포구 포은로 106\n지번 서울시 마포구 망원동 414-16",
-        "phone": "070-8690-1088",
+        "address_name": "서울시 마포구 망원동 414-16",
+        "tel": "070-8690-1088",
         "opening_hours": "12:30 - 20:00",
         "holidays": "월",
         "menu": {
             "젤라또 (두가지 맛)": "3,900원",
             "젤라또 포장박스 (500cc)": "18,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/35813_1490342731688208.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/35813_1490342731688208.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "르페셰미뇽",
-        "address": "서울특별시 용산구 녹사평대로40가길 3-3 2F\n지번 서울시 용산구 이태원동 447-5 2F",
-        "phone": "02-6487-5525",
+        "address_name": "서울시 용산구 이태원동 447-5 2F",
+        "tel": "02-6487-5525",
         "opening_hours": "13:00 - 20:00",
         "holidays": "월, 화",
         "menu": {
@@ -1903,12 +1903,12 @@
             "아이스크림": "6,000원",
             "아이스초코": "7,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/358027/569295_1634469492494_7836?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/358027/569295_1634469492494_7836?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "오코노미야키식당하나",
-        "address": "서울특별시 광진구 능동로13길 111\n지번 서울시 광진구 화양동 31-4",
-        "phone": "02-469-8884",
+        "address_name": "서울시 광진구 화양동 31-4",
+        "tel": "02-469-8884",
         "opening_hours": "월-금: 17:00 - 23:00\n토-일: 11:30 - 23:00",
         "holidays": "화",
         "menu": {
@@ -1918,12 +1918,12 @@
             "오코노미야끼 (스페셜타마)": "15,000원",
             "야키소바": "12,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/341235/930854_1515317371803_20421?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/341235/930854_1515317371803_20421?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "시미베",
-        "address": "서울특별시 중구 퇴계로 386-1 2F\n지번 서울시 중구 신당동 247-14 2F",
-        "phone": "02-2039-1226",
+        "address_name": "서울시 중구 신당동 247-14 2F",
+        "tel": "02-2039-1226",
         "opening_hours": "18:00 - 24:00",
         "holidays": "일, 월",
         "menu": {
@@ -1933,12 +1933,12 @@
             "붕장어카츠": "18,000원",
             "생선라구소스와 무조림": "13,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2203413_1648644043065659.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2203413_1648644043065659.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "신비갈비살",
-        "address": "서울특별시 강남구 강남대로158길 15 1F\n지번 서울시 강남구 신사동 508-9 1F",
-        "phone": "02-543-5992",
+        "address_name": "서울시 강남구 신사동 508-9 1F",
+        "tel": "02-543-5992",
         "opening_hours": "월-금: 17:00 - 22:00\n토: 17:00 - 21:30",
         "holidays": "일",
         "menu": {
@@ -1946,12 +1946,12 @@
             "갈비반짝모듬": "60,000원",
             "한우갈비살 (100g)": "19,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/651394_1612093981021694.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/651394_1612093981021694.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "까폼",
-        "address": "서울특별시 강남구 선릉로153길 18 B1\n지번 서울시 강남구 신사동 655-15 B1",
-        "phone": "02-6081-7318",
+        "address_name": "서울시 강남구 신사동 655-15 B1",
+        "tel": "02-6081-7318",
         "opening_hours": "월-금: 11:30 - 24:00\n토-일: 14:00 - 24:00",
         "holidays": "공휴일",
         "menu": {
@@ -1961,12 +1961,12 @@
             "커무양": "15,000원",
             "카무": "18,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/213410_1504785308977084.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/213410_1504785308977084.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "오제제",
-        "address": "서울특별시 용산구 한강대로 363-2 1F\n지번 서울시 용산구 동자동 43-22 1F",
-        "phone": "070-4647-4650",
+        "address_name": "서울시 용산구 동자동 43-22 1F",
+        "tel": "070-4647-4650",
         "opening_hours": "11:00 - 20:55",
         "holidays": "일",
         "menu": {
@@ -1976,12 +1976,12 @@
             "라임소바": "10,000원",
             "안심돈가츠": "13,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/422104/116586_1615025272155_61527?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/422104/116586_1615025272155_61527?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "밀각",
-        "address": "서울특별시 송파구 송파대로28길 27 성원쌍떼빌101동 116호\n지번 서울시 송파구 가락동 80 성원쌍떼빌101동 116호",
-        "phone": "02-409-9295",
+        "address_name": "서울시 송파구 가락동 80 성원쌍떼빌101동 116호",
+        "tel": "02-409-9295",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -1991,32 +1991,32 @@
             "양곰탕": "12,000원",
             "평양냉면": "13,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/450440/689765_1639901201276_41598?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/450440/689765_1639901201276_41598?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "무아",
-        "address": "서울특별시 강남구 논현로151길 33 2F\n지번 서울시 강남구 신사동 561-21 2F",
-        "phone": "0507-1346-3300",
+        "address_name": "서울시 강남구 신사동 561-21 2F",
+        "tel": "0507-1346-3300",
         "opening_hours": "18:00 - 22:30",
         "holidays": "일",
         "menu": {
             "디너코스": "110,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1775959_1610355762201450.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1775959_1610355762201450.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "효제루",
-        "address": "서울특별시 종로구 대학로 18 1F\n지번 서울시 종로구 효제동 301-2 1F",
-        "phone": "02-6448-0772",
+        "address_name": "서울시 종로구 효제동 301-2 1F",
+        "tel": "02-6448-0772",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/27597_1682474538529937.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/27597_1682474538529937.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "소점",
-        "address": "서울특별시 마포구 성미산로17길 99\n지번 서울시 마포구 연남동 487-278",
-        "phone": "010-6316-7739",
+        "address_name": "서울시 마포구 연남동 487-278",
+        "tel": "010-6316-7739",
         "opening_hours": "13:00 - 22:00",
         "holidays": "둘째/넷째/다섯째 일",
         "menu": {
@@ -2026,33 +2026,33 @@
             "돈페이야키": "16,000원",
             "야키소바": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1810120_1602891349997212.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1810120_1602891349997212.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "스시카나에",
-        "address": "서울특별시 강남구 도산대로75길 15 노노빌딩 2F\n지번 서울시 강남구 청담동 96-22 노노빌딩 2F",
-        "phone": "02-516-3350",
+        "address_name": "서울시 강남구 청담동 96-22 노노빌딩 2F",
+        "tel": "02-516-3350",
         "opening_hours": "12:00 - 22:00",
         "holidays": "일",
         "menu": {
             "런치 오마카세": "65,000원",
             "디너 오마카세": "130,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/384189/244033_1561689612351_356009?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/384189/244033_1561689612351_356009?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "씨케이브",
-        "address": "서울특별시 서대문구 연희로 89-12 102호\n지번 서울시 서대문구 연희동 188-79 102호",
-        "phone": "0507-1320-6972",
+        "address_name": "서울시 서대문구 연희동 188-79 102호",
+        "tel": "0507-1320-6972",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/503928/2434258_1694596197699_1000020057?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/503928/2434258_1694596197699_1000020057?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "우주옥",
-        "address": "서울특별시 마포구 동교로50길 11 B02호\n지번 서울시 마포구 연남동 224-6 B02호",
-        "phone": "070-4168-4812",
+        "address_name": "서울시 마포구 연남동 224-6 B02호",
+        "tel": "070-4168-4812",
         "opening_hours": "17:30 - 24:00",
         "holidays": "화",
         "menu": {
@@ -2062,12 +2062,12 @@
             "우설": "25,000원",
             "어복쟁반 (소)": "33,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1627493891796261.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1433827_1627493891796261.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "카와카츠",
-        "address": "서울특별시 마포구 양화로 78-7 1F\n지번 서울시 마포구 서교동 395-154 1F",
-        "phone": "070-7543-6317",
+        "address_name": "서울시 마포구 서교동 395-154 1F",
+        "tel": "070-7543-6317",
         "opening_hours": "11:30 - 20:30",
         "holidays": "일",
         "menu": {
@@ -2077,12 +2077,12 @@
             "카츠산도": "14,000원",
             "유린기카츠": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/47875_1629891127614151.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/47875_1629891127614151.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "멘타카무쇼",
-        "address": "서울특별시 마포구 와우산로13길 49-10\n지번 서울시 마포구 상수동 316-3",
-        "phone": "",
+        "address_name": "서울시 마포구 상수동 316-3",
+        "tel": "",
         "opening_hours": "11:30 - 20:00",
         "holidays": "",
         "menu": {
@@ -2092,12 +2092,12 @@
             "츠케멘": "8,500원",
             "아지타마츠케멘": "9,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/438965/748131_1610409563005_6655?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/438965/748131_1610409563005_6655?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "야키토리나루토",
-        "address": "서울특별시 마포구 독막로9길 26\n지번 서울시 마포구 서교동 403-23",
-        "phone": "02-332-6835",
+        "address_name": "서울시 마포구 서교동 403-23",
+        "tel": "02-332-6835",
         "opening_hours": "월-금: 16:00 - 21:00\n토-일: 15:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -2107,21 +2107,21 @@
             "59초 생츠쿠네": "4,300원",
             "59초 레바": "3,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/447258/749514_1625143504450_43702?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/447258/749514_1625143504450_43702?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "글루글루",
-        "address": "서울특별시 서대문구 연희맛로 38\n지번 서울시 서대문구 연희동 134-28",
-        "phone": "",
+        "address_name": "서울시 서대문구 연희동 134-28",
+        "tel": "",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/500846/397785_1692797230471_1000008342?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/500846/397785_1692797230471_1000008342?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "호반",
-        "address": "서울특별시 종로구 삼일대로26길 20\n지번 서울시 종로구 낙원동 85-7",
-        "phone": "02-745-6618",
+        "address_name": "서울시 종로구 낙원동 85-7",
+        "tel": "02-745-6618",
         "opening_hours": "11:40 - 22:00",
         "holidays": "일",
         "menu": {
@@ -2131,24 +2131,24 @@
             "편육": "30,000원",
             "모듬전": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/213410_1470635301492227.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/213410_1470635301492227.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "호시쿠",
-        "address": "서울특별시 강남구 도산대로62길 13 1F\n지번 서울시 강남구 청담동 19-2 1F",
-        "phone": "02-540-1888",
+        "address_name": "서울시 강남구 청담동 19-2 1F",
+        "tel": "02-540-1888",
         "opening_hours": "12:00 - 22:00",
         "holidays": "일",
         "menu": {
             "런치오마카세": "80,000원",
             "디너오마카세": "180,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/470998_1634700493507245.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/470998_1634700493507245.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "작은피자집",
-        "address": "서울특별시 동작구 사당로30길 96 1F\n지번 서울시 동작구 사당동 1029-37 1F",
-        "phone": "02-597-1987",
+        "address_name": "서울시 동작구 사당동 1029-37 1F",
+        "tel": "02-597-1987",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -2158,12 +2158,12 @@
             "페페로니": "15,000원",
             "반&반": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1861537_1609661398822165.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1861537_1609661398822165.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "마루심",
-        "address": "서울특별시 서초구 고무래로10길 10 청구빌딩 1F\n지번 서울시 서초구 반포동 54-10 청구빌딩 1F",
-        "phone": "02-592-8998",
+        "address_name": "서울시 서초구 반포동 54-10 청구빌딩 1F",
+        "tel": "02-592-8998",
         "opening_hours": "11:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -2173,12 +2173,12 @@
             "장어소금구이 (한마리)": "36,000원",
             "회정식": "25,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1402/29672_1460805185609_30777?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1402/29672_1460805185609_30777?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "페어링룸",
-        "address": "서울특별시 강남구 도산대로81길 14 1F\n지번 서울시 강남구 청담동 117-12 1F",
-        "phone": "010-3100-8861",
+        "address_name": "서울시 강남구 청담동 117-12 1F",
+        "tel": "010-3100-8861",
         "opening_hours": "11:00 - 24:00",
         "holidays": "",
         "menu": {
@@ -2188,12 +2188,12 @@
             "보리굴비녹차리조또": "32,000원",
             "살치살와규스테이크 (100g)": "32,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/27907_1479034980668926.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/27907_1479034980668926.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "멘야준",
-        "address": "서울특별시 마포구 동교로 128\n지번 서울시 마포구 서교동 465-2",
-        "phone": "070-8677-0726",
+        "address_name": "서울시 마포구 서교동 465-2",
+        "tel": "070-8677-0726",
         "opening_hours": "11:00 - 20:00",
         "holidays": "",
         "menu": {
@@ -2203,12 +2203,12 @@
             "쇼유라멘": "10,000원",
             "고기밥": "3,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/412767/1_uvh7q169lxjh.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/412767/1_uvh7q169lxjh.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "카와카츠",
-        "address": "서울특별시 마포구 동교로 126 1F 102호\n지번 서울시 마포구 서교동 465-1 1F 102호",
-        "phone": "070-8801-2053",
+        "address_name": "서울시 마포구 서교동 465-1 1F 102호",
+        "tel": "070-8801-2053",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -2218,12 +2218,12 @@
             "카와 모둠카츠 (200g+70g)": "17,000원",
             "카와 오로시카츠": "1,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/364835/47875_1558072754143?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/364835/47875_1558072754143?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "더파크뷰",
-        "address": "서울특별시 중구 동호로 249 서울신라호텔 1F\n지번 서울시 중구 장충동2가 202 서울신라호텔 1F",
-        "phone": "02-2230-3374",
+        "address_name": "서울시 중구 장충동2가 202 서울신라호텔 1F",
+        "tel": "02-2230-3374",
         "opening_hours": "월-금: 12:00 - 21:30\n토-일: 11:30 - 21:30",
         "holidays": "",
         "menu": {
@@ -2232,12 +2232,12 @@
             "주말/공휴일 브런치뷔페 (성인)": "145,000원",
             "디너 (성인)": "155,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2939/218307_1462542580388_57117?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2939/218307_1462542580388_57117?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "디저티스트",
-        "address": "서울특별시 송파구 송파대로48길 37 호수임광아파트 상가동 2F\n지번 서울시 송파구 송파동 33 호수임광아파트 상가동 2F",
-        "phone": "010-6832-0076",
+        "address_name": "서울시 송파구 송파동 33 호수임광아파트 상가동 2F",
+        "tel": "010-6832-0076",
         "opening_hours": "12:00 - 21:30",
         "holidays": "",
         "menu": {
@@ -2246,12 +2246,12 @@
             "얼그레이오페라": "8,500원",
             "무화과 휘낭시에": "2,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/817437_1610941581715246.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/817437_1610941581715246.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "밴건디 스테이크 하우스",
-        "address": "서울특별시 서초구 사평대로22길 5\n지번 서울시 서초구 반포동 94-14",
-        "phone": "02-595-6062",
+        "address_name": "서울시 서초구 반포동 94-14",
+        "tel": "02-595-6062",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -2260,51 +2260,51 @@
             "필릿 미뇽 (300g)": "73,500원",
             "뉴욕 스테이크 (350g)": "73,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/350267/1840908_1606278968661?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/sources/web/restaurants/350267/1840908_1606278968661?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "알레즈",
-        "address": "서울특별시 용산구 독서당로 89\n지번 서울시 용산구 한남동 32-17",
-        "phone": "070-8868-1686",
+        "address_name": "서울시 용산구 한남동 32-17",
+        "tel": "070-8868-1686",
         "opening_hours": "12:00 - 22:30",
         "holidays": "월",
         "menu": {
             "런치코스": "65,000원",
             "디너코스": "125,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/468472/601525_1638771766479_49151?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/468472/601525_1638771766479_49151?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "무겐스위치",
-        "address": "서울특별시 마포구 동교로 242-13\n지번 서울시 마포구 연남동 390-51",
-        "phone": "02-336-4925",
+        "address_name": "서울시 마포구 연남동 390-51",
+        "tel": "02-336-4925",
         "opening_hours": "11:30 - 20:30",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/2503577_1693751348682001.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/2503577_1693751348682001.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "뽀르께노 스페니쉬비스트로",
-        "address": "서울특별시 성북구 동소문로6길 4-21 1F\n지번 서울시 성북구 동소문동2가 33 1F",
-        "phone": "0507-1446-4562",
+        "address_name": "서울시 성북구 동소문동2가 33 1F",
+        "tel": "0507-1446-4562",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/465182/1171911_1689863581487_1000002663?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/465182/1171911_1689863581487_1000002663?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "조이스팔라펠",
-        "address": "서울특별시 용산구 신흥로15길 18-8 보다서울 1F\n지번 서울시 용산구 용산동2가 20 보다서울 1F",
-        "phone": "070-4027-1215",
+        "address_name": "서울시 용산구 용산동2가 20 보다서울 1F",
+        "tel": "070-4027-1215",
         "opening_hours": "12:00 - 18:00",
         "holidays": "월, 화, 수",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/481309/532309_1696293285751_183621?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/481309/532309_1696293285751_183621?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "유가",
-        "address": "서울특별시 중구 퇴계로12길 68\n지번 서울시 중구 회현동1가 117-5",
-        "phone": "02-3789-9688",
+        "address_name": "서울시 중구 회현동1가 117-5",
+        "tel": "02-3789-9688",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -2314,12 +2314,12 @@
             "새우볶음밥": "9,000원",
             "탕수육 (소)": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/460278_1621925329837945.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/460278_1621925329837945.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "롸카두들내쉬빌핫치킨",
-        "address": "서울특별시 강남구 언주로164길 35-3 1F\n지번 서울시 강남구 신사동 646-8 1F",
-        "phone": "02-3447-3456",
+        "address_name": "서울시 강남구 신사동 646-8 1F",
+        "tel": "02-3447-3456",
         "opening_hours": "11:30 - 21:00",
         "holidays": "일",
         "menu": {
@@ -2329,12 +2329,12 @@
             "수프림 C": "8,900원",
             "갱스타": "7,800원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/400192/1272653_1570588239901_12322?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/400192/1272653_1570588239901_12322?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "설눈",
-        "address": "서울특별시 서초구 서초대로46길 20-7 1F\n지번 서울시 서초구 서초동 1551-9 1F",
-        "phone": "02-6959-9339",
+        "address_name": "서울시 서초구 서초동 1551-9 1F",
+        "tel": "02-6959-9339",
         "opening_hours": "11:00 - 21:00",
         "holidays": "토",
         "menu": {
@@ -2344,12 +2344,12 @@
             "한우 소고기 수육": "40,000원",
             "녹두전": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/389353/54303_1563606599933_39353?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/389353/54303_1563606599933_39353?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "맛짱조개",
-        "address": "서울특별시 강남구 언주로136길 10\n지번 서울시 강남구 논현동 114-14",
-        "phone": "02-516-4787",
+        "address_name": "서울시 강남구 논현동 114-14",
+        "tel": "02-516-4787",
         "opening_hours": "17:00 - 04:00",
         "holidays": "일",
         "menu": {
@@ -2359,12 +2359,12 @@
             "포뜬산오징어": "25,000원",
             "해물라면": "6,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/217140/113339_1455123126639_1862?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/217140/113339_1455123126639_1862?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "높은산",
-        "address": "서울특별시 성동구 성수이로 18-1\n지번 서울시 성동구 성수동2가 535-2",
-        "phone": "0507-1328-8194",
+        "address_name": "서울시 성동구 성수동2가 535-2",
+        "tel": "0507-1328-8194",
         "opening_hours": "12:00 - 20:00",
         "holidays": "월, 화",
         "menu": {
@@ -2373,12 +2373,12 @@
             "사프란짜이": "4,000원",
             "단호박비스코티": "2,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/47875_1612600082586599.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/47875_1612600082586599.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "스시코우지",
-        "address": "서울특별시 강남구 도산대로 318 SB타워 어넥스B동 3F\n지번 서울시 강남구 논현동 92 SB타워 어넥스B동 3F",
-        "phone": "02-541-6200",
+        "address_name": "서울시 강남구 논현동 92 SB타워 어넥스B동 3F",
+        "tel": "02-541-6200",
         "opening_hours": "12:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -2388,12 +2388,12 @@
             "런치 스시오마카세 (룸)": "120,000원",
             "디너 오마카세 (룸)": "200,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/185003/565729_1545727396959_19581?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/185003/565729_1545727396959_19581?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "세스크멘슬",
-        "address": "서울특별시 성동구 성수이로14길 7 1F\n지번 서울시 성동구 성수동2가 322-20 1F",
-        "phone": "02-6082-0393",
+        "address_name": "서울시 성동구 성수동2가 322-20 1F",
+        "tel": "02-6082-0393",
         "opening_hours": "화-목: 11:00 - 21:00\n금-일: 11:00 - 22:00",
         "holidays": "월",
         "menu": {
@@ -2403,12 +2403,12 @@
             "보스나 샌드위치": "9,000원",
             "프로슈토": "9,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/390056/493971_1611479613102_14181?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/390056/493971_1611479613102_14181?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "스시소라",
-        "address": "서울특별시 종로구 종로 19 르메이에르종로타운 B동 B116 B-1호\n지번 서울시 종로구 종로1가 24 르메이에르종로타운 B동 B116 B-1호",
-        "phone": "02-733-8400",
+        "address_name": "서울시 종로구 종로1가 24 르메이에르종로타운 B동 B116 B-1호",
+        "tel": "02-733-8400",
         "opening_hours": "11:30 - 21:00",
         "holidays": "",
         "menu": {
@@ -2417,12 +2417,12 @@
             "런치 룸 스시 오마카세": "45,000원",
             "디너 룸 스시 오마카세": "80,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/54303_1528720802986009.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/54303_1528720802986009.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "송화산시도삭면",
-        "address": "서울특별시 광진구 뚝섬로27길 48\n지번 서울시 광진구 자양동 851-20",
-        "phone": "02-6052-7826",
+        "address_name": "서울시 광진구 자양동 851-20",
+        "tel": "02-6052-7826",
         "opening_hours": "11:00 - 23:00",
         "holidays": "화",
         "menu": {
@@ -2432,12 +2432,12 @@
             "층유면": "8,000원",
             "황금꽃빵": "6,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/341691/689765_1614438645984_32274?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/341691/689765_1614438645984_32274?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "삐아프",
-        "address": "서울특별시 강남구 논현로175길 109 1F\n지번 서울시 강남구 신사동 525-9 1F",
-        "phone": "02-545-0317",
+        "address_name": "서울시 강남구 신사동 525-9 1F",
+        "tel": "02-545-0317",
         "opening_hours": "12:30 - 19:30",
         "holidays": "일",
         "menu": {
@@ -2446,12 +2446,12 @@
             "봉봉 10구 세트": "31,000원",
             "봉봉 15구 세트": "45,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1633908212825257.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/722502_1633908212825257.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "홋카이도부타동스미레",
-        "address": "서울특별시 서대문구 연세로4길 61\n지번 서울시 서대문구 창천동 5-32",
-        "phone": "",
+        "address_name": "서울시 서대문구 창천동 5-32",
+        "tel": "",
         "opening_hours": "11:30 - 20:30",
         "holidays": "월",
         "menu": {
@@ -2460,12 +2460,12 @@
             "부타동 삼겹살 (대)": "13,000원",
             "부타동 삼겹살 (기본)": "10,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/1214190_1614485358222791.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/1214190_1614485358222791.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "세스타",
-        "address": "서울특별시 용산구 한남대로20길 21-18 1F\n지번 서울시 용산구 한남동 68-4 1F",
-        "phone": "02-793-9400",
+        "address_name": "서울시 용산구 한남동 68-4 1F",
+        "tel": "02-793-9400",
         "opening_hours": "월-수: 13:00 - 23:00\n목-토: 13:00 - 24:00",
         "holidays": "일",
         "menu": {
@@ -2475,12 +2475,12 @@
             "미니양배추": "13,000원",
             "그릴문어": "26,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/456161/1168063_1637137060690_11811?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/456161/1168063_1637137060690_11811?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "박소린두깜풍",
-        "address": "서울특별시 용산구 보광로59길 9 2F\n지번 서울시 용산구 이태원동 130-5 2F",
-        "phone": "0507-1411-2514",
+        "address_name": "서울시 용산구 이태원동 130-5 2F",
+        "tel": "0507-1411-2514",
         "opening_hours": "11:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -2490,12 +2490,12 @@
             "나시고랭 오리 구이": "15,000원",
             "소토아얌": "15,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/614677_1638787158601795.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/614677_1638787158601795.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "브라이리퍼블릭",
-        "address": "서울특별시 용산구 이태원로14길 19\n지번 서울시 용산구 이태원동 63-4",
-        "phone": "070-8879-1967",
+        "address_name": "서울시 용산구 이태원동 63-4",
+        "tel": "070-8879-1967",
         "opening_hours": "12:00 - 21:00",
         "holidays": "",
         "menu": {
@@ -2505,12 +2505,12 @@
             "스파이시 소시지": "5,000원",
             "초리조": "6,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/10663/894765_1526823238384_92873?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/10663/894765_1526823238384_92873?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "크리스피포크타운",
-        "address": "서울 용산구 녹사평대로40길 47 1F\n지번 서울 용산구 이태원동 455-33 1F",
-        "phone": "0507-1483-2849",
+        "address_name": "서울 용산구 이태원동 455-33 1F",
+        "tel": "0507-1483-2849",
         "opening_hours": "12:00 - 22:30",
         "holidays": "화",
         "menu": {
@@ -2520,21 +2520,21 @@
             "비프 수아데로 타코 (2P)": "10,000원",
             "비리아 나쵸": "11,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/482373/1171911_1692971035679_1000002948?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/482373/1171911_1692971035679_1000002948?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "넘버원양꼬치훠궈",
-        "address": "서울특별시 용산구 대사관로 76 2F\n지번 서울시 용산구 한남동 79-3 2F",
-        "phone": "02-797-6518",
+        "address_name": "서울시 용산구 한남동 79-3 2F",
+        "tel": "02-797-6518",
         "opening_hours": "00:00 - 24:00",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/399225/116586_1683354654299_1000001922?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/399225/116586_1683354654299_1000001922?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "쿠이신보",
-        "address": "서울특별시 마포구 양화로6길 38 2F\n지번 서울시 마포구 합정동 413-16 2F",
-        "phone": "02-332-9215",
+        "address_name": "서울시 마포구 합정동 413-16 2F",
+        "tel": "02-332-9215",
         "opening_hours": "16:30 - 01:00",
         "holidays": "",
         "menu": {
@@ -2543,12 +2543,12 @@
             "닭꼬치": "2,900원",
             "연어사시미": "9,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/394407_1491037236909783.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/added_restaurants/394407_1491037236909783.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "야스노야지로",
-        "address": "서울특별시 용산구 백범로87길 19 1F\n지번 서울시 용산구 원효로1가 57-9 1F",
-        "phone": "02-777-0778",
+        "address_name": "서울시 용산구 원효로1가 57-9 1F",
+        "tel": "02-777-0778",
         "opening_hours": "17:00 - 22:00",
         "holidays": "",
         "menu": {
@@ -2558,27 +2558,12 @@
             "라무 탄 (100g)": "13,000원",
             "별미야채모듬": "7,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/357878/794477_1550548243824_7874?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
-        },
-        {
-        "name": "좋은소식",
-        "address": "경기도 수원시 영통구 매영로269번길 43 3F 302호\n지번 경기도 수원시 영통구 영통동 48 3F 302호",
-        "phone": "031-202-1228",
-        "opening_hours": "11:30 - 21:00",
-        "holidays": "일, 월, 화",
-        "menu": {
-            "사케동": "17,500원",
-            "혼마구로사케동": "27,500원",
-            "시로미동": "27,500원",
-            "혼마구로동": "33,000원",
-            "우니이꾸라동": "45,000원"
-        },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/336832/870115_1509533663888_2876?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/357878/794477_1550548243824_7874?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "파델라",
-        "address": "서울특별시 마포구 연남로1길 11 1F\n지번 서울시 마포구 연남동 567-34 1F",
-        "phone": "02-336-3396",
+        "address_name": "서울시 마포구 연남동 567-34 1F",
+        "tel": "02-336-3396",
         "opening_hours": "11:00 - 21:00",
         "holidays": "화",
         "menu": {
@@ -2588,21 +2573,21 @@
             "살라미미트피자": "16,500원",
             "꽃게파스타": "16,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/653082_1629603975501431.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/653082_1629603975501431.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "마리오네",
-        "address": "서울특별시 성동구 성수이로12길 15 1F\n지번 서울시 성동구 성수동2가 269-107 1F",
-        "phone": "02-466-6777",
+        "address_name": "서울시 성동구 성수동2가 269-107 1F",
+        "tel": "02-466-6777",
         "opening_hours": "",
         "holidays": "월, 화",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/422925/569295_1651228271606_22046?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/422925/569295_1651228271606_22046?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "발렁스",
-        "address": "서울특별시 성동구 성수일로4길 49\n지번 서울시 성동구 성수동2가 310-17",
-        "phone": "010-2510-7228",
+        "address_name": "서울시 성동구 성수동2가 310-17",
+        "tel": "010-2510-7228",
         "opening_hours": "12:00 - 19:00",
         "holidays": "월, 화",
         "menu": {
@@ -2612,12 +2597,12 @@
             "유자라임 마들렌": "2,800원",
             "금다래": "7,400원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167_1630683187572571.jpg?fit=around|512:512&crop=512:512;*,*&output-format-jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/586167_1630683187572571.jpg?fit=around|512:512&crop=512:512;*,*&output-format-jpg&output-quality=80"
         },
         {
         "name": "카츠바이콘반",
-        "address": "서울특별시 강남구 선릉로153길 36\n지번 서울시 강남구 신사동 647-22",
-        "phone": "02-547-3903",
+        "address_name": "서울시 강남구 신사동 647-22",
+        "tel": "02-547-3903",
         "opening_hours": "11:30 - 20:30",
         "holidays": "월",
         "menu": {
@@ -2627,12 +2612,12 @@
             "히레카츠 단품": "13,000원",
             "믹스카츠 정식": "20,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/516849_1574408760036619.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/516849_1574408760036619.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "카레",
-        "address": "서울특별시 성북구 성북로 62-1\n지번 서울시 성북구 성북동 161-6",
-        "phone": "",
+        "address_name": "서울시 성북구 성북동 161-6",
+        "tel": "",
         "opening_hours": "12:00 - 20:00",
         "holidays": "일, 월",
         "menu": {
@@ -2640,12 +2625,12 @@
             "시금치카레": "9,000원",
             "일본식 반숙달걀조림 (추가)": "1,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/132097_1522638175411564.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/132097_1522638175411564.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "쥬에",
-        "address": "서울특별시 용산구 독서당로 124-7\n지번 서울시 용산구 한남동 3-1",
-        "phone": "02-798-9700",
+        "address_name": "서울시 용산구 한남동 3-1",
+        "tel": "02-798-9700",
         "opening_hours": "11:30 - 22:00",
         "holidays": "",
         "menu": {
@@ -2655,12 +2640,12 @@
             "디너 백작 코스": "108,000원",
             "디너 후작 코스": "148,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/379100/26737_1557809326825_56458?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/379100/26737_1557809326825_56458?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "만가타",
-        "address": "서울특별시 종로구 삼청로2길 40-5\n지번 서울시 종로구 소격동 88-17",
-        "phone": "02-722-8151",
+        "address_name": "서울시 종로구 소격동 88-17",
+        "tel": "02-722-8151",
         "opening_hours": "11:30 - 21:30",
         "holidays": "월, 화",
         "menu": {
@@ -2670,21 +2655,21 @@
             "오리 리조또": "22,000원",
             "염장 플래터": "19,000원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/685796_1593936482131893.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/685796_1593936482131893.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "한상더테이블",
-        "address": "서울특별시 강남구 선릉로148길 28 3F\n지번 서울시 강남구 청담동 21-7 3F",
-        "phone": "0507-1435-1584",
+        "address_name": "서울시 강남구 청담동 21-7 3F",
+        "tel": "0507-1435-1584",
         "opening_hours": "",
         "holidays": "",
         "menu": {},
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/471616/652152_1650581337523_30374?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/471616/652152_1650581337523_30374?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         },
         {
         "name": "껠끄쇼즈",
-        "address": "서울특별시 강남구 도곡로70길 5\n지번 서울시 강남구 대치동 1023-19",
-        "phone": "",
+        "address_name": "서울시 강남구 대치동 1023-19",
+        "tel": "",
         "opening_hours": "12:30 - 19:30",
         "holidays": "화, 수",
         "menu": {
@@ -2694,6 +2679,6 @@
             "피스타치오 캐러멜 타르트": "10,000원",
             "바닐라 타르트": "10,500원"
         },
-        "img_url": "https://mp-seoul-image-production-s3.mangoplate.com/801050_1562506780372850.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
+        "main_photo_url": "https://mp-seoul-image-production-s3.mangoplate.com/801050_1562506780372850.jpg?fit=around|512:512&crop=512:512;*,*&output-format=jpg&output-quality=80"
         }
 ]
