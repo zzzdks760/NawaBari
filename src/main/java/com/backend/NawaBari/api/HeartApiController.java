@@ -2,7 +2,7 @@ package com.backend.NawaBari.api;
 
 
 import com.backend.NawaBari.service.HeartService;
-import lombok.Data;
+import lombok.Getter;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.*;
 
@@ -19,7 +19,7 @@ public class HeartApiController {
         return heartService.toggleHeart(memberId, reviewId);
     }
 
-    @Data
+    @Getter
     static class HeartRequestDTO {
         private Long memberId;
         private Long reviewId;
