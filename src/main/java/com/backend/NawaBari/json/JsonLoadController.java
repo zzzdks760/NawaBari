@@ -23,10 +23,10 @@ public class JsonLoadController {
     /**
      * 식당 데이터 삽입
      */
-/*    @GetMapping("/restaurant/save")
+    @GetMapping("/restaurant/save")
     public void saveRestaurant() throws IOException {
         restaurantsLoadService.SaveData();
-    }*/
+    }
 
 }
 

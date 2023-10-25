@@ -31,8 +31,8 @@ public class JsonFileLoader {
 
     }
 
-/*    public List<Restaurant> restaurantLoadJsonData() throws IOException {
-        Reader reader = new FileReader("src/main/resources/seoul_restaurant.json");
+    public List<Restaurant> restaurantLoadJsonData() throws IOException {
+        Reader reader = new FileReader("/home/ubuntu/dev/NawaBari/src/main/resources/seoul_restaurants.json");
 
         Gson gson = new Gson();
         List<RestaurantDTO> restaurantDTOList = gson.fromJson(reader, new TypeToken<List<RestaurantDTO>>() {}.getType());
@@ -40,5 +40,5 @@ public class JsonFileLoader {
         return restaurantDTOList.stream()
                 .map(RestaurantDTO::toEntity)
                 .collect(Collectors.toList());
-    }*/
+    }
 }

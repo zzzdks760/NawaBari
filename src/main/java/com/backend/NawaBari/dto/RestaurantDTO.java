@@ -28,7 +28,7 @@ public class RestaurantDTO {
     private String topReviewTitle;
 
     //식당데이터 삽입
-/*    public Restaurant toEntity() {
+    public Restaurant toEntity() {
         Restaurant restaurant = Restaurant.builder()
                 .name(this.name)
                 .address_name(this.address_name)
@@ -53,7 +53,7 @@ public class RestaurantDTO {
         restaurant.setMenus(menus); // Restaurant 엔터티에 메뉴 데이터 추가
 
         return restaurant;
-    }*/
+    }
 
 
     public static RestaurantDTO convertToDTO(Restaurant restaurant) {
