@@ -24,25 +24,23 @@ public class BookMarkRepository {
     }
 
     //DB 에서 북마크 조회
-    public BookMark findByMemberIdAndRestaurantId(Long memberId, Long restaurantId) {
-        try {
-            return em.createQuery("select b from BookMark b where b.memberId = :memberId and b.restaurantId = :restaurantId", BookMark.class)
-                    .setParameter("memberId", memberId)
-                    .setParameter("restaurantId", restaurantId)
-                    .getSingleResult();
-        } catch (NoResultException e) {
-            return null;
-        }
-    }
+    public BookMark findBookMark(Long memberId, Long restaurantId) {
 
-    @Transactional
-    public void remove(BookMark bookMark) {
-        em.remove(bookMark);
+        return em.createQuery("select b from BookMark b where b.member.id = :memberId and b.restaurant.id = :restaurantId", BookMark.class)
+                .setParameter("memberId", memberId)
+                .setParameter("restaurantId", restaurantId)
+                .getResultList()
+                .stream()
+                .findFirst()
+                .orElse(null);
+
     }
 
     //북마크 삭제
     @Transactional
-    public void delete(BookMark bookMark) {
-        em.remove(bookMark);
+    public void delete(Long bookMarkId) {
+        em.createQuery("delete from BookMark where id = :bookMarkId")
+                .setParameter("bookMarkId", bookMarkId)
+                .executeUpdate();
     }
 }

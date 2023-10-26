@@ -22,17 +22,18 @@ public class BookMarkService {
     //북마크 클릭
     @Transactional
     public int addBookMark(Long memberId, Long restaurantId) {
-        BookMark bookMark = bookMarkRepository.findByMemberIdAndRestaurantId(memberId, restaurantId);
         Member member = memberRepository.findOne(memberId);
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
+        BookMark bookMark = bookMarkRepository.findBookMark(memberId, restaurantId);
 
         if (bookMark == null) {
             bookMark = BookMark.createBookMark(member, restaurant, false);
             bookMark.marked();
         } else {
             bookMark.unMarked();
-            bookMarkRepository.delete(bookMark);
+            bookMarkRepository.delete(bookMark.getId());
         }
+        bookMarkRepository.save(bookMark);
         return restaurant.getBookMarkCount();
     }
 }

@@ -26,7 +26,7 @@ public class BookMark {
     @JoinColumn(name = "restaurant_id")
     private Restaurant restaurant;
 
-    private Boolean marked;
+    private boolean marked;
 
     //==생성 메서드==//
     public static BookMark createBookMark(Member member, Restaurant restaurant, Boolean marked) {

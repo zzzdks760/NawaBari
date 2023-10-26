@@ -26,7 +26,7 @@ public class HeartService {
         //회원과 리뷰를 DB에서 찾아서 Heart객체가 존재하는지 체크(존재한다 == true)
         Member member = memberRepository.findOne(memberId);
         Review review = reviewRepository.findOne(reviewId);
-        Heart heart = heartRepository.findLiked(member, review);
+        Heart heart = heartRepository.findLiked(memberId, reviewId);
 
         if (heart == null) {
             heart = Heart.createHeart(member, review, false);
@@ -34,7 +34,7 @@ public class HeartService {
         }
         else {
             heart.unlike();
-            heartRepository.delete(heart);
+            heartRepository.delete(heart.getId());
         }
         heartRepository.save(heart);
         return review.getLikeCount();

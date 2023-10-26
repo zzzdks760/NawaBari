@@ -29,10 +29,10 @@ public class HeartRepository {
     }
 
     //좋아요 조회
-    public Heart findLiked(Member member, Review review) {
-        return em.createQuery("select h from Heart h where h.member = :member and h.review = :review", Heart.class)
-                .setParameter("member", member)
-                .setParameter("review", review)
+    public Heart findLiked(Long memberId, Long reviewId) {
+        return em.createQuery("select h from Heart h where h.member.id = :memberId and h.review.id = :reviewId", Heart.class)
+                .setParameter("memberId", memberId)
+                .setParameter("reviewId", reviewId)
                 .getResultList()
                 .stream()
                 .findFirst()
@@ -41,9 +41,12 @@ public class HeartRepository {
 
 
     @Transactional
-    public void delete(Heart heart) {
-        em.remove(heart);
+    public void delete(Long heartId) {
+        em.createQuery("delete from Heart where id = :heartId")
+                .setParameter("heartId", heartId)
+                .executeUpdate();
     }
+
 
     public List<Long> findOneReviewLikeMember(Long reviewId) {
         return em.createQuery("select h.member.id from Heart h where h.review.id = :reviewId", Long.class)
