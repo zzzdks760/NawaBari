@@ -15,20 +15,25 @@ import java.util.stream.Collectors;
 public class RestaurantDTO {
     private Long restaurantId;
     private String name;
-    private String address_name;
-    private String tel;
-    private String opening_hours;
-    private String holidays;
     private String main_photo_url;
     private int reviewCount;
     private Double avgRating;
-    private Map<String, String> menu;
-    private Long zoneId;
-    private int bookMarkCount;
     private String topReviewTitle;
+    private Long zoneId;
+
+/*    private String tel;
+    private String opening_hours;
+    private String holidays;
+
+    private String address_name;
+
+
+    private Map<String, String> menu;
+    private int bookMarkCount;
+    */
 
     //식당데이터 삽입
-    public Restaurant toEntity() {
+/*    public Restaurant toEntity() {
         Restaurant restaurant = Restaurant.builder()
                 .name(this.name)
                 .address_name(this.address_name)
@@ -53,7 +58,7 @@ public class RestaurantDTO {
         restaurant.setMenus(menus); // Restaurant 엔터티에 메뉴 데이터 추가
 
         return restaurant;
-    }
+    }*/
 
 
     public static RestaurantDTO convertToDTO(Restaurant restaurant) {
@@ -62,11 +67,9 @@ public class RestaurantDTO {
 
             restaurantDTO.setRestaurantId(restaurant.getId());
             restaurantDTO.setName(restaurant.getName());
-            restaurantDTO.setAddress_name(restaurant.getAddress_name());
             restaurantDTO.setMain_photo_url(restaurant.getMain_photo_url());
             restaurantDTO.setReviewCount(restaurant.getReviewCount());
             restaurantDTO.setAvgRating(restaurant.getAvgRating());
-            restaurantDTO.setBookMarkCount(restaurant.getBookMarkCount());
             restaurantDTO.setZoneId(restaurant.getZone().getId());
 
             return restaurantDTO;

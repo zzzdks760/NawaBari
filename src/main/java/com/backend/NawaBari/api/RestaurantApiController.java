@@ -28,13 +28,7 @@ public class RestaurantApiController {
     @GetMapping("/api/v1/restaurants/search")
     public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword, @PageableDefault(size = 10, page = 0) Pageable pageable) {
 
-        Slice<Restaurant> restaurants = restaurantService.searchByNameAndAddress(keyword, pageable);
-
-        List<RestaurantDTO> restaurantDTOS = restaurants.getContent().stream()
-                .map(RestaurantDTO::convertToDTO)
-                .collect(Collectors.toList());
-
-        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+        return restaurantService.searchByNameAndAddress(keyword, pageable);
     }
 
 

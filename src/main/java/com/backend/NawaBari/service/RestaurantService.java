@@ -1,5 +1,7 @@
 package com.backend.NawaBari.service;
 
+import com.backend.NawaBari.domain.BookMark;
+import com.backend.NawaBari.domain.Menu;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
@@ -36,7 +38,7 @@ public class RestaurantService {
 
 
     //통합 검색
-    public Slice<Restaurant> searchByNameAndAddress(String keyword, Pageable pageable) {
+    public Slice<RestaurantDTO> searchByNameAndAddress(String keyword, Pageable pageable) {
         if (keyword.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -50,7 +52,24 @@ public class RestaurantService {
             throw new IllegalArgumentException("일치하는 식당이 없습니다.");
         }
 
-        return restaurants;
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        // 한줄평 포함한 RestaurantDTO 생성
+        for (Restaurant restaurant : restaurants.getContent()) {
+
+            Review topReview = reviewRepository.findTopReviewTitle(restaurant.getId());
+
+            String topReviewTitle = null;
+            if (topReview != null) {
+                topReviewTitle = topReview.getTitle();
+            }
+
+            RestaurantDTO restaurantDTO = RestaurantDTO.convertToDTO(restaurant);
+            restaurantDTO.setTopReviewTitle(topReviewTitle);
+            restaurantDTOS.add(restaurantDTO);
+
+        }
+
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
     //상호명 검색
@@ -136,20 +155,10 @@ public class RestaurantService {
     public Restaurant detailRestaurant(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
         List<Review> reviewTop3 = restaurantRepository.findReviewTop3(restaurantId);
+        restaurantRepository.findBookMarkMember(restaurantId);
+        List<Menu> menuList = restaurantRepository.findMenu(restaurantId);
         Zone zone = restaurant.getZone();
-
-        Restaurant restaurantDetail = Restaurant.builder()
-                .name(restaurant.getName())
-                .main_photo_url(restaurant.getMain_photo_url())
-                .address_name(restaurant.getAddress_name())
-                .reviewCount(restaurant.getReviewCount())
-                .tel(restaurant.getTel())
-                .reviews(reviewTop3)
-                .zone(zone)
-                .avgRating(restaurant.getAvgRating())
-                .bookMarkCount(restaurant.getBookMarkCount())
-                .build();
-        return restaurantDetail;
+        return restaurant;
     }
 
 }
