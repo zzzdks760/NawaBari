@@ -146,8 +146,27 @@ public class RestaurantService {
 
 
     //현재 동 위치 식당리스트 조회
-    public Slice<Restaurant> searchByCurrentRestaurant(String dongName, Pageable pageable) {
-        return restaurantRepository.searchByDongName(dongName, pageable);
+    public Slice<RestaurantDTO> searchByCurrentRestaurant(String dongName, Pageable pageable) {
+        Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
+
+        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        // 한줄평 포함한 RestaurantDTO 생성
+        for (Restaurant restaurant : restaurants.getContent()) {
+
+            Review topReview = reviewRepository.findTopReviewTitle(restaurant.getId());
+
+            String topReviewTitle = null;
+            if (topReview != null) {
+                topReviewTitle = topReview.getTitle();
+            }
+
+            RestaurantDTO restaurantDTO = RestaurantDTO.convertToDTO(restaurant);
+            restaurantDTO.setTopReviewTitle(topReviewTitle);
+            restaurantDTOS.add(restaurantDTO);
+
+        }
+
+        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
 
