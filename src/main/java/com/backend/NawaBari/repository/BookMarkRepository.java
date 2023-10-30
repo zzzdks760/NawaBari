@@ -8,6 +8,7 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.util.List;
 import java.util.Optional;
 
 @Transactional(readOnly = true)
@@ -42,5 +43,13 @@ public class BookMarkRepository {
         em.createQuery("delete from BookMark where id = :bookMarkId")
                 .setParameter("bookMarkId", bookMarkId)
                 .executeUpdate();
+    }
+
+
+    //식당아이디로 북마크 조회
+    public List<Long> findBookMarkMember(Long restaurantId) {
+        return em.createQuery("select b.member.id from BookMark b where b.restaurant.id = :restaurantId", Long.class)
+                .setParameter("restaurantId", restaurantId)
+                .getResultList();
     }
 }
