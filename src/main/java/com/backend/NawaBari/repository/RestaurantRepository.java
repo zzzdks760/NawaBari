@@ -1,5 +1,8 @@
 package com.backend.NawaBari.repository;
 
+import com.backend.NawaBari.domain.BookMark;
+import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.Menu;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
 import jakarta.persistence.EntityManager;
@@ -150,5 +153,12 @@ public class RestaurantRepository {
         return em.createQuery("select r from Restaurant r left join fetch r.reviews rev where rev.id = :reviewId", Restaurant.class)
                 .setParameter("reviewId", reviewId)
                 .getSingleResult();
+    }
+
+    //식당아이디로 식당 메뉴조회
+    public List<Menu> findMenu(Long restaurantId) {
+        return em.createQuery("select m from Menu m where m.restaurant.id = :restaurantId", Menu.class)
+                .setParameter("restaurantId", restaurantId)
+                .getResultList();
     }
 }

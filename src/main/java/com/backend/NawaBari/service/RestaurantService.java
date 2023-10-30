@@ -5,10 +5,13 @@ import com.backend.NawaBari.domain.Menu;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.Zone;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.MenuDTO;
 import com.backend.NawaBari.dto.RestaurantDTO;
+import com.backend.NawaBari.dto.RestaurantDetailDTO;
+import com.backend.NawaBari.dto.ReviewDTO;
+import com.backend.NawaBari.repository.BookMarkRepository;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import com.backend.NawaBari.repository.ReviewRepository;
-import com.backend.NawaBari.repository.ZoneRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
@@ -27,6 +30,7 @@ public class RestaurantService {
 
     private final RestaurantRepository restaurantRepository;
     private final ReviewRepository reviewRepository;
+    private final BookMarkRepository bookMarkRepository;
 
 
     //식당 생성
@@ -73,7 +77,7 @@ public class RestaurantService {
     }
 
     //상호명 검색
-/*    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
+    /*    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
         if (name.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -105,12 +109,12 @@ public class RestaurantService {
         }
 
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
-    }
+    }*/
 
 
 
     //주소 검색
-    public Slice<RestaurantDTO> searchByAddress(String address, Pageable pageable) {
+    /*public Slice<RestaurantDTO> searchByAddress(String address, Pageable pageable) {
         if (address.length() < 2) {
             throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
         }
@@ -145,7 +149,7 @@ public class RestaurantService {
     }*/
 
 
-    //현재 동 위치 식당리스트 조회
+    //현재 동 위치 식당리스트 조회 (메인페이지)
     public Slice<RestaurantDTO> searchByCurrentRestaurant(String dongName, Pageable pageable) {
         Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
 
@@ -171,13 +175,23 @@ public class RestaurantService {
 
 
     //식당 상세조회
-    public Restaurant detailRestaurant(Long restaurantId) {
+    public RestaurantDetailDTO detailRestaurant(Long restaurantId) {
         Restaurant restaurant = restaurantRepository.findOne(restaurantId);
         List<Review> reviewTop3 = restaurantRepository.findReviewTop3(restaurantId);
-        restaurantRepository.findBookMarkMember(restaurantId);
-        List<Menu> menuList = restaurantRepository.findMenu(restaurantId);
-        Zone zone = restaurant.getZone();
-        return restaurant;
+        List<Long> bookMarks = bookMarkRepository.findBookMarkMember(restaurantId);
+        List<Menu> menus = restaurantRepository.findMenu(restaurantId);
+
+        List<ReviewDTO> top3Review = reviewTop3.stream()
+                .map(ReviewDTO::convertToDTO)
+                .collect(Collectors.toList());
+
+        List<MenuDTO> menuDTOS = menus.stream()
+                .map(MenuDTO::convertToDTO)
+                .collect(Collectors.toList());
+
+        RestaurantDetailDTO restaurantDetailDTO = RestaurantDetailDTO.convertToDTO(restaurant, bookMarks, top3Review, menuDTOS);
+
+        return  restaurantDetailDTO;
     }
 
 }
