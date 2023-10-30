@@ -57,7 +57,8 @@ public class Restaurant extends Base{
 
 
     @Builder
-    public Restaurant(String name, String address_name, String tel, String opening_hours, String holidays, int reviewCount, Double avgRating, String main_photo_url, List<Review> reviews, List<Menu> menus, int bookMarkCount, Zone zone) {
+    public Restaurant(Long id, String name, String address_name, String tel, String opening_hours, String holidays, int reviewCount, Double avgRating, String main_photo_url, int bookMarkCount, List<BookMark> bookMarks, List<Review> reviews, List<Menu> menus, Zone zone) {
+        this.id = id;
         this.name = name;
         this.address_name = address_name;
         this.tel = tel;
@@ -66,12 +67,12 @@ public class Restaurant extends Base{
         this.reviewCount = reviewCount;
         this.avgRating = avgRating;
         this.main_photo_url = main_photo_url;
+        this.bookMarkCount = bookMarkCount;
+        this.bookMarks = bookMarks;
         this.reviews = reviews;
         this.menus = menus;
-        this.bookMarkCount = bookMarkCount;
         this.zone = zone;
     }
-
 
     //북마크 추가될 때 전체 북마크 수 증가
     public void addBookMark(BookMark bookMark) {
