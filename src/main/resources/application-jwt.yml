@@ -1,5 +1,5 @@
 jwt:
-  secretKey: mysecretkey1234567890abcdefghijklmnopp
+  secretKey: mysecretkey1234567890abcdefghijklmnopt
 
   access:
     expiration: 3600000 # 1시간(60분) (1000L(ms -> s) * 60L(s -> m) * 60L(m -> h))
