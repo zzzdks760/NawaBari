@@ -1,6 +1,7 @@
 package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Member;
+import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.SocialType;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.NoResultException;
@@ -30,17 +31,7 @@ public class MemberRepository {
     public Member findOne(Long id) {
         return em.find(Member.class, id);
     }
-    //카카오 아이디로 회원 찾기
-    public Member findByKakao_Id(String kakao_id) {
-        try {
-            return em.createQuery("select m from Member m where m.kakao_id = :kakao_id", Member.class)
-                    .setParameter("kakao_id", kakao_id)
-                    .getSingleResult();
-        } catch (NoResultException e){
-            return null;
-        }
 
-    }
 
     //회원 전체조회
     public List<Member> findAll() {
@@ -103,4 +94,5 @@ public class MemberRepository {
                 .setParameter("reviewId", reviewId)
                 .getSingleResult();
     }
+
 }
