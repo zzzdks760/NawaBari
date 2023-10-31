@@ -14,10 +14,10 @@ public class RestaurantDTO {
     private Long restaurantId;
     private String name;
     private String main_photo_url;
+    private String address_name;
     private int reviewCount;
     private double avgRating;
     private String topReviewTitle;
-    private Long zoneId;
 
 
     public static RestaurantDTO convertToDTO(Restaurant restaurant) {
@@ -27,9 +27,9 @@ public class RestaurantDTO {
         restaurantDTO.setRestaurantId(restaurant.getId());
         restaurantDTO.setName(restaurant.getName());
         restaurantDTO.setMain_photo_url(restaurant.getMain_photo_url());
+        restaurantDTO.setAddress_name(restaurant.getAddress_name());
         restaurantDTO.setAvgRating(restaurant.getAvgRating());
         restaurantDTO.setReviewCount(restaurant.getReviewCount());
-        restaurantDTO.setZoneId(restaurant.getZone().getId());
 
         return restaurantDTO;
     }
