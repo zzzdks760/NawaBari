@@ -188,7 +188,6 @@ public class ReviewService {
 
         //s3에서 삭제
         for (Photo photo : review.getPhotos()) {
-
             amazonS3.deleteObject(bucketName, "images/" + photo.getFile_name());
         }
 

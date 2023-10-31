@@ -3,10 +3,7 @@ package com.backend.NawaBari.service;
 import com.backend.NawaBari.domain.Menu;
 import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
-import com.backend.NawaBari.dto.MenuDTO;
-import com.backend.NawaBari.dto.RestaurantDTO;
-import com.backend.NawaBari.dto.RestaurantDetailDTO;
-import com.backend.NawaBari.dto.ReviewDTO;
+import com.backend.NawaBari.dto.*;
 import com.backend.NawaBari.repository.BookMarkRepository;
 import com.backend.NawaBari.repository.RestaurantRepository;
 import com.backend.NawaBari.repository.ReviewRepository;
@@ -148,10 +145,10 @@ public class RestaurantService {
 
 
     //현재 동 위치 식당리스트 조회 (메인페이지)
-    public Slice<RestaurantDTO> searchByCurrentRestaurant(String dongName, Pageable pageable) {
+    public Slice<MainPageDTO> searchByCurrentRestaurant(String guName, String dongName, Pageable pageable) {
         Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
 
-        List<RestaurantDTO> restaurantDTOS = new ArrayList<>();
+        List<MainPageDTO> restaurantDTOS = new ArrayList<>();
         // 한줄평 포함한 RestaurantDTO 생성
         for (Restaurant restaurant : restaurants.getContent()) {
 
@@ -162,10 +159,11 @@ public class RestaurantService {
                 topReviewTitle = topReview.getTitle();
             }
 
-            RestaurantDTO restaurantDTO = RestaurantDTO.convertToDTO(restaurant);
-            restaurantDTO.setTopReviewTitle(topReviewTitle);
-            restaurantDTOS.add(restaurantDTO);
-
+            MainPageDTO mainPageDTO = MainPageDTO.convertToDTO(restaurant);
+            mainPageDTO.setTopReviewTitle(topReviewTitle);
+            mainPageDTO.setGuName(guName);
+            mainPageDTO.setDongName(dongName);
+            restaurantDTOS.add(mainPageDTO);
         }
 
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());

@@ -2,7 +2,9 @@ package com.backend.NawaBari.service;
 
 import com.backend.NawaBari.domain.Member;
 import com.backend.NawaBari.dto.MyPageDTO;
+import com.backend.NawaBari.repository.BookMarkRepository;
 import com.backend.NawaBari.repository.MemberRepository;
+import com.backend.NawaBari.repository.RestaurantRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -16,6 +18,7 @@ import java.util.List;
 public class MemberService {
 
     private final MemberRepository memberRepository;
+    private final BookMarkRepository bookMarkRepository;
 
     /**
      * 회원정보 출력
