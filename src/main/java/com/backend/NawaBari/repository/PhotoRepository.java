@@ -1,6 +1,7 @@
 package com.backend.NawaBari.repository;
 
 import com.backend.NawaBari.domain.Photo;
+import com.backend.NawaBari.dto.PhotoInfo;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
@@ -32,5 +33,13 @@ public class PhotoRepository {
     @Transactional
     public void delete(Photo photo) {
         em.remove(photo);
+    }
+
+
+    //리뷰 아이디로 사진가져오기
+    public List<Photo> findPhotoByReviewId(Long id) {
+        return em.createQuery("select p from Photo p where p.review.id = :id", Photo.class)
+                .setParameter("id", id)
+                .getResultList();
     }
 }

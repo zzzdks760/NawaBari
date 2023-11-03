@@ -6,6 +6,7 @@ import com.backend.NawaBari.domain.Photo;
 import com.backend.NawaBari.domain.Role;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.MyPageDTO;
+import com.backend.NawaBari.dto.MyReviewDTO;
 import com.backend.NawaBari.service.MemberService;
 import com.backend.NawaBari.service.ReviewService;
 import lombok.AllArgsConstructor;
@@ -52,25 +53,8 @@ public class MyPageApiController {
      */
     @GetMapping("/api/v1/my-page/reviews")
     public Slice<MyReviewDTO> findReview(@RequestParam("memberId")Long memberId, @PageableDefault Pageable pageable) {
-        Slice<Review> myReview = reviewService.findMyReview(memberId, pageable);
-        List<MyReviewDTO> myReviewDTOs = new ArrayList<>();
-
-        for (Review review : myReview) {
-            List<MyReviewPhotoDTO> photoDTOs = review.getPhotos().stream()
-                    .map(photo -> new MyReviewPhotoDTO(photo.getId(), photo.getFile_name()))
-                    .collect(Collectors.toList());
-
-            MyReviewDTO myReviewDTO = new MyReviewDTO(
-                    review.getId(),
-                    review.getTitle(),
-                    review.getRate(),
-                    review.getFormattedTime(),
-                    photoDTOs
-            );
-            myReviewDTOs.add(myReviewDTO);
-        }
-
-        return new SliceImpl<>(myReviewDTOs, pageable, myReview.hasNext());
+        //내가 작성한 리뷰의 식당 객체 가져오기 (메인사진, 상호명), 리뷰는 좋아요 수
+        return reviewService.findMyReviews(memberId, pageable);
     }
 
     @Data
@@ -86,26 +70,5 @@ public class MyPageApiController {
         private Long memberId;
         private String profile_nickname;
         private String profile_image;
-    }
-
-    @Data
-    @AllArgsConstructor
-    static class MyReviewDTO {
-        private Long reviewId;
-        private String title;
-        private Double rate;
-        private String time;
-        private List<MyReviewPhotoDTO> photoDTOS;
-    }
-
-    @Data
-    static class MyReviewPhotoDTO {
-        private Long photoId;
-        private String photoUrl;
-
-        public MyReviewPhotoDTO(Long photoId, String photoUrl) {
-            this.photoId = photoId;
-            this.photoUrl = photoUrl;
-        }
     }
 }

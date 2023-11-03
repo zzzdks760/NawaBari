@@ -5,6 +5,8 @@ import com.amazonaws.services.s3.model.ObjectMetadata;
 import com.amazonaws.services.s3.model.PutObjectRequest;
 import com.backend.NawaBari.domain.*;
 import com.backend.NawaBari.domain.review.Review;
+import com.backend.NawaBari.dto.MyReviewDTO;
+import com.backend.NawaBari.dto.PhotoDTO;
 import com.backend.NawaBari.dto.PhotoInfo;
 import com.backend.NawaBari.dto.ReviewDetailDTO;
 import com.backend.NawaBari.repository.*;
@@ -12,12 +14,14 @@ import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.multipart.MultipartFile;
 
 import java.io.IOException;
 import java.util.*;
+import java.util.stream.Collectors;
 
 @Service
 @Transactional(readOnly = true)
@@ -216,8 +220,24 @@ public class ReviewService {
     /**
      * 특정 회원 리뷰목록 조회
      */
-    public Slice<Review> findMyReview(Long memberId, Pageable pageable) {
-        return reviewRepository.getReviewsByMember(memberId, pageable);
+    public Slice<MyReviewDTO> findMyReviews(Long memberId, Pageable pageable) {
+        Slice<Review> reviews = reviewRepository.getReviewsByMember(memberId, pageable);
+
+        List<MyReviewDTO> myReviewDTOS = reviews.getContent().stream()
+                .map(review -> {
+                    MyReviewDTO myReviewDTO = MyReviewDTO.convertToDTO(review);
+
+                    //리뷰의 사진 정보 가져오기
+                    List<Photo> photos = photoRepository.findPhotoByReviewId(review.getId());
+
+                    List<PhotoDTO> photoDTOS = photos.stream()
+                            .map(photo -> new PhotoDTO(photo.getId(), photo.getFile_path()))
+                            .collect(Collectors.toList());
+                    myReviewDTO.setPhotoDTOS(photoDTOS);
+                    return myReviewDTO;
+                })
+                .collect(Collectors.toList());
+        return new SliceImpl<>(myReviewDTOS, reviews.getPageable(), reviews.hasNext());
     }
 
     /**
