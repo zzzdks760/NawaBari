@@ -4,6 +4,7 @@ import com.backend.NawaBari.domain.Restaurant;
 import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.dto.RestaurantDetailDTO;
+import com.backend.NawaBari.dto.RestaurantSearchDTO;
 import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
@@ -27,6 +28,12 @@ public class RestaurantApiController {
     public Slice<RestaurantDTO> keywordSearch(@RequestParam("keyword") String keyword, @PageableDefault(size = 10, page = 0) Pageable pageable) {
 
         return restaurantService.searchByNameAndAddress(keyword, pageable);
+    }
+
+    //리뷰 작성시 식당 검색
+    @GetMapping("/api/v1/restaurants/review/search")
+    public Slice<RestaurantSearchDTO> Search(@RequestParam("keyword") String keyword, @PageableDefault(size = 10, page = 0) Pageable pageable) {
+        return restaurantService.Search(keyword, pageable);
     }
 
 

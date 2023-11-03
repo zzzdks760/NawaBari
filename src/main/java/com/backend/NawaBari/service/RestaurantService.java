@@ -71,6 +71,32 @@ public class RestaurantService {
         return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
+
+    //리뷰작성시 식당검색
+    public Slice<RestaurantSearchDTO> Search (String keyword, Pageable pageable) {
+        if (keyword.length() < 2) {
+            throw new IllegalArgumentException("최소 두 글자 이상 입력해 주세요.");
+        }
+        Slice<Restaurant> restaurants = restaurantRepository.searchByNameAndAddress(keyword, pageable);
+
+        if (restaurants.getContent().isEmpty()) {
+            restaurants = restaurantRepository.searchByKeywordContaining(keyword, pageable);
+        }
+
+        if(restaurants.getContent().isEmpty()) {
+            throw new IllegalArgumentException("일치하는 식당이 없습니다.");
+        }
+
+        List<RestaurantSearchDTO> restaurantSearchDTOS = new ArrayList<>();
+
+        for (Restaurant restaurant : restaurants.getContent()) {
+            RestaurantSearchDTO restaurantSearchDTO = RestaurantSearchDTO.convertToDTO(restaurant);
+            restaurantSearchDTOS.add(restaurantSearchDTO);
+        }
+
+        return new SliceImpl<>(restaurantSearchDTOS, restaurants.getPageable(), restaurants.hasNext());
+    }
+
     //상호명 검색
     /*    public Slice<RestaurantDTO> searchByName(String name, Pageable pageable) {
         if (name.length() < 2) {
@@ -148,7 +174,7 @@ public class RestaurantService {
     public Slice<MainPageDTO> searchByCurrentRestaurant(String guName, String dongName, Pageable pageable) {
         Slice<Restaurant> restaurants = restaurantRepository.searchByDongName(dongName, pageable);
 
-        List<MainPageDTO> restaurantDTOS = new ArrayList<>();
+        List<MainPageDTO> mainPageDTOS = new ArrayList<>();
         // 한줄평 포함한 RestaurantDTO 생성
         for (Restaurant restaurant : restaurants.getContent()) {
 
@@ -163,10 +189,10 @@ public class RestaurantService {
             mainPageDTO.setTopReviewTitle(topReviewTitle);
             mainPageDTO.setGuName(guName);
             mainPageDTO.setDongName(dongName);
-            restaurantDTOS.add(mainPageDTO);
+            mainPageDTOS.add(mainPageDTO);
         }
 
-        return new SliceImpl<>(restaurantDTOS, restaurants.getPageable(), restaurants.hasNext());
+        return new SliceImpl<>(mainPageDTOS, restaurants.getPageable(), restaurants.hasNext());
     }
 
 
