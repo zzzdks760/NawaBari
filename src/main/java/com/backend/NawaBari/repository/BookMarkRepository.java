@@ -5,6 +5,9 @@ import com.backend.NawaBari.domain.Restaurant;
 import jakarta.persistence.EntityManager;
 import jakarta.persistence.PersistenceContext;
 import lombok.RequiredArgsConstructor;
+import org.springframework.data.domain.Pageable;
+import org.springframework.data.domain.Slice;
+import org.springframework.data.domain.SliceImpl;
 import org.springframework.stereotype.Repository;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -50,5 +53,16 @@ public class BookMarkRepository {
         return em.createQuery("select b.member.id from BookMark b where b.restaurant.id = :restaurantId", Long.class)
                 .setParameter("restaurantId", restaurantId)
                 .getResultList();
+    }
+
+    //회원이 북마크한 식당 리스트 조회
+    public Slice<Restaurant> findBookMarkRestaurants(Long memberId, Pageable pageable) {
+        List<Restaurant> restaurants = em.createQuery("select r from BookMark b left join b.restaurant r where b.member.id = :memberId", Restaurant.class)
+                .setParameter("memberId", memberId)
+                .setFirstResult((int) pageable.getOffset())
+                .setMaxResults(pageable.getPageSize())
+                .getResultList();
+
+        return new SliceImpl<>(restaurants, pageable, restaurants.size() >= pageable.getPageSize());
     }
 }
