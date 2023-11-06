@@ -65,4 +65,20 @@ public class BookMarkRepository {
 
         return new SliceImpl<>(restaurants, pageable, restaurants.size() >= pageable.getPageSize());
     }
+
+    //회원이 작성한 리뷰 수
+    public int findReviewCount(Long id) {
+        return em.createQuery("select COUNT(r) from Review r where r.writer.id = :id", Long.class)
+                .setParameter("id", id)
+                .getSingleResult()
+                .intValue();
+    }
+
+    //회원이 찜한 식당 수
+    public int findRestaurantCount(Long id) {
+       return em.createQuery("select COUNT(b) from BookMark b where b.member.id = :id", Long.class)
+               .setParameter("id", id)
+               .getSingleResult()
+               .intValue();
+    }
 }

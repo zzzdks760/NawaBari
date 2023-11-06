@@ -13,6 +13,8 @@ public class MyPageDTO {
 
     private String profile_nickname;
     private String profile_image;
+    private int reviewCount;
+    private int RestaurantCount;
     private Role role;
     private List<Long> zoneIds;
     private List<String> dongNames;

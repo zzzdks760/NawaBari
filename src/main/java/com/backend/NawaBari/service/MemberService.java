@@ -28,7 +28,12 @@ public class MemberService {
         List<Long> zoneIds = memberRepository.findZoneId(id);
         List<String> dongNames = memberRepository.findMemberIdByDongName(id);
 
-        return new MyPageDTO(member.getProfile_nickname(), member.getProfile_image(), member.getRole(), zoneIds, dongNames);
+        //내가 작성한 리뷰 총 개수
+        int reviewCount = bookMarkRepository.findReviewCount(id);
+        //내가 찜한 식당 총 개수
+        int restaurantCount = bookMarkRepository.findRestaurantCount(id);
+
+        return new MyPageDTO(member.getProfile_nickname(), member.getProfile_image(), reviewCount, restaurantCount, member.getRole(), zoneIds, dongNames);
     }
 
 
@@ -38,7 +43,6 @@ public class MemberService {
     @Transactional
     public void UpdateMyPage(Long id, String profile_nickname, String profile_image) {
         Member member = memberRepository.findOne(id);
-
         member.setProfile_nickname(profile_nickname);
         member.setProfile_image(profile_image);
     }
