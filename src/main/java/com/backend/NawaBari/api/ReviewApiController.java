@@ -108,9 +108,16 @@ public class ReviewApiController {
 
     //특정 식당 리뷰 전체 조회
     @GetMapping("/api/v1/restaurant/reviews")
-    public Slice<ReviewDTO> RestaurantReviews(@RequestParam("restaurantId")Long restaurantId, @PageableDefault Pageable pageable) {
+    public Slice<ReviewDTO> RestaurantReviews(@RequestParam("restaurantId")Long restaurantId,
+                                              @RequestParam(value = "sortBy", defaultValue = "latest") String sortBy,
+                                              @PageableDefault Pageable pageable) {
 
-        Slice<Review> reviews = reviewService.findAllReview(restaurantId, pageable);
+        Slice<Review> reviews;
+        if ("likes".equalsIgnoreCase(sortBy)) {
+            reviews = reviewService.findAllReviewSortByLikes(restaurantId, pageable);
+        } else {
+            reviews = reviewService.findAllReview(restaurantId, pageable);
+        }
 
         List<ReviewDTO> reviewDTOS = reviews.getContent().stream()
                 .map(ReviewDTO::convertToDTO)

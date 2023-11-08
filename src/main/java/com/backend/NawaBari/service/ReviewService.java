@@ -204,10 +204,17 @@ public class ReviewService {
 
 
     /**
-     * 리뷰 전체 조회
+     * 리뷰 전체 조회 (최신순)
      */
     public Slice<Review> findAllReview(Long restaurantId, Pageable pageable) {
         return reviewRepository.findAllReview(restaurantId, pageable);
+    }
+
+    /**
+     * 리뷰 전체 조회 (좋아요순)
+     */
+    public Slice<Review> findAllReviewSortByLikes(Long restaurantId, Pageable pageable) {
+        return reviewRepository.findAllReviewSortByLikes(restaurantId, pageable);
     }
 
     /**
