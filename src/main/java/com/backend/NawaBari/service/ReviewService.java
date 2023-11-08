@@ -227,13 +227,13 @@ public class ReviewService {
                 .map(review -> {
                     MyReviewDTO myReviewDTO = MyReviewDTO.convertToDTO(review);
 
-                    //리뷰의 사진 정보 가져오기
+                    //리뷰의 사진 정보 존재하면 하나만 가져오기
                     List<Photo> photos = photoRepository.findPhotoByReviewId(review.getId());
+                    if (!photos.isEmpty()) {
+                        PhotoDTO photoDTO = new PhotoDTO(photos.get(0).getId(), photos.get(0).getFile_path());
+                        myReviewDTO.setPhotoDTOS(Collections.singletonList(photoDTO));
+                    }
 
-                    List<PhotoDTO> photoDTOS = photos.stream()
-                            .map(photo -> new PhotoDTO(photo.getId(), photo.getFile_path()))
-                            .collect(Collectors.toList());
-                    myReviewDTO.setPhotoDTOS(photoDTOS);
                     return myReviewDTO;
                 })
                 .collect(Collectors.toList());
