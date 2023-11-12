@@ -1,7 +1,6 @@
 package com.backend.NawaBari.api;
 
 import com.backend.NawaBari.dto.MainPageDTO;
-import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.service.CurrentLocationService;
 import com.backend.NawaBari.service.RestaurantService;
 import lombok.Data;
