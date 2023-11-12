@@ -1,20 +1,14 @@
 package com.backend.NawaBari.api;
 
-import com.backend.NawaBari.domain.Restaurant;
-import com.backend.NawaBari.domain.review.Review;
 import com.backend.NawaBari.dto.RestaurantDTO;
 import com.backend.NawaBari.dto.RestaurantDetailDTO;
 import com.backend.NawaBari.dto.RestaurantSearchDTO;
-import com.backend.NawaBari.dto.ReviewDTO;
 import com.backend.NawaBari.service.RestaurantService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.domain.Slice;
 import org.springframework.data.web.PageableDefault;
 import org.springframework.web.bind.annotation.*;
-
-import java.util.List;
-import java.util.stream.Collectors;
 
 @RestController
 @RequiredArgsConstructor
