@@ -9,7 +9,8 @@ spring:
 
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://nawabari-db.c5ixtmjnfhyv.ap-northeast-2.rds.amazonaws.com:3306/nawabariserverTimezone=UTC&characterEncoding=UTF-8serverTimezone=UTC&characterEncoding=UTF-8
+    url: jdbc:mysql://nawabari-db.c5ixtmjnfhyv.ap-northeast-2.rds.amazonaws.com:3306/nawabari?serverTimezone=UTC&characterEncoding=UTF-8
+
     username: sungmin
     password: dta310ab
 
@@ -27,8 +28,8 @@ cloud:
     s3:
       bucket: nawabari-images-bucket
     credentials:
-      access-key: AKIAXO4UJX62S6HSLKTW
-      secret-key: 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
+      access-key:
+      secret-key:
     region:
       static: ap-northeast-2
       auto: false
@@ -40,4 +41,3 @@ logging:
     org.springframework.security: DEBUG
     org.hibernate.SQL: debug
     org.hibernate.type: trace
-    
