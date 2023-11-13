@@ -1,0 +1,42 @@
+server:
+  port: 8080
+
+spring:
+  config:
+    import:
+      - application-jwt.yml
+      - application-oauth.yml
+
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://localhost:3306/nawabari?serverTimezone=UTC&characterEncoding=UTF-8
+    username: sungmin
+    password: krsm59@@
+
+  jpa:
+    database: mysql
+    database-platform: org.hibernate.dialect.MySQL8Dialect
+    open-in-view: false
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+      format_sql: true
+
+cloud:
+  aws:
+    s3:
+      bucket: nawabari-images-bucket
+    credentials:
+      access-key:
+      secret-key:
+    region:
+      static: ap-northeast-2
+      auto: false
+    stack:
+      auto: false
+
+logging:
+  level:
+    org.springframework.security: DEBUG
+    org.hibernate.SQL: debug
+    org.hibernate.type: trace
