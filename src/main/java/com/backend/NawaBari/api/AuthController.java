@@ -38,21 +38,66 @@ public class AuthController {
         String refreshToken = authTokens.getRefreshToken();
         Long memberId = authTokens.getMember_id();
 
-        return  "<!DOCTYPE html>" +
-                "<html lang='en'>" +
-                "<head>" +
-                "<meta charset='UTF-8'>" +
-                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>" +
-                "<title>Redirect to App Test</title>" +
-                "</head>" +
-                "<body>" +
-                "<button onclick='redirectToApp()'>앱으로 돌아가기</button>" +
-                "<script>" +
-                "function redirectToApp() {" +
+        return  "<!DOCTYPE html>"+
+                "<html lang='en'>"+
+                "<head>"+
+                "<meta charset='UTF-8'>"+
+                "<meta name='viewport' content='width=device-width, initial-scale=1.0'>"+
+                "<title>Redirect to App Test</title>"+
+                "<style>"+
+                "body {"+
+                "margin: 0;"+
+                "padding: 0;"+
+                "height: 100vh;"+
+                "display: flex;"+
+                "align-items: center;"+
+                "justify-content: center;"+
+                "background-color: #FF6060;"+
+                "font-family: 'Arial', sans-serif;"+
+                "}"+
+                ""+
+                "button {"+
+                "padding: 10px 20px;"+
+                "font-size: 12px;"+
+                "width: 200px;"+
+                "height: 40px;"+
+                "cursor: pointer;"+
+                "background-color: rgba(255, 255, 255, 0.66);"+
+                "border: 1px solid transparent;"+
+                "border-radius: 5px;"+
+                "color: #FF4242;"+
+                "}"+
+                ""+
+                ".bold-text {"+
+                "font-weight: bold;"+
+                "}"+
+                ""+
+                ".container {"+
+                "text-align: center;"+
+                "display: flex;"+
+                "flex-direction: column;"+
+                "align-items: center;"+
+                "justify-content: center;"+
+                "}"+
+                ""+
+                ".logo {"+
+                "width: 65px;"+
+                "height: 75px;"+
+                "margin-bottom: 20px;"+
+                "}"+
+                "</style>"+
+                "</head>"+
+                "<body>"+
+                "<div class='container'>"+
+                "<img src='https://github.com/zzzdks760/NawaBari/assets/67037201/771634c5-9cc9-43b2-9c01-923e9d8fbdb3' class='logo'>"+
+                "<button onclick='redirectToApp()'><span class='bold-text'>나와바리로</span> 돌아가기</button>"+
+                "</div>"+
+                "<script>"+
+                "function redirectToApp() {"+
                 "window.location.href = 'callback-scheme://?access-token="+accessToken+"&refresh-token="+refreshToken+"&member-id="+memberId + "';" +
-                "}" +
-                "</script>" +
-                "</body>" +
+                "}"+
+                "</script>"+
+                "</body>"+
                 "</html>";
     }
 
